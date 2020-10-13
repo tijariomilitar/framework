@@ -1,5 +1,6 @@
 :root {
 	--title-soft: FreesiaUPC;
+	--theme-explicit-btn: "#96a28b";
 }
 
 a {
@@ -86,8 +87,9 @@ button:focus {
 	transition: all 0.3s ease 0s;
 }
 
-.btn-explicit {
-	background-color: #96a28b;
+.explicit-btn {
+	/*background-color: #96a28b;*/
+	background-color: var(--theme-explicit-btn);
 	font-size: 12px;
 	width:250px;
 	height: 30px;
@@ -99,7 +101,7 @@ button:focus {
 	border: 1px solid #8f9f94;
 }
 
-.btn-explicit:hover {
+.explicit-btn:hover {
 	background-color: #849277;
 	/*background-color: #f0f0f0;*/
 	cursor: pointer;
