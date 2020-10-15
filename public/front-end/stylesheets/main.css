@@ -1,6 +1,7 @@
 :root {
 	--title-soft: FreesiaUPC;
 	--theme-explicit-btn: "#96a28b";
+	--theme-background-color: #fff;
 	--theme-box-background-color: #fff;
 	--theme-box-background-color-hover: #e6e6e6;
 	--theme-box-color: #000;
@@ -160,7 +161,7 @@ nav select:hover {
 }
 
 body {
-	background-color: #f0f0f0;
+	background-color: var(--theme-bachoground-color);
 	/*background-image: url("/images/background/umbrobg.jpg");*/
 	min-height: 1000px;
 }
@@ -356,6 +357,21 @@ section .container {
 		border-radius: 5px;
 	}
 
+	.two-sevenths {
+		width: 27.572%;
+		border-radius: 5px;
+	}
+
+	.three-sevenths {
+		width: 41.858%;
+		border-radius: 5px;
+	}
+
+	.four-sevenths {
+		width: 56.144%;
+		border-radius: 5px;
+	}
+
 	.five-sevenths {
 		width: 70.429%;
 		border-radius: 5px;
@@ -366,25 +382,16 @@ section .container {
 		border-radius: 5px;
 	}
 
-	.third {
-		width: 74%;
-		border-radius: 5px;
-	}
-
-	.fourth {
-		width: 79%;
-		border-radius: 5px;
-	}
-
-	.fifth {
-		width: 82.4%;
+	.seven-eighths {
+		width: 86.5%;
 		border-radius: 5px;
 	}
 
 .box-hover {
 	transition: all 0.5s ease 0s;
+	background-color: #555;
 	/*background-color: #fff;*/
-	background-color: var(--theme-box-background-color);
+	/*background-color: var(--theme-box-background-color);*/
 }
 
 .box-hover:hover {
