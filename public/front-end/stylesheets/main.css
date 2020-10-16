@@ -16,11 +16,8 @@
 }
 
 header {
-	/*background-color: transparent;*/
-	/*background-image: linear-gradient(to right, #e6e6e6, #c8c8c8, #aaaaaa);*/
 	overflow: hidden;
 	padding: 5px 5px;
-	/*background-size: auto;*/
 }
 
 .header-background-image {
@@ -65,15 +62,6 @@ header {
 	height: auto;
 	border-radius: 5px;
 	padding: 5px;
-}
-
-header a {
-	font-family: var(--title-soft);
-}
-
-header a:hover {
-	/*background-color: rgba(0, 0, 0, 0.2);;*/
-	/*box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.2), 2px 2px 10px 2px rgba(0, 0, 0, 0.19);*/
 }
 
 header .user-icon {
@@ -178,139 +166,12 @@ section .container {
 	flex-wrap: wrap;
 }
 
-.menu-box {
-	display: flex;
-	flex-direction: column;
-}
-
 .border {
 	
 }
 
-.margin-top-1 {
-	margin-top: 1px;
-}
-
-.margin-top-5 {
-	margin-top: 5px;
-}
-
-.margin-top-10 {
-	margin-top: 10px;
-}
-
-.margin-top-15 {
-	margin-top: 15px;
-}
-
-.margin-bottom-1 {
-	margin-bottom: 1px;
-}
-
-.margin-bottom-5 {
-	margin-bottom: 5px;
-}
-
-.margin-bottom-10 {
-	margin-bottom: 10px;
-}
-
-.margin-bottom-15 {
-	margin-bottom: 15px;
-}
-
-.margin-top-down-1 {
-	margin-top: 1px;
-	margin-bottom: 1px;
-}
-
-.margin-top-down-5 {
-	margin-top: 5px;
-	margin-bottom: 5px;
-}
-
-.margin-top-down-10 {
-	margin-top: 10px;
-	margin-bottom: 10px;
-}
-
-.margin-top-down-15 {
-	margin-top: 15px;
-	margin-bottom: 15px;
-}
-
-.padding-1 {
-	padding: 1px;
-}
-
-.padding-5 {
-	padding: 5px;
-}
-
-.padding-10 {
-	padding: 10px;
-}
-
-.padding-15 {
-	padding: 15px;
-}
-
-.padding-left-1 {
-	padding-left: 1px;
-}
-
-.padding-left-5 {
-	padding-left: 5px;
-}
-
-.padding-left-10 {
-	padding-left: 10px;
-}
-
-.padding-left-15 {
-	padding-left: 15px;
-}
-
-.padding-right-1 {
-	padding-right: 1px;
-}
-
-.padding-right-5 {
-	padding-right: 5px;
-}
-
-.padding-right-10 {
-	padding-right: 10px;
-}
-
-.padding-right-15 {
-	padding-right: 15px;
-}
-
 .transp {
 	background-color: transparent;
-}
-
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.image-box {
-	/* Full height */
-	max-height:100%;
-	max-height:400px;
-
-	max-width:100%;
-
-	/* Center and scale the image nicely */
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-
-	position: relative;
-	z-index: 10;
 }
 
 table {

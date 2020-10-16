@@ -16,19 +16,17 @@
 	box-sizing:border-box;
 }
 
-.center {
-	margin:auto;
-	width:60%;
-	text-align:center;
-	align-items: center;
-}
-
 .mobile-box {
 	background-color:transparent;
 	color:var(--theme-box-color);
 	margin-left:0.5%;
 	margin-right:0.5%;
 	box-sizing:border-box;	
+}
+
+.menu-box {
+	display: flex;
+	flex-direction: column;
 }
 
 .one { width:100%; border-radius:5px; }
