@@ -255,6 +255,38 @@ section .container {
 	padding: 15px;
 }
 
+.padding-left-1 {
+	padding-left: 1px;
+}
+
+.padding-left-5 {
+	padding-left: 5px;
+}
+
+.padding-left-10 {
+	padding-left: 10px;
+}
+
+.padding-left-15 {
+	padding-left: 15px;
+}
+
+.padding-right-1 {
+	padding-right: 1px;
+}
+
+.padding-right-5 {
+	padding-right: 5px;
+}
+
+.padding-right-10 {
+	padding-right: 10px;
+}
+
+.padding-right-15 {
+	padding-right: 15px;
+}
+
 .transp {
 	background-color: transparent;
 }
