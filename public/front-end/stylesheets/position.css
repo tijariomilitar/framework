@@ -9,6 +9,9 @@
 	align-items: center;
 }
 
+.left { float: left; }
+.right { float: right; }
+
 .margin-top-1 { margin-top: 1px; }
 .margin-top-5 { margin-top: 5px; }
 .margin-top-10 { margin-top: 10px; }
