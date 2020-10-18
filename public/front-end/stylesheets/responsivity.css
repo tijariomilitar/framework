@@ -33,12 +33,19 @@
 .em09 { font-size: 0.9em; }
 .em10 { font-size: 1.0em; }
 
-@media all and (min-width: 50px)   {  body  { font-size:0.1em;  } }
+/*@media all and (min-width: 50px)   {  body  { font-size:0.1em;  } }
 @media all and (min-width: 100px)  {  body  { font-size:0.2em;  } }
 @media all and (min-width: 150px)  {  body  { font-size:0.3em;  } }
 @media all and (min-width: 200px)  {  body  { font-size:0.4em;  } }
 @media all and (min-width: 250px)  {  body  { font-size:0.5em;  } }
-@media all and (min-width: 300px)  {  body  { font-size:0.6em;  } }
+@media all and (min-width: 300px)  {  body  { font-size:0.6em;  } }*/
+
+@media all and (min-width: 50px)   {  body  { font-size:0.7em;  } }
+@media all and (min-width: 100px)  {  body  { font-size:0.7em;  } }
+@media all and (min-width: 150px)  {  body  { font-size:0.7em;  } }
+@media all and (min-width: 200px)  {  body  { font-size:0.7em;  } }
+@media all and (min-width: 250px)  {  body  { font-size:0.7em;  } }
+@media all and (min-width: 300px)  {  body  { font-size:0.7em;  } }
 @media all and (min-width: 350px)  {  body  { font-size:0.7em;  } }
 @media all and (min-width: 400px)  {  body  { font-size:0.8em;  } }
 @media all and (min-width: 450px)  {  body  { font-size:0.9em;  } }

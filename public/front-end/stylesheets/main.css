@@ -1,7 +1,7 @@
 :root {
 	--title-soft: FreesiaUPC;
 	--theme-explicit-btn: "#96a28b";
-	--theme-background-color: #fff;
+	--theme-background-color: #f0f0f0;
 }
 
 * {
@@ -145,7 +145,7 @@ nav select:hover {
 }
 
 body {
-	background-color: var(--theme-bachoground-color);
+	background-color: var(--theme-background-color);
 	/*background-image: url("/images/background/umbrobg.jpg");*/
 	min-height: 300px;
 }
