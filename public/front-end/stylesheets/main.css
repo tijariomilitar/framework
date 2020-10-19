@@ -4,6 +4,10 @@
 	--theme-background-color: #f0f0f0;
 }
 
+.impact {
+	font-family: "Courier New";
+}
+
 * {
 	margin: 0;
 	padding: 0;

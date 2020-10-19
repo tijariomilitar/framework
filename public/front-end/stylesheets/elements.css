@@ -27,6 +27,29 @@ button:focus {
   src: url(/stylesheets/font/Army.woff);
 }*/
 
+.btn {
+	/*background-color: transparent;*/
+	color: #000;
+	margin-left: 0.5%;
+	margin-right: 0.5%;
+	box-sizing: border-box;
+	border: 1px #f0f0f0 solid;;
+	/*border:none;*/
+}
+
+.submit {
+	background-color: #e1e1e1;
+	color: #323232;
+	border: 2px outset #f0f0f0;
+	transition: all 0.7s ease 0s;
+}
+
+.submit:hover {
+	background-color: #c8c8c8;
+	color: #000;
+	transition: all 0.3s ease 0s;
+}
+
 .fieldset-generic {
 	border: 1px solid #f0f0f0;
 }
@@ -65,9 +88,9 @@ button:focus {
 	font-weight: bold;
 }
 
-.impact {
+/*.impact {
 	font-family: Impact, Charcoal, sans-serif;
-}
+}*/
 
 .btn-delete {
 	width: 150px;
@@ -389,7 +412,7 @@ button:focus {
 	color: rgba(0, 0, 0, 1);
 	font-family: Garamond,serif; 
 	font-weight: bold;
-	font-size: 15px;
+	/*font-size: 15px;*/
 }
 
 /*catalog*/
