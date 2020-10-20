@@ -17,15 +17,15 @@ button:focus {
 }
 
 /* Fontes */
-/*.Army {
+.Army {
 	font-family: Army;
 	font-weight: 1;
-}*/
+}
 
-/*@font-face {
+@font-face {
   font-family: Army;
   src: url(/stylesheets/font/Army.woff);
-}*/
+}
 
 .btn {
 	/*background-color: transparent;*/
