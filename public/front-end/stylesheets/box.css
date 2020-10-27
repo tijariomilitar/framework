@@ -17,17 +17,23 @@
 	box-sizing: border-box;
 }
 
+/*display: inline-block;page-break-inside:avoid;page-break-after:auto;*/
+
 .mobile-box {
 	background-color: transparent;
 	color: var(--theme-box-color);
 	margin-left: 0.5%;
 	margin-right: 0.5%;
-	box-sizing: border-box;	
+	box-sizing: border-box;
 }
 
+/*margin:0px;padding:0px;page-break-inside:avoid;page-break-after:auto;*/
+
+
+
 .menu-box {
-	display:  flex;
-	flex-direction:  column;
+	display: flex;
+	flex-direction: column;
 }
 
 .one { width: 100%; border-radius: 5px; }

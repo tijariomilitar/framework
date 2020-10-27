@@ -26,6 +26,26 @@
 	footer { font-size: 0.68rem; }
 }
 
+@media print {
+	section {
+		margin: 0px;
+		padding: 0px;
+		width: 100%;
+	}
+	section .container {
+		display: block;
+		width: 100%;
+		text-align: center;
+	}
+	.box, .mobile-box {
+		display: inline-block;
+		page-break-inside:avoid;
+	}
+	.three, .four, .five {
+		width: 31.8%;
+	}
+}
+
 .em01 { font-size: 0.1em; }
 .em02 { font-size: 0.2em; }
 .em03 { font-size: 0.3em; }
