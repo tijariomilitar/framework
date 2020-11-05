@@ -16,6 +16,10 @@ button:focus {
   box-shadow: none;
 }
 
+.pointer {
+	cursor: pointer;
+}
+
 /* Fontes */
 .Army {
 	font-family: Army;
