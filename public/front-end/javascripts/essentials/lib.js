@@ -129,6 +129,37 @@ const lib = {
 	},
 
 	carousel: {
+		// server data carousel
+		render: (carousel_name, carousel_prev_button, carousel_next_button) => {
+			const slides = document.querySelectorAll("[data-js='"+carousel_name+"']");
+	        const prevButton = document.querySelector("[data-js='"+carousel_prev_button+"']");
+	        const nextButton = document.querySelector("[data-js='"+carousel_next_button+"']");
+
+	        const lastSlideIndex = slides.length - 1;
+	        let currentSlideIndex = 0;
+
+	        const manipulateSlidesClasses = correctSlideIndex => {
+	            slides.forEach(slide => slide.classList.remove("display--block"));
+	            slides[correctSlideIndex].classList.add("display--block");
+	        };
+
+	        prevButton.addEventListener("click", () => {
+	            const correctSlideIndex = currentSlideIndex === 0
+	            ? currentSlideIndex = lastSlideIndex
+	            : --currentSlideIndex
+
+	            manipulateSlidesClasses(correctSlideIndex);
+	        });
+
+	        nextButton.addEventListener("click", () => {
+	            const correctSlideIndex = currentSlideIndex === lastSlideIndex
+	            ? currentSlideIndex = 0
+	            : ++currentSlideIndex;
+
+	            manipulateSlidesClasses(correctSlideIndex);
+	        });
+		},
+		// fetch data carousel
 		execute: (box, render, response, pagination) => {
 			document.getElementById(box).children.namedItem("carousel-navigation").children.namedItem("carousel-previous").onclick = function(){
 		        if(pagination.page > 0){

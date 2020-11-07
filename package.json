@@ -1,6 +1,8 @@
 {
   "name": "framework",
   "version": "1.0.0",
+  "heroku-server":"https://jaframework.herokuapp.com/",
+  "umbler-server":"no server",
   "description": "J.A Rio Militar systems own framework",
   "scripts": {
     "start": "node ./bin/www"
