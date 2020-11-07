@@ -131,20 +131,20 @@ const lib = {
 	carousel: {
 		// server data carousel
 		render: (carousel_name, carousel_prev_button, carousel_next_button) => {
-			const slides = document.querySelectorAll("[data-js='"+carousel_name+"']");
-	        const prevButton = document.querySelector("[data-js='"+carousel_prev_button+"']");
-	        const nextButton = document.querySelector("[data-js='"+carousel_next_button+"']");
+			let slides = document.querySelectorAll("[data-js='"+carousel_name+"']");
+	        let prevButton = document.querySelector("[data-js='"+carousel_name+"-prev']");
+	        let nextButton = document.querySelector("[data-js='"+carousel_name+"-next']");
 
-	        const lastSlideIndex = slides.length - 1;
+	        let lastSlideIndex = slides.length - 1;
 	        let currentSlideIndex = 0;
 
-	        const manipulateSlidesClasses = correctSlideIndex => {
-	            slides.forEach(slide => slide.classList.remove("display--block"));
-	            slides[correctSlideIndex].classList.add("display--block");
+	        let manipulateSlidesClasses = correctSlideIndex => {
+	            slides.forEach(slide => slide.classList.remove("display-block"));
+	            slides[correctSlideIndex].classList.add("display-block");
 	        };
 
 	        prevButton.addEventListener("click", () => {
-	            const correctSlideIndex = currentSlideIndex === 0
+	            let correctSlideIndex = currentSlideIndex === 0
 	            ? currentSlideIndex = lastSlideIndex
 	            : --currentSlideIndex
 
@@ -152,7 +152,7 @@ const lib = {
 	        });
 
 	        nextButton.addEventListener("click", () => {
-	            const correctSlideIndex = currentSlideIndex === lastSlideIndex
+	            let correctSlideIndex = currentSlideIndex === lastSlideIndex
 	            ? currentSlideIndex = 0
 	            : ++currentSlideIndex;
 
