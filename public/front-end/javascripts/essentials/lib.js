@@ -130,12 +130,13 @@ const lib = {
 
 	carousel: {
 		// server data carousel
-		render: (carousel_name, carousel_prev_button, carousel_next_button) => {
+		render: (carousel_name) => {
 			let slides = document.querySelectorAll("[data-js='"+carousel_name+"']");
 	        let prevButton = document.querySelector("[data-js='"+carousel_name+"-prev']");
 	        let nextButton = document.querySelector("[data-js='"+carousel_name+"-next']");
 
-	        console.log(prevButton);
+	        console.log(slides);
+	        console.log(slides);
 
 	        let lastSlideIndex = slides.length - 1;
 	        let currentSlideIndex = 0;
