@@ -135,6 +135,8 @@ const lib = {
 	        let prevButton = document.querySelector("[data-js='"+carousel_name+"-prev']");
 	        let nextButton = document.querySelector("[data-js='"+carousel_name+"-next']");
 
+	        console.log(prevButton);
+
 	        let lastSlideIndex = slides.length - 1;
 	        let currentSlideIndex = 0;
 
