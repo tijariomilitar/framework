@@ -4,6 +4,13 @@ img {
   margin-right: auto;
 }
 
+.image-card {
+	box-sizing: border-box;
+	max-width:75%;
+	width: auto;
+	height: auto;
+}
+
 .image-box {
 	/* Full height */
 	max-height:100%;
