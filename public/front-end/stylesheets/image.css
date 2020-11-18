@@ -5,10 +5,9 @@ img {
 }
 
 .image-card {
-	box-sizing: border-box;
-	max-width:75%;
-	width: auto;
-	height: auto;
+	object-fit: contain;
+	width: 100%;
+	height: 300px;
 }
 
 .image-box {
