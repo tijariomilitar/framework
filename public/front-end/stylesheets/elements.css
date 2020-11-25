@@ -20,17 +20,6 @@ button:focus {
 	cursor: pointer;
 }
 
-/* Fontes */
-.Army {
-	font-family: Army;
-	font-weight: 1;
-}
-
-@font-face {
-  font-family: Army;
-  src: url(/stylesheets/font/Army.woff);
-}
-
 .btn {
 	/*background-color: transparent;*/
 	color: #000;
