@@ -16,6 +16,16 @@ button:focus {
   box-shadow: none;
 }
 
+.input-generic {
+    min-height: 25px;
+    border: 1px solid #666;
+}
+
+.submit-generic {
+    min-height: 25px;
+    border: 1px solid #333;
+}
+
 .pointer {
 	cursor: pointer;
 }
