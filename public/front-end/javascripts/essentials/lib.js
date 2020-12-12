@@ -127,7 +127,13 @@ const lib = {
 		select.innerHTML = "";
 		select.innerHTML += "<option value='0'>Sem resultados</option>"
 	},
-
+	focus(input){
+		if(input.id){
+			document.getElementById(input.id).focus();
+		} else {
+			input.focus();
+		};
+	},
 	carousel: {
 		// server data carousel
 		render: (carousel_name) => {
