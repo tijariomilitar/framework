@@ -21,6 +21,23 @@ button:focus {
     border: 1px solid #666;
 }
 
+.input-explicit {
+    min-height: 25px;
+    background-color: #e6e6e6;
+    border: 1px solid #666;
+}
+
+.input-confirm {
+    min-height: 25px;
+    background-color: #c8fac8;
+    border: 1px solid #666;
+}
+
+.input-confirm:hover {
+    background-color: #a0faa0;
+    cursor: pointer;
+}
+
 .submit-generic {
     min-height: 25px;
     border: 1px solid #333;
