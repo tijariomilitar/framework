@@ -10,7 +10,7 @@
 }
 
 .box {
-	background-color: transparent;
+	/*background-color: transparent;*/
 	color: var(--theme-box-color);
 	margin-left: 0.5%;
 	margin-right: 0.5%;
