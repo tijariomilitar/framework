@@ -123,6 +123,12 @@ const lib = {
 			}
 		});
 	},
+	splitSelectTextBy: (select, string) => {
+		let row = select.options[select.selectedIndex].text;
+		let splited_text = row.split(string);
+		splited_text.select = { value: select.value };
+		return splited_text;
+	},
 	clearSelect(select){
 		select.innerHTML = "";
 		select.innerHTML += "<option value='0'>Sem resultados</option>"
