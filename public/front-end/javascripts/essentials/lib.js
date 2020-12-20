@@ -263,3 +263,18 @@ const lib = {
 		return(collision);
 	}
 };
+
+lib.localStorage = {
+	verify: (item) => {
+		if(localStorage.getItem(item) != null){
+			return true;
+		};
+		return false;
+	},
+	update: (item, stringified_object) => {
+		localStorage.setItem(item, stringified_object);
+	},
+	remove: (item) => {
+		localStorage.removeItem(item);
+	}
+};
