@@ -124,10 +124,13 @@ const lib = {
 		});
 	},
 	splitSelectTextBy: (select, string) => {
-		let row = select.options[select.selectedIndex].text;
-		let splited_text = row.split(string);
-		splited_text.select = { value: select.value };
-		return splited_text;
+		if(select){
+			let row = select.options[select.selectedIndex].text;
+			let splited_text = row.split(string);
+			splited_text.select = { value: select.value };
+			return splited_text;
+		};
+		return "";
 	},
 	clearSelect(select){
 		select.innerHTML = "";
