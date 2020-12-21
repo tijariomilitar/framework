@@ -124,7 +124,7 @@ const lib = {
 		});
 	},
 	splitSelectTextBy: (select, string) => {
-		if(select.options[select.selectedIndex].text && string){
+		if(select && string){
 			let row = select.options[select.selectedIndex].text;
 			let splited_text = row.split(string);
 			splited_text.select = { value: select.value };
