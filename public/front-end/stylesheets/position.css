@@ -41,3 +41,63 @@
 .padding-right-5 { padding-right: 5px; }
 .padding-right-10 { padding-right: 10px; }
 .padding-right-15 { padding-right: 15px; }
+
+.size-10 {
+    max-width: 10px;
+    max-height: 10px;
+}
+
+.size-15 {
+    max-width: 15px;
+    max-height: 15px;
+}
+
+.size-20 {
+    max-width: 20px;
+    max-height: 20px;
+}
+
+.size-25 {
+    max-width: 25px;
+    max-height: 25px;
+}
+
+.size-30 {
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.size-35 {
+    max-width: 35px;
+    max-height: 35px;
+}
+
+.size-40 {
+    max-width: 40px;
+    max-height: 40px;
+}
+
+.size-45 {
+    max-width: 45px;
+    max-height: 45px;
+}
+
+.size-50 {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+.size-60 {
+    max-width: 60px;
+    max-height: 60px;
+}
+
+.size-70 {
+    max-width: 70px;
+    max-height: 70px;
+}
+
+.size-80 {
+    max-width: 80px;
+    max-height: 80px;
+}

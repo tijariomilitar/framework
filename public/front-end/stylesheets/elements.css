@@ -16,6 +16,15 @@ button:focus {
   box-shadow: none;
 }
 
+.icon {
+    opacity: 0.6;
+    cursor: pointer;   
+}
+
+.icon:hover {
+    opacity: 1;
+}
+
 .input-generic {
     min-height: 25px;
     border: 1px solid #666;
