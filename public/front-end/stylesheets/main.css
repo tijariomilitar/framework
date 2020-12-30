@@ -155,22 +155,6 @@ body {
 	min-height: 300px;
 }
 
-section {
-	width: 98%;
-	height: auto;
-	margin-left: 1%;
-	margin-bottom: 1%;
-	border-radius: 5px;
-	box-sizing: border-box;
-}
-
-section .container {
-	display: flex;
-	justify-content: row;
-	box-sizing: border-box;
-	flex-wrap: wrap;
-}
-
 .transp {
 	background-color: transparent;
 }
@@ -236,9 +220,7 @@ footer .copyright {
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: center;
-	/*overflow: hidden;*/
-	z-index: 99999; /*to make it appear on topmost part of the page */
-	/*display: none;*/
+	z-index: 99999;
 	visibility: hidden;
 }
 
