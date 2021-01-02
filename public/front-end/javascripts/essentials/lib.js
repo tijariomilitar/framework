@@ -88,8 +88,8 @@ const lib = {
 			if(button && openText && closeText){
 				button.innerHTML = closeText;
 			};
-			selectedDiv.style.display = "block";
-		} else if(selectedDiv.style.display == "block"){
+			selectedDiv.style.display = "";
+		} else if(selectedDiv.style.display == ""){
 			if(button && openText && closeText){
 				button.innerHTML = openText;
 			};
