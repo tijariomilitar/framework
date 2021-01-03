@@ -16,6 +16,10 @@ button:focus {
   box-shadow: none;
 }
 
+input, select, button {
+	background-color: #fff;
+}
+
 .icon {
     opacity: 0.6;
     cursor: pointer;   
@@ -50,12 +54,14 @@ button:focus {
 .submit-generic {
     min-height: 25px;
     border: 1px solid #333;
+    background-color: #e6e6e6;
+    font-weight: bold;
 }
 
 .submit-generic:hover {
     border: 1px solid #000;
     border-radius: 3px;
-    background-color: var(--theme-explicit-btn);
+    background-color: #d7d7d7;
 	transition: all 0.3s ease 0s;
 }
 
