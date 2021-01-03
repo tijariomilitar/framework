@@ -96,6 +96,9 @@ const lib = {
 			selectedDiv.style.display = "none";
 		};
 	},
+	clearInnerHtml: (target) => {
+		target.innerHTML = "";
+	},
 	displayMenuText: (button, openText, closeText) => {
 		if(button.innerHTML == openText){ button.innerHTML = closeText ;} 
 		else if(button.innerHTML == closeText){ button.innerHTML = openText; };

@@ -18,12 +18,15 @@
 }
 
 .dropdown ul:after {
-	content: ""; clear: both; display: block;
+	content: ""; 
+	clear: both; 
+	display: block;
 }
 
 .dropdown ul li {
 	float: left;
 	width: 100%;
+	z-index: 10;
 }
 
 .dropdown ul li:hover > ul {

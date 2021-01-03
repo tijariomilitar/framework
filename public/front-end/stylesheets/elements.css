@@ -30,18 +30,18 @@ input, select, button {
 }
 
 .input-generic {
-    min-height: 25px;
+    min-height: 30px;
     border: 1px solid #666;
 }
 
 .input-explicit {
-    min-height: 25px;
+    min-height: 30px;
     background-color: #e6e6e6;
     border: 1px solid #666;
 }
 
 .input-confirm {
-    min-height: 25px;
+    min-height: 30px;
     background-color: #c8fac8;
     border: 1px solid #666;
 }
@@ -52,7 +52,7 @@ input, select, button {
 }
 
 .submit-generic {
-    min-height: 25px;
+    min-height: 30px;
     border: 1px solid #333;
     background-color: #e6e6e6;
     font-weight: bold;
@@ -174,7 +174,7 @@ input, select, button {
 .btn-display-box {
 	font-size: 12px;
 	width:99%;
-	height: 25px;
+	height: 30px;
 	padding-top: 3px;
 	/*font-family: "HelveticaNeue-Light";*/
 	font-family: var(--title-soft);
@@ -433,7 +433,7 @@ input, select, button {
 	background-color: #f0f0f0;
 	font-size: 12px;
 	width:100%;
-	height: 25px;
+	height: 30px;
 	margin: auto;
 	margin-bottom: 10px;
 }
@@ -575,7 +575,7 @@ input, select, button {
 }
 
 .tbl-amount-cell {
-	width:25px;
+	width:30px;
 }
 
 .cashier-sale-info {
