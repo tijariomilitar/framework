@@ -281,11 +281,11 @@ lib.adress = {
 	},
 	fillForm:async (cep, form) => {
 		let adress = await lib.adress.get(cep);
-		document.getElementById(form).elements.namedItem("logradouro").value = adress.logradouro;
-		document.getElementById(form).elements.namedItem("complemento").value = adress.complemento;
-		document.getElementById(form).elements.namedItem("bairro").value = adress.bairro;
-		document.getElementById(form).elements.namedItem("cidade").value = adress.localidade;
-		document.getElementById(form).elements.namedItem("uf").value = adress.uf;
+		if(adress.logradouro){ document.getElementById(form).elements.namedItem("logradouro").value = adress.logradouro; };
+		if(adress.complemento){ document.getElementById(form).elements.namedItem("complemento").value = adress.complemento; };
+		if(adress.bairro){ document.getElementById(form).elements.namedItem("bairro").value = adress.bairro; };
+		if(adress.localidade){ document.getElementById(form).elements.namedItem("cidade").value = adress.localidade; };
+		if(adress.uf){ document.getElementById(form).elements.namedItem("uf").value = adress.uf; };
 	}
 };
 
