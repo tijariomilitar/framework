@@ -270,13 +270,23 @@ const lib = {
 	}
 };
 
-lib.getAdress = async (CEP) => {
-	let response = await fetch("https://viacep.com.br/ws/"+CEP+"/json/");
-	response = await response.json();
+lib.adress = {
+	get: async (CEP) => {
+		let response = await fetch("https://viacep.com.br/ws/"+CEP+"/json/");
+		response = await response.json();
 
-	if(API.verifyResponse(response)){ return false };
-	
-	return response;
+		if(API.verifyResponse(response)){ return false };
+		
+		return response;
+	},
+	fillForm:async (cep, form) => {
+		let adress = await lib.adress.get(cep);
+		document.getElementById(form).elements.namedItem("logradouro").value = adress.logradouro;
+		document.getElementById(form).elements.namedItem("complemento").value = adress.complemento;
+		document.getElementById(form).elements.namedItem("bairro").value = adress.bairro;
+		document.getElementById(form).elements.namedItem("cidade").value = adress.localidade;
+		document.getElementById(form).elements.namedItem("uf").value = adress.uf;
+	}
 };
 
 lib.localStorage = {
