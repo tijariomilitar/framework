@@ -289,6 +289,15 @@ lib.adress = {
 	}
 };
 
+lib.openExternalLink = (url) => {
+	if('http'.substr(0, 4) == url.substr(0, 4)){
+		window.open(url, '_blank');
+	} else {
+		url = "https://"+url;
+		window.open(url, '_blank');
+	};
+};
+
 lib.localStorage = {
 	verify: (item) => {
 		if(localStorage.getItem(item) != null){

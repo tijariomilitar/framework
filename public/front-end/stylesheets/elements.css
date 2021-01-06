@@ -20,6 +20,10 @@ input, select, button {
 	background-color: #fff;
 }
 
+.border-explicit {
+    border: 1px solid #444;
+}
+
 .icon {
     opacity: 0.6;
     cursor: pointer;   
