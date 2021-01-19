@@ -270,6 +270,12 @@ const lib = {
 	}
 };
 
+lib.index = {
+	last: (objects) => {
+		return objects.length - 1;
+	}
+};
+
 lib.adress = {
 	get: async (CEP) => {
 		let response = await fetch("https://viacep.com.br/ws/"+CEP+"/json/");
