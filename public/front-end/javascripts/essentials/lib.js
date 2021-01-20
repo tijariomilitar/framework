@@ -276,6 +276,37 @@ lib.index = {
 	}
 };
 
+lib.dropdown = {
+	render: (objects, key, props, input_id, dropdown_id, target) => {
+		let html = "";
+
+		for(i in objects){
+			html += "<li><input type='button' class='box one dropdown-input' data-id='"+objects[i][key]+"' value='";
+			if(i < lib.index.last(objects)){
+				for(prop in props){
+					html += objects[i][props[prop]]+" | ";
+				};
+			} else if(lib.index.last(objects) == i){
+				for(prop in props){
+					html += objects[i][props[prop]]+" ";
+				};
+			};
+			html += "' onclick='lib.dropdown.fill."+target+"(this, `"+input_id+"`, `"+dropdown_id+"`)'></li>";
+		};
+
+		document.getElementById(dropdown_id).innerHTML = html;
+	},
+	fill: {
+		input: (dropdown_input, input_id, dropdown_id) => {
+			document.getElementById(input_id).dataset.id = dropdown_input.dataset.id;
+			document.getElementById(input_id).value = dropdown_input.value;
+			document.getElementById(input_id).readOnly = true;
+
+			document.getElementById(dropdown_id).innerHTML = "";
+		}
+	}
+};
+
 lib.adress = {
 	get: async (CEP) => {
 		let response = await fetch("https://viacep.com.br/ws/"+CEP+"/json/");
