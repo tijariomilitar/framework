@@ -277,18 +277,18 @@ lib.index = {
 };
 
 lib.dropdown = {
-	render: (objects, key, props, input_id, dropdown_id, target) => {
+	render: (objects, input_id, dropdown_id, target, key, props) => {
 		let html = "";
 
 		for(i in objects){
 			html += "<li><input type='button' class='box one dropdown-input' data-id='"+objects[i][key]+"' value='";
 			if(i < lib.index.last(objects)){
-				for(prop in props){
-					html += objects[i][props[prop]]+" | ";
+				for(j in props){
+					html += objects[i][props[j]]+" | ";
 				};
 			} else if(lib.index.last(objects) == i){
-				for(prop in props){
-					html += objects[i][props[prop]]+" ";
+				for(j in props){
+					html += objects[i][props[j]]+" ";
 				};
 			};
 			html += "' onclick='lib.dropdown.fill."+target+"(this, `"+input_id+"`, `"+dropdown_id+"`)'></li>";
@@ -332,6 +332,117 @@ lib.openExternalLink = (url) => {
 	} else {
 		url = "https://"+url;
 		window.open(url, '_blank');
+	};
+};
+
+lib.kart = function(name, variable, props) {
+	this.name = name;
+	this.variable = variable;
+	this.items = [];
+	this.props = props;
+
+	this.insert = function(key, item) {
+		for(i in this.items){
+			if(this.items[i][key] == item[key]){
+				return alert("Você já incluiu este produto no carrinho.");
+			};
+		};
+
+		this.items.push(item);
+		this.update(this.items);
+
+		let stringified_kart = JSON.stringify(this.items);
+		lib.localStorage.update(this.name, stringified_kart);
+	};
+
+	this.list = function(kart, properties) {
+		if(this.items.length){
+			var html = "";
+			html += "<tr>";
+			for(i in properties){
+				html += "<td>"+properties[i]+"</td>";
+			};
+			html += "</tr>";
+			for(i in this.items){
+				html += "<tr>";
+				for(j in properties){
+					if(j == 0){
+						html += "<td class='nowrap'>"+this.items[i][properties[j]]+"</td>";
+					} else {
+						html += "<td>"+this.items[i][properties[j]]+"</td>";
+					};
+				};
+				html += "<td class='nowrap'><img class='img-tbl-btn' src='/images/icon/decrease.png' onclick='"+kart+".decrease("+this.items[i].id+")'></td>";
+				html += "<td class='nowrap'><input type='text' id='product-package-product-kart-"+this.items[i].id+"' class='border-explicit center' onchange='"+kart+".updateAmount("+this.items[i].id+", this.value);lib.focus(this)' value='"+this.items[i].amount+"'></td>";
+				html += "<td class='nowrap'><img class='img-tbl-btn' src='/images/icon/increase.png' onclick='"+kart+".increase("+this.items[i].id+")'></td>";
+				html += "<td><img class='img-tbl-btn' src='/images/icon/trash.png' onclick='"+kart+".remove("+this.items[i].id+")'></td>";
+				html += "</tr>";
+			};
+			document.getElementById(this.name+"-table").innerHTML = html;
+		} else {
+			document.getElementById(this.name+"-table").innerHTML = "";
+		};
+	};
+	
+	this.update = function(key) {
+		return this.items = this.items.sort((a, b) => {
+			return a[key] - b[key];
+		});
+	};
+
+	this.decrease = (obj_id) => {
+		for(i in this.items){
+			if(this.items[i].id == obj_id && this.items[i].amount > 1){
+				this.items[i].amount -= 1;
+			};
+		};
+		let stringified_kart = JSON.stringify(this.items);
+		lib.localStorage.update(this.name, stringified_kart);
+		this.list(this.variable, this.props);
+	};
+
+	this.increase = (obj_id) => {
+		for(i in this.items){
+			if(this.items[i].id == obj_id){
+				this.items[i].amount += 1;
+			};
+		};
+		let stringified_kart = JSON.stringify(this.items);
+		lib.localStorage.update(this.name, stringified_kart);
+		this.list(this.variable, this.props);
+	};
+
+	this.remove = (obj_id) => {
+		var kart_backup = [];
+		for(i in this.items){
+			if(this.items[i].id != obj_id){
+				kart_backup.push(this.items[i]);
+			};
+		};
+
+		this.items = kart_backup;
+
+		let stringified_kart = JSON.stringify(this.items);
+		lib.localStorage.update(this.name, stringified_kart);
+		this.list(this.variable, this.props);
+	};
+
+	this.updateAmount = async (obj_id, amount) => {
+		if(amount < 1){
+			alert("Quantidade Inválida");
+			return this.list(this.variable, this.props);
+		};
+
+		for(i in this.items){
+			if(this.items[i].id == obj_id){
+				this.items[i].amount = parseInt(amount);
+				
+				let stringified_kart = JSON.stringify(this.items);
+				lib.localStorage.update(this.name, stringified_kart);
+
+				return this.list(this.variable, this.props);
+			};
+		};
 	};
 };
 
