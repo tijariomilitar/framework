@@ -2,6 +2,11 @@
 // javascript lib
 // -------------------
 
+// Tools to implement
+
+// Date and time split to 2 variables
+// <input type="datetime-local" id="birthdaytime" name="birthdaytime">
+
 const lib = {
 	// Time
 	convertDate:function(date){
@@ -125,6 +130,13 @@ const lib = {
 				};
 			}
 		});
+	},
+	splitTextBy: (text, split_string) => {
+		if(text && split_string){
+			let splited_text = text.split(split_string);
+			return splited_text;
+		};
+		return false;
 	},
 	splitSelectTextBy: (select, string) => {
 		if(select && string){
@@ -278,23 +290,25 @@ lib.index = {
 
 lib.dropdown = {
 	render: (objects, input_id, dropdown_id, target, key, props) => {
-		let html = "";
-
-		for(i in objects){
-			html += "<li><input type='button' class='box one dropdown-input' data-id='"+objects[i][key]+"' value='";
-			if(i < lib.index.last(objects)){
-				for(j in props){
-					html += objects[i][props[j]]+" | ";
+		if(objects.length){
+			let html = "";
+			for(i in objects){
+				html += "<li><input type='button' class='box one dropdown-input' data-id='"+objects[i][key]+"' value='";
+				if(i < lib.index.last(objects)){
+					for(j in props){
+						html += objects[i][props[j]]+" | ";
+					};
+				} else if(lib.index.last(objects) == i){
+					for(j in props){
+						html += objects[i][props[j]]+" ";
+					};
 				};
-			} else if(lib.index.last(objects) == i){
-				for(j in props){
-					html += objects[i][props[j]]+" ";
-				};
+				html += "' onclick='lib.dropdown.fill."+target+"(this, `"+input_id+"`, `"+dropdown_id+"`)'></li>";
 			};
-			html += "' onclick='lib.dropdown.fill."+target+"(this, `"+input_id+"`, `"+dropdown_id+"`)'></li>";
+			document.getElementById(dropdown_id).innerHTML = html;
+		} else {
+			document.getElementById(dropdown_id).innerHTML = "";
 		};
-
-		document.getElementById(dropdown_id).innerHTML = html;
 	},
 	fill: {
 		input: (dropdown_input, input_id, dropdown_id) => {
@@ -357,7 +371,7 @@ lib.kart = function(name, variable, props) {
 
 	this.list = function(kart, properties) {
 		if(this.items.length){
-			var html = "";
+			let html = "";
 			html += "<tr>";
 			for(i in properties){
 				html += "<td>"+properties[i]+"</td>";

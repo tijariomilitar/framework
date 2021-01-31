@@ -19,6 +19,7 @@
 	margin-left: 0.5%;
 	margin-right: 0.5%;
 	box-sizing: border-box;
+    align-self: flex-start;
 }
 
 .mobile-box {
@@ -27,6 +28,7 @@
 	margin-left: 0.5%;
 	margin-right: 0.5%;
 	box-sizing: border-box;
+    align-self: flex-start;
 }
 
 .menu-box {

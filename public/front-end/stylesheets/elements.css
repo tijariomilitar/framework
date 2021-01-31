@@ -30,7 +30,7 @@ input, select, button {
 
 .icon {
     opacity: 0.6;
-    cursor: pointer;   
+    cursor: pointer;
 }
 
 .icon:hover {
@@ -39,17 +39,20 @@ input, select, button {
 
 .input-generic {
     min-height: 30px;
+    max-height: 30px;
     border: 1px solid #666;
 }
 
 .input-explicit {
     min-height: 30px;
+    max-height: 30px;
     background-color: #e6e6e6;
     border: 1px solid #666;
 }
 
 .input-confirm {
     min-height: 30px;
+    max-height: 30px;
     background-color: #c8fac8;
     border: 1px solid #666;
 }
@@ -61,6 +64,7 @@ input, select, button {
 
 .submit-generic {
     min-height: 30px;
+    max-height: 30px;
     border: 1px solid #333;
     background-color: #e6e6e6;
     font-weight: bold;
@@ -517,7 +521,7 @@ input, select, button {
 .tbl-show-link:hover {
 	opacity: 1;
 	color: #000;
-	border-radius: 1px;
+	border-radius: 2px;
 	cursor: pointer;
 	border: 1px solid #8f9f94;
 	transition: all 0.3s ease 0s;
