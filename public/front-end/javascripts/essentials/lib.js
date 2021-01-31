@@ -288,6 +288,12 @@ lib.index = {
 	}
 };
 
+lib.sort = (arr, key) => {
+	return arr = arr.sort((a, b) => {
+		return a[key] - b[key];
+	}); 
+}
+
 lib.dropdown = {
 	render: (objects, input_id, dropdown_id, target, key, props) => {
 		if(objects.length){
