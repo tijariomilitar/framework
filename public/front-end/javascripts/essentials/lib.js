@@ -300,12 +300,10 @@ lib.dropdown = {
 			let html = "";
 			for(i in objects){
 				html += "<li><input type='button' class='box one dropdown-input' data-id='"+objects[i][key]+"' value='";
-				if(i < lib.index.last(objects)){
-					for(j in props){
+				for(j in props){
+					if(props.length-1 > j){
 						html += objects[i][props[j]]+" | ";
-					};
-				} else if(objects.length - 1 == i){
-					for(j in props){
+					} else if(props.length-1 == j){
 						html += objects[i][props[j]]+" ";
 					};
 				};
