@@ -304,7 +304,7 @@ lib.dropdown = {
 					for(j in props){
 						html += objects[i][props[j]]+" | ";
 					};
-				} else if(lib.index.last(objects) == i){
+				} else if(objects.length - 1 == i){
 					for(j in props){
 						html += objects[i][props[j]]+" ";
 					};
