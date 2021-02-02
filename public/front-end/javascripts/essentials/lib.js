@@ -385,7 +385,7 @@ lib.kart = function(name, variable, props) {
 				html += "<tr>";
 				for(j in props){
 					if(j == 0){
-						html += "<td class='nowrap'>"+this.items[i][Object.entries(props[j])[0][0]]+"</td>";
+						html += "<td>"+this.items[i][Object.entries(props[j])[0][0]]+"</td>";
 					} else {
 						html += "<td>"+this.items[i][Object.entries(props[j])[0][0]]+"</td>";
 					};
