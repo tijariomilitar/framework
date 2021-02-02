@@ -304,7 +304,7 @@ lib.dropdown = {
 					if(props.length-1 > j){
 						html += objects[i][props[j]]+" | ";
 					} else if(props.length-1 == j){
-						html += objects[i][props[j]]+" ";
+						html += objects[i][props[j]];
 					};
 				};
 				html += "' onclick='lib.dropdown.fill."+target+"(this, `"+input_id+"`, `"+dropdown_id+"`)'></li>";
@@ -367,33 +367,33 @@ lib.kart = function(name, variable, props) {
 		};
 
 		this.items.push(item);
-		this.update(this.items);
+		this.update(key);
 
 		let stringified_kart = JSON.stringify(this.items);
 		lib.localStorage.update(this.name, stringified_kart);
 	};
 
-	this.list = function(kart, properties) {
+	this.list = function(kart, props) {
 		if(this.items.length){
 			let html = "";
 			html += "<tr>";
-			for(i in properties){
-				html += "<td>"+properties[i]+"</td>";
+			for(i in props){
+				html += "<td>"+Object.entries(props[i])[0][1]+"</td>";
 			};
 			html += "</tr>";
 			for(i in this.items){
 				html += "<tr>";
-				for(j in properties){
+				for(j in props){
 					if(j == 0){
-						html += "<td class='nowrap'>"+this.items[i][properties[j]]+"</td>";
+						html += "<td class='nowrap'>"+this.items[i][Object.entries(props[j])[0][0]]+"</td>";
 					} else {
-						html += "<td>"+this.items[i][properties[j]]+"</td>";
+						html += "<td>"+this.items[i][Object.entries(props[j])[0][0]]+"</td>";
 					};
 				};
-				html += "<td class='nowrap'><img class='img-tbl-btn' src='/images/icon/decrease.png' onclick='"+kart+".decrease("+this.items[i].id+")'></td>";
-				html += "<td class='nowrap'><input type='text' id='product-package-product-kart-"+this.items[i].id+"' class='border-explicit center' onchange='"+kart+".updateAmount("+this.items[i].id+", this.value);lib.focus(this)' value='"+this.items[i].amount+"'></td>";
-				html += "<td class='nowrap'><img class='img-tbl-btn' src='/images/icon/increase.png' onclick='"+kart+".increase("+this.items[i].id+")'></td>";
-				html += "<td><img class='img-tbl-btn' src='/images/icon/trash.png' onclick='"+kart+".remove("+this.items[i].id+")'></td>";
+				html += "<td class='nowrap'><img class='img-tbl-btn' src='/images/icon/decrease.png' onclick='"+this.variable+".decrease("+this.items[i].id+")'></td>";
+				html += "<td class='nowrap'><input type='text' id='"+this.variable+"-"+this.items[i].id+"' class='border-explicit center' onchange='"+this.variable+".updateAmount("+this.items[i].id+", this.value);lib.focus(this)' value='"+this.items[i].amount+"'></td>";
+				html += "<td class='nowrap'><img class='img-tbl-btn' src='/images/icon/increase.png' onclick='"+this.variable+".increase("+this.items[i].id+")'></td>";
+				html += "<td><img class='img-tbl-btn' src='/images/icon/trash.png' onclick='"+this.variable+".remove("+this.items[i].id+")'></td>";
 				html += "</tr>";
 			};
 			document.getElementById(this.name+"-table").innerHTML = html;
