@@ -353,14 +353,14 @@ lib.openExternalLink = (url) => {
 	};
 };
 
-lib.kart = function(name, variable, props) {
+lib.kart = function(name, variable, props){
 	this.name = name;
 	this.variable = variable;
 	this.items = [];
 	this.props = props;
 
 	this.insert = function(key, item) {
-		for(i in this.items){
+		for(let i in this.items){
 			if(this.items[i][key] == item[key]){
 				return alert("Você já incluiu este produto no carrinho.");
 			};
@@ -373,7 +373,7 @@ lib.kart = function(name, variable, props) {
 		lib.localStorage.update(this.name, stringified_kart);
 	};
 
-	this.list = function(kart, props) {
+	this.list = function(kart, props){
 		if(this.items.length){
 			let html = "";
 			html += "<tr>";
@@ -420,7 +420,7 @@ lib.kart = function(name, variable, props) {
 	};
 
 	this.increase = (obj_id) => {
-		for(i in this.items){
+		for(let i in this.items){
 			if(this.items[i].id == obj_id){
 				this.items[i].amount += 1;
 			};
@@ -432,7 +432,7 @@ lib.kart = function(name, variable, props) {
 
 	this.remove = (obj_id) => {
 		var kart_backup = [];
-		for(i in this.items){
+		for(let i in this.items){
 			if(this.items[i].id != obj_id){
 				kart_backup.push(this.items[i]);
 			};
