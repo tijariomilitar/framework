@@ -442,6 +442,7 @@ lib.kart = function(name, variable, props){
 
 		let stringified_kart = JSON.stringify(this.items);
 		lib.localStorage.update(this.name, stringified_kart);
+		if(this.items.length == 0){ lib.localStorage.remove(this.name)};
 		this.list(this.variable, this.props);
 	};
 
