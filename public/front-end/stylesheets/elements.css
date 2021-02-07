@@ -24,6 +24,17 @@ input, select, button {
     border: 1px #d2d2d2 solid;
 }
 
+.radius-5 { border-radius: 5px; }
+.radius-10 { border-radius: 10px; }
+.radius-15 { border-radius: 15px; }
+.radius-20 { border-radius: 20px; }
+.radius-25 { border-radius: 25px; }
+.radius-30 { border-radius: 30px; }
+.radius-35 { border-radius: 35px; }
+.radius-40 { border-radius: 40px; }
+.radius-45 { border-radius: 45px; }
+.radius-50 { border-radius: 50px; }
+
 .border-explicit {
     border: 1px solid #444;
 }
@@ -60,6 +71,18 @@ input, select, button {
 .input-confirm:hover {
     background-color: #a0faa0;
     cursor: pointer;
+}
+
+.input-border-bottom {
+	border-top: none;
+	border-left: none;
+	border-right: none;
+    border-bottom: 1px solid #666;
+    outline:none;
+}
+
+.input-border-bottom:hover {
+    border-bottom: 2px solid #666;
 }
 
 .submit-generic {
