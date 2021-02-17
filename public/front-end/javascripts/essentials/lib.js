@@ -85,7 +85,7 @@ const lib = {
 		return string;
 	},
 
-// html/css lib
+	// html/css lib
 	displayDiv: (div, button, openText, closeText) => {
 		let selectedDiv = document.getElementById(div);
 		
@@ -325,7 +325,7 @@ lib.dropdown = {
 	}
 };
 
-lib.adress = {
+lib.address = {
 	get: async (CEP) => {
 		let response = await fetch("https://viacep.com.br/ws/"+CEP+"/json/");
 		response = await response.json();
@@ -335,12 +335,12 @@ lib.adress = {
 		return response;
 	},
 	fillForm:async (cep, form) => {
-		let adress = await lib.adress.get(cep);
-		if(adress.logradouro){ document.getElementById(form).elements.namedItem("street").value = adress.logradouro; };
-		if(adress.complemento){ document.getElementById(form).elements.namedItem("complement").value = adress.complemento; };
-		if(adress.bairro){ document.getElementById(form).elements.namedItem("neighborhood").value = adress.bairro; };
-		if(adress.localidade){ document.getElementById(form).elements.namedItem("city").value = adress.localidade; };
-		if(adress.uf){ document.getElementById(form).elements.namedItem("state").value = adress.uf; };
+		let address = await lib.address.get(cep);
+		if(address.logradouro){ document.getElementById(form).elements.namedItem("street").value = address.logradouro; };
+		if(address.complemento){ document.getElementById(form).elements.namedItem("complement").value = address.complemento; };
+		if(address.bairro){ document.getElementById(form).elements.namedItem("neighborhood").value = address.bairro; };
+		if(address.localidade){ document.getElementById(form).elements.namedItem("city").value = address.localidade; };
+		if(address.uf){ document.getElementById(form).elements.namedItem("state").value = address.uf; };
 	}
 };
 
@@ -447,7 +447,7 @@ lib.kart = function(name, variable, props){
 	};
 
 	this.updateAmount = async (obj_id, amount) => {
-		if(amount < 1){
+		if(amount < 1 || isNaN(amount)){
 			alert("Quantidade Inválida");
 			return this.list(this.variable, this.props);
 		};

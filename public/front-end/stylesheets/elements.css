@@ -24,6 +24,11 @@ input, select, button {
     border: 1px #d2d2d2 solid;
 }
 
+.noborder {
+	border: none;
+    outline:none;
+}
+
 .radius-5 { border-radius: 5px; }
 .radius-10 { border-radius: 10px; }
 .radius-15 { border-radius: 15px; }
@@ -105,13 +110,11 @@ input, select, button {
 }
 
 .btn {
-	/*background-color: transparent;*/
 	color: #000;
 	margin-left: 0.5%;
 	margin-right: 0.5%;
 	box-sizing: border-box;
 	border: 1px #f0f0f0 solid;;
-	/*border:none;*/
 }
 
 .submit {
