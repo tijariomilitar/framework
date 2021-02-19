@@ -162,7 +162,7 @@ body {
 table {
 	margin: auto;
 	border-collapse: collapse;
-	text-align: center;
+	/*text-align: center;*/
 	word-break: break-all;
 }
 
