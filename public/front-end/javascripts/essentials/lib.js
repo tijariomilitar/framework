@@ -27,6 +27,24 @@ const lib = {
 		};
 		return convertedDate;
 	},
+	timestampToDate: (timestamp) => {
+		let date = new Date(timestamp);
+		let day;let month;let hour; let minute;
+		if(date.getDate() < 10){ day = "0"+date.getDate() } else { day = date.getDate() };
+		if(date.getMonth() < 10){ month = "0"+date.getMonth() } else { month = date.getMonth() };
+		if(date.getHours() < 10){ hour = "0"+date.getHours() } else { hour = date.getHours() };
+		if(date.getMinutes() < 10){ minute = "0"+date.getMinutes() } else { minute = date.getMinutes() };
+		return day+'-'+month+'-'+date.getFullYear()+' '+hour+':'+minute;
+	},
+	timestampToDatetime: (timestamp) => {
+		let date = new Date(timestamp);
+		let day;let month;let hour; let minute;
+		if(date.getDate() < 10){ day = "0"+date.getDate() } else { day = date.getDate() };
+		if(date.getMonth() < 10){ month = "0"+date.getMonth() } else { month = date.getMonth() };
+		if(date.getHours() < 10){ hour = "0"+date.getHours() } else { hour = date.getHours() };
+		if(date.getMinutes() < 10){ minute = "0"+date.getMinutes() } else { minute = date.getMinutes() };
+		return date.getFullYear()+'-'+month+'-'+day+'T'+hour+':'+minute;
+	},
 	genDate: function(){
 		let d = new Date();
 		let date = "";
