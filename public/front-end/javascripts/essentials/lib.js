@@ -26,7 +26,7 @@ const lib = {
 			var convertedDate = "";
 		};
 		return convertedDate;
-	};
+	},
 	genDate: function(){
 		let d = new Date();
 		let date = "";
