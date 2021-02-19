@@ -18,6 +18,15 @@ const lib = {
 		};
 		return convertedDate;
 	},
+	convertDatetime: function(datetime){
+		let str = datetime.split('T');
+		if(str!=""){
+			var convertedDate = lib.convertDate(str[0])+" "+str[1];
+		} else {
+			var convertedDate = "";
+		};
+		return convertedDate;
+	};
 	genDate: function(){
 		let d = new Date();
 		let date = "";
