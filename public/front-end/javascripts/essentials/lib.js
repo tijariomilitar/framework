@@ -387,9 +387,11 @@ lib.kart = function(name, variable, props){
 	this.props = props;
 
 	this.insert = function(key, item) {
-		for(let i in this.items){
-			if(this.items[i][key] == item[key]){
-				return alert("Você já incluiu este produto no carrinho.");
+		if(key){
+			for(let i in this.items){
+				if(this.items[i][key] == item[key]){
+					return alert("Você já incluiu este produto no carrinho.");
+				};
 			};
 		};
 
