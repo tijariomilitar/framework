@@ -27,6 +27,15 @@ const lib = {
 		};
 		return convertedDate;
 	},
+	datetimeToTimestamp: (datetime) => {
+		let dateString = lib.convertDatetime(datetime),
+		    dateTimeParts = dateString.split(' '),
+		    timeParts = dateTimeParts[1].split(':'),
+		    dateParts = dateTimeParts[0].split('-'),
+		    date;
+		date = new Date(dateParts[2], parseInt(dateParts[1], 10) - 1, dateParts[0], timeParts[0], timeParts[1]);
+		return date.getTime();
+	},
 	timestampToDate: (timestamp) => {
 		let date = new Date(parseInt(timestamp));
 		let day;let month;let hour;let minute;
