@@ -28,13 +28,14 @@ const lib = {
 		return convertedDate;
 	},
 	datetimeToTimestamp: (datetime) => {
-		let dateString = lib.convertDatetime(datetime),
-		    dateTimeParts = dateString.split(' '),
-		    timeParts = dateTimeParts[1].split(':'),
-		    dateParts = dateTimeParts[0].split('-'),
-		    date;
-		date = new Date(dateParts[2], parseInt(dateParts[1], 10) - 1, dateParts[0], timeParts[0], timeParts[1]);
-		return date.getTime();
+		let date = datetime.split("T");
+		date.year = date[0].split("-")[0];
+		date.month = date[0].split("-")[1];
+		date.day = date[0].split("-")[2];
+		date.hour = date[1].split(":")[0];
+		date.minute = date[1].split(":")[1];
+		date = new Date(date.year,date.month,date.day,date.hour,date.minute);
+		return date.getTime()/1000;
 	},
 	timestampToDate: (timestamp) => {
 		let date = new Date(parseInt(timestamp));
