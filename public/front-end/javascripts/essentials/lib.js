@@ -35,7 +35,7 @@ const lib = {
 		date.hour = date[1].split(":")[0];
 		date.minute = date[1].split(":")[1];
 		date = new Date(date.year,date.month,date.day,date.hour,date.minute);
-		return date.getTime()/1000;
+		return date.getTime();
 	},
 	timestampToDate: (timestamp) => {
 		let date = new Date(parseInt(timestamp));
