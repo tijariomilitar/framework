@@ -414,6 +414,8 @@ lib.kart = function(name, variable, props){
 
 		let stringified_kart = JSON.stringify(this.items);
 		lib.localStorage.update(this.name, stringified_kart);
+
+		return true;
 	};
 
 	this.list = function(kart, props){
