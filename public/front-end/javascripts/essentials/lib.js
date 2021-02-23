@@ -403,7 +403,8 @@ lib.kart = function(name, variable, props){
 		if(key){
 			for(let i in this.items){
 				if(this.items[i][key] == item[key]){
-					return alert("Você já incluiu este produto no carrinho.");
+					alert("Você já incluiu este produto no carrinho.");
+					return false;
 				};
 			};
 		};
