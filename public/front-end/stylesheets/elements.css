@@ -20,6 +20,16 @@ input, select, button {
 	background-color: #fff;
 }
 
+.madesoulmaze {
+	font-family: madesoulmaze;
+	font-weight: 1;
+}
+
+@font-face {
+    font-family: madesoulmaze;
+    src: url('/fonts/madesoulmaze.woff');
+}
+
 .shadow {
     box-shadow:0px 0px 10px #aaaaaa; 
 }
