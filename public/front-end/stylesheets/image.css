@@ -25,3 +25,9 @@ img {
 	position: relative;
 	z-index: 5;
 }
+
+.image-fit {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
