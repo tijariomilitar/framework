@@ -92,6 +92,30 @@ input, select, button {
     cursor: pointer;
 }
 
+.input-border-top {
+	border-top: 1px solid #666;
+	border-left: none;
+	border-right: none;
+    border-bottom: none;
+    outline:none;
+}
+
+.input-border-left {
+	border-top: none;
+	border-left: 1px solid #666;
+	border-right: none;
+    border-bottom: none;
+    outline:none;
+}
+
+.input-border-right {
+	border-top: none;
+	border-left: none;
+	border-right: 1px solid #666;
+    border-bottom: none;
+    outline:none;
+}
+
 .input-border-bottom {
 	border-top: none;
 	border-left: none;
