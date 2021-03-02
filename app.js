@@ -17,4 +17,12 @@ app.get("/box", (req, res) => {
 	res.render("box");
 });
 
+app.get("/boxes", (req, res) => {
+	res.render("boxes");
+});
+
+app.get("/carousel", (req, res) => {
+	res.render("carousel");
+});
+
 module.exports = app;

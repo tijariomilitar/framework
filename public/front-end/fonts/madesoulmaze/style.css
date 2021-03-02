@@ -30,3 +30,8 @@
     font-weight: normal;
     src: local('MADE Soulmaze Outline Italic'), url('MADE Soulmaze Outline Italic PERSONAL USE.woff') format('woff');
     }
+
+    .madesoulmaze {
+        font-family: 'MADE Soulmaze Regular';
+        /*font-weight: 1;*/
+    }
