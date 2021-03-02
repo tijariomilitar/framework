@@ -92,7 +92,7 @@ input, select, button {
     cursor: pointer;
 }
 
-.input-border-top {
+.border-top {
 	border-top: 1px solid #666;
 	border-left: none;
 	border-right: none;
@@ -100,7 +100,7 @@ input, select, button {
     outline:none;
 }
 
-.input-border-left {
+.border-left {
 	border-top: none;
 	border-left: 1px solid #666;
 	border-right: none;
@@ -108,7 +108,7 @@ input, select, button {
     outline:none;
 }
 
-.input-border-right {
+.border-right {
 	border-top: none;
 	border-left: none;
 	border-right: 1px solid #666;
@@ -116,7 +116,7 @@ input, select, button {
     outline:none;
 }
 
-.input-border-bottom {
+.border-bottom {
 	border-top: none;
 	border-left: none;
 	border-right: none;
