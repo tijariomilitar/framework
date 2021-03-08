@@ -232,6 +232,7 @@ const lib = {
 		// fetch data carousel
 		execute: (box, render, response, pagination) => {
 			document.getElementById(box).children.namedItem("carousel-navigation").children.namedItem("carousel-previous").onclick = function(){
+				window.scrollTo(0, document.getElementById(box).getBoundingClientRect().top - document.body.getBoundingClientRect().top);
 		        if(pagination.page > 0){
 		            pagination.page--;
 		            lib.carousel.paging(render, response, pagination);
@@ -240,6 +241,7 @@ const lib = {
 		    };
 
 		    document.getElementById(box).children.namedItem("carousel-navigation").children.namedItem("carousel-next").onclick = function(){
+				window.scrollTo(0, document.getElementById(box).getBoundingClientRect().top - document.body.getBoundingClientRect().top);
 		        if(pagination.page < response.length / pagination.pageSize - 1){
 		            pagination.page++;
 		            lib.carousel.paging(render, response, pagination);
