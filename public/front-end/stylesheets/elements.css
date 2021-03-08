@@ -34,6 +34,10 @@ input, select, button {
     box-shadow:0px 0px 10px #aaaaaa; 
 }
 
+.shadow-2 {
+    box-shadow:0px 0px 10px #5a5a5a; 
+}
+
 .border {
     border: 1px #d2d2d2 solid;
 }
@@ -55,7 +59,7 @@ input, select, button {
 .radius-50 { border-radius: 50px; }
 
 .border-explicit {
-    border: 1px solid #444;
+    border: 1px solid #646464;
 }
 
 .icon {
@@ -190,6 +194,14 @@ input, select, button {
 .underline {
 	margin: auto;
 	border-bottom: 1px solid #f0f0f0;
+	width: 90%;
+	padding-bottom: 5px;
+	margin-bottom: 10px;
+}
+
+.underline-explicit {
+	margin: auto;
+	border-bottom: 1px solid #646464;
 	width: 90%;
 	padding-bottom: 5px;
 	margin-bottom: 10px;

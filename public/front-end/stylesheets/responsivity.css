@@ -55,14 +55,46 @@
 .em07 { font-size: 0.7em; }
 .em08 { font-size: 0.8em; }
 .em09 { font-size: 0.9em; }
-.em10 { font-size: 1.0em; }
+.em10 { font-size: 1em; }
+.em11 { font-size: 1.1em; }
+.em12 { font-size: 1.2em; }
+.em13 { font-size: 1.3em; }
+.em14 { font-size: 1.4em; }
+.em15 { font-size: 1.5em; }
+.em16 { font-size: 1.6em; }
+.em17 { font-size: 1.7em; }
+.em18 { font-size: 1.8em; }
+.em19 { font-size: 1.9em; }
+.em20 { font-size: 2em; }
+.em21 { font-size: 2.1em; }
+.em22 { font-size: 2.2em; }
+.em23 { font-size: 2.3em; }
+.em24 { font-size: 2.4em; }
+.em25 { font-size: 2.5em; }
+.em26 { font-size: 2.6em; }
+.em27 { font-size: 2.7em; }
+.em28 { font-size: 2.8em; }
+.em29 { font-size: 2.9em; }
+.em30 { font-size: 3em; }
+.em31 { font-size: 3.1em; }
+.em32 { font-size: 3.2em; }
+.em33 { font-size: 3.3em; }
+.em34 { font-size: 3.4em; }
+.em35 { font-size: 3.5em; }
+.em36 { font-size: 3.6em; }
+.em37 { font-size: 3.7em; }
+.em38 { font-size: 3.8em; }
+.em39 { font-size: 3.9em; }
+.em40 { font-size: 4em; }
 
-/*@media all and (min-width: 50px)   {  body  { font-size:0.1em;  } }
+/*
+@media all and (min-width: 50px)   {  body  { font-size:0.1em;  } }
 @media all and (min-width: 100px)  {  body  { font-size:0.2em;  } }
 @media all and (min-width: 150px)  {  body  { font-size:0.3em;  } }
 @media all and (min-width: 200px)  {  body  { font-size:0.4em;  } }
 @media all and (min-width: 250px)  {  body  { font-size:0.5em;  } }
-@media all and (min-width: 300px)  {  body  { font-size:0.6em;  } }*/
+@media all and (min-width: 300px)  {  body  { font-size:0.6em;  } }
+*/
 
 @media all and (min-width: 50px)   {  body  { font-size:0.7em;  } }
 @media all and (min-width: 100px)  {  body  { font-size:0.7em;  } }

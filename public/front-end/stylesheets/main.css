@@ -109,13 +109,6 @@ header a.active:hover {
 	color: white;
 }
 
-header .right {
-	font-weight: 1;
-	font-family: var(--title-soft);
-	font-size: 15px;
-	float: right;
-}
-
 /*DROP DOWN ELEMENTS*/
 nav {
 	background-color: #202124;
