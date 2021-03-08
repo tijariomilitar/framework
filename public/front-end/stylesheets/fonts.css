@@ -64,3 +64,11 @@
 .font-28 { font-size:2.8em; }
 .font-29 { font-size:2.9em; }
 .font-30 { font-size:3.0em; }
+
+.bold {
+	font-weight: bold;
+}
+
+.italic {
+	font-style: italic;
+}
