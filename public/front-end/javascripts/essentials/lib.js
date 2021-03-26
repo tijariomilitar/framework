@@ -2,11 +2,6 @@
 // javascript lib
 // -------------------
 
-// Tools to implement
-
-// Date and time split to 2 variables
-// <input type="datetime-local" id="birthdaytime" name="birthdaytime">
-
 const lib = {
 	// Time
 	convertDate:function(date){
@@ -26,6 +21,18 @@ const lib = {
 			var convertedDate = "";
 		};
 		return convertedDate;
+	},
+	dateToTimestamp: (date) => {
+		console.log(date);
+		if(date){
+			let splited_date = date.split('-');
+			splited_date.year = splited_date[0];
+			splited_date.month = splited_date[1];
+			splited_date.day = splited_date[2];
+			date = new Date(splited_date.year,splited_date.month,splited_date.day,0,0);
+			return date.getTime();
+		};
+		return false;
 	},
 	datetimeToTimestamp: (datetime) => {
 		if(datetime){
@@ -89,6 +96,15 @@ const lib = {
 	fillDateInput: function(input){
 		return input.valueAsDate = new Date();
 	},
+	fillDatetimeInput: (input) => {
+        let date = new Date();
+        let day;let month;let hour;let minute;
+        if(date.getDate() < 10){ day = "0"+date.getDate() } else { day = date.getDate() };
+        if(date.getMonth() < 10){ month = "0"+date.getMonth() } else { month = date.getMonth() };
+        if(date.getHours() < 10){ hour = "0"+date.getHours() } else { hour = date.getHours() };
+        if(date.getMinutes() < 10){ minute = "0"+date.getMinutes() } else { minute = date.getMinutes() };
+        return input.value = date.getFullYear()+'-'+month+'-'+day+'T'+hour+':'+minute;
+    },
 	colectByMonth: function(month, dates){
 		let array = [];
 		let str = [];
