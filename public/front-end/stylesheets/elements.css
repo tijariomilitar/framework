@@ -20,65 +20,12 @@ input, select, button {
 	background-color: #fff;
 }
 
-/*.madesoulmaze {
-	font-family: madesoulmaze;
-	font-weight: 1;
-}
-
-@font-face {
-    font-family: madesoulmaze;
-    src: url('/fonts/madesoulmaze.woff');
-}*/
-
-.shadow {
-    box-shadow:0px 0px 10px #aaaaaa; 
-}
-
-.shadow-hover {
-	transition: all 0.7s ease 0s;
-}
-
-.shadow-hover:hover {
-    box-shadow:0px 0px 10px #aaaaaa; 
-	transition: all 0.3s ease 0s;
-}
-
-.shadow-2 {
-    box-shadow:0px 0px 10px #5a5a5a;
-}
-
-.border {
-    border: 1px #d2d2d2 solid;
-}
-
-.noborder {
-	border: none;
-    outline:none;
-}
-
-.radius-5 { border-radius: 5px; }
-.radius-10 { border-radius: 10px; }
-.radius-15 { border-radius: 15px; }
-.radius-20 { border-radius: 20px; }
-.radius-25 { border-radius: 25px; }
-.radius-30 { border-radius: 30px; }
-.radius-35 { border-radius: 35px; }
-.radius-40 { border-radius: 40px; }
-.radius-45 { border-radius: 45px; }
-.radius-50 { border-radius: 50px; }
-
 .border-explicit {
     border: 1px solid #646464;
 }
 
-.icon {
-    opacity: 0.6;
-    cursor: pointer;
-}
-
-.icon:hover {
-    opacity: 1;
-}
+.icon { opacity: 0.6; cursor: pointer; }
+.icon:hover { opacity: 1; }
 
 .input-generic {
     min-height: 30px;

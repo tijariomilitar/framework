@@ -1,42 +1,13 @@
-.paladino {
-	font-family: Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif;
-}
-
-.georgia { 
-	font-family: Georgia,Times,Times New Roman,serif; 
-}
-
-.century-gothic { 
-	font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
-}
-
-.avant-garde { 
-	font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
-}
-
-.lucida-grande { 
-	font-family: Lucida Grande,Lucida Sans Unicode,Lucida Sans,Geneva,Verdana,sans-serif; 
-}
-
-.impact { 
-	font-family: Impact,Haettenschweiler,Franklin Gothic Bold,Charcoal,Helvetica Inserat,Bitstream Vera Sans Bold,Arial Black,sans serif; 
-}
-
-.rockwell { 
-	font-family: Rockwell Extra Bold,Rockwell Bold,monospace; 
-}
-
-.times-new-roman { 
-	font-family: TimesNewRoman,Times New Roman,Times,Baskerville,Georgia,serif; 
-}
-
-.lucida-sans { 
-	font-family: Lucida Sans Typewriter,Lucida Console,monaco,Bitstream Vera Sans Mono,monospace; 
-}
-
-.great-vibes {
-	font-family: "Great Vibes", cursive;
-}
+.paladino { font-family: Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif; }
+.georgia { font-family: Georgia,Times,Times New Roman,serif; }
+.century-gothic { font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; }
+.avant-garde { font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif; }
+.lucida-grande { font-family: Lucida Grande,Lucida Sans Unicode,Lucida Sans,Geneva,Verdana,sans-serif; }
+.impact { font-family: Impact,Haettenschweiler,Franklin Gothic Bold,Charcoal,Helvetica Inserat,Bitstream Vera Sans Bold,Arial Black,sans serif; }
+.rockwell { font-family: Rockwell Extra Bold,Rockwell Bold,monospace; }
+.times-new-roman { font-family: TimesNewRoman,Times New Roman,Times,Baskerville,Georgia,serif; }
+.lucida-sans { font-family: Lucida Sans Typewriter,Lucida Console,monaco,Bitstream Vera Sans Mono,monospace; }
+.great-vibes { font-family: "Great Vibes", cursive; }
 
 .font-05 { font-size:0.5em; }
 .font-06 { font-size:0.6em; }
@@ -65,10 +36,6 @@
 .font-29 { font-size:2.9em; }
 .font-30 { font-size:3.0em; }
 
-.bold {
-	font-weight: bold;
-}
+.bold { font-weight: bold; }
 
-.italic {
-	font-style: italic;
-}
+.italic { font-style: italic; }

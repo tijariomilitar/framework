@@ -9,20 +9,16 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get("/", (req, res) => {
-	res.render("index");
-});
+// Routes
+app.get("/", (req, res) => { res.render("index"); });
 
-app.get("/box", (req, res) => {
-	res.render("box");
-});
+app.get("/getting-started/fundamentals", (req, res) => { res.render("documentation/getting-started/fundamentals"); });
+app.get("/getting-started/instalation", (req, res) => { res.render("documentation/getting-started/instalation"); });
 
-app.get("/boxes", (req, res) => {
-	res.render("boxes");
-});
+app.get("/structure/container", (req, res) => { res.render("documentation/structure/container"); });
+app.get("/structure/box", (req, res) => { res.render("documentation/structure/box"); });
+app.get("/structure/responsive", (req, res) => { res.render("documentation/structure/responsive"); });
 
-app.get("/carousel", (req, res) => {
-	res.render("carousel");
-});
+app.get("/js-library/date", (req, res) => { res.render("documentation/js-library/date"); });
 
 module.exports = app;

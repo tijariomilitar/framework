@@ -1,28 +1,28 @@
 @media (max-width: 380px) {
 	header { font-size: 1.3rem; }
-	.box { width: 99%; }
-	.btn { width: 99%; }
+	.box { width: 100%; }
+	.btn { width: 100%; }
 	footer { font-size: 0.68rem; }
 }
 
 @media (max-width: 440px) {
 	header { font-size: 1.3rem; }
-	.box { width: 99%; }
-	.btn { width: 99%; }
+	.box { width: 100%; }
+	.btn { width: 100%; }
 	footer { font-size: 0.68rem; }
 }
 
 @media (max-width: 780px) {
-	header { font-size: 1.3rem; } 
-	.box { width: 99%; } 
-	.btn { width: 99%; } 
+	header { font-size: 1.3rem; }
+	.box { width: 100%; }
+	.btn { width: 100%; }
 	footer { font-size: 0.68rem; } 
 }
 
 @media (max-width: 800px) {
-	header { font-size: 1.3rem; } 
-	.box { width:99%; }
-	.btn { width:99%; }
+	header { font-size: 1.3rem; }
+	.box { width:100%; }
+	.btn { width:100%; }
 	footer { font-size: 0.68rem; }
 }
 
@@ -30,11 +30,11 @@
 	section {
 		margin: 0px;
 		padding: 0px;
-		width: 99%;
+		width: 100%;
 	}
 	section .container {
 		display: block;
-		width: 99%;
+		width: 100%;
 		text-align: center;
 	}
 	.box, .mobile-box {

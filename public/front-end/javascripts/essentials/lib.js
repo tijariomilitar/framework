@@ -4,67 +4,6 @@
 
 const lib = {
 	// Time
-	convertDate:function(date){
-		let str = date.split('-');
-		if(str!=""){
-			var convertedDate = str[2]+"-"+str[1]+"-"+str[0];
-		} else {
-			var convertedDate = "";
-		};
-		return convertedDate;
-	},
-	convertDatetime: function(datetime){
-		let str = datetime.split('T');
-		if(str!=""){
-			var convertedDate = lib.convertDate(str[0])+" "+str[1];
-		} else {
-			var convertedDate = "";
-		};
-		return convertedDate;
-	},
-	dateToTimestamp: (date) => {
-		console.log(date);
-		if(date){
-			let splited_date = date.split('-');
-			splited_date.year = splited_date[0];
-			splited_date.month = splited_date[1];
-			splited_date.day = splited_date[2];
-			date = new Date(splited_date.year,splited_date.month,splited_date.day,0,0);
-			return date.getTime();
-		};
-		return false;
-	},
-	datetimeToTimestamp: (datetime) => {
-		if(datetime){
-			let date = datetime.split("T");
-			date.year = date[0].split("-")[0];
-			date.month = date[0].split("-")[1];
-			date.day = date[0].split("-")[2];
-			date.hour = date[1].split(":")[0];
-			date.minute = date[1].split(":")[1];
-			date = new Date(date.year,date.month,date.day,date.hour,date.minute);
-			return date.getTime();
-		};
-		return false;
-	},
-	timestampToDate: (timestamp) => {
-		let date = new Date(parseInt(timestamp));
-		let day;let month;let hour;let minute;
-		if(date.getDate() < 10){ day = "0"+date.getDate() } else { day = date.getDate() };
-		if(date.getMonth() < 10){ month = "0"+date.getMonth() } else { month = date.getMonth() };
-		if(date.getHours() < 10){ hour = "0"+date.getHours() } else { hour = date.getHours() };
-		if(date.getMinutes() < 10){ minute = "0"+date.getMinutes() } else { minute = date.getMinutes() };
-		return day+'-'+month+'-'+date.getFullYear()+' '+hour+':'+minute;
-	},
-	timestampToDatetime: (timestamp) => {
-		let date = new Date(parseInt(timestamp));
-		let day;let month;let hour;let minute;
-		if(date.getDate() < 10){ day = "0"+date.getDate() } else { day = date.getDate() };
-		if(date.getMonth() < 10){ month = "0"+date.getMonth() } else { month = date.getMonth() };
-		if(date.getHours() < 10){ hour = "0"+date.getHours() } else { hour = date.getHours() };
-		if(date.getMinutes() < 10){ minute = "0"+date.getMinutes() } else { minute = date.getMinutes() };
-		return date.getFullYear()+'-'+month+'-'+day+'T'+hour+':'+minute;
-	},
 	genDate: function(){
 		let d = new Date();
 		let date = "";
@@ -83,15 +22,92 @@ const lib = {
 		let d = new Date();
 		let date = "";
 		if(d.getDate()<10 && parseInt(d.getMonth())+1>9){
-			date = "0"+d.getDate()+"-"+(parseInt(d.getMonth())+1)+"-"+d.getFullYear()+"-"+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
+			date = "0"+d.getDate()+"-"+(parseInt(d.getMonth())+1)+"-"+d.getFullYear()+" "+d.getHours()+":"+d.getMinutes();
 		} else if(d.getDate()>9 && parseInt(d.getMonth())+1<10){
-			date = ""+d.getDate()+"-0"+(parseInt(d.getMonth())+1)+"-"+d.getFullYear()+"-"+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
+			date = ""+d.getDate()+"-0"+(parseInt(d.getMonth())+1)+"-"+d.getFullYear()+" "+d.getHours()+":"+d.getMinutes();
 		} else if(parseInt(d.getDate())<10 && parseInt(d.getMonth())+1<10){
-			date = "0"+d.getDate()+"-0"+(parseInt(d.getMonth())+1)+"-"+d.getFullYear()+"-"+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
+			date = "0"+d.getDate()+"-0"+(parseInt(d.getMonth())+1)+"-"+d.getFullYear()+" "+d.getHours()+":"+d.getMinutes();
 		} else {
-			date = ""+d.getDate()+"-"+parseInt(d.getMonth()+1)+"-"+d.getFullYear()+"-"+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
+			date = ""+d.getDate()+"-"+parseInt(d.getMonth()+1)+"-"+d.getFullYear()+" "+d.getHours()+":"+d.getMinutes();
 		};
 		return date;
+	},
+	genTimestamp: function(){
+		const currentDate = new Date();
+		const timestamp = currentDate.getTime();
+		return timestamp;
+	},
+	convertDate:function(date){
+		if(date){
+			let str = date.split('-');
+			if(str!=""){
+				var convertedDate = str[2]+"-"+str[1]+"-"+str[0];
+			} else {
+				var convertedDate = "";
+			};
+			return convertedDate;
+		};
+		return false;
+	},
+	convertDatetime: function(datetime){
+		if(datetime){
+			let str = datetime.split('T');
+			if(str!=""){
+				var convertedDate = lib.convertDate(str[0])+" "+str[1];
+			} else {
+				var convertedDate = "";
+			};
+			return convertedDate;
+		};
+		return false;
+	},
+	dateToTimestamp: (date) => {
+		if(date){
+			let splited_date = date.split('-');
+			splited_date.year = splited_date[0];
+			splited_date.month = splited_date[1];
+			splited_date.day = splited_date[2];
+			date = new Date(splited_date.year, (splited_date.month-1), splited_date.day);
+			return date.getTime();
+		};
+		return false;
+	},
+	datetimeToTimestamp: (datetime) => {
+		if(datetime){
+			let date = datetime.split("T");
+			date.year = date[0].split("-")[0];
+			date.month = date[0].split("-")[1];
+			date.day = date[0].split("-")[2];
+			date.hour = date[1].split(":")[0];
+			date.minute = date[1].split(":")[1];
+			date = new Date(date.year,date.month-1,date.day,date.hour,date.minute);
+			return date.getTime();
+		};
+		return false;
+	},
+	timestampToDate: (timestamp) => {
+		if(timestamp){
+			let date = new Date(parseInt(timestamp));
+			let day;let month;let hour;let minute;
+			if(date.getDate() < 10){ day = "0"+date.getDate() } else { day = date.getDate() };
+			if(date.getMonth() < 10){ month = "0"+(date.getMonth()+1) } else { month = (date.getMonth()+1) };
+			if(date.getHours() < 10){ hour = "0"+date.getHours() } else { hour = date.getHours() };
+			if(date.getMinutes() < 10){ minute = "0"+date.getMinutes() } else { minute = date.getMinutes() };
+			return day+'-'+month+'-'+date.getFullYear()+' '+hour+':'+minute;
+		};
+		return false;
+	},
+	timestampToDatetime: (timestamp) => {
+		if(timestamp){
+			let date = new Date(parseInt(timestamp));
+			let day;let month;let hour;let minute;
+			if(date.getDate() < 10){ day = "0"+date.getDate() } else { day = date.getDate() };
+			if(date.getMonth() < 10){ month = "0"+(date.getMonth()+1) } else { month = (date.getMonth()+1) };
+			if(date.getHours() < 10){ hour = "0"+date.getHours() } else { hour = date.getHours() };
+			if(date.getMinutes() < 10){ minute = "0"+date.getMinutes() } else { minute = date.getMinutes() };
+			return date.getFullYear()+'-'+month+'-'+day+'T'+hour+':'+minute;
+		};
+		return false;
 	},
 	fillDateInput: function(input){
 		return input.valueAsDate = new Date();
@@ -119,28 +135,11 @@ const lib = {
 
 	//Math
 	roundToInt: (num, places) => {
-		return +(parseFloat(num).toFixed(places));
+		return (parseFloat(num).toFixed(places));
 	},
 	roundValue: function(value){
 		return Math.round((value) * 100) / 100;
 	},
-
-	// HTTP
-	serializedFormToJSON: (array) =>{
-		var string = "";
-		for(i in array){
-			if (i == 0) {
-				string += "{" + JSON.stringify(array[i].name) + ":" + JSON.stringify(array[i].value) + ", ";
-			} else if (i > 0 && i < array.length - 1) {
-				string += JSON.stringify(array[i].name) + ":" + JSON.stringify(array[i].value) + ", ";
-			} else if(array.length - 1 == i){
-				string += JSON.stringify(array[i].name) + ":" + JSON.stringify(array[i].value) + "}";
-			};
-		};
-
-		return string;
-	},
-
 	// html/css lib
 	displayDiv: (div, button, openText, closeText) => {
 		let selectedDiv = document.getElementById(div);

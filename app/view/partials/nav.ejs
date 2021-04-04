@@ -1,0 +1,30 @@
+<div id="mySidenav" class="sidenav border">
+    <span class="closebtn pointer" onclick="closeNav()">&times;</span>
+
+    <div class="box b1 container padding-5">
+	    <select class="mobile-box b1 em13 box-hover pointer padding-5 margin-top-5 avant-garde hide-disabled" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+		    <option value="" disabled selected>Getting started</option>
+		    <option value="/getting-started/Fundamentals">Fundamentals</option>
+		    <option value="/getting-started/instalation">Instalation</option>
+		</select>
+
+		<select class="mobile-box b1 em13 box-hover pointer padding-5 margin-top-5 avant-garde hide-disabled" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+		    <option value="" disabled selected>Structure</option>
+		    <option value="/structure/container">Container</option>
+		    <option value="/structure/box">Box</option>
+		    <option value="/structure/Responsive">Responsive</option>
+		</select>
+
+		<select class="mobile-box b1 em13 box-hover pointer padding-5 margin-top-5 avant-garde hide-disabled" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+		    <option value="" disabled selected>JS Library</option>
+		    <option value="/js-library/date">Date</option>
+		    <option value="/js-library/math">Math</option>
+		    <option value="/js-library/text">Text</option>
+		</select>
+    </div>
+</div>
+
+<script>
+	function openNav() { document.getElementById("mySidenav").style.width = "300px"; };
+	function closeNav() { document.getElementById("mySidenav").style.width = "0"; };
+</script>
