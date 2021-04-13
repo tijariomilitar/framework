@@ -72,6 +72,20 @@ const lib = {
 		};
 		return false;
 	},
+	fulldateToTimestamp: (full_date) => {
+		let date = full_date.split('-');
+		let time = date[3].split(':');
+
+		let day = date[0];
+		let month = date[1];
+		let year = date[2];
+		let hour = time[0];
+		let second = time[1];
+		let ms = time[2];
+
+		date = new Date(year,month,day,hour,second,ms);
+		return date.getTime();
+	},
 	datetimeToTimestamp: (datetime) => {
 		if(datetime){
 			let date = datetime.split("T");
