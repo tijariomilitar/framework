@@ -18,6 +18,20 @@ const lib = {
 		};
 		return date;
 	},
+	genPatternDate: function(){
+		let d = new Date();
+		let date = "";
+		if(d.getDate()<10 && parseInt(d.getMonth())+1>9){
+			date = ""+d.getFullYear()+"-"+(parseInt(d.getMonth())+1)+"-0"+d.getDate();
+		} else if(d.getDate()>9 && parseInt(d.getMonth())+1<10){
+			date = ""+d.getFullYear()+"-0"+(parseInt(d.getMonth())+1)+"-"+d.getDate();
+		} else if(parseInt(d.getDate())<10 && parseInt(d.getMonth())+1<10){
+			date = ""+d.getFullYear()+"-0"+(parseInt(d.getMonth())+1)+"-0"+d.getDate();
+		} else {
+			date = ""+d.getFullYear()+"-"+parseInt(d.getMonth()+1)+"-"+d.getDate();
+		};
+		return date;
+	},
 	genFullDate: function(){
 		let d = new Date();
 		let date = "";
@@ -67,6 +81,18 @@ const lib = {
 			splited_date.year = splited_date[0];
 			splited_date.month = splited_date[1];
 			splited_date.day = splited_date[2];
+			date = new Date(splited_date.year, (splited_date.month-1), splited_date.day);
+			return date.getTime();
+		};
+		return false;
+	},
+	patterndateToTimestamp: (date) => {
+		if(date){
+			let splited_date = date.split('-');
+			splited_date.year = splited_date[0];
+			splited_date.month = splited_date[1];
+			splited_date.day = splited_date[2];
+			console.log(splited_date);
 			date = new Date(splited_date.year, (splited_date.month-1), splited_date.day);
 			return date.getTime();
 		};
