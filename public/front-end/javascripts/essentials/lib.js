@@ -125,6 +125,7 @@ const lib = {
 		};
 		return false;
 	},
+	timestampDay: () => { return 86400000; },
 	timestampToDate: (timestamp) => {
 		if(timestamp){
 			let date = new Date(parseInt(timestamp));
