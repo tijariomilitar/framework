@@ -20,6 +20,10 @@ input, select, button {
 	background-color: #fff;
 }
 
+.transparent {
+	background-color: transparent;
+}
+
 .border-explicit {
     border: 1px solid #646464;
 }
