@@ -153,7 +153,7 @@ input, select, button {
 
 .underline {
 	margin: auto;
-	border-bottom: 1px solid #f0f0f0;
+	border-bottom: var(--theme-background-color);
 	width: 90%;
 	padding-bottom: 5px;
 	margin-bottom: 10px;
@@ -182,7 +182,7 @@ input, select, button {
 
 .explicit-btn {
 	/*background-color: #96a28b;*/
-	background-color: var(--theme-explicit-btn);
+	background-color: var(--theme-explicit-color);
 	font-size: 12px;
 	width:250px;
 	height: 30px;
