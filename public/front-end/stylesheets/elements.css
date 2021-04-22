@@ -153,7 +153,7 @@ input, select, button {
 
 .underline {
 	margin: auto;
-	border-bottom: 1px solid #f0f0f0;
+	border-bottom: 1px solid #c8c8c8;
 	width: 90%;
 	padding-bottom: 5px;
 	margin-bottom: 10px;
@@ -161,7 +161,7 @@ input, select, button {
 
 .underline-explicit {
 	margin: auto;
-	border-bottom: 1px solid #000;
+	border-bottom: 1px solid #646464;
 	width: 90%;
 	padding-bottom: 5px;
 	margin-bottom: 10px;
