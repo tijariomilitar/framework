@@ -209,7 +209,8 @@
 
 .box-hover {
 	transition: all 0.5s ease 0s;
-	background-color: var(--theme-box-hover-background-color);
+	background-color: transparent;
+	/*background-color: var(--theme-box-hover-background-color);*/
 }
 
 .box-hover:hover {
