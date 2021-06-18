@@ -398,9 +398,13 @@ lib.index = {
 	}
 };
 
-lib.sort = (arr, key) => {
+lib.sort = (arr, key, order) => {
 	return arr = arr.sort((a, b) => {
-		return a[key] - b[key];
+		if(order == "desc"){
+			return b[key] - a[key];
+		} else {
+			return a[key] - b[key];
+		}
 	}); 
 }
 

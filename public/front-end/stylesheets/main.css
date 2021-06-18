@@ -45,6 +45,7 @@ textarea {
 
 .scroll-y { overflow-y: scroll; }
 .scroll-x { overflow-x: scroll; }
+.scroll-hide { overflow-y: hidden; }
 
 .ajax-loader {
 	position: fixed;
