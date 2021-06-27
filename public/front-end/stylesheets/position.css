@@ -9,8 +9,7 @@
 }
 
 .top { top:0; }
-.left { float: left; }
-.right { float: right }
+.right { margin-left: auto; }
 
 .margin-top-1 { margin-top: 1px; }
 .margin-top-5 { margin-top: 5px; }

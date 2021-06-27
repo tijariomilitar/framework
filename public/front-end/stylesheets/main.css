@@ -37,10 +37,11 @@ tr:hover {
 	background-color: #f2f2f2;
 }
 
-textarea {
-	width: 90%;
-	height: 300px;
+.snippet {
+	background-color:#888;
 	resize: none;
+	overflow:hidden;
+	padding: 10px;
 }
 
 .scroll-y { overflow-y: scroll; }

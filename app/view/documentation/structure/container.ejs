@@ -1,17 +1,55 @@
 <!DOCTYPE html>
 <html>
-	<head>
-        <%- include ('../../partials/head') %>
-        <%- include ('../../partials/header') %>
-	</head>
-	<body>
-        <%- include ('../../partials/nav') %>
-		<div class="container">
-                  
-            
+<head>
+<%- include ('../../partials/head') %>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/styles/tomorrow-night-bright.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.1/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<%- include ('../../partials/header') %>
+
+<style type="text/css">
+	.fontCode {
+	  border: none;
+	  resize: none;
+	  background-color: #333;
+	  color: #fff;
+	}
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #222; }
+  ::-webkit-scrollbar-thumb { background: #777; }
+  ::-webkit-scrollbar-thumb:hover { background: #555; }
+</style>
+</head>
+<body>
+<%- include ('../../partials/nav') %>
+<div class="container">
+<div class="box b1 underline em12 bold center">Container</div>
+	<textarea class="box b2 em08 fontCode height-200 padding-15 margin-top-10" readonly>
+	<div class="box b1 container">
+		<p class="box b1 underline center">Container is made to easy pattern flex box</p>
+		<div class="box b1 padding-10 margin-top-10 border center">b1</div>
+		<div class="box b2 padding-10 margin-top-10 border center">b2</div>
+		<div class="box b2 padding-10 margin-top-10 border center">b2</div>
+		<div class="box b3 padding-10 margin-top-10 border center">b3</div>
+		<div class="box b3 padding-10 margin-top-10 border center">b3</div>
+		<div class="box b3 padding-10 margin-top-10 border center">b3</div>
+	</div>
+	</textarea>
+	<div class="box b2 container border padding-10 margin-top-10">
+		<div class="box b1 container">
+			<p class="box b1 underline center">Container is made to easy pattern flex box</p>
+			<div class="box b1 padding-10 margin-top-10 border center">b1</div>
+			<div class="box b2 padding-10 margin-top-10 border center">b2</div>
+			<div class="box b2 padding-10 margin-top-10 border center">b2</div>
+			<div class="box b3 padding-10 margin-top-10 border center">b3</div>
+			<div class="box b3 padding-10 margin-top-10 border center">b3</div>
+			<div class="box b3 padding-10 margin-top-10 border center">b3</div>
 		</div>
-		<div id="ajax-loader" class="ajax-loader">
-			<div class="loader"></div>
-		</div>
-	</body>
+	</div>
+</div>
+<div id="ajax-loader" class="ajax-loader">
+	<div class="loader"></div>
+</div>
+</body>
 </html>
