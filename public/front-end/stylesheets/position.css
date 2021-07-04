@@ -1,6 +1,6 @@
 /*Align*/
 .v-center { margin: auto; }
-.h-center { text-align: center; }
+.h-center { justify-content: center; }
 
 .center {
 	margin: auto;

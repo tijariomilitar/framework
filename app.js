@@ -17,6 +17,7 @@ app.get("/getting-started/instalation", (req, res) => { res.render("documentatio
 
 app.get("/structure/container", (req, res) => { res.render("documentation/structure/container"); });
 app.get("/structure/box", (req, res) => { res.render("documentation/structure/box"); });
+app.get("/structure/position", (req, res) => { res.render("documentation/structure/position"); });
 app.get("/structure/responsive", (req, res) => { res.render("documentation/structure/responsive"); });
 
 app.get("/js-library/date", (req, res) => { res.render("documentation/js-library/date"); });

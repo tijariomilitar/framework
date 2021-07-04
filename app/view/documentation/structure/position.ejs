@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<%- include ('../../partials/head') %>
+<%- include ('../../partials/header') %>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js" integrity="sha512-W7EehcwtSbRF63FIQlXEOOd5mnq0Et0V0nUOvwcUvjnCKgOLLYbqriQxEQSp63sfrkryxIg/A/O8v8O18QwQCQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>hljs.highlightAll();</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/monokai-sublime.min.css" integrity="sha512-ade8vHOXH67Cm9z/U2vBpckPD1Enhdxl3N05ChXyFx5xikfqggrK4RrEele+VWY/iaZyfk7Bhk6CyZvlh7+5JQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style type="text/css">
+	.h-center { justify-content: center; }
+</style>
+</head>
+<body>
+<%- include ('../../partials/nav') %>
+<div class="container">
+<div class="box b1 underline em12 bold center">Centralizar box</div>
+<pre class="box b2 em08">
+	<code>
+&lt;div class="box b1 container h-center"&gt;
+	&lt;p class="box b1 underline center"&gt;You can centralize box positions using 'h-center'&lt;/p&gt;
+	&lt;div class="box b2-3 padding-5 margin-top-5 border center"&gt;b2-3&lt;/div&gt;
+	&lt;div class="box b2 padding-5 margin-top-5 border center"&gt;b2&lt;/div&gt;
+	&lt;div class="box b2 padding-5 margin-top-5 border center"&gt;b2&lt;/div&gt;
+	&lt;div class="box b3 padding-5 margin-top-5 border center"&gt;b3&lt;/div&gt;
+&lt;/div&gt;
+	</code>
+</pre>
+	<div class="box b2 container border padding-10 margin-top-10">
+		<div class="box b1 container h-center">
+			<p class="box b1 underline center">You can centralize box positions using 'h-center'</p>
+			<div class="box b2-3 padding-5 margin-top-5 border center">b2-3</div>
+			<div class="box b2 padding-5 margin-top-5 border center">b2</div>
+			<div class="box b2 padding-5 margin-top-5 border center">b2</div>
+			<div class="box b3 padding-5 margin-top-5 border center">b3</div>
+		</div>
+	</div>
+</div>
+
+<div class="container margin-top-10">
+<div class="box b1 underline em12 bold center">Centralizar box</div>
+<pre class="box b2 em08">
+	<code>
+&lt;div class="box b1 container h-center"&gt;
+	&lt;p class="box b1 underline center"&gt;Dont forget that the logic keeps the same but at centering&lt;/p&gt;
+	&lt;div class="box b2 padding-5 margin-top-5 border center"&gt;b2&lt;/div&gt;
+	&lt;div class="box b2 padding-5 margin-top-5 border center"&gt;b2&lt;/div&gt;
+	&lt;div class="box b2 padding-5 margin-top-5 border center"&gt;b2&lt;/div&gt;
+	&lt;div class="box b3 padding-5 margin-top-5 border center"&gt;b3&lt;/div&gt;
+&lt;/div&gt;
+	</code>
+</pre>
+	<div class="box b2 container border padding-10 margin-top-10">
+		<div class="box b1 container h-center">
+			<p class="box b1 underline center">Dont forget that the logic keeps the same but at centering</p>
+			<div class="box b2 padding-5 margin-top-5 border center">b2</div>
+			<div class="box b2 padding-5 margin-top-5 border center">b2</div>
+			<div class="box b2 padding-5 margin-top-5 border center">b2</div>
+			<div class="box b3 padding-5 margin-top-5 border center">b3</div>
+		</div>
+	</div>
+</div>
+
+<div id="ajax-loader" class="ajax-loader">
+	<div class="loader"></div>
+</div>
+</body>
+</html>
