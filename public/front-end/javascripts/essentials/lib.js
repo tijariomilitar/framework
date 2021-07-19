@@ -238,6 +238,17 @@ const lib = {
 			}
 		});
 	},
+	findCheckedRadios: (radio_name) => {
+		let radios = document.getElementsByName(radio_name);
+		for(let i in radios){
+			if(radios[i].checked){
+				return radios[i];
+			};
+		};
+		radios = false;
+		radios.value = false;
+		return radios;
+	},
 	splitTextBy: (text, split_string) => {
 		if(text && split_string){
 			let splited_text = text.split(split_string);
