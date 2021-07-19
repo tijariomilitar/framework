@@ -3,7 +3,6 @@
 // -------------------
 
 const lib = {
-	// Time
 	genDate: function(){
 		let d = new Date();
 		let date = "";
