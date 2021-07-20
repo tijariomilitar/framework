@@ -468,6 +468,11 @@ lib.address = {
 	}
 };
 
+lib.eventEmmiter = (element, event) => {
+	let e = new Event(event);
+	element.dispatchEvent(e);
+};
+
 lib.openExternalLink = (url) => {
 	if('http'.substr(0, 4) == url.substr(0, 4)){
 		window.open(url, '_blank');
