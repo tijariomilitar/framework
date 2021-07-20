@@ -69,6 +69,25 @@
 .opacity-hover-09 { opacity: 0.9; }
 .opacity-hover-09:hover { opacity: 1.0; }
 
+.opacity-hover-o01 { opacity: 1.0; }
+.opacity-hover-o01:hover { opacity: 0.1; }
+.opacity-hover-o02 { opacity: 1.0; }
+.opacity-hover-o02:hover { opacity: 0.2; }
+.opacity-hover-o03 { opacity: 1.0; }
+.opacity-hover-o03:hover { opacity: 0.3; }
+.opacity-hover-o04 { opacity: 1.0; }
+.opacity-hover-o04:hover { opacity: 0.4; }
+.opacity-hover-o05 { opacity: 1.0; }
+.opacity-hover-o05:hover { opacity: 0.5; }
+.opacity-hover-o06 { opacity: 1.0; }
+.opacity-hover-o06:hover { opacity: 0.6; }
+.opacity-hover-o07 { opacity: 1.0; }
+.opacity-hover-o07:hover { opacity: 0.7; }
+.opacity-hover-o08 { opacity: 1.0; }
+.opacity-hover-o08:hover { opacity: 0.8; }
+.opacity-hover-o09 { opacity: 1.0; }
+.opacity-hover-o09:hover { opacity: 0.9; }
+
 .transp { background-color: transparent; }
 .rgb000 { background-color: #000; }
 .rgb111 { background-color: #111; }
