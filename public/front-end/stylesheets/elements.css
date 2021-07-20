@@ -523,6 +523,10 @@ input, select, button {
 	height: auto;
 }
 
+.wrap {
+	overflow-wrap: break-word;
+}
+
 .nowrap {
 	white-space: nowrap;
 }
