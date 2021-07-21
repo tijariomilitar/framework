@@ -20,9 +20,7 @@ input, select, button {
 	background-color: #fff;
 }
 
-.transparent {
-	background-color: transparent;
-}
+.transparent { background-color: transparent; }
 
 .border-explicit { border: 1px solid #646464; }
 .border-explicit-2 { border: 2px solid #646464; }
@@ -87,6 +85,14 @@ input, select, button {
     outline:none;
 }
 
+.border-bottom-2 {
+	border-top: none;
+	border-left: none;
+	border-right: none;
+    border-bottom: 2px solid #666;
+    outline:none;
+}
+
 .input-border-bottom:hover {
     border-bottom: 1px solid #000;
 }
@@ -108,14 +114,6 @@ input, select, button {
 
 .pointer {
 	cursor: pointer;
-}
-
-.btn {
-	color: #000;
-	margin-left: 0.5%;
-	margin-right: 0.5%;
-	box-sizing: border-box;
-	border: 1px #f0f0f0 solid;;
 }
 
 .submit {
