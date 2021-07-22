@@ -520,13 +520,9 @@ input, select, button {
 	height: auto;
 }
 
-.wrap {
-	overflow-wrap: break-word;
-}
-
-.nowrap {
-	white-space: nowrap;
-}
+.wrap { overflow-wrap: break-word; }
+.nowrap { white-space: nowrap; }
+.pre-wrap { white-space: pre-wrap; }
 
 .tbl-show-link {
 	border-radius: 50px;
