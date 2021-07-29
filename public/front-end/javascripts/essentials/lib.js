@@ -473,6 +473,17 @@ lib.eventEmmiter = (element, event) => {
 	element.dispatchEvent(e);
 };
 
+lib.copyToClipboard = (output, element) => {
+	let text;
+	if(output && element){ text = document.getElementById(output).elements.namedItem(element); } 
+	else if(output && !element){ text = document.getElementById(output); } 
+	else { alert("Texto inválido!"); return false; }
+	text.select();
+	document.execCommand("copy");
+	alert("Copiado para área de transferência");
+	return true;
+};
+
 lib.openExternalLink = (url) => {
 	if('http'.substr(0, 4) == url.substr(0, 4)){
 		window.open(url, '_blank');
