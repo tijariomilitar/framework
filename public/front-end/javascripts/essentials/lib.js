@@ -416,7 +416,12 @@ lib.sort = (arr, key, order) => {
 			return a[key] - b[key];
 		}
 	}); 
-}
+};
+
+lib.removeChar = (string, regex) => {
+	for(let i in regex){ string = string.replace(regex[i], ""); };
+	return string;
+};
 
 lib.dropdown = {
 	render: (objects, input_id, dropdown_id, target, key, props) => {
