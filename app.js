@@ -20,6 +20,8 @@ app.get("/structure/box", (req, res) => { res.render("documentation/structure/bo
 app.get("/structure/position", (req, res) => { res.render("documentation/structure/position"); });
 app.get("/structure/responsive", (req, res) => { res.render("documentation/structure/responsive"); });
 
+app.get("/image/zoom", (req, res) => { res.render("documentation/image/zoom"); });
+
 app.get("/js-library/date", (req, res) => { res.render("documentation/js-library/date"); });
 
 module.exports = app;

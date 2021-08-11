@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<%- include ('../../partials/head') %>
+<%- include ('../../partials/header') %>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js" integrity="sha512-W7EehcwtSbRF63FIQlXEOOd5mnq0Et0V0nUOvwcUvjnCKgOLLYbqriQxEQSp63sfrkryxIg/A/O8v8O18QwQCQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>hljs.highlightAll();</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/monokai-sublime.min.css" integrity="sha512-ade8vHOXH67Cm9z/U2vBpckPD1Enhdxl3N05ChXyFx5xikfqggrK4RrEele+VWY/iaZyfk7Bhk6CyZvlh7+5JQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+<%- include ('../../partials/nav') %>
+<div class="container">
+<div class="box b1 underline em12 bold center">Image Zoom</div>
+	<div class="box b2 border relative">
+		<img id="myimage" class="width-400" src="/images/favicon/fmicon-black.png">
+	</div>
+	<div id="myresult" class="box b2 border height-300"></div>
+</body>
+<script src="/front-end/javascripts/essentials/lib.js"></script>
+<script>
+	lib.image = {
+		zoom: (imgID, resultID) => {
+			let img, lens, result, cx, cy;
+			img = document.getElementById(imgID);
+			result = document.getElementById(resultID);
+			lens = document.createElement("DIV");
+			lens.setAttribute("class", "img-zoom-lens");
+			img.parentElement.insertBefore(lens, img);
+			cx = result.offsetWidth / lens.offsetWidth;
+			cy = result.offsetHeight / lens.offsetHeight;
+			result.style.backgroundImage = "url('" + img.src + "')";
+			result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+			lens.addEventListener("mousemove", moveLens);
+			img.addEventListener("mousemove", moveLens);
+			lens.addEventListener("touchmove", moveLens);
+			img.addEventListener("touchmove", moveLens);
+
+			function getCursorPos (e) {
+				let a, x = 0, y = 0;
+				e = e || window.event;
+				a = img.getBoundingClientRect();
+				x = e.pageX - a.left;
+				y = e.pageY - a.top;
+				x = x - window.pageXOffset;
+				y = y - window.pageYOffset;
+				return {x : x, y : y};
+			};
+
+			function moveLens (e) {
+				let pos, x, y;
+				e.preventDefault();
+				pos = getCursorPos(e);
+				x = pos.x - (lens.offsetWidth / 2);
+				y = pos.y - (lens.offsetHeight / 2);
+				if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
+				if (x < 0) {x = 0;}
+				if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+				if (y < 0) {y = 0;}
+				lens.style.left = x + "px";
+				lens.style.top = y + "px";
+				result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+			};
+		}
+	};
+
+	window.addEventListener("load", function(){
+	   lib.image.zoom("myimage", "myresult");
+	});
+</script>
+</html>
