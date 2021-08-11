@@ -25,18 +25,13 @@
 }
 
 figure.zoom {
-	opacity: 0;
 	background-position: 50% 50%;
 	position: relative;
 	overflow: hidden;
 	cursor: zoom-in;
 }
 
-figure.zoom:hover {
-	opacity: 1;
-}
-
-figure.zoom img:hover { 
+figure.zoom img:hover {
 	opacity: 0;
 }
 
