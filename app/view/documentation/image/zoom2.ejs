@@ -14,14 +14,16 @@
 <body>
 <%- include ('../../partials/nav') %>
 <div class="container">
-	<div class="box b1 underline em12 bold center">Image Zoom</div>
-	<figure class="box b2 zoom" onmousemove="lib.image.zoom(event)" style="background-image: url(//res.cloudinary.com/active-bridge/image/upload/slide1.jpg)">
-	  <img class="image-fit" src="//res.cloudinary.com/active-bridge/image/upload/slide1.jpg" />
-	</figure>
-
-	<figure class="box b2 zoom" onmousemove="lib.image.zoom(event)" style="background-image: url(//res.cloudinary.com/active-bridge/image/upload/slide1.jpg)">
-	  <img class="image-fit" src="//res.cloudinary.com/active-bridge/image/upload/slide1.jpg" />
-	</figure>
+<div class="box b1 underline em12 bold center">Image Zoom</div>
+	<div class="box b3 border relative center">
+		<img id="myimage" class="width-300" src="/images/favicon/fmicon-black.png">
+	</div>
+	<div id="myresult" class="box b3 border height-300"></div>
 </body>
 <script src="/front-end/javascripts/essentials/lib.js"></script>
+<script>
+	window.addEventListener("load", function(){
+	   lib.image.zoom("myimage", "myresult");
+	});
+</script>
 </html>
