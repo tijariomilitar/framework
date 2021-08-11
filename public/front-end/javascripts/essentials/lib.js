@@ -635,8 +635,8 @@ lib.image = {
 		let zoomer = e.currentTarget;
 		e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX;
 		e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX;
-		x = offsetX/zoomer.offsetWidth*50;
-		y = offsetY/zoomer.offsetHeight*50;
+		x = offsetX/zoomer.offsetWidth*10;
+		y = offsetY/zoomer.offsetHeight*10;
 		zoomer.style.backgroundPosition = x + '% ' + y + '%';
 	}
 };
