@@ -26,8 +26,7 @@
 
 .img-zoom-lens {
 	position: absolute;
-	border: 1px solid #d4d4d4;
-	/*set the size of the lens:*/
-	width: 125px;
-	height: 125px;
+	/*border: 1px solid #d4d4d4;*/
+	width: 150px;
+	height: 150px;
 }
