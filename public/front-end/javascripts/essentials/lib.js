@@ -107,7 +107,7 @@ const lib = {
 			date.minute = date[3].split(":")[1];
 			date = new Date(date.year,date.month-1,date.day,date.hour,date.minute);
 			return date.getTime();
-		};
+		}
 		return false;
 	},
 	datetimeToTimestamp: (datetime) => {
@@ -120,7 +120,7 @@ const lib = {
 			date.minute = date[1].split(":")[1];
 			date = new Date(date.year,date.month-1,date.day,date.hour,date.minute);
 			return date.getTime();
-		};
+		}
 		return false;
 	},
 	fulldateToDatetime: () => {
