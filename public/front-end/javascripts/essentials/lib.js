@@ -126,19 +126,6 @@ const lib = {
 	fulldateToDatetime: () => {
 		return null;
 	},
-	fulldateToTimestamp: (datetime) => {
-		if(datetime){
-			let date = datetime.split(":");
-			date.year = date[0].split("-")[0];
-			date.month = date[0].split("-")[1];
-			date.day = date[0].split("-")[2];
-			date.hour = date[1].split(":")[0];
-			date.minute = date[1].split(":")[1];
-			date = new Date(date.year,date.month-1,date.day,date.hour,date.minute);
-			return date.getTime();
-		};
-		return false;
-	},
 	timestampDay: () => { return 86400000; },
 	timestampToDate: (timestamp) => {
 		if(timestamp){
