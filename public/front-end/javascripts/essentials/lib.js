@@ -97,19 +97,18 @@ const lib = {
 		};
 		return false;
 	},
-	fulldateToTimestamp: (full_date) => {
-		let date = full_date.split('-');
-		let time = date[3].split(':');
-
-		let day = date[0];
-		let month = date[1];
-		let year = date[2];
-		let hour = time[0];
-		let second = time[1];
-		let ms = time[2];
-
-		date = new Date(year,month,day,hour,second,ms);
-		return date.getTime();
+	fulldateToTimestamp: (fulldate) => {
+		if(fulldate){
+			let date = fulldate.split("-");
+			date.day = date[0];
+			date.month = date[1];
+			date.year = date[2];
+			date.hour = date[3].split(":")[0];
+			date.minute = date[3].split(":")[1];
+			date = new Date(date.year,date.month-1,date.day,date.hour,date.minute);
+			return date.getTime();
+		};
+		return false;
 	},
 	datetimeToTimestamp: (datetime) => {
 		if(datetime){
