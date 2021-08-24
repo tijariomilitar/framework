@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <%- include ('../../partials/head') %>
+        <%- include ('../../partials/header') %>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js" integrity="sha512-W7EehcwtSbRF63FIQlXEOOd5mnq0Et0V0nUOvwcUvjnCKgOLLYbqriQxEQSp63sfrkryxIg/A/O8v8O18QwQCQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script>hljs.highlightAll();</script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/monokai-sublime.min.css" integrity="sha512-ade8vHOXH67Cm9z/U2vBpckPD1Enhdxl3N05ChXyFx5xikfqggrK4RrEele+VWY/iaZyfk7Bhk6CyZvlh7+5JQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	</head>
+	<body>
+        <%- include ('../../partials/nav') %>
+        <div class="box b1 underline center">Math Handlers</div>
+		<div class="container ground padding-10">
+            <div class="box b1 underline center">Rule of Three</div>
+            <form id="rule-of-three-form" class="box b2 container padding-5">
+                <input type="text" name="index" class="box b2 input-generic margin-top-5 center" placeholder="Valor total">
+                <input type="text" name="target" class="box b2 input-generic margin-top-5 center" placeholder="Resultado total">
+                <input type="text" name="sample" class="box b2 input-generic margin-top-5 center" placeholder="Amostra">
+                <input type="submit" name="submit" value ="Calcular" class="box b2 submit-generic margin-top-5">
+            </form>
+            <div id="rule-of-three-box" class="box b2 container padding-5 margin-top-10 border">
+                
+            </div>
+		</div>
+		<div id="ajax-loader" class="ajax-loader"><div class="loader"></div></div>
+	</body>
+      <footer>
+            <script src="/front-end/javascripts/essentials/lib.js"></script>
+      </footer>
+      <script>
+        let ruleOfThree = document.getElementById("rule-of-three-form");
+        if(ruleOfThree){
+            ruleOfThree.addEventListener("submit", async event => {
+                event.preventDefault();
+
+                let index = event.target.elements.namedItem("index").value;
+                let target = event.target.elements.namedItem("target").value;
+                let sample = event.target.elements.namedItem("sample").value;
+
+                let result = lib.ruleOfThree(index, target, sample);
+
+                let html = "";
+                html += "<div class='box b2 container margin-top-5'>";
+                    html += "<div class='box b1 em06'>Valor Total</div>";
+                    html += "<div class='box b1 padding-5 border'>"+index+"</div>";
+                html += "</div>";
+                html += "<div class='box b2 container margin-top-5'>";
+                    html += "<div class='box b1 em06'>Resultado Total</div>";
+                    html += "<div class='box b1 padding-5 border'>"+target+"</div>";
+                html += "</div>";
+                html += "<div class='box b2 container margin-top-5'>";
+                    html += "<div class='box b1 em06'>Amostra</div>";
+                    html += "<div class='box b1 padding-5 border'>"+sample+"</div>";
+                html += "</div>";
+                html += "<div class='box b2 container margin-top-5'>";
+                    html += "<div class='box b1 em06'>Resultado</div>";
+                    html += "<div class='box b1 padding-5 border'>"+result+"</div>";
+                html += "</div>";
+
+                document.getElementById("rule-of-three-box").innerHTML = html;
+            });
+        }
+      </script>
+</html>

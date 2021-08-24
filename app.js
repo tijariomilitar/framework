@@ -23,5 +23,6 @@ app.get("/structure/responsive", (req, res) => { res.render("documentation/struc
 app.get("/image/zoom", (req, res) => { res.render("documentation/image/zoom"); });
 
 app.get("/js-library/date", (req, res) => { res.render("documentation/js-library/date"); });
+app.get("/js-library/math", (req, res) => { res.render("documentation/js-library/math"); });
 
 module.exports = app;
