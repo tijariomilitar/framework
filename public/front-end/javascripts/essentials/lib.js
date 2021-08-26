@@ -1,7 +1,6 @@
 // -------------------
 // javascript lib
 // -------------------
-
 const lib = {
 	genDate: function(){
 		let d = new Date();
@@ -421,7 +420,7 @@ lib.sort = (arr, key, order) => {
 };
 
 lib.removeChar = (string, regex) => {
-	for(let i in regex){ string = string.replace(regex[i], ""); };
+	for(let i in regex){ string = string.replaceAll(regex[i], ""); };
 	return string;
 };
 
