@@ -479,11 +479,12 @@ lib.eventEmmiter = (element, event) => {
 	element.dispatchEvent(e);
 };
 
-lib.copyToClipboard = (output, element) => {
+lib.copyToClipboard = (output, element, regex) => {
 	let text;
 	if(output && element){ text = document.getElementById(output).elements.namedItem(element); } 
 	else if(output && !element){ text = document.getElementById(output); } 
 	else { alert("Texto inválido!"); return false; }
+	text.value = lib.removeChar(text.value, regex);
 	text.select();
 	document.execCommand("copy");
 	alert("Copiado para área de transferência");
