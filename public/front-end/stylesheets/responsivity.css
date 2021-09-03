@@ -1,25 +1,21 @@
 @media (max-width: 380px) {
 	.box { width: 100%; }
 	.btn { width: 100%; }
-	footer { font-size: 0.68rem; }
 }
 
 @media (max-width: 440px) {
 	.box { width: 100%; }
 	.btn { width: 100%; }
-	footer { font-size: 0.68rem; }
 }
 
 @media (max-width: 780px) {
 	.box { width: 100%; }
 	.btn { width: 100%; }
-	footer { font-size: 0.68rem; } 
 }
 
 @media (max-width: 800px) {
 	.box { width:100%; }
 	.btn { width:100%; }
-	footer { font-size: 0.68rem; }
 }
 
 @media print {
