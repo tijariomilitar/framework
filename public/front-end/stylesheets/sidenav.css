@@ -5,7 +5,7 @@
   z-index: 51;
   top: 0;
   right: 0;
-  background-color: #fff;
+  background-color: var(--background);
   transition: 0.5s;
   padding-top: 40px;
   overflow-y: auto;
@@ -15,16 +15,16 @@
 .sidenav .closebtn {
   position: absolute;
   top: 0;
-  color: #333;
+  color: var(--color);
   right: 5%;
   font-size: 36px;
   margin-left: 50px;
 }
 
 .sidenav .closebtn:hover {
-  color: #000;
+  color: var(--explicit);
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 40px;}
+  .sidenav { padding-top: 40px; }
 }

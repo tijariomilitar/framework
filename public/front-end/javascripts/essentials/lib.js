@@ -424,6 +424,22 @@ lib.removeChar = (string, regex) => {
 	return string;
 };
 
+lib.replaceChar = (string, regex, content) => {
+	string = string.replaceAll(regex, content);
+	return string;
+};
+
+lib.formatHTML = (string) => {
+	string = string.replaceAll('<', '&lt;');
+	string = string.replaceAll('>', '&gt;');
+
+	let html = "";
+	html += "<pre class='box b1 em09'><code>";
+	html += string;
+	html += "</code></pre>";
+	return html;
+};
+
 lib.dropdown = {
 	render: (objects, input_id, dropdown_id, target, key, props) => {
 		if(objects.length){
@@ -660,4 +676,9 @@ lib.ruleOfThree = (index, target, sample) => {
 		return ((target * sample)/index);
 	};
 	return false;
+};
+
+lib.updateCssVariable = (origin, variable, content) => {
+	let root = document.querySelector(origin).style;
+	root.setProperty(variable, content);
 };

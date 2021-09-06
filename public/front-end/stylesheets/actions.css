@@ -1,19 +1,7 @@
-.fit {
-  object-fit: fill;
-}
+.fit { object-fit: fill; }
+.hide { visibility: hidden; }
 
-.hide {
-	visibility: hidden;
-}
+.display-none { display: none; }
+.display-block { display: block; }
 
-.display-none {
-	display: none;
-}
-
-.display-block {
-	display: block;
-}
-
-.width-fill {
-	width: 100%;
-}
+.width-fill { width: 100%; }

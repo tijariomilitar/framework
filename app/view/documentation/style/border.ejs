@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<%- include ('../../partials/head') %>
+<%- include ('../../partials/header') %>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js" integrity="sha512-W7EehcwtSbRF63FIQlXEOOd5mnq0Et0V0nUOvwcUvjnCKgOLLYbqriQxEQSp63sfrkryxIg/A/O8v8O18QwQCQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>hljs.highlightAll();</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/monokai-sublime.min.css" integrity="sha512-ade8vHOXH67Cm9z/U2vBpckPD1Enhdxl3N05ChXyFx5xikfqggrK4RrEele+VWY/iaZyfk7Bhk6CyZvlh7+5JQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+<%- include ('../../partials/nav') %>
+<section class="container">
+
+	<div id="border-snippet" class="box b2 padding-10"></div>
+	<div class="box b2 container border padding-10">
+		<div class="box b1 underline center bold">Borders</div>
+		<div class="box b3 padding-10 border margin-top-5">border</div>
+		<div class="box b3 padding-10 border-2 margin-top-5">border-2</div>
+		<div class="box b3 padding-10 border-explicit margin-top-5">border-explicit</div>
+		<div class="box b3 padding-10 border-top margin-top-5">border-top</div>
+		<div class="box b3 padding-10 border-left margin-top-5">border-left</div>
+		<div class="box b3 padding-10 border-right margin-top-5">border-right</div>
+		<div class="box b3 padding-10 border-bottom margin-top-5">border-bottom</div>
+	</div>
+
+</section>
+</body>
+<script src="/front-end/javascripts/essentials/lib.js"></script>
+
+<script>
+	let border_html = `<div class="box b2 container border padding-10">
+	<div class="box b1 underline center bold">Borders</div>
+	<div class="box b3 padding-10 border margin-top-5">border</div>
+	<div class="box b3 padding-10 border-explicit margin-top-5">border-explicit</div>
+	<div class="box b3 padding-10 border-top margin-top-5">border-top</div>
+	<div class="box b3 padding-10 border-left margin-top-5">border-left</div>
+	<div class="box b3 padding-10 border-right margin-top-5">border-right</div>
+	<div class="box b3 padding-10 border-bottom margin-top-5">border-bottom</div>
+</div>`;
+	border_html = lib.formatHTML(border_html);
+	document.getElementById("border-snippet").innerHTML = border_html;
+	
+</script>
+</html>

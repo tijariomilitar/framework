@@ -10,19 +10,6 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
-app.get("/", (req, res) => { res.render("index"); });
-
-app.get("/getting-started/fundamentals", (req, res) => { res.render("documentation/getting-started/fundamentals"); });
-app.get("/getting-started/instalation", (req, res) => { res.render("documentation/getting-started/instalation"); });
-
-app.get("/structure/container", (req, res) => { res.render("documentation/structure/container"); });
-app.get("/structure/box", (req, res) => { res.render("documentation/structure/box"); });
-app.get("/structure/position", (req, res) => { res.render("documentation/structure/position"); });
-app.get("/structure/responsive", (req, res) => { res.render("documentation/structure/responsive"); });
-
-app.get("/image/zoom", (req, res) => { res.render("documentation/image/zoom"); });
-
-app.get("/js-library/date", (req, res) => { res.render("documentation/js-library/date"); });
-app.get("/js-library/math", (req, res) => { res.render("documentation/js-library/math"); });
+app.use('/', require('./app/routes/index'));
 
 module.exports = app;

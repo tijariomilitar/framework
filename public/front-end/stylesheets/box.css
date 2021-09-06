@@ -1,37 +1,20 @@
-:root {
-	--theme-box-ground-color: #fff;
+.container { display: flex; flex-wrap: wrap; }
 
-	--theme-box-hover-background-color: #fff;
-	--theme-box-hover-background-color-hover: #e1e1e1;
-	--theme-box-hover-color: #000;
-
-	--theme-box-border: 1px #dcdcdc solid;
-	--theme-box-border-hover: 1px #ccc solid;
+.box { 
+	background-color: transparent; 
+	color: var(--color); 
+	box-sizing: border-box; 
+	align-self: flex-start; 
 }
 
-.container {
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.box {
-	color: var(--theme-box-color);
+.mobile-box { 
+	background-color: transparent; 
+	color: var(--color);
 	box-sizing: border-box;
-    align-self: flex-start;
+	align-self: flex-start; 
 }
 
-.mobile-box {
-	background-color: transparent;
-	color: var(--theme-box-color);
-	box-sizing: border-box;
-    align-self: flex-start;
-}
-
-.menu-box {
-	display: flex;
-	flex-direction: column;
-}
-
+/* Boxes without margin */
 .a1 { width: 100%; }
 .a2 { width: 50%; }
 .a3 { width: 33.33%; }
@@ -45,7 +28,6 @@
 .a11 { width: 9.09%; }
 .a12 { width: 8.33%; }
 
-/* aox fraction */
 .a2-3 { width: 66.67%; }
 
 .a3-4 { width: 75%; }
@@ -92,128 +74,64 @@
 .a7-12 { width: 58.35%; }
 .a11-12 { width: 91.67%; }
 
-/* Boxes without margin */
-.one { width: 99%; margin-left: 0.5%; margin-right: 0.5%; }
-.b1 { width: 99%; margin-left: 0.5%; margin-right: 0.5%;}
-.two { width: 49%; margin-left: 0.5%; margin-right: 0.5%;}
-.b2 { width: 49%; margin-left: 0.5%; margin-right: 0.5%;}
-.three { width: 32.33%; margin-left: 0.5%; margin-right: 0.5%;}
-.b3 { width: 32.33%; margin-left: 0.5%; margin-right: 0.5%;}
-.four { width: 24%; margin-left: 0.5%; margin-right: 0.5%;}
-.b4 { width: 24%; margin-left: 0.5%; margin-right: 0.5%;}
-.five { width: 19%; margin-left: 0.5%; margin-right: 0.5%;}
-.b5 { width: 19%; margin-left: 0.5%; margin-right: 0.5%;}
-.six { width: 15.66%; margin-left: 0.5%; margin-right: 0.5%;}
-.b6 { width: 15.66%; margin-left: 0.5%; margin-right: 0.5%;}
-.seven { width: 13.28%; margin-left: 0.5%; margin-right: 0.5%;}
-.b7 { width: 13.28%; margin-left: 0.5%; margin-right: 0.5%;}
-.eight { width: 11.5%; margin-left: 0.5%; margin-right: 0.5%;}
-.b8 { width: 11.5%; margin-left: 0.5%; margin-right: 0.5%;}
-.nine { width: 10.11%; margin-left: 0.5%; margin-right: 0.5%;}
-.b9 { width: 10.11%; margin-left: 0.5%; margin-right: 0.5%;}
-.ten { width: 9%; margin-left: 0.5%; margin-right: 0.5%;}
-.b10 { width: 9%; margin-left: 0.5%; margin-right: 0.5%;}
-.eleven { width: 8.09%; margin-left: 0.5%; margin-right: 0.5%;}
-.b11 { width: 8.09%; margin-left: 0.5%; margin-right: 0.5%;}
-.twelve { width: 7.33%; margin-left: 0.5%; margin-right: 0.5%;}
-.b12 { width: 7.33%; margin-left: 0.5%; margin-right: 0.5%;}
+/* Boxes with margin */
+.b1 { width: 99%; margin-left: 0.5%; margin-right: 0.5%; }
+.b2 { width: 49%; margin-left: 0.5%; margin-right: 0.5%; }
+.b3 { width: 32.33%; margin-left: 0.5%; margin-right: 0.5%; }
+.b4 { width: 24%; margin-left: 0.5%; margin-right: 0.5%; }
+.b5 { width: 19%; margin-left: 0.5%; margin-right: 0.5%; }
+.b6 { width: 15.66%; margin-left: 0.5%; margin-right: 0.5%; }
+.b7 { width: 13.28%; margin-left: 0.5%; margin-right: 0.5%; }
+.b8 { width: 11.5%; margin-left: 0.5%; margin-right: 0.5%; }
+.b9 { width: 10.11%; margin-left: 0.5%; margin-right: 0.5%; }
+.b10 { width: 9%; margin-left: 0.5%; margin-right: 0.5%; }
+.b11 { width: 8.09%; margin-left: 0.5%; margin-right: 0.5%; }
+.b12 { width: 7.33%; margin-left: 0.5%; margin-right: 0.5%; }
 
-/* Box fraction */
-.two-thirds { width: 65.66%; margin-left: 0.5%; margin-right: 0.5%;}
-.b2-3 { width: 65.66%; margin-left: 0.5%; margin-right: 0.5%;}
+.b2-3 { width: 65.66%; margin-left: 0.5%; margin-right: 0.5%; }
 
-.three-fourths { width: 74%; margin-left: 0.5%; margin-right: 0.5%;}
-.b3-4 { width: 74%; margin-left: 0.5%; margin-right: 0.5%;}
+.b3-4 { width: 74%; margin-left: 0.5%; margin-right: 0.5%; }
 
-.two-fifths { width: 39%; margin-left: 0.5%; margin-right: 0.5%;}
-.b2-5 { width: 39%; margin-left: 0.5%; margin-right: 0.5%;}
-.three-fifths { width: 59%; margin-left: 0.5%; margin-right: 0.5%;}
-.b3-5 { width: 59%; margin-left: 0.5%; margin-right: 0.5%;}
-.four-fifths { width: 79%; margin-left: 0.5%; margin-right: 0.5%;}
-.b4-5 { width: 79%; margin-left: 0.5%; margin-right: 0.5%;}
+.b2-5 { width: 39%; margin-left: 0.5%; margin-right: 0.5%; }
+.b3-5 { width: 59%; margin-left: 0.5%; margin-right: 0.5%; }
+.b4-5 { width: 79%; margin-left: 0.5%; margin-right: 0.5%; }
 
-.five-sixths { width: 82.33%; margin-left: 0.5%; margin-right: 0.5%;}
-.b5-6 { width: 82.33%; margin-left: 0.5%; margin-right: 0.5%;}
+.b5-6 { width: 82.33%; margin-left: 0.5%; margin-right: 0.5%; }
 
-.two-sevenths { width: 27.57%; margin-left: 0.5%; margin-right: 0.5%;}
-.b2-7 { width: 27.57%; margin-left: 0.5%; margin-right: 0.5%;}
-.three-sevenths { width: 41.85%; margin-left: 0.5%; margin-right: 0.5%;}
-.b3-7 { width: 41.85%; margin-left: 0.5%; margin-right: 0.5%;}
-.four-sevenths { width: 56.14%; margin-left: 0.5%; margin-right: 0.5%;}
-.b4-7 { width: 56.14%; margin-left: 0.5%; margin-right: 0.5%;}
-.five-sevenths { width: 70.42%; margin-left: 0.5%; margin-right: 0.5%;}
-.b5-7 { width: 70.42%; margin-left: 0.5%; margin-right: 0.5%;}
-.six-sevenths { width: 84.71%; margin-left: 0.5%; margin-right: 0.5%;}
-.b6-7 { width: 84.71%; margin-left: 0.5%; margin-right: 0.5%;}
+.b2-7 { width: 27.57%; margin-left: 0.5%; margin-right: 0.5%; }
+.b3-7 { width: 41.85%; margin-left: 0.5%; margin-right: 0.5%; }
+.b4-7 { width: 56.14%; margin-left: 0.5%; margin-right: 0.5%; }
+.b5-7 { width: 70.42%; margin-left: 0.5%; margin-right: 0.5%; }
+.b6-7 { width: 84.71%; margin-left: 0.5%; margin-right: 0.5%; }
 
-.three-eighths { width: 36.5%; margin-left: 0.5%; margin-right: 0.5%;}
-.b3-8 { width: 36.5%; margin-left: 0.5%; margin-right: 0.5%;}
-.five-eighths { width: 61.5%; margin-left: 0.5%; margin-right: 0.5%;}
-.b5-8 { width: 61.5%; margin-left: 0.5%; margin-right: 0.5%;}
-.seven-eighths { width: 86.5%; margin-left: 0.5%; margin-right: 0.5%;}
-.b7-8 { width: 86.5%; margin-left: 0.5%; margin-right: 0.5%;}
+.b3-8 { width: 36.5%; margin-left: 0.5%; margin-right: 0.5%; }
+.b5-8 { width: 61.5%; margin-left: 0.5%; margin-right: 0.5%; }
+.b7-8 { width: 86.5%; margin-left: 0.5%; margin-right: 0.5%; }
 
-.b2-9 { width: 21.23%; margin-left: 0.5%; margin-right: 0.5%;}
-.b4-9 { width: 43.4%; margin-left: 0.5%; margin-right: 0.5%;}
-.b5-9 { width: 54.56%; margin-left: 0.5%; margin-right: 0.5%;}
-.b7-9 { width: 76.78%; margin-left: 0.5%; margin-right: 0.5%;}
-.b8-9 { width: 87.89%; margin-left: 0.5%; margin-right: 0.5%;}
+.b2-9 { width: 21.23%; margin-left: 0.5%; margin-right: 0.5%; }
+.b4-9 { width: 43.4%; margin-left: 0.5%; margin-right: 0.5%; }
+.b5-9 { width: 54.56%; margin-left: 0.5%; margin-right: 0.5%; }
+.b7-9 { width: 76.78%; margin-left: 0.5%; margin-right: 0.5%; }
+.b8-9 { width: 87.89%; margin-left: 0.5%; margin-right: 0.5%; }
 
-.b2-10 { width: 19%; margin-left: 0.5%; margin-right: 0.5%;}
-.b3-10 { width: 29%; margin-left: 0.5%; margin-right: 0.5%;}
-.b4-10 { width: 39%; margin-left: 0.5%; margin-right: 0.5%;}
-.b6-10 { width: 59%; margin-left: 0.5%; margin-right: 0.5%;}
-.b7-10 { width: 69%; margin-left: 0.5%; margin-right: 0.5%;}
-.b8-10 { width: 79%; margin-left: 0.5%; margin-right: 0.5%;}
-.b9-10 { width: 89%; margin-left: 0.5%; margin-right: 0.5%;}
+.b2-10 { width: 19%; margin-left: 0.5%; margin-right: 0.5%; }
+.b3-10 { width: 29%; margin-left: 0.5%; margin-right: 0.5%; }
+.b4-10 { width: 39%; margin-left: 0.5%; margin-right: 0.5%; }
+.b6-10 { width: 59%; margin-left: 0.5%; margin-right: 0.5%; }
+.b7-10 { width: 69%; margin-left: 0.5%; margin-right: 0.5%; }
+.b8-10 { width: 79%; margin-left: 0.5%; margin-right: 0.5%; }
+.b9-10 { width: 89%; margin-left: 0.5%; margin-right: 0.5%; }
 
-.b2-11 { width: 17.19%; margin-left: 0.5%; margin-right: 0.5%;}
-.b3-11 { width: 26.28%; margin-left: 0.5%; margin-right: 0.5%;}
-.b4-11 { width: 35.35%; margin-left: 0.5%; margin-right: 0.5%;}
-.b5-11 { width: 44.29%; margin-left: 0.5%; margin-right: 0.5%;}
-.b6-11 { width: 53.55%; margin-left: 0.5%; margin-right: 0.5%;}
-.b7-11 { width: 62.64%; margin-left: 0.5%; margin-right: 0.5%;}
-.b8-11 { width: 71.73%; margin-left: 0.5%; margin-right: 0.5%;}
-.b9-11 { width: 80.82%; margin-left: 0.5%; margin-right: 0.5%;}
-.b10-11 { width: 89.91%; margin-left: 0.5%; margin-right: 0.5%;}
+.b2-11 { width: 17.19%; margin-left: 0.5%; margin-right: 0.5%; }
+.b3-11 { width: 26.28%; margin-left: 0.5%; margin-right: 0.5%; }
+.b4-11 { width: 35.35%; margin-left: 0.5%; margin-right: 0.5%; }
+.b5-11 { width: 44.29%; margin-left: 0.5%; margin-right: 0.5%; }
+.b6-11 { width: 53.55%; margin-left: 0.5%; margin-right: 0.5%; }
+.b7-11 { width: 62.64%; margin-left: 0.5%; margin-right: 0.5%; }
+.b8-11 { width: 71.73%; margin-left: 0.5%; margin-right: 0.5%; }
+.b9-11 { width: 80.82%; margin-left: 0.5%; margin-right: 0.5%; }
+.b10-11 { width: 89.91%; margin-left: 0.5%; margin-right: 0.5%; }
 
-.b5-12 { width: 40.67%; margin-left: 0.5%; margin-right: 0.5%;}
-.b7-12 { width: 57.35%; margin-left: 0.5%; margin-right: 0.5%;}
-.b11-12 { width: 90.67%; margin-left: 0.5%; margin-right: 0.5%;}
-
-.ground {
-	background-color: var(--theme-box-ground-color)
-}
-
-.fade-in {
-	transition: all 0.5s ease 0s;
-	opacity: 0s;
-}
-
-.fade-in:hover {
-	transition: all 0.5s ease 0s;
-	opacity: 1;
-}
-
-.box-border {
-	border: var(--theme-box-border);
-}
-
-.box-border-hover {
-	border: var(--theme-box-border);
-}
-
-.box-border-hover:hover {
-	border: var(--theme-box-border-hover);
-}
-
-.box-hover {
-	transition: all 0.5s ease 0s;
-	background-color: transparent;
-	/*background-color: var(--theme-box-hover-background-color);*/
-}
-
-.box-hover:hover {
-	background-color: var(--theme-box-hover-background-color-hover);
-	transition: all 0.3s ease 0s;
-}
+.b5-12 { width: 40.67%; margin-left: 0.5%; margin-right: 0.5%; }
+.b7-12 { width: 57.35%; margin-left: 0.5%; margin-right: 0.5%; }
+.b11-12 { width: 90.67%; margin-left: 0.5%; margin-right: 0.5%; }

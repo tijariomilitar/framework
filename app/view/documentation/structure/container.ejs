@@ -14,19 +14,8 @@
 <%- include ('../../partials/nav') %>
 <div class="container">
 <div class="box b1 underline em12 bold center">Container</div>
-<pre class="box b2 em08">
-	<code>
-&lt;div class="box b1 container"&gt;
-	&lt;p class="box b1 underline center"&gt;Container is made to easily standardize flex box&lt;/p&gt;
-	&lt;div class="box b1 padding-10 margin-top-10 border center"&gt;b1&lt;/div&gt;
-	&lt;div class="box b2 padding-10 margin-top-10 border center"&gt;b2&lt;/div&gt;
-	&lt;div class="box b2 padding-10 margin-top-10 border center"&gt;b2&lt;/div&gt;
-	&lt;div class="box b3 padding-10 margin-top-10 border center"&gt;b3&lt;/div&gt;
-	&lt;div class="box b3 padding-10 margin-top-10 border center"&gt;b3&lt;/div&gt;
-	&lt;div class="box b3 padding-10 margin-top-10 border center"&gt;b3&lt;/div&gt;
-&lt;/div&gt;
-	</code>
-</pre>
+
+	<div id="container-box-snippet" class="box b2 margin-top-10"></div>
 	<div class="box b2 container border padding-10 margin-top-10">
 		<div class="box b1 container">
 			<p class="box b1 underline center">Container is made to easily standardize flex box</p>
@@ -39,19 +28,7 @@
 		</div>
 	</div>
 
-<pre class="box b2 em08">
-	<code>
-&lt;div class="box b1 container"&gt;
-	&lt;p class="box b1 underline center"&gt;If you need to make it responsive use 'mobile-box'&lt;/p&gt;
-	&lt;div class="mobile-box b1 padding-10 margin-top-10 border center"&gt;b1&lt;/div&gt;
-	&lt;div class="mobile-box b2 padding-10 margin-top-10 border center"&gt;b2&lt;/div&gt;
-	&lt;div class="mobile-box b2 padding-10 margin-top-10 border center"&gt;b2&lt;/div&gt;
-	&lt;div class="mobile-box b3 padding-10 margin-top-10 border center"&gt;b3&lt;/div&gt;
-	&lt;div class="mobile-box b3 padding-10 margin-top-10 border center"&gt;b3&lt;/div&gt;
-	&lt;div class="mobile-box b3 padding-10 margin-top-10 border center"&gt;b3&lt;/div&gt;
-&lt;/div&gt;
-	</code>
-</pre>
+	<div id="container-mobile-box-snippet" class="box b2 margin-top-10"></div>
 	<div class="box b2 container border padding-10 margin-top-10">
 		<div class="box b1 container">
 			<p class="box b1 underline center">If you need to make it responsive use 'mobile-box'</p>
@@ -65,12 +42,35 @@
 	</div>
 </div>
 
-<div class="box">
-	
-</div>
-
-<div id="ajax-loader" class="ajax-loader">
-	<div class="loader"></div>
-</div>
 </body>
+<script src="/front-end/javascripts/essentials/lib.js"></script>
+
+<script>
+	//container box snippet
+	let container_box_snippet = `<div class="box b1 container">
+	<p class="box b1 underline center">Container is made to easily standardize flex box</p>
+	<div class="box b1 padding-10 margin-top-10 border center">b1</div>
+	<div class="box b2 padding-10 margin-top-10 border center">b2</div>
+	<div class="box b2 padding-10 margin-top-10 border center">b2</div>
+	<div class="box b3 padding-10 margin-top-10 border center">b3</div>
+	<div class="box b3 padding-10 margin-top-10 border center">b3</div>
+	<div class="box b3 padding-10 margin-top-10 border center">b3</div>
+</div>`;
+	container_box_snippet = lib.formatHTML(container_box_snippet);
+	document.getElementById("container-box-snippet").innerHTML = container_box_snippet;
+
+	//container mobile-box snippet
+	let container_mobile_box_snippet = `<div class="box b1 container">
+	<p class="box b1 underline center">If you need to make it responsive use 'mobile-box'</p>
+	<div class="mobile-box b1 padding-10 margin-top-10 border center">b1</div>
+	<div class="mobile-box b2 padding-10 margin-top-10 border center">b2</div>
+	<div class="mobile-box b2 padding-10 margin-top-10 border center">b2</div>
+	<div class="mobile-box b3 padding-10 margin-top-10 border center">b3</div>
+	<div class="mobile-box b3 padding-10 margin-top-10 border center">b3</div>
+	<div class="mobile-box b3 padding-10 margin-top-10 border center">b3</div>
+</div>`;
+	container_mobile_box_snippet = lib.formatHTML(container_mobile_box_snippet);
+	document.getElementById("container-mobile-box-snippet").innerHTML = container_mobile_box_snippet;
+</script>
+
 </html>
