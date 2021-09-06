@@ -1,14 +1,12 @@
 .container { display: flex; flex-wrap: wrap; }
 
 .box { 
-	background-color: transparent; 
 	color: var(--color); 
 	box-sizing: border-box; 
 	align-self: flex-start; 
 }
 
 .mobile-box { 
-	background-color: transparent; 
 	color: var(--color);
 	box-sizing: border-box;
 	align-self: flex-start; 

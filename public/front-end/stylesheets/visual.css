@@ -1,36 +1,36 @@
 .transparent { background-color: transparent; }
 
-.ground { background-color: var(--theme-box-ground-color); }
+.ground { background-color: var(--ground); }
 
 /* Shadows */
-.shadow { box-shadow:0px 0px 10px #aaaaaa; }
+.shadow { box-shadow:0px 0px 10px var(--border); }
 
 .shadow-hover { transition: all 0.3s ease 0s; }
-.shadow-hover:hover { box-shadow:0px 0px 10px #aaaaaa; transition: all 0.3s ease 0s; }
+.shadow-hover:hover { box-shadow:0px 0px 10px var(--border); transition: all 0.3s ease 0s; }
 
-.shadow-2 { box-shadow:0px 0px 10px #5a5a5a; }
+.shadow-2 { box-shadow:0px 0px 10px var(--explicit); }
 
 .shadow-2-hover { transition: all 0.3s ease 0s; }
-.shadow-2-hover:hover { box-shadow:0px 0px 10px #5a5a5a; transition: all 0.3s ease 0s; }
+.shadow-2-hover:hover { box-shadow:0px 0px 10px var(--explicit); transition: all 0.3s ease 0s; }
 
 /* Borders */
 .noborder { border: none; outline:none; }
 
-.border { border: 1px #d2d2d2 solid; }
-.border-2 { border: 2px #d2d2d2 solid; }
+.border { border: 1px var(--border) solid; }
+.border-2 { border: 2px var(--border) solid; }
 
-.border-explicit { border: 1px solid #646464; }
-.border-explicit-2 { border: 2px solid #646464; }
-.border-explicit-3 { border: 3px solid #646464; }
+.border-explicit { border: 1px solid var(--explicit); }
+.border-explicit-2 { border: 2px solid var(--explicit); }
+.border-explicit-3 { border: 3px solid var(--explicit); }
 
-.border-top { border-top: 1px solid #666; border-left: none; border-right: none; border-bottom: none; outline:none; }
-.border-top-2 { border-top: 2px solid #666; border-left: none; border-right: none; border-bottom: none; outline:none; }
-.border-left { border-top: none; border-left: 1px solid #666; border-right: none; border-bottom: none; outline:none; }
-.border-left-2 { border-top: none; border-left: 2px solid #666; border-right: none; border-bottom: none; outline:none; }
-.border-right { border-top: none; border-left: none; border-right: 1px solid #666; border-bottom: none; outline:none; }
-.border-right-2 { border-top: none; border-left: none; border-right: 2px solid #666; border-bottom: none; outline:none; }
-.border-bottom { border-top: none; border-left: none; border-right: none; border-bottom: 1px solid #666; outline:none; }
-.border-bottom-2 { border-top: none; border-left: none; border-right: none; border-bottom: 2px solid #666; outline:none; }
+.border-top { border-top: 1px solid var(--border); border-left: none; border-right: none; border-bottom: none; outline:none; }
+.border-top-2 { border-top: 2px solid var(--border); border-left: none; border-right: none; border-bottom: none; outline:none; }
+.border-left { border-top: none; border-left: 1px solid var(--border); border-right: none; border-bottom: none; outline:none; }
+.border-left-2 { border-top: none; border-left: 2px solid var(--border); border-right: none; border-bottom: none; outline:none; }
+.border-right { border-top: none; border-left: none; border-right: 1px solid var(--border); border-bottom: none; outline:none; }
+.border-right-2 { border-top: none; border-left: none; border-right: 2px solid var(--border); border-bottom: none; outline:none; }
+.border-bottom { border-top: none; border-left: none; border-right: none; border-bottom: 1px solid var(--border); outline:none; }
+.border-bottom-2 { border-top: none; border-left: none; border-right: none; border-bottom: 2px solid var(--border); outline:none; }
 
 .radius-5 { border-radius: 5px; }
 .radius-10 { border-radius: 10px; }
