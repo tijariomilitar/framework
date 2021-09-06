@@ -1,29 +1,29 @@
 .icon { opacity: 0.6; cursor: pointer; }
 .icon:hover { opacity: 1; }
 
-.input-generic { 
-	min-height: 30px; 
-	max-height: 30px; 
-	border: 1px solid var(--input); 
+.input-generic {
+	min-height: 30px;
+	max-height: 30px;
+	border: 1px solid var(--input);
 }
 
 .input-explicit { 
+	background-color: var(--submit);
 	min-height: 30px; 
 	max-height: 30px; 
-	background-color: var(--explicit); 
 	border: 1px solid var(--explicit);
 }
 
 .submit-generic { 
-	background-color: var(--explicit);
+	background-color: var(--submit);
 	min-height: 30px; 
 	max-height: 30px; 
-	border: 1px solid var(--submit); 
+	border: 1px solid var(--explicit); 
 }
 
-.input-confirm { 
-	height: 30px; 
+.input-confirm {
 	background-color: var(--background);
+	height: 30px; 
 	border: 1px solid var(--border); 
 }
 
