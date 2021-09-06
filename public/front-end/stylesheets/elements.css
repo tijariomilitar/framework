@@ -32,6 +32,24 @@
 	cursor: pointer;
 }
 
+.tbl-show-link {
+	border-radius: 50px;
+	border: 1px solid #f0f0f0;
+	padding-left: 8px;
+	padding-right: 8px;
+	opacity: 0.7;
+	transition: all 0.4s ease 0s;
+}
+
+.tbl-show-link:hover {
+	opacity: 1;
+	color: #000;
+	border-radius: 2px;
+	cursor: pointer;
+	border: 1px solid #8f9f94;
+	transition: all 0.3s ease 0s;
+}
+
 .underline {
 	margin: auto;
 	border-bottom: 1px solid var(--explicit);
