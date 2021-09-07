@@ -558,10 +558,10 @@ lib.kart = function(name, variable, props){
 						html += "<td>"+this.items[i][Object.entries(props[j])[0][0]]+"</td>";
 					};
 				};
-				html += "<td class='nowrap padding-5'><img class='img-tbl-btn size-15' src='/images/icon/decrease.png' onclick='"+this.variable+".decrease("+this.items[i].id+")'></td>";
-				html += "<td class='nowrap padding-5'><input type='text' id='"+this.variable+"-"+this.items[i].id+"' class='border-explicit center' onchange='"+this.variable+".updateAmount("+this.items[i].id+", this.value);lib.focus(this)' value='"+this.items[i].amount+"'></td>";
-				html += "<td class='nowrap padding-5'><img class='img-tbl-btn size-15' src='/images/icon/increase.png' onclick='"+this.variable+".increase("+this.items[i].id+")'></td>";
-				html += "<td><img class='img-tbl-btn size-15' src='/images/icon/trash.png' onclick='"+this.variable+".remove("+this.items[i].id+")'></td>";
+				html += "<td class='nowrap padding-5 border'><img class='img-tbl-btn border size-15' src='/images/icon/decrease.png' onclick='"+this.variable+".decrease("+this.items[i].id+")'></td>";
+				html += "<td class='nowrap padding-5 border'><input type='text' id='"+this.variable+"-"+this.items[i].id+"' class='border-explicit center' onchange='"+this.variable+".updateAmount("+this.items[i].id+", this.value);lib.focus(this)' value='"+this.items[i].amount+"'></td>";
+				html += "<td class='nowrap padding-5 border'><img class='img-tbl-btn border size-15' src='/images/icon/increase.png' onclick='"+this.variable+".increase("+this.items[i].id+")'></td>";
+				html += "<td class='padding-5'><img class='padding-5 img-tbl-btn size-15' src='/images/icon/trash.png' onclick='"+this.variable+".remove("+this.items[i].id+")'></td>";
 				html += "</tr>";
 			};
 			document.getElementById(this.name+"-table").innerHTML = html;
