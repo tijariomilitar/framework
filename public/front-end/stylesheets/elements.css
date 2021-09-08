@@ -7,18 +7,17 @@
 /*INPUTS*/
 .input-generic {
 	background-color: var(--ground);
-	color: var(--ground);
+	color: 	var(--color);
 	min-height: 30px;
 	max-height: 30px;
 	border: 1px solid var(--solid);
-	color: 	var(--color);
 }
 
 .input-explicit { 
-	color: var(--ground);
+	background-color: var(--light);
+	color: var(--color);
 	min-height: 30px; 
 	max-height: 30px;
-	background-color: var(--ground);
 	border: 1px solid var(--strong);
 }
 
