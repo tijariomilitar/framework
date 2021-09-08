@@ -22,7 +22,7 @@
 }
 
 .sidenav .closebtn:hover {
-  color: var(--explicit);
+  color: var(--strong);
 }
 
 @media screen and (max-height: 450px) {

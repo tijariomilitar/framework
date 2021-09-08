@@ -1,37 +1,40 @@
 .icon { opacity: 0.6; cursor: pointer; }
 .icon:hover { opacity: 1; }
 
+.box-hover { }
+.box-hover:hover { background-color: var(--light); }
+
+/*INPUTS*/
 .input-generic {
+	background-color: var(--ground);
+	color: var(--ground);
 	min-height: 30px;
 	max-height: 30px;
-	border: 1px solid var(--input);
+	border: 1px solid var(--solid);
+	color: 	var(--color);
 }
 
 .input-explicit { 
-	background-color: var(--submit);
+	color: var(--ground);
 	min-height: 30px; 
-	max-height: 30px; 
-	border: 1px solid var(--explicit);
+	max-height: 30px;
+	background-color: var(--ground);
+	border: 1px solid var(--strong);
 }
 
 .submit-generic { 
-	background-color: var(--submit);
-	min-height: 30px; 
+	background-color: var(--light);
+	color: var(--color);
+	min-height: 30px;
 	max-height: 30px; 
-	border: 1px solid var(--explicit); 
+	border: 1px solid var(--solid); 
 }
 
-.input-confirm {
-	background-color: var(--background);
-	height: 30px; 
-	border: 1px solid var(--border); 
+.submit-generic:hover { 
+	background-color: var(--solid);
 }
 
-.input-confirm:hover {
-	background-color: var(--submit);
-	cursor: pointer;
-}
-
+/* SELECTION ANIMATION */
 .tbl-show-link {
 	border-radius: 50px;
 	border: 1px solid #f0f0f0;
@@ -50,20 +53,7 @@
 	transition: all 0.3s ease 0s;
 }
 
-.underline {
-	margin: auto;
-	border-bottom: 1px solid var(--explicit);
-	padding-bottom: 5px;
-	margin-bottom: 7px;
-}
-
-.underline-explicit {
-	margin: auto;
-	border-bottom: 1px solid var(--explicit);
-	padding-bottom: 5px;
-	margin-bottom: 7px;
-}
-
 .wrap { overflow-wrap: break-word; }
 .nowrap { white-space: nowrap; }
 .pre-wrap { white-space: pre-wrap; }
+.wrapper { white-space: normal; }

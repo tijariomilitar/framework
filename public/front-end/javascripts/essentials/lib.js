@@ -445,7 +445,7 @@ lib.dropdown = {
 		if(objects.length){
 			let html = "";
 			for(i in objects){
-				html += "<li><input type='button' class='box one dropdown-input' data-id='"+objects[i][key]+"' value='";
+				html += "<li><input type='button' class='box b1 box-hover wrapper padding-10 border' data-id='"+objects[i][key]+"' value='";
 				for(j in props){
 					if(props.length-1 > j){
 						html += objects[i][props[j]]+" | ";
@@ -546,22 +546,22 @@ lib.kart = function(name, variable, props){
 			let html = "";
 			html += "<tr>";
 			for(i in props){
-				html += "<td>"+Object.entries(props[i])[0][1]+"</td>";
+				html += "<td class='center'>"+Object.entries(props[i])[0][1]+"</td>";
 			};
 			html += "</tr>";
 			for(i in this.items){
-				html += "<tr>";
+				html += "<tr class='border'>";
 				for(j in props){
 					if(j == 0){
-						html += "<td>"+this.items[i][Object.entries(props[j])[0][0]]+"</td>";
+						html += "<td class='padding-5 em09'>"+this.items[i][Object.entries(props[j])[0][0]]+"</td>";
 					} else {
-						html += "<td>"+this.items[i][Object.entries(props[j])[0][0]]+"</td>";
+						html += "<td class='padding-5 em09'>"+this.items[i][Object.entries(props[j])[0][0]]+"</td>";
 					};
 				};
-				html += "<td class='nowrap padding-5 border'><img class='img-tbl-btn border size-15' src='/images/icon/decrease.png' onclick='"+this.variable+".decrease("+this.items[i].id+")'></td>";
-				html += "<td class='nowrap padding-5 border'><input type='text' id='"+this.variable+"-"+this.items[i].id+"' class='border-explicit center' onchange='"+this.variable+".updateAmount("+this.items[i].id+", this.value);lib.focus(this)' value='"+this.items[i].amount+"'></td>";
-				html += "<td class='nowrap padding-5 border'><img class='img-tbl-btn border size-15' src='/images/icon/increase.png' onclick='"+this.variable+".increase("+this.items[i].id+")'></td>";
-				html += "<td class='padding-5'><img class='padding-5 img-tbl-btn size-15' src='/images/icon/trash.png' onclick='"+this.variable+".remove("+this.items[i].id+")'></td>";
+				html += "<td class='padding-3'><img class='size-15 icon padding-3 pointer' src='/images/icon/decrease.png' onclick='"+this.variable+".decrease("+this.items[i].id+")'></td>";
+				html += "<td><input type='text' id='"+this.variable+"-"+this.items[i].id+"' class='width-50 em11 border-bottom center' onchange='"+this.variable+".updateAmount("+this.items[i].id+", this.value);lib.focus(this)' value='"+this.items[i].amount+"'></td>";
+				html += "<td class='padding-3'><img class='size-15 icon padding-3 pointer' src='/images/icon/increase.png' onclick='"+this.variable+".increase("+this.items[i].id+")'></td>";
+				html += "<td class='padding-3'><img class='size-20 icon padding-3 pointer' src='/images/icon/trash.png' onclick='"+this.variable+".remove("+this.items[i].id+")'></td>";
 				html += "</tr>";
 			};
 			document.getElementById(this.name+"-table").innerHTML = html;

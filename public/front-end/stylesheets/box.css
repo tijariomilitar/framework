@@ -1,13 +1,11 @@
 .container { display: flex; flex-wrap: wrap; }
 
 .box { 
-	color: var(--color); 
 	box-sizing: border-box; 
 	align-self: flex-start; 
 }
 
 .mobile-box { 
-	color: var(--color);
 	box-sizing: border-box;
 	align-self: flex-start; 
 }
@@ -134,7 +132,7 @@
 .b7-12 { width: 57.35%; margin-left: 0.5%; margin-right: 0.5%; }
 .b11-12 { width: 90.67%; margin-left: 0.5%; margin-right: 0.5%; }
 
-.one { width: 99%; margin-left: 0.5%; margin-right: 0.5%; }
+/*.one { width: 99%; margin-left: 0.5%; margin-right: 0.5%; }
 .two { width: 49%; margin-left: 0.5%; margin-right: 0.5%;}
 .three { width: 32.33%; margin-left: 0.5%; margin-right: 0.5%;}
 .four { width: 24%; margin-left: 0.5%; margin-right: 0.5%;}
@@ -146,7 +144,6 @@
 .eleven { width: 8.09%; margin-left: 0.5%; margin-right: 0.5%;}
 .twelve { width: 7.33%; margin-left: 0.5%; margin-right: 0.5%;}
 
-/* Box fraction */
 .two-thirds { width: 65.66%; margin-left: 0.5%; margin-right: 0.5%;}
 
 .three-fourths { width: 74%; margin-left: 0.5%; margin-right: 0.5%;}
@@ -165,4 +162,4 @@
 
 .three-eighths { width: 36.5%; margin-left: 0.5%; margin-right: 0.5%;}
 .five-eighths { width: 61.5%; margin-left: 0.5%; margin-right: 0.5%;}
-.seven-eighths { width: 86.5%; margin-left: 0.5%; margin-right: 0.5%;}
+.seven-eighths { width: 86.5%; margin-left: 0.5%; margin-right: 0.5%;}*/
