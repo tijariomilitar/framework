@@ -682,3 +682,12 @@ lib.updateCssVariable = (origin, variable, content) => {
 	let root = document.querySelector(origin).style;
 	root.setProperty(variable, content);
 };
+
+lib.createElement = (elementName, attributes) => {
+	let element = document.createElement(elementName);
+	let attributesAsArray = Object.entries(attributes);
+
+	attributesAsArray.forEach(([key, value]) => element.setAttribute(key, value));
+
+	return element;
+};

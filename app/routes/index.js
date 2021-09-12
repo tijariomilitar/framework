@@ -7,5 +7,6 @@ router.use("/structure", require("./structure"));
 router.use("/style", require("./style"));
 router.use("/image", require("./image"));
 router.use("/js-library", require("./js-library"));
+router.use("/webgl", require("./webgl"));
 
 module.exports = router;

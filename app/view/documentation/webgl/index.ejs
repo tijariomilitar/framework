@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<link rel="stylesheet" type="text/css" href="https://jaframework.herokuapp.com/front-end/stylesheets/main.css">
+<link rel="stylesheet" type="text/css" href="https://jaframework.herokuapp.com/front-end/stylesheets/elements.css">
+<link rel="stylesheet" type="text/css" href="https://jaframework.herokuapp.com/front-end/stylesheets/visual.css">
+<link rel="stylesheet" type="text/css" href="https://jaframework.herokuapp.com/front-end/stylesheets/dropdown.css">
+<link rel="stylesheet" type="text/css" href="https://jaframework.herokuapp.com/front-end/stylesheets/sidenav.css">
+<link rel="stylesheet" type="text/css" href="https://jaframework.herokuapp.com/front-end/stylesheets/actions.css">
+<link rel="stylesheet" type="text/css" href="https://jaframework.herokuapp.com/front-end/stylesheets/size.css">
+<link rel="stylesheet" type="text/css" href="https://jaframework.herokuapp.com/front-end/stylesheets/position.css">
+<link rel="stylesheet" type="text/css" href="https://jaframework.herokuapp.com/front-end/stylesheets/image.css">
+<link rel="stylesheet" type="text/css" href="https://jaframework.herokuapp.com/front-end/stylesheets/box.css">
+<link rel="stylesheet" type="text/css" href="https://jaframework.herokuapp.com/front-end/stylesheets/responsivity.css">
+
+<link rel="stylesheet" type="text/css" href="https://jaframework.herokuapp.com/front-end/stylesheets/fonts.css">
+
+</head>
+<body>
+	<div class="container h-center">
+		<div class="box b3 margin-top-100">
+			<div class="box b1 underline center">WEBGL BASIC MODEL</div>
+			<div id="canvas" class="box b1 height-400"></div>
+		</div>
+	</div>
+</body>
+<!-- <script type="module">
+	import * as THREE from 'https://cdn.skypack.dev/pin/three@v0.132.2-1edwuDlviJO0abBvWgKd/mode=imports,min/optimized/three.js';
+</script> -->
+<!-- <script type="module">
+	import Joypad from './front-end/javascripts/scripts/webgl/basics/joypad.js';
+	console.log(Joypad);
+</script> -->
+<script type="module" src="./front-end/javascripts/scripts/webgl/basics/config.js"></script>
+<!-- <script type="module">
+	import * as THREE from 'https://cdn.skypack.dev/pin/three@v0.132.2-1edwuDlviJO0abBvWgKd/mode=imports,min/optimized/three.js';
+
+	window.addEventListener('load', event => {
+		let canvas = document.getElementById("canvas");
+
+		let scene = new THREE.Scene();
+		let camera = new THREE.PerspectiveCamera(75, canvas.offsetWidth / canvas.offsetHeight, 0.1, 1000);
+
+		let renderer = new THREE.WebGLRenderer();
+		renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
+		canvas.appendChild(renderer.domElement);
+
+		let geometry = new THREE.BoxGeometry();
+		let material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+		let cube = new THREE.Mesh(geometry, material);
+		scene.add(cube);
+
+		camera.position.z = 5;
+
+		function animate() {
+			requestAnimationFrame(animate);
+			renderer.render(scene, camera);
+		};
+
+		animate();
+	});
+</script> -->
+</html>
