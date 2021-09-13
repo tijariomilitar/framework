@@ -683,15 +683,36 @@ lib.updateCssVariable = (origin, variable, content) => {
 	root.setProperty(variable, content);
 };
 
-lib.element = {
-	create: (elementName, attributes, value) => {
-		let element = document.createElement(elementName);
-		let attributesAsArray = Object.entries(attributes);
 
-		attributesAsArray.forEach(([key, value]) => element.setAttribute(key, value));
+lib.element = {};
+lib.element.create = (elementName, attributes, value) => {
+	let element = document.createElement(elementName);
+	let attributesAsArray = Object.entries(attributes);
 
-		if(value){ element.innerHTML = value; }
+	attributesAsArray.forEach(([key, value]) => element.setAttribute(key, value));
 
-		return element;
-	}
+	if(value){ element.innerHTML = value; }
+
+	return element;
 };
+
+lib.element.info = (box, param, paramValue) => {
+	let divParent = lib.element.create("div", { class: "mobile-box "+box+" container margin-top-5" });
+	let divParam = lib.element.create("div", { class: "mobile-box b1 em06" }, param);
+	let divValue = lib.element.create("div", { class: "mobile-box b1" }, paramValue);
+
+	divParent.appendChild(divParam);
+	divParent.appendChild(divValue);
+	return divParent;
+};
+
+lib.element.icon = (box, size, src, action) => {
+	let div = lib.element.create("div", { class: "mobile-box b10 center" });
+	let img = lib.element.create("img", {
+		class: "size-"+size+" icon",
+		src: src,
+		onclick: action
+	});
+	div.appendChild(img);
+	return div;
+}
