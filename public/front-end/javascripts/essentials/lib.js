@@ -683,7 +683,7 @@ lib.updateCssVariable = (origin, variable, content) => {
 	root.setProperty(variable, content);
 };
 
-lib.createElement = (elementName, attributes) => {
+lib.element.create = (elementName, attributes) => {
 	let element = document.createElement(elementName);
 	let attributesAsArray = Object.entries(attributes);
 
