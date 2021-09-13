@@ -684,11 +684,13 @@ lib.updateCssVariable = (origin, variable, content) => {
 };
 
 lib.element = {
-	create: (elementName, attributes) => {
+	create: (elementName, attributes, value) => {
 		let element = document.createElement(elementName);
 		let attributesAsArray = Object.entries(attributes);
 
 		attributesAsArray.forEach(([key, value]) => element.setAttribute(key, value));
+
+		if(value){ element.innerHTML = value; }
 
 		return element;
 	}
