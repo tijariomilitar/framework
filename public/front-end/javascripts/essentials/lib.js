@@ -707,7 +707,7 @@ lib.element.info = (box, param, paramValue) => {
 };
 
 lib.element.icon = (box, size, src, action) => {
-	let div = lib.element.create("div", { class: "mobile-box b10 center" });
+	let div = lib.element.create("div", { class: "mobile-box "+box+" center" });
 	let img = lib.element.create("img", {
 		class: "size-"+size+" icon",
 		src: src,
@@ -715,4 +715,4 @@ lib.element.icon = (box, size, src, action) => {
 	});
 	div.appendChild(img);
 	return div;
-}
+};
