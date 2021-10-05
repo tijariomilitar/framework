@@ -51,8 +51,3 @@
 	border: 1px solid var(--strong);
 	transition: all 0.3s ease 0s;
 }
-
-.wrap { overflow-wrap: break-word; }
-.nowrap { white-space: nowrap; }
-.pre-wrap { white-space: pre-wrap; }
-.wrapper { white-space: normal; }

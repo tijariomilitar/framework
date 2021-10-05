@@ -55,3 +55,8 @@ pre { tab-size: 2; }
 .scroll-hide { overflow-y: hidden; }
 
 .pointer { cursor: pointer; }
+
+.wrap { overflow-wrap: break-word; }
+.nowrap { white-space: nowrap; }
+.pre-wrap { white-space: pre-wrap; }
+.wrapper { white-space: normal; }
