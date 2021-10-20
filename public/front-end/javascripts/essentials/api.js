@@ -11,9 +11,9 @@ const API = {
 		return false;
 	},
 	response: async (func, param) => {
-		document.getElementById('loader') && document.getElementById('loader').style.visibility = 'visible';
+		document.getElementById('loader').style.visibility = 'visible';
 		let element = await func(param);
-		document.getElementById('loader') && document.getElementById('loader').style.visibility = 'hidden';
+		document.getElementById('loader').style.visibility = 'hidden';
 		if(!element){ return false; }
 		return element;
 	}
