@@ -546,7 +546,7 @@ lib.kart = function(name, variable, props){
 			let html = "";
 			html += "<tr>";
 			for(i in props){
-				html += "<td class='center'>"+Object.entries(props[i])[0][1]+"</td>";
+				html += "<td class='center em06'>"+Object.entries(props[i])[0][1]+"</td>";
 			};
 			html += "</tr>";
 			for(i in this.items){
