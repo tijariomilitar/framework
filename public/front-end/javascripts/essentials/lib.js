@@ -546,7 +546,7 @@ lib.kart = function(name, variable, props){
 			let html = "";
 			html += "<tr>";
 			for(i in props){
-				html += "<td class='center em06'>"+Object.entries(props[i])[0][1]+"</td>";
+				html += "<td class='padding-5 center em06'>"+Object.entries(props[i])[0][1]+"</td>";
 			};
 			html += "</tr>";
 			for(i in this.items){
@@ -696,6 +696,17 @@ lib.element.create = (elementName, attributes, value) => {
 	return element;
 };
 
+lib.element.icon = (box, size, src, action) => {
+	let div = lib.element.create("div", { class: "mobile-box "+box+" center" });
+	let img = lib.element.create("img", {
+		class: "size-"+size+" icon",
+		src: src,
+		onclick: action
+	});
+	div.appendChild(img);
+	return div;
+};
+
 lib.element.info = (box, param, paramValue) => {
 	let divParent = lib.element.create("div", { class: "mobile-box "+box+" container border padding-5 margin-top-5" });
 	let divParam = lib.element.create("div", { class: "mobile-box b1 em06" }, param);
@@ -706,13 +717,22 @@ lib.element.info = (box, param, paramValue) => {
 	return divParent;
 };
 
-lib.element.icon = (box, size, src, action) => {
-	let div = lib.element.create("div", { class: "mobile-box "+box+" center" });
-	let img = lib.element.create("img", {
-		class: "size-"+size+" icon",
-		src: src,
-		onclick: action
-	});
-	div.appendChild(img);
-	return div;
+lib.element.param = (box, param, element, option) => {
+	let divParent = lib.element.create("div", { class: "mobile-box "+box+" container padding-5 margin-top-5" });
+	let divInput = lib.element.create("div", { class: "mobile-box b1 em06" }, param);
+	let divValue = lib.element.create(element, option);
+
+	divParent.appendChild(divInput);
+	divParent.appendChild(divValue);
+	return divParent;
+};
+
+lib.element.infoInput = (box, param, paramValue, input_id) => {
+	let divParent = lib.element.create("div", { class: "mobile-box "+box+" container border padding-5 margin-top-5" });
+	let divParam = lib.element.create("div", { class: "mobile-box b1 em06" }, param);
+	let divValue = lib.element.create("input", { id: input_id, class: "mobile-box b1" }, paramValue);
+
+	divParent.appendChild(divParam);
+	divParent.appendChild(divValue);
+	return divParent;
 };
