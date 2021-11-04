@@ -683,8 +683,17 @@ lib.updateCssVariable = (origin, variable, content) => {
 	root.setProperty(variable, content);
 };
 
+lib.disable = (element, state) => {
+	let tagName = element.tagName.toLowerCase();
+    if (tagName === "input") {
+		element.disabled = state;
+    } else {
+		document.getElementById(element).disabled = state;
+    }
+};
 
 lib.element = {};
+
 lib.element.create = (elementName, attributes, value) => {
 	let element = document.createElement(elementName);
 	let attributesAsArray = Object.entries(attributes);
