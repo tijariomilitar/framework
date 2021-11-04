@@ -690,6 +690,13 @@ lib.disable = (element, state) => {
 	document.getElementById(element).disabled = state;
 };
 
+lib.display = (element, state) => {
+	if(element.tagName){
+		return element.style.display = state;
+	};
+	document.getElementById(element).style.display = state;
+};
+
 lib.element = {};
 
 lib.element.create = (elementName, attributes, value) => {
