@@ -684,12 +684,10 @@ lib.updateCssVariable = (origin, variable, content) => {
 };
 
 lib.disable = (element, state) => {
-	let tagName = element.tagName.toLowerCase();
-    if (tagName === "input") {
-		element.disabled = state;
-    } else {
-		document.getElementById(element).disabled = state;
-    }
+	if(element.tagName){
+		return element.disabled = state;
+	};
+	document.getElementById(element).disabled = state;
 };
 
 lib.element = {};
