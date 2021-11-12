@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<%- include ('../../partials/head') %>
+<%- include ('../../partials/header') %>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js" integrity="sha512-W7EehcwtSbRF63FIQlXEOOd5mnq0Et0V0nUOvwcUvjnCKgOLLYbqriQxEQSp63sfrkryxIg/A/O8v8O18QwQCQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>hljs.highlightAll();</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/monokai-sublime.min.css" integrity="sha512-ade8vHOXH67Cm9z/U2vBpckPD1Enhdxl3N05ChXyFx5xikfqggrK4RrEele+VWY/iaZyfk7Bhk6CyZvlh7+5JQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+<%- include ('../../partials/nav') %>
+<section class="container">
+	<div class="box b1 underline center bold">Elements and Components</div>
+	<div id="carousel" class="box b1 container">
+	</div>
+</section>
+</body>
+<script src="/front-end/javascripts/essentials/lib.js"></script>
+<script type="text/javascript">
+	let users = [
+		{id:1,name:'Henrique',amount:1},
+		{id:2,name:'Lyra',amount:1},
+		{id:3,name:'Da Silva',amount:1}
+	];
+
+	function Kart(users, div){
+		this.items = users;
+		this.div = document.getElementById(div);
+		this.div.innerHTML = "";
+
+		this.render = function(){
+			users.forEach(user => {
+				this.div.appendChild(lib.element.create("div", { class: 'mobile-box b6 container'}, user.id))
+				this.div.appendChild(lib.element.create("div", { class: 'mobile-box b2-3 container'}, user.name))
+				// Prev button
+				// update this.items when click insert
+				this.div.appendChild(lib.element.create("div", { class: 'mobile-box b6 container'}, user.amount))
+				// Next button
+			})
+		};
+	}
+
+	let user = new Kart(users, 'carousel');
+	user.render();
+
+	// console.log(user);
+
+	// console.log(kart());
+	// console.log(kart());
+	// console.log(kart());
+	// console.log(kart());
+</script>
+</html>

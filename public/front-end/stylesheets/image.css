@@ -24,6 +24,12 @@
     object-fit:cover;
 }
 
+.bg {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .zoom {
 	background-position: 50% 50%;
 	position: relative;
