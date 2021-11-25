@@ -60,3 +60,13 @@ pre { tab-size: 2; }
 .nowrap { white-space: nowrap; }
 .pre-wrap { white-space: pre-wrap; }
 .wrapper { white-space: normal; }
+
+.noselect {
+	user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+	-o-user-select: none;
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-webkit-user-select: none; /* Safari */
+	-webkit-touch-callout: none; /* iOS Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+}
