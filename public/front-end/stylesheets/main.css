@@ -70,3 +70,6 @@ pre { tab-size: 2; }
 	-webkit-touch-callout: none; /* iOS Safari */
 	-khtml-user-select: none; /* Konqueror HTML */
 }
+
+.hide-in-web { display: none; }
+.hide-in-mobile { display: initial; }

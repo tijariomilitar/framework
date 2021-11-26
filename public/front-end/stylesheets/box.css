@@ -5,9 +5,10 @@
 	align-self: flex-start; 
 }
 
-.mobile-box { 
+.mobile-box {
 	box-sizing: border-box;
-	align-self: flex-start; 
+	align-self: flex-start;
+
 }
 
 /* Boxes without margin */
