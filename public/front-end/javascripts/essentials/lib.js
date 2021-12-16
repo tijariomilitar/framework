@@ -194,20 +194,26 @@ const lib = {
 		return Math.round((value) * 100) / 100;
 	},
 	// html/css lib
-	displayDiv: (div, button, openText, closeText) => {
+	displayDiv: (div, button, openEl, closeEl) => {
 		let selectedDiv = document.getElementById(div);
-		
-		if(selectedDiv.style.display == "none"){
-			if(button && openText && closeText){
-				button.innerHTML = closeText;
+			
+		if(button.nodeName == "IMG"){
+			if(selectedDiv.style.display == "none"){
+				if(button && openEl && closeEl){ button.src = closeEl; };
+				selectedDiv.style.display = "";
+			} else if(selectedDiv.style.display == ""){
+				if(button && openEl && closeEl){ button.src = openEl; };
+				selectedDiv.style.display = "none";
 			};
-			selectedDiv.style.display = "";
-		} else if(selectedDiv.style.display == ""){
-			if(button && openText && closeText){
-				button.innerHTML = openText;
+		} else {
+			if(selectedDiv.style.display == "none"){
+				if(button && openEl && closeEl){ button.innerHTML = closeEl; };
+				selectedDiv.style.display = "";
+			} else if(selectedDiv.style.display == ""){
+				if(button && openEl && closeEl){ button.innerHTML = openEl; };
+				selectedDiv.style.display = "none";
 			};
-			selectedDiv.style.display = "none";
-		};
+		}
 	},
 	clearInnerHtml: (target) => {
 		target.innerHTML = "";
