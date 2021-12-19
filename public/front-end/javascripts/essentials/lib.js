@@ -719,7 +719,7 @@ lib.element.create = (elementName, attributes, value) => {
 lib.element.icon = (box, size, src, action) => {
 	let div = lib.element.create("div", { class: "mobile-box "+box+" center" });
 	let img = lib.element.create("img", {
-		class: "size-"+size+" icon",
+		class: "size-"+size+" icon noselect",
 		src: src,
 		onclick: action
 	});
