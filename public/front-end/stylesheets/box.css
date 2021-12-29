@@ -8,7 +8,6 @@
 .mobile-box {
 	box-sizing: border-box;
 	align-self: flex-start;
-
 }
 
 /* Boxes without margin */
@@ -36,8 +35,8 @@
 .a5-6 { width: 83.34%; }
 
 .a2-7 { width: 28.6%; }
-.a3-7 { width: 42.88%; }
-.a4-7 { width: 57.16%; }
+.a3-7 { width: 42.85%; }
+.a4-7 { width: 57.15%; }
 .a5-7 { width: 71.44%; }
 .a6-7 { width: 85.72%; }
 
