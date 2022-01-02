@@ -19,6 +19,15 @@
 .border { border: 1px var(--light) solid; }
 .border-2 { border: 2px var(--light) solid; }
 
+.border-st { border: 1px var(--strong) solid; }
+.border-st-2 { border: 2px var(--strong) solid; }
+
+.border-lg-st { border: 1px var(--light) solid; }
+.border-lg-st:hover { border: 1px var(--strong) solid; }
+
+.border-lg-st-2 { border: 2px var(--light) solid; }
+.border-lg-st-2:hover { border: 2px var(--strong) solid; }
+
 .border-explicit { border: 1px solid var(--strong); }
 .border-explicit-2 { border: 2px solid var(--strong); }
 .border-explicit-3 { border: 3px solid var(--strong); }
