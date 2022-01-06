@@ -33,7 +33,7 @@
 	background-color: var(--solid);
 }
 
-/* SELECTION ANIMATION */
+/* LEGACY SELECTION ANIMATION */
 .tbl-show-link {
 	border-radius: 50px;
 	border: 1px solid var(--solid);
@@ -49,5 +49,18 @@
 	border-radius: 2px;
 	cursor: pointer;
 	border: 1px solid var(--strong);
+	transition: all 0.3s ease 0s;
+}
+
+/* SELECTION ANIMATION */
+.input-show {
+	opacity: 0.7;
+	border-radius: 50px;
+	transition: all 0.4s ease 0s;
+}
+
+.input-show:hover {
+	opacity: 1;
+	border-radius: 2px;
 	transition: all 0.3s ease 0s;
 }
