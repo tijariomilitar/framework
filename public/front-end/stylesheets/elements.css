@@ -27,10 +27,12 @@
 	min-height: 30px;
 	max-height: 30px; 
 	border: 1px solid var(--solid); 
+	transition: all 0.4s ease 0s;
 }
 
 .submit-generic:hover { 
 	background-color: var(--solid);
+	transition: all 0.3s ease 0s;
 }
 
 /* LEGACY SELECTION ANIMATION */
