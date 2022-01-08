@@ -74,3 +74,8 @@ pre { tab-size: 2; }
 
 .hide-in-web { display: none; }
 .hide-in-mobile { display: initial; }
+
+.msg-window {
+	z-index: 9999;
+	position: absolute;
+}
