@@ -66,3 +66,17 @@
 	border-radius: 2px;
 	transition: all 0.3s ease 0s;
 }
+
+.input-submit { 
+	background-color: var(--light);
+	color: var(--color);
+	min-height: 30px;
+	height: 30px; 
+	border: 1px solid var(--solid); 
+	transition: all 0.4s ease 0s;
+}
+
+.input-submit:hover {
+	background-color: var(--solid);
+	transition: all 0.3s ease 0s;
+}
