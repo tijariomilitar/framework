@@ -41,6 +41,8 @@
 .border-bottom { border-top: none; border-left: none; border-right: none; border-bottom: 1px solid var(--light); outline:none; }
 .border-bottom-2 { border-top: none; border-left: none; border-right: none; border-bottom: 2px solid var(--light); outline:none; }
 
+.nofocus {} .nofocus:hover { outline: none; }
+
 .underline {
 	margin: auto; border-bottom: 1px solid var(--light);
 	padding-bottom: 5px; margin-bottom: 7px;
