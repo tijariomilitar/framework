@@ -1,8 +1,8 @@
 {
   "name": "framework",
   "version": "1.0.0",
-  "heroku-server":"https://jaframework.herokuapp.com/",
-  "umbler-server":"no server",
+  "heroku-server": "https://jaframework.herokuapp.com/",
+  "umbler-server": "no server",
   "description": "J.A Rio Militar systems own framework",
   "scripts": {
     "start": "node ./bin/www"
@@ -20,6 +20,9 @@
   "homepage": "https://github.com/tijariomilitar/framework#readme",
   "dependencies": {
     "ejs": "^3.1.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "got": "^12.0.1",
+    "multer": "^1.4.4",
+    "sharp": "^0.29.3"
   }
 }

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include ('../../partials/head') %>
+    <%- include ('../../partials/header') %>
+</head>
+<body>
+    <%- include ('../../partials/nav') %>
+    <div class="container">
+        <form id="image-convert-form" enctype="multipart/form-data" class="box b2 container border padding-10 margin-top-10 center">
+            <input type="file" name="image" class="box b2 center">
+            <button type="submit" class="box b2 submit-generic center">Enviar</button>
+        </form>
+    </div>
+</body>
+<footer>
+    <script src="/front-end/javascripts/essentials/lib.js"></script>
+    <script src="/front-end/javascripts/essentials/api.js"></script>
+    <script type="text/javascript">
+        let imageUpload = async image => {
+            let response = await fetch("/image/convert", {
+                method: "POST",
+                body: JSON.stringify({ image })
+            });
+            
+            response = await response.json();
+
+            if(API.verifyResponse(response)){ return false };
+            alert(response.done);
+
+            return response.image;
+        };
+
+        let imageConvertForm = document.getElementById("image-convert-form");
+        if(imageConvertForm){
+            imageConvertForm.addEventListener("submit", async e => {
+                e.preventDefault();
+
+                let response = await API.response(imageUpload, { image: e.target.image });
+                console.log(response);
+                if(!response) { return false };
+            });
+        }
+    </script>
+</footer>
+</html>
