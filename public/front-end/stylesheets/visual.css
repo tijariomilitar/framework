@@ -6,12 +6,12 @@
 .shadow { box-shadow:0px 0px 10px var(--light); }
 
 .shadow-hover { transition: all 0.3s ease 0s; }
-.shadow-hover:hover { box-shadow:0px 0px 10px var(--light); transition: all 0.3s ease 0s; }
+.shadow-hover:hover { box-shadow:0px 0px 10px var(--light); }
 
-.shadow-2 { box-shadow:0px 0px 10px var(--strong); }
+.shadow-st { box-shadow:0px 0px 10px var(--strong); }
 
-.shadow-2-hover { transition: all 0.3s ease 0s; }
-.shadow-2-hover:hover { box-shadow:0px 0px 10px var(--strong); transition: all 0.3s ease 0s; }
+.shadow-st-hover { }
+.shadow-st-hover:hover { box-shadow:0px 0px 10px var(--strong); }
 
 /* Borders */
 .noborder { border: none; outline:none; }
@@ -22,11 +22,11 @@
 .border-st { border: 1px var(--strong) solid; }
 .border-st-2 { border: 2px var(--strong) solid; }
 
-.border-lg-st { border: 1px var(--light) solid; transition: all 0.4s ease 0s; }
-.border-lg-st:hover { border: 1px var(--strong) solid; transition: all 0.3s ease 0s; }
+.border-lg-st { border: 1px var(--light) solid; }
+.border-lg-st:hover { border: 1px var(--strong) solid; }
 
-.border-lg-st-2 { border: 2px var(--light) solid; transition: all 0.4s ease 0s; }
-.border-lg-st-2:hover { border: 2px var(--strong) solid; transition: all 0.3s ease 0s; }
+.border-lg-st-2 { border: 2px var(--light) solid; }
+.border-lg-st-2:hover { border: 2px var(--strong) solid; }
 
 .border-explicit { border: 1px solid var(--strong); }
 .border-explicit-2 { border: 2px solid var(--strong); }
