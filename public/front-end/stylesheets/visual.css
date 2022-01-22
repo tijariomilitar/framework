@@ -76,24 +76,24 @@
 .opacity-09 { opacity: 0.9; }
 .opacity-10 { opacity: 1.0; }
 
-.opacity-in-01 { opacity: 1.0; }
-.opacity-in-01:hover { opacity: 0.1; }
-.opacity-in-02 { opacity: 1.0; }
-.opacity-in-02:hover { opacity: 0.2; }
-.opacity-in-03 { opacity: 1.0; }
-.opacity-in-03:hover { opacity: 0.3; }
-.opacity-in-04 { opacity: 1.0; }
-.opacity-in-04:hover { opacity: 0.4; }
-.opacity-in-05 { opacity: 1.0; }
-.opacity-in-05:hover { opacity: 0.5; }
-.opacity-in-06 { opacity: 1.0; }
-.opacity-in-06:hover { opacity: 0.6; }
-.opacity-in-07 { opacity: 1.0; }
-.opacity-in-07:hover { opacity: 0.7; }
-.opacity-in-08 { opacity: 1.0; }
-.opacity-in-08:hover { opacity: 0.8; }
-.opacity-in-09 { opacity: 1.0; }
-.opacity-in-09:hover { opacity: 0.9; }
+.opacity-in-01 { transition: all 0.3s ease 0s; opacity: 1.0; }
+.opacity-in-01:hover { transition: all 0.3s ease 0s; opacity: 0.1; }
+.opacity-in-02 { transition: all 0.3s ease 0s; opacity: 1.0; }
+.opacity-in-02:hover { transition: all 0.3s ease 0s; opacity: 0.2; }
+.opacity-in-03 { transition: all 0.3s ease 0s; opacity: 1.0; }
+.opacity-in-03:hover { transition: all 0.3s ease 0s; opacity: 0.3; }
+.opacity-in-04 { transition: all 0.3s ease 0s; opacity: 1.0; }
+.opacity-in-04:hover { transition: all 0.3s ease 0s; opacity: 0.4; }
+.opacity-in-05 { transition: all 0.3s ease 0s; opacity: 1.0; }
+.opacity-in-05:hover { transition: all 0.3s ease 0s; opacity: 0.5; }
+.opacity-in-06 { transition: all 0.3s ease 0s; opacity: 1.0; }
+.opacity-in-06:hover { transition: all 0.3s ease 0s; opacity: 0.6; }
+.opacity-in-07 { transition: all 0.3s ease 0s; opacity: 1.0; }
+.opacity-in-07:hover { transition: all 0.3s ease 0s; opacity: 0.7; }
+.opacity-in-08 { transition: all 0.3s ease 0s; opacity: 1.0; }
+.opacity-in-08:hover { transition: all 0.3s ease 0s; opacity: 0.8; }
+.opacity-in-09 { transition: all 0.3s ease 0s; opacity: 1.0; }
+.opacity-in-09:hover { transition: all 0.3s ease 0s; opacity: 0.9; }
 
 .opacity-out-01 { opacity: 0.1; }
 .opacity-out-01:hover { opacity: 1.0; }
@@ -113,6 +113,26 @@
 .opacity-out-08:hover { opacity: 1.0; }
 .opacity-out-09 { opacity: 0.9; }
 .opacity-out-09:hover { opacity: 1.0; }
+
+.transition-01-01 { transition: all 0.1s ease 0s; } .transition-01-01:hover { transition: all 0.1s ease 0s; }
+.transition-02-01 { transition: all 0.2s ease 0s; } .transition-02-01:hover { transition: all 0.1s ease 0s; }
+.transition-03-01 { transition: all 0.3s ease 0s; } .transition-03-01:hover { transition: all 0.1s ease 0s; }
+.transition-04-01 { transition: all 0.4s ease 0s; } .transition-04-01:hover { transition: all 0.1s ease 0s; }
+
+.transition-01-02 { transition: all 0.1s ease 0s; } .transition-01-02:hover { transition: all 0.2s ease 0s; }
+.transition-02-02 { transition: all 0.2s ease 0s; } .transition-02-02:hover { transition: all 0.2s ease 0s; }
+.transition-03-02 { transition: all 0.3s ease 0s; } .transition-03-02:hover { transition: all 0.2s ease 0s; }
+.transition-04-02 { transition: all 0.4s ease 0s; } .transition-04-02:hover { transition: all 0.2s ease 0s; }
+
+.transition-01-03 { transition: all 0.1s ease 0s; } .transition-01-03:hover { transition: all 0.3s ease 0s; }
+.transition-02-03 { transition: all 0.2s ease 0s; } .transition-02-03:hover { transition: all 0.3s ease 0s; }
+.transition-03-03 { transition: all 0.3s ease 0s; } .transition-03-03:hover { transition: all 0.3s ease 0s; }
+.transition-04-03 { transition: all 0.4s ease 0s; } .transition-04-03:hover { transition: all 0.3s ease 0s; }
+
+.transition-01-03 { transition: all 0.1s ease 0s; } .transition-01-03:hover { transition: all 0.4s ease 0s; }
+.transition-02-03 { transition: all 0.2s ease 0s; } .transition-02-03:hover { transition: all 0.4s ease 0s; }
+.transition-03-03 { transition: all 0.3s ease 0s; } .transition-03-03:hover { transition: all 0.4s ease 0s; }
+.transition-04-03 { transition: all 0.4s ease 0s; } .transition-04-03:hover { transition: all 0.4s ease 0s; }
 
 .transp { background-color: transparent; }
 .rgb000 { background-color: #000; }
