@@ -1,6 +1,9 @@
 /*img { margin-left: auto; margin-right: auto; }*/
 
-.image-card { object-fit: contain; width: 100%; height: 300px; }
+.image-card { 
+	object-fit: contain; 
+	width: 100%; 
+}
 
 .image-box {
 	/* Full height */
