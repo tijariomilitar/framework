@@ -288,10 +288,15 @@ const lib = {
 		render: (carousel_name) => {
 			let slides = document.querySelectorAll("[data-js='"+carousel_name+"']");
 	        let prevButton = document.querySelector("[data-js='"+carousel_name+"-prev']");
+	        let pageDiv = document.querySelector("[data-js='"+carousel_name+"-page']");
 	        let nextButton = document.querySelector("[data-js='"+carousel_name+"-next']");
 
 	        let lastSlideIndex = slides.length - 1;
 	        let currentSlideIndex = 0;
+
+	        let updatePage = currentPage => {
+	        	pageDiv.innerHTML = `${currentPage} de ${slides.length}`;
+	        };
 
 	        let manipulateSlidesClasses = correctSlideIndex => {
 	            slides.forEach(slide => slide.classList.remove("display-block"));
@@ -304,6 +309,7 @@ const lib = {
 	            : --currentSlideIndex
 
 	            manipulateSlidesClasses(correctSlideIndex);
+	            updatePage(currentSlideIndex + 1);
 	        });
 
 	        nextButton.addEventListener("click", () => {
@@ -312,7 +318,10 @@ const lib = {
 	            : ++currentSlideIndex;
 
 	            manipulateSlidesClasses(correctSlideIndex);
+	            updatePage(currentSlideIndex + 1);
 	        });
+			
+			updatePage(currentSlideIndex + 1);
 		},
 		// fetch data carousel
 		execute: (box, render, response, pagination) => {
