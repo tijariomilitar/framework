@@ -7,38 +7,65 @@
 <body>
     <%- include ('../../partials/nav') %>
     <div class="container">
-        <form id="image-convert-form" enctype="multipart/form-data" class="box b2 container border padding-10 margin-top-10 center">
-            <input type="file" name="image" class="box b2 center">
-            <button type="submit" class="box b2 submit-generic center">Enviar</button>
+        <form id="image-uploader" class="box b2 container border-lg-st transition-03-03 padding-20 margin-top-10">
+            <div class="box b1 underline">Conversor de imagens</div>
+            <input type="file" name="image" class="box b2-3 padding-4 margin-top-5"/>
+            <input type="submit" name="submit" class="box b3 submit-generic margin-top-5">
         </form>
+
+        <input type="button" id="downloader" class="box b2 container border-lg-st transition-03-03 padding-20 margin-top-10" style="display:none;" value="Baixar Imagem">
     </div>
 </body>
 <footer>
     <script src="/front-end/javascripts/essentials/lib.js"></script>
     <script src="/front-end/javascripts/essentials/api.js"></script>
+
     <script type="text/javascript">
-        let imageUpload = async image => {
+        const Image = {};
+        Image.convert = async (formData) => {
             let response = await fetch("/image/convert", {
                 method: "POST",
-                body: JSON.stringify({ image })
+                body: formData
             });
-            
             response = await response.json();
 
             if(API.verifyResponse(response)){ return false };
             alert(response.done);
 
-            return response.image;
+            return response;
         };
 
-        let imageConvertForm = document.getElementById("image-convert-form");
-        if(imageConvertForm){
-            imageConvertForm.addEventListener("submit", async e => {
+        Image.download = async (url) => {
+            let response = await fetch("/image/convert/download", {
+                method: "POST",
+                body: JSON.stringify(url)
+            });
+            response = await response.json();
+
+            if(API.verifyResponse(response)){ return false };
+
+            return response;
+        };
+
+        Image.controller = {};
+
+        //imageUploader and converter
+        Image.controller.convert = document.getElementById("image-uploader");
+        if(Image.controller.convert){
+            Image.controller.convert.addEventListener("submit", async e => {
                 e.preventDefault();
 
-                let response = await API.response(imageUpload, { image: e.target.image });
+                const formData = new FormData();
+                formData.append('image', e.target.image.files[0]);
+
+                let response = await API.response(Image.convert, formData);
                 console.log(response);
-                if(!response) { return false };
+
+                let downloader = document.getElementById("downloader");
+                downloader.onclick = () => API.response(Image.download, response.imagePath);
+
+                // downloader.onclick = () => window.location.href = '/image/convert/download/url?'+response.imagePath;
+                downloader.style.display = "";
             });
         }
     </script>
