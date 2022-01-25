@@ -32,6 +32,10 @@ router.get('/convert/download/:url', (req, res) => {
     res.set('Content-disposition', 'attachment; filename=' + req.params.url.split('.')[0] + '.png');
     res.set('Content-Type', 'text/plain');
 
+    fs.access('public/images/download/'+ req.params.url.split('.')[0] + '.png', (err) => {
+        if (!err) { fs.unlink('public/images/download/'+ req.params.url.split('.')[0] + '.png', err => { if(err) console.log(err) }) }
+    });
+
     readStream.pipe(res);
 });
 
