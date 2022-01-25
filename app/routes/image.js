@@ -1,7 +1,9 @@
 const router = require("express").Router();
 const multer = require('./../middleware/multer');
 const sharp = require('./../middleware/sharp');
-const download = require('download');
+const fs = require('fs');
+const stream = require('stream');
+
 
 router.get("/zoom", (req, res) => { res.render("documentation/image/zoom"); });
 
@@ -11,7 +13,7 @@ router.post("/convert", multer.single('image'), (req, res) => {
     if (req.file) {
         sharp.compressImage(req.file)
             .then(newPath => {
-                return res.send({ done: "A imagem foi processada com sucesso!", imagePath: newPath });
+                return res.send({ done: "A imagem foi processada com sucesso!", image: req.file.filename });
              })
             .catch(err => {
             	console.log(err);
@@ -20,9 +22,17 @@ router.post("/convert", multer.single('image'), (req, res) => {
     }
 });
 
-router.post('/convert/download/', (req, res) => {
-    console.log(req.body.url);
-    return res.download(req.body.url);
+router.get('/convert/download/:url', (req, res) => {
+    let data = fs.readFileSync('public/images/download/'+ req.params.url.split('.')[0] + '.png');
+    let fileContents = Buffer.from(data, "base64");
+  
+    let readStream = new stream.PassThrough();
+    readStream.end(fileContents);
+
+    res.set('Content-disposition', 'attachment; filename=' + req.params.url.split('.')[0] + '.png');
+    res.set('Content-Type', 'text/plain');
+
+    readStream.pipe(res);
 });
 
 module.exports = router;

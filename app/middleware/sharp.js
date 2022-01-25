@@ -21,5 +21,5 @@ exports.compressImage = (file, size) => {
       });
 
       return newPath;
-    })
-}
+    });
+};

@@ -7,7 +7,6 @@ module.exports = (multer({
         },
         filename: (req, file, cb) => {
             cb(null, Date.now().toString() + '-' + file.originalname);
-
         }
     }),
 

@@ -62,9 +62,8 @@
                 console.log(response);
 
                 let downloader = document.getElementById("downloader");
-                downloader.onclick = () => API.response(Image.download, response.imagePath);
 
-                // downloader.onclick = () => window.location.href = '/image/convert/download/url?'+response.imagePath;
+                downloader.onclick = () => window.location.href = '/image/convert/download/'+response.image;
                 downloader.style.display = "";
             });
         }
