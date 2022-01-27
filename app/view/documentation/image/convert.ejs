@@ -63,7 +63,10 @@
 
                 let downloader = document.getElementById("downloader");
 
-                downloader.onclick = () => window.location.href = '/image/convert/download/'+response.image;
+                downloader.onclick = () => {
+                    window.location.href = '/image/convert/download/'+response.image
+                    downloader.style.display = "none";
+                };
                 downloader.style.display = "";
             });
         }
