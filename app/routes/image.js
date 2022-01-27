@@ -4,6 +4,7 @@ const sharp = require('./../middleware/sharp');
 const fs = require('fs');
 const stream = require('stream');
 
+
 router.get("/zoom", (req, res) => { res.render("documentation/image/zoom"); });
 
 router.get("/convert", (req, res) => { res.render("documentation/image/convert"); });
@@ -15,16 +16,13 @@ router.post("/convert", multer.single('image'), (req, res) => {
                 return res.send({ done: "A imagem foi processada com sucesso!", image: req.file.filename });
              })
             .catch(err => {
-            	console.log(err);
-    			return res.send({ msg: 'Houve erro no upload!' });
+                console.log(err);
+                return res.send({ msg: 'Houve erro no upload!' });
             });
     }
 });
 
 router.get('/convert/download/:url', (req, res) => {
-    const imageResponse = await axios({url: url, responseType: 'arraybuffer'})
-    const buffer = Buffer.from(imageResponse.data, 'binary');
-
     let data = fs.readFileSync('public/images/download/'+ req.params.url.split('.')[0] + '.png');
     let fileContents = Buffer.from(data, "base64");
   
