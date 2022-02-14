@@ -53,6 +53,31 @@
 	padding-bottom: 5px; margin-bottom: 7px;
 }
 
+/*Underline link*/
+.underline-link {
+  display: inline-block;
+  position: relative;
+  color: #0087ca;
+}
+
+.underline-link:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #0087ca;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.underline-link:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
 .radius-5 { border-radius: 5px; }
 .radius-10 { border-radius: 10px; }
 .radius-15 { border-radius: 15px; }
