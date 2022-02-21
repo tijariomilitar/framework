@@ -34,7 +34,7 @@ tr:hover { background-color: var(--light); }
 pre { tab-size: 2; }
 
 .scroll-y { overflow-y: scroll; }
-.scroll-x { overflow-x: scroll; }
+.scroll-x { overflow-x: scroll; white-space: nowrap; }
 .scroll-hide { overflow-y: hidden; }
 
 .pointer { cursor: pointer; }
