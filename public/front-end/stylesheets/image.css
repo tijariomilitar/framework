@@ -27,6 +27,11 @@
     object-fit:cover;
 }
 
+.image-prop {
+	max-width:100%;
+    object-fit:cover;
+}
+
 .bg {
   background-position: center;
   background-repeat: no-repeat;
