@@ -5,3 +5,27 @@
 .display-block { display: block; }
 
 .width-fill { width: 100%; }
+
+.ellipsis {
+  overflow: hidden;
+  position: relative; 
+  line-height: 1.2em;
+  max-height: 3.6em; 
+  text-align: justify;  
+  padding-right: 1em;
+}
+.ellipsis:before {
+  content: '...';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.ellipsis:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 1em;
+  height: 1em;
+  margin-top: 0.2em;
+  background: var(--ground); 
+}
