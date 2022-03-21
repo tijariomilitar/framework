@@ -14,10 +14,13 @@
 }
 
 @media (max-width: 800px) {
-	.hide-in-web { display: initial; }
 	.hide-in-mobile { display: none; }
 	.box { width:100%; }
 	.btn { width:100%; }
+}
+
+@media (min-width: 800px) {
+	.hide-in-web { display: none }
 }
 
 @media print {
