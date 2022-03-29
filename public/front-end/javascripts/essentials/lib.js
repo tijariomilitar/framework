@@ -754,6 +754,16 @@ lib.element.info = (box, param, paramValue) => {
 	return divParent;
 };
 
+lib.element.createInfo = (css, param, paramValue) => {
+	let divParent = lib.element.create("div", { class: css });
+	let divParam = lib.element.create("div", { class: "mobile-box b1 em06" }, param);
+	let divValue = lib.element.create("div", { class: "mobile-box b1" }, paramValue);
+
+	divParent.appendChild(divParam);
+	divParent.appendChild(divValue);
+	return divParent;
+};
+
 lib.element.param = (box, param, element, option) => {
 	let divParent = lib.element.create("div", { class: "mobile-box "+box+" container padding-5 margin-top-5" });
 	let divInput = lib.element.create("div", { class: "mobile-box b1 em06" }, param);
