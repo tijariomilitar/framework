@@ -61,5 +61,4 @@ pre { tab-size: 2; }
 .msg-window {
 	z-index: 9999;
 	position: absolute;
-	background-color: var(--light);
 }
