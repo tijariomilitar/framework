@@ -706,6 +706,22 @@ lib.updateCssVariable = (origin, variable, content) => {
 	root.setProperty(variable, content);
 };
 
+lib.addCss = (element, cssClasses) => {
+  if(element.tagName){
+    cssClasses.forEach(c => element.classList.add(c));
+    return;
+  };
+  cssClasses.forEach(c => document.getElementById(element).classList.add(c));
+};
+
+lib.removeCss = (element, cssClasses) => {
+  if(element.tagName){
+    cssClasses.forEach(c => element.classList.remove(c));
+    return;
+  };
+  cssClasses.forEach(c => document.getElementById(element).classList.remove(c));
+};
+
 lib.disable = (element, state) => {
 	if(element.tagName){
 		return element.disabled = state;
