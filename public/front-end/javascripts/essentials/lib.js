@@ -494,6 +494,41 @@ lib.dropdown = {
 	}
 };
 
+lib.Dropdown = {};
+
+lib.Dropdown.render = (objects, input, dropdown_id, props) => {
+	let dropdown_ul = document.getElementById(dropdown_id);
+	dropdown_ul.innerHTML = "";
+
+	if(!objects.length) { return false; }
+
+	objects.forEach(obj => {
+		let dropdown_li = lib.element.create("li", { class: "box b1" });
+
+		let obj_info = "";
+		for(let i in props) {
+			if(i != props.length - 1) { obj_info += `${obj[props[i]]} | ` } 
+			else { obj_info += `${obj[props[i]]}` }
+		};
+
+		dropdown_li = lib.element.create("input", {
+			class: "box b1 bold box-hover wrapper padding-10 border pointer",
+			'data-id': obj["id"],
+			value: obj_info,
+			onclick: `lib.Dropdown.fill(this, '${input.id}', '${dropdown_id}');`
+		});
+		dropdown_ul.append(dropdown_li);
+	});
+};
+
+lib.Dropdown.fill = (dropdown_input, input_id, dropdown_id) => {
+	document.getElementById(input_id).dataset.id = dropdown_input.dataset.id;
+	document.getElementById(input_id).value = dropdown_input.value;
+	document.getElementById(input_id).readOnly = true;
+
+	document.getElementById(dropdown_id).innerHTML = "";
+};
+
 lib.address = {
 	get: async (CEP) => {
 		let response = await fetch("https://viacep.com.br/ws/"+CEP+"/json/");
