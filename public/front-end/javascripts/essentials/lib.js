@@ -522,7 +522,7 @@ lib.Dropdown.render = (objects, input, dropdown_id, props) => {
 		};
 
 		dropdown_li = lib.element.create("input", {
-			class: "box b1 bold box-hover wrapper padding-10 border pointer",
+			class: "box b1 lucida-grande bold box-hover wrapper padding-10 border pointer",
 			'data-id': obj["id"],
 			value: obj_info,
 			onclick: `lib.Dropdown.fill(this, '${input.id}', '${dropdown_id}');`
