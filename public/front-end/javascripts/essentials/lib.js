@@ -513,7 +513,7 @@ lib.Dropdown.render = (objects, input, dropdown_id, props) => {
 	if(!objects.length) { return false; }
 
 	objects.forEach(obj => {
-		let dropdown_li = lib.element.create("li");
+		let dropdown_li = lib.element.create("li", {});
 
 		let obj_info = "";
 		for(let i in props) {
