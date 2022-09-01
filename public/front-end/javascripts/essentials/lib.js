@@ -496,6 +496,16 @@ lib.dropdown = {
 
 lib.Dropdown = {};
 
+lib.Dropdown.setEvents = (dropdown_box, dropdown_ul) => {
+	document.getElementById(dropdown_box).addEventListener("mouseover", e => {
+		lib.display(dropdown_ul, "");
+	});
+
+	document.getElementById(dropdown_box).addEventListener("mouseout", e => {
+		lib.display(dropdown_ul, "none");
+	});
+};
+
 lib.Dropdown.render = (objects, input, dropdown_id, props) => {
 	let dropdown_ul = document.getElementById(dropdown_id);
 	dropdown_ul.innerHTML = "";
