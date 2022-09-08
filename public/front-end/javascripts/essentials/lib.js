@@ -740,8 +740,8 @@ lib.image = {
 };
 
 lib.ruleOfThree = (index, target, sample) => {
-	if(index && target && sample){
-		return ((target * sample)/index);
+	if(!isNaN(index) && !isNaN(target) && !isNaN(sample)){
+		return ((target * sample) / index);
 	};
 	return false;
 };
