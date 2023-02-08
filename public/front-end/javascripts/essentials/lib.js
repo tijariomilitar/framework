@@ -381,9 +381,15 @@ lib.Carousel = (id) => {
 	const slides = carousel.querySelectorAll('.carousel-slides img');
 	let slideIndex = 0;
 
+	slides.forEach((slide) => {
+		slide.style.display = "none";
+		slide.draggable = false;
+	});
+
 	const showSlides = (n) => {
 		slides.forEach((slide) => {
 			slide.style.display = "none";
+			slide.style.transform = "translateX(0)";
 		});
 		slides[n].style.display = "block";
 	};
@@ -414,6 +420,98 @@ lib.Carousel = (id) => {
 		plusSlides(1);
 	});
 	carousel.appendChild(next);
+
+	// mouse image changer
+	let mouseDownX;
+	let deltaX;
+
+	carousel.addEventListener('mousedown', (event) => {
+		mouseDownX = event.clientX;
+		isDragging = true;
+	});
+
+	carousel.addEventListener('mousemove', (event) => {
+		if (!isDragging) {
+			return;
+		}
+		const mouseMoveX = event.clientX;
+		deltaX = mouseMoveX - mouseDownX;
+		slides[slideIndex].style.transform = `translateX(${deltaX}px)`;
+	});
+
+	carousel.addEventListener('mouseleave', (event) => {
+		if (isDragging) {
+			const mouseMoveX = event.clientX;
+			const deltaX = mouseMoveX - mouseDownX;
+			if (Math.abs(deltaX) > 1) {
+				if (deltaX > 0) {
+					plusSlides(-1);
+				} else {
+					plusSlides(1);
+				}
+			}
+		}
+		isDragging = false;
+	});
+
+	carousel.addEventListener('mouseout', (event) => {
+		if (isDragging) {
+			const mouseMoveX = event.clientX;
+			const deltaX = mouseMoveX - mouseDownX;
+			if (Math.abs(deltaX) > 1) {
+				if (deltaX > 0) {
+					plusSlides(-1);
+				} else {
+					plusSlides(1);
+				}
+			}
+		}
+		isDragging = false;
+	});
+
+	carousel.addEventListener('mouseup', () => {
+		if (!isDragging) {
+			return;
+		}
+		isDragging = false;
+		if (Math.abs(deltaX) > 1) {
+			if (deltaX > 0) {
+				plusSlides(-1);
+			} else {
+				plusSlides(1);
+			}
+		}
+		slides[slideIndex].style.transform = "translateX(0)";
+	});
+
+	// finger touch mobile
+	let startX;
+	let isDragging = false;
+
+	carousel.addEventListener('touchstart', (event) => {
+		startX = event.touches[0].clientX;
+		isDragging = true;
+	});
+
+	carousel.addEventListener('touchmove', (event) => {
+		if (!isDragging) {
+			return;
+		}
+		const touchMoveX = event.touches[0].clientX;
+		const deltaX = touchMoveX - startX;
+		if (Math.abs(deltaX) > 1) {
+			isDragging = false;
+			if (deltaX > 0) {
+				plusSlides(-1);
+			} else {
+				plusSlides(1);
+			}
+		}
+	});
+
+	carousel.addEventListener('touchend', () => {
+		isDragging = false;
+	});
 
 	showSlides(0);
 };
