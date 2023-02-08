@@ -443,7 +443,7 @@ lib.Carousel = (id) => {
 		if (isDragging) {
 			const mouseMoveX = event.clientX;
 			const deltaX = mouseMoveX - mouseDownX;
-			if (Math.abs(deltaX) > 1) {
+			if (Math.abs(deltaX) > 10) {
 				if (deltaX > 0) {
 					plusSlides(-1);
 				} else {
@@ -458,7 +458,7 @@ lib.Carousel = (id) => {
 		if (isDragging) {
 			const mouseMoveX = event.clientX;
 			const deltaX = mouseMoveX - mouseDownX;
-			if (Math.abs(deltaX) > 1) {
+			if (Math.abs(deltaX) > 10) {
 				if (deltaX > 0) {
 					plusSlides(-1);
 				} else {
@@ -474,7 +474,7 @@ lib.Carousel = (id) => {
 			return;
 		}
 		isDragging = false;
-		if (Math.abs(deltaX) > 1) {
+		if (Math.abs(deltaX) > 10) {
 			if (deltaX > 0) {
 				plusSlides(-1);
 			} else {
@@ -499,7 +499,7 @@ lib.Carousel = (id) => {
 		}
 		const touchMoveX = event.touches[0].clientX;
 		const deltaX = touchMoveX - startX;
-		if (Math.abs(deltaX) > 1) {
+		if (Math.abs(deltaX) > 10) {
 			isDragging = false;
 			if (deltaX > 0) {
 				plusSlides(-1);
