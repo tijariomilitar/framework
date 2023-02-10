@@ -431,9 +431,8 @@ lib.Carousel = (id) => {
 	});
 
 	carousel.addEventListener('mousemove', (event) => {
-		if (!isDragging) {
-			return;
-		}
+		if (!isDragging) { return; }
+
 		const mouseMoveX = event.clientX;
 		deltaX = mouseMoveX - mouseDownX;
 		slides[slideIndex].style.transform = `translateX(${deltaX}px)`;
@@ -470,10 +469,10 @@ lib.Carousel = (id) => {
 	});
 
 	carousel.addEventListener('mouseup', () => {
-		if (!isDragging) {
-			return;
-		}
+		if (!isDragging) { return; }
+
 		isDragging = false;
+
 		if (Math.abs(deltaX) > 10) {
 			if (deltaX > 0) {
 				plusSlides(-1);
