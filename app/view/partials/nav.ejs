@@ -1,4 +1,4 @@
-<div id="mySidenav" class="sidenav border">
+<!-- <div id="mySidenav" class="sidenav border">
 	<span class="closebtn pointer" onclick="closeNav()">&times;</span>
 
 	<div class="box b1 container padding-5">
@@ -46,9 +46,118 @@
 			<option value="/webgl">Basics</option>
 		</select>
 	</div>
+</div> -->
+
+<!-- <script>
+	function openNav() { document.getElementById("mySidenav").style.width = "300px"; };
+	function closeNav() { document.getElementById("mySidenav").style.width = "0"; };
+</script> -->
+
+<div class="container">
+	<div class="mobile-box right padding-10">
+		<img class='icon size-40 open-btn' src='/images/icon/menu.png' onclick="openNav()">
+	</div>
+</div>
+
+<div class="sidebar scroll-y" id="mySidebar">
+	<div class="container margin-bottom-20">
+		<div class="mobile-box b6-7"></div>
+		<div class="mobile-box container bold b7 h-center">
+			<img class='icon size-15 open-btn' src='/images/icon/close.png' onclick="closeNav()">
+		</div>
+	</div>
+
+	<ul>
+		<li class="underline margin-top-5">
+			<a class="lucida-grande bold">Primeiros passos</a>
+			<ul>
+				<li><a onclick="window.location.href = `/getting-started/Fundamentals`" class="em12">Fundamentos</a></li>
+				<li><a onclick="window.location.href = `/getting-started/instalation`" class="em12">Instalação</a></li>
+			</ul>
+		</li>
+
+		<li class="underline margin-top-5">
+			<a class="lucida-grande bold">Estrutura</a>
+			<ul>
+				<li><a onclick="window.location.href = `/structure/container`" class="em12">Container</a></li>
+				<li><a onclick="window.location.href = `/structure/box`" class="em12">Box</a></li>
+				<li><a onclick="window.location.href = `/structure/position`" class="em12">Posição</a></li>
+				<li><a onclick="window.location.href = `/structure/responsive`" class="em12">Responsividade</a></li>
+				<li><a onclick="window.location.href = `/structure/carousel`" class="em12">Carrosel</a></li>
+			</ul>
+		</li>
+
+		<li class="underline margin-top-5">
+			<a class="lucida-grande bold">Estilos</a>
+			<ul>
+				<li><a onclick="window.location.href = `/style/color`" class="em12">Cores</a></li>
+			</ul>
+		</li>
+
+		<li class="underline margin-top-5">
+			<a class="lucida-grande bold">Imagens</a>
+			<ul>
+				<li><a onclick="window.location.href = `/image/zoom`" class="em12">Zoom</a></li>
+				<li><a onclick="window.location.href = `/image/convert`" class="em12">Conversões</a></li>
+			</ul>
+		</li>
+
+		<li class="underline margin-top-5">
+			<a class="lucida-grande bold">Biblioteca JS</a>
+			<ul>
+				<li><a onclick="window.location.href = `/js-library/date`" class="em12">Datas</a></li>
+				<li><a onclick="window.location.href = `/js-library/math`" class="em12">Matemática</a></li>
+				<li><a onclick="window.location.href = `/js-library/text`" class="em12">Texto</a></li>
+			</ul>
+		</li>
+
+		<li class="underline margin-top-5">
+			<a class="lucida-grande bold">WEBGL</a>
+			<ul>
+				<li><a onclick="window.location.href = `/webgl`" class="em12">Primeiros passos</a></li>
+			</ul>
+		</li>
+
+	</ul>
 </div>
 
 <script>
-	function openNav() { document.getElementById("mySidenav").style.width = "300px"; };
-	function closeNav() { document.getElementById("mySidenav").style.width = "0"; };
+	const sidebar = document.querySelector(".sidebar");
+
+	document.addEventListener("DOMContentLoaded", () => {
+		// add active class to the first link on page load
+		sidebar.querySelector("a").classList.add("active");
+	});
+
+	sidebar.addEventListener("click", (event) => {
+		if (event.target.tagName === "A") {
+			// remove active class from all links
+			sidebar.querySelectorAll("a").forEach((link) => {
+				link.classList.remove("active");
+			});
+
+			// add active class to the clicked link
+			event.target.classList.add("active");
+
+			// toggle submenu display
+			const li = event.target.parentNode;
+			li.classList.toggle("active");
+		}
+	});
+
+	function openNav() {
+		document.getElementById("mySidebar").classList.add("open");
+
+		// fecha a barra lateral se um clique ocorrer fora dela
+		document.addEventListener("click", function closeNav(event) {
+			if (!event.target.closest(".sidebar") && !event.target.closest(".open-btn")) {
+				document.getElementById("mySidebar").classList.remove("open");
+				document.removeEventListener("click", closeNav);
+			}
+		});
+	}
+
+	function closeNav() {
+		document.getElementById("mySidebar").classList.remove("open");
+	}
 </script>

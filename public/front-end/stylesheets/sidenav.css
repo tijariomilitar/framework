@@ -1,7 +1,7 @@
 .sidenav {
   height: 100%;
   width: 0;
-  position:fixed!important;
+  position: fixed !important;
   z-index: 51;
   top: 0;
   right: 0;
@@ -26,5 +26,7 @@
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav { padding-top: 40px; }
+  .sidenav {
+    padding-top: 40px;
+  }
 }

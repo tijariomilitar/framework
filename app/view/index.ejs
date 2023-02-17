@@ -1,44 +1,49 @@
 <!DOCTYPE html>
 <html>
-	<head>
-        <%- include ('partials/head') %>
-        <%- include ('partials/header') %>
-	</head>
-	<body>
-        <%- include ('partials/nav') %>
-		<section class="container" style="height:84.5vh">
-			<section id="side-menu" class="box a4 scroll-y border" style="height:100%">
-				<!-- <div class="box a1 container h-center margin-top-5">
+
+<head>
+	<%- include ('partials/head') %>
+	<%- include ('partials/header') %>
+</head>
+
+<body>
+	<%- include ('partials/nav') %>
+	<section class="container" style="height:84.5vh">
+		<section id="side-menu" class="box a4 scroll-y border" style="height:100%">
+			<!-- <div class="box a1 container h-center margin-top-5">
 					<div class="box b4-5 container border center pointer">
 						<img class="mobile-box a3-7 image-fit" src="/images/icon/cotalogo.png">
 						<div class="mobile-box a4-7 padding-5 bold center noselect">Seus produtos de forma profissional</div>
 					</div>
 				</div>-->
-				 <div class="box a1 container padding-left-20">
-					<div class="box b3-4 em13 lucida-grande bold margin-top-10 pointer" onclick="lib.displayDiv('getting-started')">Fundamentos</div>
-					<div id="getting-started" class="box b8-9 container lucida-grande margin-top-5 padding-left-5 underline" style="display:none;">
-						<div class="box a1 lucida-grande opacity-out-08 pointer" href="#Entendendo HTML5">Entendendo HTML5</div>
-						<div class="box a1 lucida-grande opacity-out-08 pointer" href="#Entendendo CSS3">Entendendo CSS3</div>
-						<div class="box a1 lucida-grande opacity-out-08 pointer" href="#installation">Instalação</div>
-					</div>
+			<div class="box a1 container padding-left-20">
+				<div class="box b3-4 em13 lucida-grande bold margin-top-10 pointer" onclick="lib.displayDiv('getting-started')">
+					Fundamentos</div>
+				<div id="getting-started" class="box b8-9 container lucida-grande margin-top-5 padding-left-5 underline"
+					style="display:none;">
+					<div class="box a1 lucida-grande opacity-out-08 pointer" href="#Entendendo HTML5">Entendendo HTML5</div>
+					<div class="box a1 lucida-grande opacity-out-08 pointer" href="#Entendendo CSS3">Entendendo CSS3</div>
+					<div class="box a1 lucida-grande opacity-out-08 pointer" href="#installation">Instalação</div>
 				</div>
-			</section>
-			<section class="box a3-4 padding-left-25 scroll-y" style="height:100%">
-				<div class="box b1 lucida-grande em13 bold underline margin-top-20">Entendendo HTML5</div>
-				<div class="box b1 lucida-grande em13 bold underline margin-top-20">Entendendo CSS3</div>
-				<div class="box b1 lucida-grande em13 bold underline margin-top-20">Instalação</div>
-			</section>
+			</div>
 		</section>
-	</body>
-    <%- include ('partials/footer') %>
-    <script type="text/javascript">
-    	// side menu options
-    	let section_div = lib.element.create("div", { 
-    		class: "box a1 container padding-left-25",
-    		onclick: "lib.displayDiv('getting-started')"
-    	}, "Comece Agora");
-    	section_div.appendChild(lib.element.create("div", { 
-    		class: "box a1 em09 lucida-grande pointer"
-    	}))
-	</script>
+		<section class="box a3-4 padding-left-25 scroll-y" style="height:100%">
+			<div class="box b1 lucida-grande em13 bold underline margin-top-20">Entendendo HTML5</div>
+			<div class="box b1 lucida-grande em13 bold underline margin-top-20">Entendendo CSS3</div>
+			<div class="box b1 lucida-grande em13 bold underline margin-top-20">Instalação</div>
+		</section>
+	</section>
+</body>
+<%- include ('partials/footer') %>
+<script type="text/javascript">
+	// side menu options
+	let section_div = lib.element.create("div", {
+		class: "box a1 container padding-left-25",
+		onclick: "lib.displayDiv('getting-started')"
+	}, "Comece Agora");
+	section_div.appendChild(lib.element.create("div", {
+		class: "box a1 em09 lucida-grande pointer"
+	}))
+</script>
+
 </html>

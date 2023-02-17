@@ -9,56 +9,135 @@
 	--color: #222222;
 }
 
-html { scroll-behavior: smooth; }
-
-* { margin: 0; padding: 0; font-family: ARIAL; }
-body { background-color: var(--background); }
-
-a { text-decoration: none; cursor: pointer; }
-
-select:required:invalid { color: var(--disabled); }
-.hide-disabled [value=""][disabled] { display: none; }
-
-input, select, button { background-color: var(--ground) }
-
-button:focus { outline: none; box-shadow: none; }
-
-table { border-collapse: collapse; word-break: break-all; }
-tr:hover { background-color: var(--light); }
-
-pre { tab-size: 2; }
-
-.scroll-y { overflow-y: scroll; }
-.scroll-x { overflow-x: scroll; white-space: nowrap; }
-.scroll-hide { overflow-y: hidden; }
-
-.pointer { cursor: pointer; }
-.zoom-in { cursor: zoom-in; }
-
-.wrap { overflow-wrap: break-word; }
-.nowrap { white-space: nowrap; }
-.pre-wrap { white-space: pre-wrap; }
-.wrapper { white-space: normal; }
-
-.noselect {
-	user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
-	-o-user-select: none;
-	-ms-user-select: none; /* Internet Explorer/Edge */
-	-moz-user-select: none; /* Old versions of Firefox */
-	-webkit-user-select: none; /* Safari */
-	-webkit-touch-callout: none; /* iOS Safari */
-	-khtml-user-select: none; /* Konqueror HTML */
+html {
+	scroll-behavior: smooth;
 }
 
-.hide-in-web { display: none; }
-.hide-in-mobile { display: initial; }
+* {
+	margin: 0;
+	padding: 0;
+	font-family: ARIAL;
+}
+
+body {
+	background-color: var(--background);
+}
+
+a {
+	text-decoration: none;
+	cursor: pointer;
+}
+
+select:required:invalid {
+	color: var(--disabled);
+}
+
+.hide-disabled [value=""][disabled] {
+	display: none;
+}
+
+input,
+select,
+button {
+	background-color: var(--ground)
+}
+
+button:focus {
+	outline: none;
+	box-shadow: none;
+}
+
+table {
+	border-collapse: collapse;
+	word-break: break-all;
+}
+
+tr:hover {
+	background-color: var(--light);
+}
+
+pre {
+	tab-size: 2;
+}
+
+.scroll-y {
+	overflow-y: scroll;
+}
+
+.scroll-x {
+	overflow-x: scroll;
+	white-space: nowrap;
+}
+
+.scroll-hide {
+	overflow-y: hidden;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.zoom-in {
+	cursor: zoom-in;
+}
+
+.wrap {
+	overflow-wrap: break-word;
+}
+
+.nowrap {
+	white-space: nowrap;
+}
+
+.pre-wrap {
+	white-space: pre-wrap;
+}
+
+.wrapper {
+	white-space: normal;
+}
+
+.noselect {
+	user-select: none;
+	/* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+	-o-user-select: none;
+	-ms-user-select: none;
+	/* Internet Explorer/Edge */
+	-moz-user-select: none;
+	/* Old versions of Firefox */
+	-webkit-user-select: none;
+	/* Safari */
+	-webkit-touch-callout: none;
+	/* iOS Safari */
+	-khtml-user-select: none;
+	/* Konqueror HTML */
+}
+
+.hide-in-web {
+	display: none;
+}
+
+.hide-in-mobile {
+	display: initial;
+}
 
 .msg-window {
 	z-index: 9999;
 	position: absolute;
 }
 
-::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background: #f1f1f1; }
-::-webkit-scrollbar-thumb { background: #888; }
-::-webkit-scrollbar-thumb:hover { background: #555; }
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
