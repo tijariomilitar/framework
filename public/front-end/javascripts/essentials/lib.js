@@ -666,6 +666,17 @@ lib.replaceChar = (string, regex, content) => {
 	return string;
 };
 
+lib.hasForbiddenChar = (url) => { // Adiciona um evento de input no input
+	const forbiddenChars = /[#%&{}\s\\<>*?/$!'":@+,`|[\]^~();¨´áéíóúâêîôûàèìòùäëïöü]/g;
+	const hasForbiddenChar = forbiddenChars.test(url); // Testa se há algum símbolo proibido no valor
+
+	if (hasForbiddenChar) {
+		return true;
+	} else {
+		return false;
+	}
+};
+
 // -------------------
 // Dropdown
 // -------------------
