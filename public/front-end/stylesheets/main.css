@@ -124,6 +124,8 @@ pre {
 .msg-window {
 	z-index: 9999;
 	position: absolute;
+	background-color: rgba(128, 128, 128, 0.3);
+	;
 }
 
 ::-webkit-scrollbar {
