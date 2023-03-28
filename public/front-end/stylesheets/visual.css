@@ -3,18 +3,18 @@
 .ground { background-color: var(--ground); }
 
 /* Shadows */
-.shadow { box-shadow:0px 0px 10px var(--light); }
+.shadow { box-shadow:2px 2px 4px var(--light); }
 
 .shadow-lg-st { box-shadow:2px 2px 4px var(--light); }
 .shadow-lg-st:hover { box-shadow:2px 2px 4px var(--strong); }
 
 .shadow-hover {}
-.shadow-hover:hover { box-shadow:0px 0px 10px var(--light); }
+.shadow-hover:hover { box-shadow:2px 2px 4px var(--light); }
 
-.shadow-st { box-shadow:0px 0px 10px var(--strong); }
+.shadow-st { box-shadow:2px 2px 4px var(--strong); }
 
 .shadow-st-hover {}
-.shadow-st-hover:hover { box-shadow:0px 0px 10px var(--strong); }
+.shadow-st-hover:hover { box-shadow:2px 2px 4px var(--strong); }
 
 /* Borders */
 .noborder { border: none; outline:none; }
