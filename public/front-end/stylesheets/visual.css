@@ -42,6 +42,7 @@
 .border-right { border-top: none; border-left: none; border-right: 1px solid var(--light); border-bottom: none; outline:none; }
 .border-right-2 { border-top: none; border-left: none; border-right: 2px solid var(--light); border-bottom: none; outline:none; }
 .border-bottom { border-top: none; border-left: none; border-right: none; border-bottom: 1px solid var(--light); outline:none; }
+.border-bottom-st { border-top: none; border-left: none; border-right: none; border-bottom: 1px solid var(--strong); outline:none; }
 .border-bottom-2 { border-top: none; border-left: none; border-right: none; border-bottom: 2px solid var(--light); outline:none; }
 
 .nofocus {} .nofocus:focus { outline: none; }
