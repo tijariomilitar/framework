@@ -713,6 +713,58 @@ lib.dropdown.fill.input = (dropdown_input, input_id, dropdown_id) => {
 	document.getElementById(dropdown_id).innerHTML = "";
 };
 
+lib.dropdown.input = (arr, input, content, props) => {
+	if (!input) { return console.error("Elemento não encontrado:", input); }
+
+	content.innerHTML = "";
+	content.style.display = '';
+
+	input.onclick = function (event) {
+		event.stopPropagation();
+		if (this.readOnly) { this.value = ''; this.dataset.id = ''; this.readOnly = false; }
+		content.style.display = '';
+	};
+
+	content.onclick = function (event) {
+		event.stopPropagation();
+	};
+
+	arr.forEach(obj => {
+		let obj_info = "";
+		for (let i in props) {
+			if (i != props.length - 1) { obj_info += `${obj[props[i]]} | ` }
+			else { obj_info += `${obj[props[i]]}` }
+		};
+
+		const item = lib.element.create("div", {
+			class: "box a1 container pointer",
+			'data-id': obj.id
+		});
+
+		item.append(lib.element.create("div", { class: "box a1 border-lg-st padding-10 bold" }, `${obj_info}`));
+
+		item.onclick = function (event) {
+			input.dataset.id = obj.id;
+			input.value = props.reduce((str, prop, currI, arr) => {
+				if (currI === arr.length - 1) { str += `${obj[prop]}`; }
+				else { str += `${obj[prop]} | `; }
+				return str;
+			}, "");
+			input.readOnly = true;
+			content.style.display = 'none';
+		};
+
+		content.append(item);
+	});
+
+	document.addEventListener('click', function (event) {
+		const dropdownContent = document.querySelector('.dropdown-content');
+		if (dropdownContent.style.display === '') {
+			dropdownContent.style.display = 'none';
+		}
+	});
+};
+
 lib.Dropdown = {};
 
 lib.Dropdown.setEvents = (dropdown_box, dropdown_ul) => {
