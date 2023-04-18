@@ -734,7 +734,7 @@ lib.dropdown.input = (objects, input, content, props) => {
 		});
 
 		for (let i in props) {
-			item.append(lib.element.info(props[i][1], props[i][0], obj[props[i][0]]));
+			item.append(lib.element.info(props[i][2], props[i][1], obj[props[i][0]]));
 		};
 
 		item.onclick = function (event) {
