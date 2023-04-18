@@ -714,8 +714,6 @@ lib.dropdown.fill.input = (dropdown_input, input_id, dropdown_id) => {
 };
 
 lib.dropdown.input = (objects, input, content, props) => {
-	if (!input) { return console.error("Elemento não encontrado:", input); }
-
 	content.innerHTML = "";
 	content.style.display = 'block';
 
@@ -731,19 +729,19 @@ lib.dropdown.input = (objects, input, content, props) => {
 
 	objects.forEach(obj => {
 		const item = lib.element.create("div", {
-			class: "box a1 container box-hover padding-10 border pointer",
+			class: "box a1 container box-hover em09 border-lg-st padding-3 pointer",
 			'data-id': obj["id"]
 		});
 
 		for (let i in props) {
-			item.append(lib.element.info(`b2`, props[i], obj[props[i]]));
+			item.append(lib.element.info(props[i][1], props[i][0], obj[props[i][0]]));
 		};
 
 		item.onclick = function (event) {
 			input.dataset.id = this.dataset.id;
 			input.value = props.reduce((value, prop, currI, arr) => {
-				if (currI == arr.length - 1) { value += `${obj[prop]}`; }
-				else { value += `${obj[prop]} | `; }
+				if (currI == arr.length - 1) { value += `${obj[prop[0]]}`; }
+				else { value += `${obj[prop[0]]} | `; }
 				return value;
 			}, "");
 			input.readOnly = true;
