@@ -713,7 +713,7 @@ lib.dropdown.fill.input = (dropdown_input, input_id, dropdown_id) => {
 	document.getElementById(dropdown_id).innerHTML = "";
 };
 
-lib.dropdown.input = (objects, input, content, props) => {
+lib.dropdown.input = (objects, input, content, props, func) => {
 	content.innerHTML = "";
 	content.style.display = 'block';
 
@@ -746,6 +746,7 @@ lib.dropdown.input = (objects, input, content, props) => {
 			}, "");
 			input.readOnly = true;
 			content.style.display = 'none';
+			func && obj.id && func(obj.id);
 		};
 
 		content.appendChild(item);
