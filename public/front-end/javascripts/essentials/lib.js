@@ -713,53 +713,49 @@ lib.dropdown.fill.input = (dropdown_input, input_id, dropdown_id) => {
 	document.getElementById(dropdown_id).innerHTML = "";
 };
 
-lib.dropdown.input = (arr, input, content, props) => {
+lib.dropdown.input = (objects, input, content, props) => {
 	if (!input) { return console.error("Elemento não encontrado:", input); }
 
 	content.innerHTML = "";
-	content.style.display = '';
+	content.style.display = 'block';
 
 	input.onclick = function (event) {
 		event.stopPropagation();
 		if (this.readOnly) { this.value = ''; this.dataset.id = ''; this.readOnly = false; }
-		content.style.display = '';
+		content.style.display = 'block';
 	};
 
 	content.onclick = function (event) {
 		event.stopPropagation();
 	};
 
-	arr.forEach(obj => {
-		let obj_info = "";
-		for (let i in props) {
-			if (i != props.length - 1) { obj_info += `${obj[props[i]]} | ` }
-			else { obj_info += `${obj[props[i]]}` }
-		};
-
+	objects.forEach(obj => {
 		const item = lib.element.create("div", {
-			class: "box a1 container pointer",
-			'data-id': obj.id
+			class: "box b1 container box-hover padding-10 border pointer",
+			'data-id': obj["id"]
 		});
 
-		item.append(lib.element.create("div", { class: "box a1 border-lg-st padding-10 bold" }, `${obj_info}`));
+		for (let i in props) {
+			item.append(lib.element.info(`b2`, props[i], obj[props[i]]));
+		};
 
 		item.onclick = function (event) {
-			input.dataset.id = obj.id;
-			input.value = props.reduce((str, prop, currI, arr) => {
-				if (currI === arr.length - 1) { str += `${obj[prop]}`; }
-				else { str += `${obj[prop]} | `; }
-				return str;
+			input.dataset.id = this.dataset.id;
+			input.value = props.reduce((value, prop, currI, arr) => {
+				if (currI == arr.length - 1) { value += `${obj[prop]}`; }
+				else { value += `${obj[prop]} | `; }
+				return value;
 			}, "");
 			input.readOnly = true;
 			content.style.display = 'none';
 		};
 
-		content.append(item);
+		content.appendChild(item);
 	});
 
 	document.addEventListener('click', function (event) {
 		const dropdownContent = document.querySelector('.dropdown-content');
-		if (dropdownContent.style.display === '') {
+		if (dropdownContent.style.display === 'block') {
 			dropdownContent.style.display = 'none';
 		}
 	});
