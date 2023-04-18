@@ -731,7 +731,7 @@ lib.dropdown.input = (objects, input, content, props) => {
 
 	objects.forEach(obj => {
 		const item = lib.element.create("div", {
-			class: "box b1 container box-hover padding-10 border pointer",
+			class: "box a1 container box-hover padding-10 border pointer",
 			'data-id': obj["id"]
 		});
 
