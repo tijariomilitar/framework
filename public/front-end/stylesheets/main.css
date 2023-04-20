@@ -128,6 +128,26 @@ pre {
 	;
 }
 
+.msg-bg {
+	position: fixed;
+	background-color: var(--strong);
+	background-color: rgba(0, 0, 0, 0.5);
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	z-index: 999;
+}
+
+.msg-popup {
+	position: fixed;
+	background-color: white;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 1;
+}
+
 ::-webkit-scrollbar {
 	width: 10px;
 }
