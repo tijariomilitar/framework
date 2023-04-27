@@ -125,10 +125,9 @@ pre {
 	z-index: 9999;
 	position: absolute;
 	background-color: rgba(128, 128, 128, 0.3);
-	;
 }
 
-.msg-bg {
+.msg {
 	position: fixed;
 	background-color: var(--strong);
 	background-color: rgba(0, 0, 0, 0.5);
