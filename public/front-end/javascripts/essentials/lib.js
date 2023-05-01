@@ -715,12 +715,12 @@ lib.dropdown.fill.input = (dropdown_input, input_id, dropdown_id) => {
 
 lib.dropdown.input = (objects, input, content, props, func) => {
 	content.innerHTML = "";
-	content.style.display = 'block';
+	content.style.display = '';
 
 	input.onclick = function (event) {
 		event.stopPropagation();
 		if (this.readOnly) { this.value = ''; this.dataset.id = ''; this.readOnly = false; }
-		content.style.display = 'block';
+		content.style.display = '';
 	};
 
 	content.onclick = function (event) {
@@ -753,9 +753,8 @@ lib.dropdown.input = (objects, input, content, props, func) => {
 	});
 
 	document.addEventListener('click', function (event) {
-		const dropdownContent = document.querySelector('.dropdown-content');
-		if (dropdownContent.style.display === 'block') {
-			dropdownContent.style.display = 'none';
+		if (content.style.display == '') {
+			content.style.display = 'none';
 		}
 	});
 };
