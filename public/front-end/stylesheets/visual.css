@@ -47,6 +47,7 @@
 
 .border-bottom-lg-st { border-top: none; border-left: none; border-right: none; border-bottom: 1px solid var(--light); outline:none; }
 .border-bottom-lg-st:hover { border-top: none; border-left: none; border-right: none; border-bottom: 1px solid var(--strong); outline:none; }
+.border-bottom-lg-st:focus { border-top: none; border-left: none; border-right: none; border-bottom: 1px solid var(--strong); outline:none; }
 
 .nofocus {} .nofocus:focus { outline: none; }
 
