@@ -3,10 +3,65 @@
 // -------------------
 const lib = {};
 
+lib.msg = (msg) => {
+	if (!document.getElementById("msg")) {
+		alert(res.msg);
+		return true;
+	}
+
+	document.getElementById("msg").style.display = "";
+	document.getElementById("msg-content").innerHTML = "";
+	document.getElementById("msg-content").append(lib.element.create("div", {
+		class: "box b1 center lucida-grande em12 bold"
+	}, msg));
+};
+
+lib.pass = (obj, cb) => {
+	let pass = "";
+
+	document.getElementById("msg").style.display = "";
+
+	let content_div = document.getElementById("msg-content");
+	content_div.innerHTML = "";
+	content_div.append(lib.element.create("div", { class: "box b1 em15 bold center padding-10" }, "Digite seu passe"));
+
+	content_div.append(lib.element.create("input", {
+		id: "pass-value",
+		type: "password",
+		class: "box b1 em15 bold border-st nofocus center padding-10",
+		readOnly: true,
+		value: ''
+	}));
+
+	const buttons = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+	buttons.forEach(buttonValue => {
+		const button = lib.element.create("button", { class: "box b3 em15 bold border-lg-st margin-top-5 padding-15 center" });
+		button.textContent = buttonValue;
+
+		button.addEventListener("click", (e) => {
+			e.preventDefault();
+
+			pass += buttonValue;
+			document.getElementById("pass-value").value = pass;
+
+			if (pass.length === 4) {
+				content_div.innerHTML = "";
+				lib.display("msg", "none");
+
+				obj.pass = pass;
+
+				return cb(obj);
+			}
+		});
+
+		content_div.appendChild(button);
+	});
+};
+
 // -------------------
 // Date
 // -------------------
-
 lib.genDate = () => {
 	let d = new Date();
 	let date = "";
@@ -715,12 +770,12 @@ lib.dropdown.fill.input = (dropdown_input, input_id, dropdown_id) => {
 
 lib.dropdown.input = (objects, input, content, props, func) => {
 	content.innerHTML = "";
-	content.style.display = '';
+	content.style.display = 'block';
 
 	input.onclick = function (event) {
 		event.stopPropagation();
 		if (this.readOnly) { this.value = ''; this.dataset.id = ''; this.readOnly = false; }
-		content.style.display = '';
+		content.style.display = 'block';
 	};
 
 	content.onclick = function (event) {
@@ -753,8 +808,8 @@ lib.dropdown.input = (objects, input, content, props, func) => {
 	});
 
 	document.addEventListener('click', function (event) {
-		if (content.style.display == '') {
-			content.style.display = 'none';
+		if (content.style.display == "block") {
+			lib.display(content, "none");
 		}
 	});
 };
