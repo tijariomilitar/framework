@@ -33,13 +33,30 @@ lib.pass = (obj, cb) => {
 		value: ''
 	}));
 
-	const buttons = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+	const buttons = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 
 	buttons.forEach(buttonValue => {
-		const button = lib.element.create("button", { class: "box b3 em15 bold border-lg-st margin-top-5 padding-15 center" });
+		let button;
+		if (buttonValue === "0") {
+			eraseButton = lib.element.create("div", { class: "mobile-box b3 container border-lg-st margin-top-5 height-100" });
+			eraseButton.append(lib.element.create("img", { src: "/images/icon/close.png", class: "image-prop size-30 center" }));
+
+			eraseButton.addEventListener("click", e => {
+				e.preventDefault();
+
+				pass = pass.slice(0, -1);
+				document.getElementById("pass-value").value = pass;
+			});
+			content_div.append(eraseButton);
+
+			button = lib.element.create("button", { class: "mobile-box b3 em15 bold border-lg-st margin-top-5 height-100 center" });
+		} else {
+			button = lib.element.create("button", { class: "mobile-box b3 em15 bold border-lg-st margin-top-5 height-100 center" });
+		}
+
 		button.textContent = buttonValue;
 
-		button.addEventListener("click", (e) => {
+		button.addEventListener("click", e => {
 			e.preventDefault();
 
 			pass += buttonValue;
@@ -49,13 +66,11 @@ lib.pass = (obj, cb) => {
 				content_div.innerHTML = "";
 				lib.display("msg", "none");
 
-				obj.pass = pass;
-
-				return cb(obj);
+				return cb(pass);
 			}
 		});
 
-		content_div.appendChild(button);
+		content_div.append(button);
 	});
 };
 
