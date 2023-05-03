@@ -16,7 +16,7 @@ lib.msg = (msg) => {
 	}, msg));
 };
 
-lib.pass = (obj, cb) => {
+lib.pass = (cb) => {
 	let pass = "";
 
 	document.getElementById("msg").style.display = "";
