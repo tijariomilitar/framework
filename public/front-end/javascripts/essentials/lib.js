@@ -5,7 +5,7 @@ const lib = {};
 
 lib.msg = (msg) => {
 	if (!document.getElementById("msg")) {
-		alert(res.msg);
+		alert(msg);
 		return true;
 	}
 
