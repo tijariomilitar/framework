@@ -19,19 +19,9 @@ const API = {
 
 			return true;
 		};
+
 		return false;
 	},
-	// verifyResponse(res) {
-	// 	if (res.unauthorized) {
-	// 		alert(res.unauthorized);
-	// 		return window.location.href = '/login';
-	// 	};
-	// 	if (res.msg) {
-	// 		alert(res.msg);
-	// 		return true;
-	// 	};
-	// 	return false;
-	// },
 	response: async (func, param) => {
 		if (document.getElementById('loader')) { document.getElementById('loader').style.visibility = 'visible'; }
 		let element = await func(param);

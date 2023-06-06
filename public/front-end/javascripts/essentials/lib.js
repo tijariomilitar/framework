@@ -16,6 +16,10 @@ lib.msg = (msg) => {
 	}, msg));
 };
 
+lib.closeMsg = () => {
+
+};
+
 lib.pass = (cb) => {
 	let pass = "";
 
