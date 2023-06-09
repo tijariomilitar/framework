@@ -53,9 +53,9 @@ lib.pass = (cb) => {
 			});
 			content_div.append(eraseButton);
 
-			button = lib.element.create("button", { class: "mobile-box b3 em15 bold border-lg-st margin-top-5 height-100 center" });
+			button = lib.element.create("button", { class: "mobile-box b3 em15 bold border-st margin-top-5 height-100 center" });
 		} else {
-			button = lib.element.create("button", { class: "mobile-box b3 em15 bold border-lg-st margin-top-5 height-100 center" });
+			button = lib.element.create("button", { class: "mobile-box b3 em15 bold border-st margin-top-5 height-100 center" });
 		}
 
 		button.textContent = buttonValue;
