@@ -42,7 +42,7 @@ lib.pass = (cb) => {
 	buttons.forEach(buttonValue => {
 		let button;
 		if (buttonValue === "0") {
-			eraseButton = lib.element.create("div", { class: "mobile-box b3 container border-lg-st margin-top-5 height-100" });
+			eraseButton = lib.element.create("div", { class: "mobile-box b3 container border-st margin-top-5 height-100" });
 			eraseButton.append(lib.element.create("img", { src: "/images/icon/close.png", class: "image-prop size-30 center" }));
 
 			eraseButton.addEventListener("click", e => {
