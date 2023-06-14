@@ -43,7 +43,7 @@ lib.pass = (cb) => {
 		let button;
 		if (buttonValue === "0") {
 			eraseButton = lib.element.create("div", { class: "mobile-box b3 container border-st margin-top-5 height-100" });
-			eraseButton.append(lib.element.create("img", { src: "/images/icon/close.png", class: "image-prop size-30 center" }));
+			eraseButton.append(lib.element.create("img", { src: "/images/icon/close.png", class: "image-prop size-30 center noselect" }));
 
 			eraseButton.addEventListener("click", e => {
 				e.preventDefault();
@@ -53,9 +53,9 @@ lib.pass = (cb) => {
 			});
 			content_div.append(eraseButton);
 
-			button = lib.element.create("button", { class: "mobile-box b3 em15 bold border-st margin-top-5 height-100 center" });
+			button = lib.element.create("button", { class: "mobile-box b3 em15 bold border-st margin-top-5 height-100 center noselect" });
 		} else {
-			button = lib.element.create("button", { class: "mobile-box b3 em15 bold border-st margin-top-5 height-100 center" });
+			button = lib.element.create("button", { class: "mobile-box b3 em15 bold border-st margin-top-5 height-100 center noselect" });
 		}
 
 		button.textContent = buttonValue;
