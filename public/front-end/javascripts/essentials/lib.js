@@ -78,6 +78,19 @@ lib.pass = (cb) => {
 	});
 };
 
+lib.confirm = (msg, cb) => {
+	if (!document.getElementById("msg")) {
+		alert(msg);
+		return false;
+	}
+
+	document.getElementById("msg").style.display = "";
+	document.getElementById("msg-content").innerHTML = "";
+	document.getElementById("msg-content").append(lib.element.create("div", {
+		class: "box b1 center lucida-grande em12 bold"
+	}, msg));
+};
+
 // -------------------
 // Date
 // -------------------
