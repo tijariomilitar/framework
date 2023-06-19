@@ -1,46 +1,53 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<%- include ('../../partials/head') %>
-<%- include ('../../partials/header') %>
+	<%- include ('../../partials/head') %>
+	<%- include ('../../partials/header') %>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js" integrity="sha512-W7EehcwtSbRF63FIQlXEOOd5mnq0Et0V0nUOvwcUvjnCKgOLLYbqriQxEQSp63sfrkryxIg/A/O8v8O18QwQCQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"
+		integrity="sha512-W7EehcwtSbRF63FIQlXEOOd5mnq0Et0V0nUOvwcUvjnCKgOLLYbqriQxEQSp63sfrkryxIg/A/O8v8O18QwQCQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<script>hljs.highlightAll();</script>
+	<script>hljs.highlightAll();</script>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/monokai-sublime.min.css" integrity="sha512-ade8vHOXH67Cm9z/U2vBpckPD1Enhdxl3N05ChXyFx5xikfqggrK4RrEele+VWY/iaZyfk7Bhk6CyZvlh7+5JQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/monokai-sublime.min.css"
+		integrity="sha512-ade8vHOXH67Cm9z/U2vBpckPD1Enhdxl3N05ChXyFx5xikfqggrK4RrEele+VWY/iaZyfk7Bhk6CyZvlh7+5JQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
-<%- include ('../../partials/nav') %>
-<div class="container">
-<div class="box b1 underline em12 bold center">Container</div>
+	<%- include ('../../partials/nav') %>
+	<div class="container">
+		<div class="box b1 underline em12 bold center">Container</div>
 
-	<div id="container-box-snippet" class="box b2 margin-top-10"></div>
-	<div class="box b2 container border padding-10 margin-top-10">
-		<div class="box b1 container">
-			<p class="box b1 underline center">Container is made to easily standardize flex box</p>
-			<div class="box b1 padding-10 margin-top-10 border center">b1</div>
-			<div class="box b2 padding-10 margin-top-10 border center">b2</div>
-			<div class="box b2 padding-10 margin-top-10 border center">b2</div>
-			<div class="box b3 padding-10 margin-top-10 border center">b3</div>
-			<div class="box b3 padding-10 margin-top-10 border center">b3</div>
-			<div class="box b3 padding-10 margin-top-10 border center">b3</div>
+		<div id="container-box-snippet" class="box b2 margin-top-10"></div>
+		<div class="box b2 container border padding-10 margin-top-10">
+			<div class="box b1 container">
+				<p class="box b1 underline center">Container is made to easily standardize flex box</p>
+				<div class="box b1 padding-10 margin-top-10 border center">b1</div>
+				<div class="box b2 padding-10 margin-top-10 border center">b2</div>
+				<div class="box b2 padding-10 margin-top-10 border center">b2</div>
+				<div class="box b3 padding-10 margin-top-10 border center">b3</div>
+				<div class="box b3 padding-10 margin-top-10 border center">b3</div>
+				<div class="box b3 padding-10 margin-top-10 border center">b3</div>
+			</div>
+		</div>
+
+		<div id="container-mobile-box-snippet" class="box b2 margin-top-10"></div>
+		<div class="box b2 container border padding-10 margin-top-10">
+			<div class="box b1 container">
+				<p class="box b1 underline center">If you need to make it responsive use 'mobile-box'</p>
+				<div class="mobile-box b1 padding-10 margin-top-10 border center">b1</div>
+				<div class="mobile-box b2 padding-10 margin-top-10 border center">b2</div>
+				<div class="mobile-box b2 padding-10 margin-top-10 border center">b2</div>
+				<div class="mobile-box b3 padding-10 margin-top-10 border center">b3</div>
+				<div class="mobile-box b3 padding-10 margin-top-10 border center">b3</div>
+				<div class="mobile-box b3 padding-10 margin-top-10 border center">b3</div>
+			</div>
 		</div>
 	</div>
-
-	<div id="container-mobile-box-snippet" class="box b2 margin-top-10"></div>
-	<div class="box b2 container border padding-10 margin-top-10">
-		<div class="box b1 container">
-			<p class="box b1 underline center">If you need to make it responsive use 'mobile-box'</p>
-			<div class="mobile-box b1 padding-10 margin-top-10 border center">b1</div>
-			<div class="mobile-box b2 padding-10 margin-top-10 border center">b2</div>
-			<div class="mobile-box b2 padding-10 margin-top-10 border center">b2</div>
-			<div class="mobile-box b3 padding-10 margin-top-10 border center">b3</div>
-			<div class="mobile-box b3 padding-10 margin-top-10 border center">b3</div>
-			<div class="mobile-box b3 padding-10 margin-top-10 border center">b3</div>
-		</div>
-	</div>
-</div>
 
 </body>
 <script src="/front-end/javascripts/essentials/lib.js"></script>

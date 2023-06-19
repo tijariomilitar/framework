@@ -78,17 +78,51 @@ lib.pass = (cb) => {
 	});
 };
 
-lib.confirm = (msg, cb) => {
-	if (!document.getElementById("msg")) {
-		alert(msg);
-		return false;
-	}
+/* <div id="msg" class="msg" style="display: none;">
+	<div class="msg-popup mobile-box b3-4 container border-st radius-5 padding-10 ">
+		<div class="mobile-box a12"></div>
+		<div class="mobile-box a5-6 center"><img src="/images/icon/alert.png" class="image-prop size-30 noselect">
+		</div>
+		<div class="mobile-box a12 center"><img src="/images/icon/close.png" class="image-prop size-20 icon"
+				onclick="lib.display('msg', 'none')"></div>
 
-	document.getElementById("msg").style.display = "";
-	document.getElementById("msg-content").innerHTML = "";
-	document.getElementById("msg-content").append(lib.element.create("div", {
+		<div id="msg-content" class="box a1 container min-height-150"></div>
+	</div>
+</div> */
+
+lib.confirm = (msg, cb) => {
+	const msg_div = lib.element.create("div", { class: "msg" });
+	const msg_popup = lib.element.create("div", { class: "msg-popup container mobile-box b3-4 container border-st radius-5 padding-10" });
+	const alert_icon = lib.element.create("div", { class: "mobile-box a1 center" });
+	alert_icon.append(lib.element.create("img", { src: "/images/icon/alert.png", class: "image-prop size-30 noselect" }))
+	msg_popup.append(alert_icon);
+
+	msg_popup.append(lib.element.create("div", {
 		class: "box b1 center lucida-grande em12 bold"
 	}, msg));
+
+	const confirm_btn = lib.element.create("div", {
+		class: "mobile-box b2 bold btn-act radius-5 padding-10 margin-top-10 center noselect pointer",
+	}, "Confirmar");
+	confirm_btn.addEventListener("click", e => {
+		e.preventDefault();
+		cb(true);
+		msg_div.remove();
+	});
+	msg_popup.append(confirm_btn);
+
+	const cancel_btn = lib.element.create("div", {
+		class: "mobile-box b2 bold btn-cancel radius-5 padding-10 margin-top-10 center noselect pointer",
+	}, "cancelar");
+	cancel_btn.addEventListener("click", e => {
+		e.preventDefault();
+		cb(false);
+		msg_div.remove();
+	});
+	msg_popup.append(cancel_btn);
+
+	msg_div.append(msg_popup);
+	document.body.append(msg_div);
 };
 
 // -------------------
@@ -1140,7 +1174,7 @@ lib.element.create = (elementName, attributes, value) => {
 
 	attributesAsArray.forEach(([key, value]) => element.setAttribute(key, value));
 
-	if (value) { element.innerHTML = value; }
+	if (value) { element.textContent = value; }
 
 	return element;
 };

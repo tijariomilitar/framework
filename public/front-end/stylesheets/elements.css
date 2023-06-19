@@ -103,6 +103,16 @@
 	color: #fff;
 }
 
+.btn-cancel {
+	background-color: #ff0000;
+	color: #fff;
+}
+
+.btn-cancel:hover {
+	background-color: #ff0c09;
+	color: #fff;
+}
+
 .image-card {
 	object-fit: contain;
 	width: 100%;

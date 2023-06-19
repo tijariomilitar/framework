@@ -56,10 +56,6 @@ tr:hover {
 	background-color: var(--light);
 }
 
-pre {
-	tab-size: 2;
-}
-
 .scroll-y {
 	overflow-y: scroll;
 }
