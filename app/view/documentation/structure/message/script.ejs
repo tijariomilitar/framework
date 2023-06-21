@@ -7,8 +7,9 @@
     }, num);
 
     number.addEventListener("click", e => {
-      lib.confirm("Deseja realmente excluir este número?", response => {
-        if (response) { number.remove(); }
+      // lib.message(`Número ${num} excluído!`);
+      lib.message(`Número ${num} excluído!`, () => {
+        number.remove();
       });
     });
 

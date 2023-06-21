@@ -6,5 +6,6 @@ router.get("/position", (req, res) => { res.render("documentation/structure/posi
 router.get("/responsive", (req, res) => { res.render("documentation/structure/responsive"); });
 router.get("/carousel", (req, res) => { res.render("documentation/structure/carousel"); });
 router.get("/confirm", (req, res) => { res.render("documentation/structure/confirm/index"); });
+router.get("/message", (req, res) => { res.render("documentation/structure/message/index"); });
 
 module.exports = router;

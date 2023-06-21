@@ -16,8 +16,30 @@ lib.msg = (msg) => {
 	}, msg));
 };
 
-lib.closeMsg = () => {
+lib.message = (msg, cb) => {
+	const msg_div = lib.element.create("div", { class: "msg" });
+	const msg_popup = lib.element.create("div", { class: "msg-popup container mobile-box b3-4 container border-st radius-5 padding-10" });
+	msg_popup.append(lib.element.create("div", { class: "box b10" }));
 
+	const alert_icon = lib.element.create("div", { class: "mobile-box b4-5 center" });
+	alert_icon.append(lib.element.create("img", { src: "/images/icon/alert.png", class: "image-prop size-30 noselect" }));
+	msg_popup.append(alert_icon);
+
+	const close_div = lib.element.create("div", { class: "mobile-box a10 center" });
+	const close_icon = lib.element.create("img", { src: "/images/icon/close.png", class: "image-prop size-20 noselect icon pointer" });
+	close_icon.addEventListener("click", e => {
+		msg_div.remove();
+		return cb();
+	});
+	close_div.append(close_icon);
+	msg_popup.append(close_div);
+
+	msg_popup.append(lib.element.create("div", {
+		class: "box b1 center lucida-grande em12 bold"
+	}, msg));
+
+	msg_div.append(msg_popup);
+	document.body.append(msg_div);
 };
 
 lib.pass = (cb) => {
@@ -77,18 +99,6 @@ lib.pass = (cb) => {
 		content_div.append(button);
 	});
 };
-
-/* <div id="msg" class="msg" style="display: none;">
-	<div class="msg-popup mobile-box b3-4 container border-st radius-5 padding-10 ">
-		<div class="mobile-box a12"></div>
-		<div class="mobile-box a5-6 center"><img src="/images/icon/alert.png" class="image-prop size-30 noselect">
-		</div>
-		<div class="mobile-box a12 center"><img src="/images/icon/close.png" class="image-prop size-20 icon"
-				onclick="lib.display('msg', 'none')"></div>
-
-		<div id="msg-content" class="box a1 container min-height-150"></div>
-	</div>
-</div> */
 
 lib.confirm = (msg, cb) => {
 	const msg_div = lib.element.create("div", { class: "msg" });
