@@ -3,6 +3,7 @@
 // -------------------
 const lib = {};
 
+// Essa função será desativada, utilizar lib.message
 lib.msg = (msg) => {
 	if (!document.getElementById("msg")) {
 		alert(msg);
@@ -18,8 +19,8 @@ lib.msg = (msg) => {
 
 lib.message = (msg, cb) => {
 	const msg_div = lib.element.create("div", { class: "msg" });
-	const msg_popup = lib.element.create("div", { class: "msg-popup container mobile-box b3-4 container border-st radius-5 padding-10" });
-	msg_popup.append(lib.element.create("div", { class: "box b10" }));
+	const msg_popup = lib.element.create("div", { class: "msg-popup container box b3-4 container border-st radius-5 padding-10" });
+	msg_popup.append(lib.element.create("div", { class: "mobile-box b10" }));
 
 	const alert_icon = lib.element.create("div", { class: "mobile-box b4-5 center" });
 	alert_icon.append(lib.element.create("img", { src: "/images/icon/alert.png", class: "image-prop size-30 noselect" }));
@@ -35,7 +36,7 @@ lib.message = (msg, cb) => {
 	msg_popup.append(close_div);
 
 	msg_popup.append(lib.element.create("div", {
-		class: "box b1 center lucida-grande em12 bold"
+		class: "box b1 center lucida-grande em12 bold margin-top-20"
 	}, msg));
 
 	msg_div.append(msg_popup);
