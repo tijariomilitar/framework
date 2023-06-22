@@ -30,7 +30,7 @@ lib.message = (msg, cb) => {
 	const close_icon = lib.element.create("img", { src: "/images/icon/close.png", class: "image-prop size-20 noselect icon pointer" });
 	close_icon.addEventListener("click", e => {
 		msg_div.remove();
-		return cb();
+		if (cb) { return cb(); }
 	});
 	close_div.append(close_icon);
 	msg_popup.append(close_div);
