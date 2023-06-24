@@ -43,6 +43,66 @@ lib.message = (msg, cb) => {
 	document.body.append(msg_div);
 };
 
+lib.auth = (cb) => {
+	let auth = "";
+
+	const auth_div = lib.element.create("div", { class: "auth-div" });
+	const auth_content = lib.element.create("div", { class: "auth-content container box b3-4 container border-st radius-5 padding-10" });
+	auth_content.append(lib.element.create("div", { class: "mobile-box b10" }));
+
+	auth_content.append(lib.element.create("div", { class: "box b1 em15 bold center padding-10" }, "Digite sua senha"));
+
+	auth_content.append(lib.element.create("input", {
+		id: "auth_value",
+		type: "password",
+		class: "box b1 em15 bold border-st nofocus center padding-10",
+		readOnly: true,
+		value: ''
+	}));
+
+	const buttons = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+
+	buttons.forEach(buttonValue => {
+		let button;
+		if (buttonValue === "0") {
+			eraseButton = lib.element.create("div", { class: "mobile-box b3 container border-st margin-top-5 height-100" });
+			eraseButton.append(lib.element.create("img", { src: "/images/icon/close.png", class: "image-prop size-30 center noselect" }));
+
+			eraseButton.addEventListener("click", e => {
+				e.preventDefault();
+
+				auth = auth.slice(0, -1);
+				document.getElementById("auth-value").value = auth;
+			});
+			auth_content.append(eraseButton);
+
+			button = lib.element.create("button", { class: "mobile-box b3 em15 bold border-st margin-top-5 height-100 center noselect" });
+		} else {
+			button = lib.element.create("button", { class: "mobile-box b3 em15 bold border-st margin-top-5 height-100 center noselect" });
+		}
+
+		button.textContent = buttonValue;
+
+		button.addEventListener("click", e => {
+			e.preventDefault();
+
+			auth += buttonValue;
+			document.getElementById("auth_value").value = auth;
+
+			if (auth.length === 4) {
+				auth_content.innerHTML = "";
+				lib.display("msg", "none");
+
+				return cb(auth);
+			}
+		});
+
+		auth_content.append(button);
+	});
+
+	document.body.append(auth_div);
+};
+
 lib.pass = (cb) => {
 	let pass = "";
 
