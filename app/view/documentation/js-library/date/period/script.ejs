@@ -5,10 +5,13 @@
     const startDate = lib.dateToTimestamp(e.target.start_date.value);
     const endDate = lib.dateToTimestamp(e.target.end_date.value) + lib.timestampDay();
 
-    console.log(startDate, endDate, lib.timestampDay());
+    if (!startDate || !endDate) { return lib.message("É necessário preencher a data inicial e a final"); }
 
     const period = (endDate - startDate) / lib.timestampDay();
 
-    console.log(period);
+    const period_div = document.getElementById("date-period-div");
+    period_div.innerHTML = "";
+    period == 1 && period_div.append(lib.element.create("div", { class: "box b1 center" }, `${period} dia`));
+    period > 1 && period_div.append(lib.element.create("div", { class: "box b1 center" }, `${period} dias`));
   });
 </script>
