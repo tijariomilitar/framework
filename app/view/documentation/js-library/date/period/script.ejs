@@ -1,0 +1,14 @@
+<script>
+  document.getElementById("date-period-form").addEventListener("submit", e => {
+    e.preventDefault();
+
+    const startDate = lib.dateToTimestamp(e.target.start_date.value);
+    const endDate = lib.dateToTimestamp(e.target.end_date.value) + lib.timestampDay();
+
+    console.log(startDate, endDate, lib.timestampDay());
+
+    const period = (endDate - startDate) / lib.timestampDay();
+
+    console.log(period);
+  });
+</script>

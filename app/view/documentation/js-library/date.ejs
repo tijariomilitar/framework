@@ -1,238 +1,248 @@
 <!DOCTYPE html>
 <html>
-	<head>
-        <%- include ('../../partials/head') %>
-        <%- include ('../../partials/header') %>
-	</head>
-	<body>
-        <%- include ('../../partials/nav') %>
-		<div class="container">
-            <div class="box a1 avant-garde em15 center">Date handlers</div>
-            <div class="box a1 container ground padding-10 margin-top-10">
-                <div class="box a1 underline center">Informations</div>
-                <div class="box a3 container border margin-top-5">
-                    <div class="box a1 border em09 underline padding-5 center">Variables</div>
-                    <div class="box a1 padding-5 border">Date: "00-00-0000" and "0000-00-00"</div>
-                    <div class="box a1 padding-5 border">Datetime: "00-00-0000T00:00"</div>
-                    <div class="box a1 padding-5 border">Timestamp: Miliseconds format (should be hidden)</div>
-                </div>
-                <div class="box a3"></div>
-                <div class="box a3"></div>
-            </div>
 
-            <div class="box a1 container ground padding-10 margin-top-10">
-                <div class="box a1 underline center">lib.genDate()</div>
-                <div class="box a3 padding-5 margin-top-10 avant-garde center">"Generate "00-00-0000"</div>
-                <form id="genDate" class="box a2-3 container ground margin-top-10">
-                    <div class="box a2 container">
-                        <input type="submit" name="submit" class="mobile-box b1 input-generic" value="Generate">
-                    </div>
-                    <div class="box a2 container">
-                        <input type="label" name="output" class="mobile-box b1 input-generic noborder center">
-                    </div>
-                </form>
-            </div>
+<head>
+  <%- include ('../../partials/head') %>
+  <%- include ('../../partials/header') %>
+</head>
 
-            <div class="box a1 container ground padding-10 margin-top-10">
-                <div class="box a1 underline center">lib.genFullDate()</div>
-                <div class="box a3 padding-5 margin-top-10 avant-garde center">"Generate "00-00-0000 00:00"</div>
-                <form id="genFullDate" class="box a2-3 container ground margin-top-10">
-                    <div class="box a2 container">
-                        <input type="submit" name="submit" class="mobile-box b1 input-generic" value="Generate">
-                    </div>
-                    <div class="box a2 container">
-                        <input type="label" name="output" class="mobile-box b1 input-generic noborder center">
-                    </div>
-                </form>
-            </div>
+<body class="container">
+  <%- include ('../../partials/nav') %>
+  <div class="container">
+    <div class="box a1 avant-garde em15 center">Date handlers</div>
+    <div class="box a1 container ground padding-10 margin-top-10">
+      <div class="box a1 underline center">Informations</div>
+      <div class="box a3 container border margin-top-5">
+        <div class="box a1 border em09 underline padding-5 center">Variables</div>
+        <div class="box a1 padding-5 border">Date: "00-00-0000" and "0000-00-00"</div>
+        <div class="box a1 padding-5 border">Datetime: "00-00-0000T00:00"</div>
+        <div class="box a1 padding-5 border">Timestamp: Miliseconds format (should be hidden)</div>
+      </div>
+      <div class="box a3"></div>
+      <div class="box a3"></div>
+    </div>
 
-            <div class="box a1 container ground padding-10 margin-top-10">
-                <div class="box a1 underline center">lib.genTimestamp()</div>
-                <div class="box a3 padding-5 margin-top-10 avant-garde center">"Generate "00-00-0000"</div>
-                <form id="genTimestamp" class="box a2-3 container ground margin-top-10">
-                    <div class="box a2 container">
-                        <input type="submit" name="submit" class="mobile-box b1 input-generic" value="Generate">
-                    </div>
-                    <div class="box a2 container">
-                        <input type="label" name="output" class="mobile-box b1 input-generic noborder center">
-                    </div>
-                </form>
-            </div>
+    <div class="box a1 container ground padding-10 margin-top-10">
+      <div class="box a1 underline center">lib.genDate()</div>
+      <div class="box a3 padding-5 margin-top-10 avant-garde center">"Generate "00-00-0000"</div>
+      <form id="genDate" class="box a2-3 container ground margin-top-10">
+        <div class="box a2 container">
+          <input type="submit" name="submit" class="mobile-box b1 input-generic" value="Generate">
+        </div>
+        <div class="box a2 container">
+          <input type="label" name="output" class="mobile-box b1 input-generic noborder center">
+        </div>
+      </form>
+    </div>
 
-            <div class="box a1 container ground padding-10 margin-top-10">
-                <div class="box a1 underline center">lib.convertDate(date)</div>
-                <div class="box a3 container margin-top-10">
-                    <div class="box a1 padding-5 avant-garde center">"0000-00-00" to "00-00-0000"</div>
-                </div>
-                <form id="convertDate" class="box a2-3 container ground margin-top-10">
-                    <div class="box a2 container">
-                        <input type="date" name="date" class="mobile-box b2 input-generic center">
-                        <input type="submit" name="submit" class="mobile-box b2 input-generic" value="Convert">
-                    </div>
-                    <div class="box a2 container">
-                        <input type="button" name="input" class="mobile-box a2 input-generic noborder center">
-                        <input type="button" name="output" class="mobile-box a2 input-generic noborder center">
-                    </div>
-                </form>
-            </div>
+    <div class="box a1 container ground padding-10 margin-top-10">
+      <div class="box a1 underline center">lib.genFullDate()</div>
+      <div class="box a3 padding-5 margin-top-10 avant-garde center">"Generate "00-00-0000 00:00"</div>
+      <form id="genFullDate" class="box a2-3 container ground margin-top-10">
+        <div class="box a2 container">
+          <input type="submit" name="submit" class="mobile-box b1 input-generic" value="Generate">
+        </div>
+        <div class="box a2 container">
+          <input type="label" name="output" class="mobile-box b1 input-generic noborder center">
+        </div>
+      </form>
+    </div>
 
-            <div class="box a1 container ground padding-10 margin-top-10">
-                <div class="box a1 underline center">lib.convertDatetime(datetime)</div>
-                <div class="box a3 padding-5 margin-top-10 avant-garde center">"00-00-0000T00:00" to "00-00-0000 00:00"</div>
-                <form id="convertDatetime" class="box a2-3 container margin-top-10">
-                    <div class="box a2 container">
-                        <input type="datetime-local" name="date" class="mobile-box b2 input-generic center">
-                        <input type="submit" name="submit" class="mobile-box b2 input-generic" value="Convert">
-                    </div>
-                    <div class="box a2 container">
-                        <input type="button" name="input" class="mobile-box b2 input-generic noborder center">
-                        <input type="button" name="output" class="mobile-box b2 input-generic noborder center">
-                    </div>
-                </form>
-            </div>
+    <div class="box a1 container ground padding-10 margin-top-10">
+      <div class="box a1 underline center">lib.genTimestamp()</div>
+      <div class="box a3 padding-5 margin-top-10 avant-garde center">"Generate "00-00-0000"</div>
+      <form id="genTimestamp" class="box a2-3 container ground margin-top-10">
+        <div class="box a2 container">
+          <input type="submit" name="submit" class="mobile-box b1 input-generic" value="Generate">
+        </div>
+        <div class="box a2 container">
+          <input type="label" name="output" class="mobile-box b1 input-generic noborder center">
+        </div>
+      </form>
+    </div>
 
-            <div class="box a1 container ground padding-10 margin-top-10">
-                <div class="box a1 underline center">lib.dateToTimestamp(date)</div>
-                <div class="box a3 padding-5 margin-top-10 avant-garde center">"00-00-0000" to "timestamp"</div>
-                <form id="dateToTimestamp" class="box a2-3 container ground margin-top-10">
-                    <div class="box a2 container">
-                        <input type="date" name="date" class="mobile-box b2 input-generic center">
-                        <input type="submit" name="submit" class="mobile-box b2 input-generic" value="Convert">
-                    </div>
-                    <div class="box a2 container">
-                        <input type="label" name="input" class="mobile-box b2 input-generic noborder center">
-                        <input type="label" name="output" class="mobile-box b2 input-generic noborder center">
-                    </div>
-                </form>
-            </div>
+    <div class="box a1 container ground padding-10 margin-top-10">
+      <div class="box a1 underline center">lib.convertDate(date)</div>
+      <div class="box a3 container margin-top-10">
+        <div class="box a1 padding-5 avant-garde center">"0000-00-00" to "00-00-0000"</div>
+      </div>
+      <form id="convertDate" class="box a2-3 container ground margin-top-10">
+        <div class="box a2 container">
+          <input type="date" name="date" class="mobile-box b2 input-generic center">
+          <input type="submit" name="submit" class="mobile-box b2 input-generic" value="Convert">
+        </div>
+        <div class="box a2 container">
+          <input type="button" name="input" class="mobile-box a2 input-generic noborder center">
+          <input type="button" name="output" class="mobile-box a2 input-generic noborder center">
+        </div>
+      </form>
+    </div>
 
-            <div class="box a1 container ground padding-10 margin-top-10">
-                <div class="box a1 underline center">lib.datetimeToTimestamp(datetime)</div>
-                <div class="box a3 padding-5 margin-top-10 avant-garde center">"00-00-0000T00:00" to "timestamp"</div>
-                <form id="datetimeToTimestamp" class="box a2-3 container ground margin-top-10">
-                    <div class="box a2 container">
-                        <input type="datetime-local" name="date" class="mobile-box b2 input-generic center">
-                        <input type="submit" name="submit" class="mobile-box b2 input-generic" value="Convert">
-                    </div>
-                    <div class="box a2 container">
-                        <input type="label" name="input" class="mobile-box b2 input-generic noborder center">
-                        <input type="label" name="output" class="mobile-box b2 input-generic noborder center">
-                    </div>
-                </form>
-            </div>
+    <div class="box a1 container ground padding-10 margin-top-10">
+      <div class="box a1 underline center">lib.convertDatetime(datetime)</div>
+      <div class="box a3 padding-5 margin-top-10 avant-garde center">"00-00-0000T00:00" to "00-00-0000 00:00"
+      </div>
+      <form id="convertDatetime" class="box a2-3 container margin-top-10">
+        <div class="box a2 container">
+          <input type="datetime-local" name="date" class="mobile-box b2 input-generic center">
+          <input type="submit" name="submit" class="mobile-box b2 input-generic" value="Convert">
+        </div>
+        <div class="box a2 container">
+          <input type="button" name="input" class="mobile-box b2 input-generic noborder center">
+          <input type="button" name="output" class="mobile-box b2 input-generic noborder center">
+        </div>
+      </form>
+    </div>
 
-            <div class="box a1 container ground padding-10 margin-top-10">
-                <div class="box a1 underline center">lib.timestampToDate(timestamp)</div>
-                <div class="box a3 padding-5 margin-top-10 avant-garde center">"timestamp" to "00-00-0000 00:00"</div>
-                <form id="timestampToDate" class="box a2-3 container ground margin-top-10">
-                    <div class="box a2 container">
-                        <input type="text" name="date" class="mobile-box b2 input-generic center">
-                        <input type="submit" name="submit" class="mobile-box b2 input-generic" value="Convert">
-                    </div>
-                    <div class="box a2 container">
-                        <input type="label" name="input" class="mobile-box b2 input-generic noborder center">
-                        <input type="label" name="output" class="mobile-box b2 input-generic noborder center">
-                    </div>
-                </form>
-            </div>
+    <div class="box a1 container ground padding-10 margin-top-10">
+      <div class="box a1 underline center">lib.dateToTimestamp(date)</div>
+      <div class="box a3 padding-5 margin-top-10 avant-garde center">"00-00-0000" to "timestamp"</div>
+      <form id="dateToTimestamp" class="box a2-3 container ground margin-top-10">
+        <div class="box a2 container">
+          <input type="date" name="date" class="mobile-box b2 input-generic center">
+          <input type="submit" name="submit" class="mobile-box b2 input-generic" value="Convert">
+        </div>
+        <div class="box a2 container">
+          <input type="label" name="input" class="mobile-box b2 input-generic noborder center">
+          <input type="label" name="output" class="mobile-box b2 input-generic noborder center">
+        </div>
+      </form>
+    </div>
 
-            <div class="box a1 container ground padding-10 margin-top-10">
-                <div class="box a1 underline center">lib.timestampToDatetime(timestamp)</div>
-                <div class="box a3 padding-5 margin-top-10 avant-garde center">"timestamp" to "00-00-0000T00:00"</div>
-                <form id="timestampToDatetime" class="box a2-3 container ground margin-top-10">
-                    <div class="box a2 container">
-                        <input type="text" name="date" class="mobile-box b2 input-generic center">
-                        <input type="submit" name="submit" class="mobile-box b2 input-generic" value="Convert">
-                    </div>
-                    <div class="box a2 container">
-                        <input type="label" name="input" class="mobile-box b2 input-generic noborder center">
-                        <input type="label" name="output" class="mobile-box b2 input-generic noborder center">
-                    </div>
-                </form>
-            </div>
-		</div>
-		<div id="ajax-loader" class="ajax-loader"><div class="loader"></div></div>
-	</body>
-      <footer>
-            <script src="/front-end/javascripts/essentials/lib.js"></script>
-      </footer>
-      <script type="text/javascript">
-            let genDate = document.getElementById("genDate");
-            if(genDate){
-                genDate.addEventListener("submit", e => {
-                    e.preventDefault();
-                    e.target.elements.namedItem("output").value = "output: " + lib.genDate();
-                });
-            };
+    <div class="box a1 container ground padding-10 margin-top-10">
+      <div class="box a1 underline center">lib.datetimeToTimestamp(datetime)</div>
+      <div class="box a3 padding-5 margin-top-10 avant-garde center">"00-00-0000T00:00" to "timestamp"</div>
+      <form id="datetimeToTimestamp" class="box a2-3 container ground margin-top-10">
+        <div class="box a2 container">
+          <input type="datetime-local" name="date" class="mobile-box b2 input-generic center">
+          <input type="submit" name="submit" class="mobile-box b2 input-generic" value="Convert">
+        </div>
+        <div class="box a2 container">
+          <input type="label" name="input" class="mobile-box b2 input-generic noborder center">
+          <input type="label" name="output" class="mobile-box b2 input-generic noborder center">
+        </div>
+      </form>
+    </div>
 
-            let genFullDate = document.getElementById("genFullDate");
-            if(genFullDate){
-                genFullDate.addEventListener("submit", e => {
-                    e.preventDefault();
-                    e.target.elements.namedItem("output").value = "output: " + lib.genFullDate();
-                });
-            };
+    <div class="box a1 container ground padding-10 margin-top-10">
+      <div class="box a1 underline center">lib.timestampToDate(timestamp)</div>
+      <div class="box a3 padding-5 margin-top-10 avant-garde center">"timestamp" to "00-00-0000 00:00"</div>
+      <form id="timestampToDate" class="box a2-3 container ground margin-top-10">
+        <div class="box a2 container">
+          <input type="text" name="date" class="mobile-box b2 input-generic center">
+          <input type="submit" name="submit" class="mobile-box b2 input-generic" value="Convert">
+        </div>
+        <div class="box a2 container">
+          <input type="label" name="input" class="mobile-box b2 input-generic noborder center">
+          <input type="label" name="output" class="mobile-box b2 input-generic noborder center">
+        </div>
+      </form>
+    </div>
 
-            let genTimestamp = document.getElementById("genTimestamp");
-            if(genTimestamp){
-                genTimestamp.addEventListener("submit", e => {
-                    e.preventDefault();
-                    e.target.elements.namedItem("output").value = "output: " + lib.genTimestamp();
-                });
-            };
+    <div class="box a1 container ground padding-10 margin-top-10">
+      <div class="box a1 underline center">lib.timestampToDatetime(timestamp)</div>
+      <div class="box a3 padding-5 margin-top-10 avant-garde center">"timestamp" to "00-00-0000T00:00"</div>
+      <form id="timestampToDatetime" class="box a2-3 container ground margin-top-10">
+        <div class="box a2 container">
+          <input type="text" name="date" class="mobile-box b2 input-generic center">
+          <input type="submit" name="submit" class="mobile-box b2 input-generic" value="Convert">
+        </div>
+        <div class="box a2 container">
+          <input type="label" name="input" class="mobile-box b2 input-generic noborder center">
+          <input type="label" name="output" class="mobile-box b2 input-generic noborder center">
+        </div>
+      </form>
+    </div>
+  </div>
 
-            let convertDate = document.getElementById("convertDate");
-            if(convertDate){
-                convertDate.addEventListener("submit", e => {
-                    e.preventDefault();
-                    e.target.elements.namedItem("input").value = "input: " + e.target.elements.namedItem("date").value;
-                    e.target.elements.namedItem("output").value = "output: " + lib.convertDate(e.target.elements.namedItem("date").value);
-                });
-            };
+  <%- include ('date/period/form') %>
 
-            let convertDatetime = document.getElementById("convertDatetime");
-            if(convertDatetime){
-                convertDatetime.addEventListener("submit", e => {
-                    e.preventDefault();
-                    e.target.elements.namedItem("input").value = "input: " + e.target.elements.namedItem("date").value;
-                    e.target.elements.namedItem("output").value = "output: " + lib.convertDatetime(e.target.elements.namedItem("date").value);
-                });
-            };
+  <div id="ajax-loader" class="ajax-loader">
+    <div class="loader"></div>
+  </div>
+</body>
+<footer>
+  <script src="/front-end/javascripts/essentials/lib.js"></script>
+  <%- include ('date/period/script') %>
+</footer>
+<script type="text/javascript">
+  let genDate = document.getElementById("genDate");
+  if (genDate) {
+    genDate.addEventListener("submit", e => {
+      e.preventDefault();
+      e.target.elements.namedItem("output").value = "output: " + lib.genDate();
+    });
+  };
 
-            let dateToTimestamp = document.getElementById("dateToTimestamp");
-            if(dateToTimestamp){
-                dateToTimestamp.addEventListener("submit", e => {
-                    e.preventDefault();
-                    e.target.elements.namedItem("input").value = "input: " + e.target.elements.namedItem("date").value;
-                    e.target.elements.namedItem("output").value = "output: " + lib.dateToTimestamp(e.target.elements.namedItem("date").value);
-                });
-            };
+  let genFullDate = document.getElementById("genFullDate");
+  if (genFullDate) {
+    genFullDate.addEventListener("submit", e => {
+      e.preventDefault();
+      e.target.elements.namedItem("output").value = "output: " + lib.genFullDate();
+    });
+  };
 
-            let datetimeToTimestamp = document.getElementById("datetimeToTimestamp");
-            if(datetimeToTimestamp){
-                datetimeToTimestamp.addEventListener("submit", e => {
-                    e.preventDefault();
-                    e.target.elements.namedItem("input").value = "input: " + e.target.elements.namedItem("date").value;
-                    e.target.elements.namedItem("output").value = "output: " + lib.datetimeToTimestamp(e.target.elements.namedItem("date").value);
-                });
-            };
+  let genTimestamp = document.getElementById("genTimestamp");
+  if (genTimestamp) {
+    genTimestamp.addEventListener("submit", e => {
+      e.preventDefault();
+      e.target.elements.namedItem("output").value = "output: " + lib.genTimestamp();
+    });
+  };
 
-            let timestampToDate = document.getElementById("timestampToDate");
-            if(timestampToDate){
-                timestampToDate.addEventListener("submit", e => {
-                    e.preventDefault();
-                    e.target.elements.namedItem("input").value = "input: " + e.target.elements.namedItem("date").value;
-                    e.target.elements.namedItem("output").value = "output: " + lib.timestampToDate(e.target.elements.namedItem("date").value);
-                });
-            };
+  let convertDate = document.getElementById("convertDate");
+  if (convertDate) {
+    convertDate.addEventListener("submit", e => {
+      e.preventDefault();
+      e.target.elements.namedItem("input").value = "input: " + e.target.elements.namedItem("date").value;
+      e.target.elements.namedItem("output").value = "output: " + lib.convertDate(e.target.elements.namedItem("date").value);
+    });
+  };
 
-            let timestampToDatetime = document.getElementById("timestampToDatetime");
-            if(timestampToDatetime){
-                timestampToDatetime.addEventListener("submit", e => {
-                    e.preventDefault();
-                    e.target.elements.namedItem("input").value = "input: " + e.target.elements.namedItem("date").value;
-                    e.target.elements.namedItem("output").value = "output: " + lib.timestampToDatetime(e.target.elements.namedItem("date").value);
-                });
-            };
-      </script>
+  let convertDatetime = document.getElementById("convertDatetime");
+  if (convertDatetime) {
+    convertDatetime.addEventListener("submit", e => {
+      e.preventDefault();
+      e.target.elements.namedItem("input").value = "input: " + e.target.elements.namedItem("date").value;
+      e.target.elements.namedItem("output").value = "output: " + lib.convertDatetime(e.target.elements.namedItem("date").value);
+    });
+  };
+
+  let dateToTimestamp = document.getElementById("dateToTimestamp");
+  if (dateToTimestamp) {
+    dateToTimestamp.addEventListener("submit", e => {
+      e.preventDefault();
+      e.target.elements.namedItem("input").value = "input: " + e.target.elements.namedItem("date").value;
+      e.target.elements.namedItem("output").value = "output: " + lib.dateToTimestamp(e.target.elements.namedItem("date").value);
+    });
+  };
+
+  let datetimeToTimestamp = document.getElementById("datetimeToTimestamp");
+  if (datetimeToTimestamp) {
+    datetimeToTimestamp.addEventListener("submit", e => {
+      e.preventDefault();
+      e.target.elements.namedItem("input").value = "input: " + e.target.elements.namedItem("date").value;
+      e.target.elements.namedItem("output").value = "output: " + lib.datetimeToTimestamp(e.target.elements.namedItem("date").value);
+    });
+  };
+
+  let timestampToDate = document.getElementById("timestampToDate");
+  if (timestampToDate) {
+    timestampToDate.addEventListener("submit", e => {
+      e.preventDefault();
+      e.target.elements.namedItem("input").value = "input: " + e.target.elements.namedItem("date").value;
+      e.target.elements.namedItem("output").value = "output: " + lib.timestampToDate(e.target.elements.namedItem("date").value);
+    });
+  };
+
+  let timestampToDatetime = document.getElementById("timestampToDatetime");
+  if (timestampToDatetime) {
+    timestampToDatetime.addEventListener("submit", e => {
+      e.preventDefault();
+      e.target.elements.namedItem("input").value = "input: " + e.target.elements.namedItem("date").value;
+      e.target.elements.namedItem("output").value = "output: " + lib.timestampToDatetime(e.target.elements.namedItem("date").value);
+    });
+  };
+</script>
+
 </html>
