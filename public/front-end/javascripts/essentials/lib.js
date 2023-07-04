@@ -18,6 +18,9 @@ lib.msg = (msg) => {
 };
 
 lib.message = (msg, cb) => {
+	const focused_btn = document.querySelector(':focus');
+	focused_btn && focused_btn.blur();
+
 	const msg_div = lib.element.create("div", { class: "msg" });
 	const msg_popup = lib.element.create("div", { class: "msg-popup container box b3-4 container border-st radius-5 padding-10" });
 	msg_popup.append(lib.element.create("div", { class: "mobile-box b10" }));
@@ -41,8 +44,6 @@ lib.message = (msg, cb) => {
 
 	msg_div.append(msg_popup);
 	document.body.append(msg_div);
-	const element = document.querySelector(':focus');
-	element && element.blur();
 };
 
 lib.auth = (cb) => {
