@@ -41,6 +41,8 @@ lib.message = (msg, cb) => {
 
 	msg_div.append(msg_popup);
 	document.body.append(msg_div);
+	const element = document.querySelector(':focus');
+	element && element.blur();
 };
 
 lib.auth = (cb) => {
