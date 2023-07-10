@@ -1265,7 +1265,7 @@ lib.element.icon = (box, size, src, action) => {
 };
 
 lib.element.info = (box, param, paramValue) => {
-	let divParent = lib.element.create("div", { class: "mobile-box " + box + " container border padding-5 margin-top-5" });
+	let divParent = lib.element.create("div", { class: "mobile-box " + box + " container border padding-5" });
 	let divParam = lib.element.create("div", { class: "mobile-box b1 em06" }, param);
 	let divValue = lib.element.create("div", { class: "mobile-box b1" }, paramValue);
 
