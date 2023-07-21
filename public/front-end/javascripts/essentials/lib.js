@@ -44,6 +44,15 @@ lib.message = (msg, cb) => {
 
 	msg_div.append(msg_popup);
 	document.body.append(msg_div);
+
+	function removeMsg(e) {
+		if (e.keyCode == 27) {
+			document.removeEventListener("keydown", removeMsg);
+			return msg_div.remove();
+		}
+	};
+
+	document.addEventListener("keydown", removeMsg);
 };
 
 lib.auth = (cb) => {
@@ -172,7 +181,7 @@ lib.confirm = (msg, cb) => {
 	msg_popup.append(alert_icon);
 
 	msg_popup.append(lib.element.create("div", {
-		class: "box b1 center lucida-grande em12 bold"
+		class: "box b1 center lucida-grande bold margin-top-10"
 	}, msg));
 
 	const confirm_btn = lib.element.create("div", {
@@ -197,6 +206,15 @@ lib.confirm = (msg, cb) => {
 
 	msg_div.append(msg_popup);
 	document.body.append(msg_div);
+
+	function removeMsg(e) {
+		if (e.keyCode == 27) {
+			document.removeEventListener("keydown", removeMsg);
+			return msg_div.remove();
+		}
+	};
+
+	document.addEventListener("keydown", removeMsg);
 };
 
 // -------------------
