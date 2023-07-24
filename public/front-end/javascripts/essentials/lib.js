@@ -48,7 +48,8 @@ lib.message = (msg, cb) => {
 	function removeMsg(e) {
 		if (e.keyCode == 27) {
 			document.removeEventListener("keydown", removeMsg);
-			return msg_div.remove();
+			msg_div.remove();
+			if (cb) { return cb(); }
 		}
 	};
 
