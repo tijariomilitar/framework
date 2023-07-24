@@ -31,10 +31,6 @@ lib.message = (msg, cb) => {
 
 	const close_div = lib.element.create("div", { class: "mobile-box a10 center" });
 	const close_icon = lib.element.create("img", { src: "/images/icon/close.png", class: "image-prop size-20 noselect icon pointer" });
-	close_icon.addEventListener("click", e => {
-		msg_div.remove();
-		if (cb) { return cb(); }
-	});
 	close_div.append(close_icon);
 	msg_popup.append(close_div);
 
@@ -45,15 +41,20 @@ lib.message = (msg, cb) => {
 	msg_div.append(msg_popup);
 	document.body.append(msg_div);
 
-	function removeMsg(e) {
+	function esc() {
+		msg_div.remove();
+		if (cb) { return cb(); }
+	};
+
+	function keydown(e) {
 		if (e.keyCode == 27) {
-			document.removeEventListener("keydown", removeMsg);
-			msg_div.remove();
-			if (cb) { return cb(); }
+			document.removeEventListener("keydown", keydown);
+			esc();
 		}
 	};
 
-	document.addEventListener("keydown", removeMsg);
+	close_icon.addEventListener("click", esc);
+	document.addEventListener("keydown", keydown);
 };
 
 lib.auth = (cb) => {
@@ -185,37 +186,39 @@ lib.confirm = (msg, cb) => {
 		class: "box b1 center lucida-grande bold margin-top-10"
 	}, msg));
 
+	function confirm() {
+		msg_div.remove();
+		return cb(true);
+	};
+
+	function cancel() {
+		msg_div.remove();
+		return cb(false);
+	};
+
+	function keydown(e) {
+		document.removeEventListener("keydown", keydown);
+		e.keyCode == 13 && confirm(e);
+		e.keyCode == 27 && cancel(e);
+	};
+
 	const confirm_btn = lib.element.create("div", {
 		class: "mobile-box b2 bold btn-act radius-5 padding-10 margin-top-10 center noselect pointer",
 	}, "Confirmar");
-	confirm_btn.addEventListener("click", e => {
-		e.preventDefault();
-		cb(true);
-		msg_div.remove();
-	});
+	confirm_btn.addEventListener("click", confirm);
 	msg_popup.append(confirm_btn);
 
 	const cancel_btn = lib.element.create("div", {
 		class: "mobile-box b2 bold btn-cancel radius-5 padding-10 margin-top-10 center noselect pointer",
 	}, "cancelar");
-	cancel_btn.addEventListener("click", e => {
-		e.preventDefault();
-		cb(false);
-		msg_div.remove();
-	});
 	msg_popup.append(cancel_btn);
-
 	msg_div.append(msg_popup);
+
 	document.body.append(msg_div);
 
-	function removeMsg(e) {
-		if (e.keyCode == 27) {
-			document.removeEventListener("keydown", removeMsg);
-			return msg_div.remove();
-		}
-	};
-
-	document.addEventListener("keydown", removeMsg);
+	cancel_btn.addEventListener("click", confirm);
+	cancel_btn.addEventListener("click", cancel);
+	document.addEventListener("keydown", keydown);
 };
 
 // -------------------
