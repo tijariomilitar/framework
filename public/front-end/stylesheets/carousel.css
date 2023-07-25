@@ -26,11 +26,11 @@
   top: 50%;
   width: auto;
   margin-top: -22px;
-  padding: 16px;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.2);
+  padding: 8px;
+  color: rgba(0, 0, 0, 1);
+  background-color: rgba(255, 255, 255, 0.7);
   font-weight: bold;
-  font-size: 18px;
+  font-size: 15px;
   transition: 0.2s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
@@ -43,7 +43,7 @@
 
 .carousel-prev:hover,
 .carousel-next:hover {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .carousel-content {
