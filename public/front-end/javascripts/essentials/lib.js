@@ -894,6 +894,11 @@ lib.hasForbiddenChar = (url) => { // Adiciona um evento de input no input
 	}
 };
 
+lib.isValidNumber = (value) => {
+	if (value !== null && !isNaN(value)) { return true; }
+	else { return false; }
+};
+
 // -------------------
 // Dropdown
 // -------------------
