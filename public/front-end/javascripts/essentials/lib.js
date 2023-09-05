@@ -57,6 +57,44 @@ lib.message = (msg, cb) => {
 	document.addEventListener("keydown", keydown);
 };
 
+lib.popup = (element, cb) => {
+	const focused_btn = document.querySelector(':focus');
+	focused_btn && focused_btn.blur();
+
+	const msg_div = lib.element.create("div", { class: "msg" });
+	const msg_popup = lib.element.create("div", { class: "msg-popup container box b3-4 container border-st radius-5 padding-10" });
+	msg_popup.append(lib.element.create("div", { class: "mobile-box b10" }));
+
+	const alert_icon = lib.element.create("div", { class: "mobile-box b4-5 center" });
+	alert_icon.append(lib.element.create("img", { src: "/images/icon/alert.png", class: "image-prop size-30 noselect" }));
+	msg_popup.append(alert_icon);
+
+	const close_div = lib.element.create("div", { class: "mobile-box a10 center" });
+	const close_icon = lib.element.create("img", { src: "/images/icon/close.png", class: "image-prop size-20 noselect icon pointer" });
+	close_div.append(close_icon);
+	msg_popup.append(close_div);
+
+	msg_popup.append(element);
+
+	msg_div.append(msg_popup);
+	document.body.append(msg_div);
+
+	function esc() {
+		msg_div.remove();
+		if (cb) { return cb(); }
+	};
+
+	function keydown(e) {
+		if (e.keyCode == 27) {
+			document.removeEventListener("keydown", keydown);
+			esc();
+		}
+	};
+
+	close_icon.addEventListener("click", esc);
+	document.addEventListener("keydown", keydown);
+};
+
 lib.auth = (cb) => {
 	let auth = "";
 
