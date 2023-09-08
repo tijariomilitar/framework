@@ -249,13 +249,12 @@ lib.confirm = (msg, cb) => {
 	const cancel_btn = lib.element.create("div", {
 		class: "mobile-box b2 bold btn-cancel radius-5 padding-10 margin-top-10 center noselect pointer",
 	}, "cancelar");
+	cancel_btn.addEventListener("click", cancel);
 	msg_popup.append(cancel_btn);
-	msg_div.append(msg_popup);
 
+	msg_div.append(msg_popup);
 	document.body.append(msg_div);
 
-	cancel_btn.addEventListener("click", confirm);
-	cancel_btn.addEventListener("click", cancel);
 	document.addEventListener("keydown", keydown);
 };
 
