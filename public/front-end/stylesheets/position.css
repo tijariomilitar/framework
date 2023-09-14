@@ -11,6 +11,43 @@
 .top { top:0; }
 .right { margin-left: auto; }
 
+.margin-1 { margin: 1px; }
+.margin-2 { margin: 2px; }
+.margin-3 { margin: 3px; }
+.margin-4 { margin: 4px; }
+.margin-5 { margin: 5px; }
+.margin-6 { margin: 6px; }
+.margin-7 { margin: 7px; }
+.margin-8 { margin: 8px; }
+.margin-9 { margin: 9px; }
+.margin-10 { margin: 10px; }
+.margin-15 { margin: 15px; }
+.margin-20 { margin: 20px; }
+.margin-25 { margin: 25px; }
+.margin-30 { margin: 30px; }
+.margin-35 { margin: 35px; }
+.margin-40 { margin: 40px; }
+.margin-45 { margin: 45px; }
+.margin-50 { margin: 50px; }
+.margin-55 { margin: 55px; }
+.margin-60 { margin: 60px; }
+.margin-65 { margin: 65px; }
+.margin-70 { margin: 70px; }
+.margin-75 { margin: 75px; }
+.margin-80 { margin: 80px; }
+.margin-85 { margin: 85px; }
+.margin-90 { margin: 90px; }
+.margin-95 { margin: 95px; }
+.margin-100 { margin: 100px; }
+.margin-125 { margin: 125px; }
+.margin-150 { margin: 150px; }
+.margin-175 { margin: 175px; }
+.margin-200 { margin: 200px; }
+.margin-225 { margin: 225px; }
+.margin-250 { margin: 250px; }
+.margin-275 { margin: 275px; }
+.margin-300 { margin: 300px; }
+
 .margin-top-1 { margin-top: 1px; }
 .margin-top-2 { margin-top: 2px; }
 .margin-top-3 { margin-top: 3px; }
