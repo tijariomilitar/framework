@@ -24,26 +24,27 @@
   cursor: pointer;
   position: absolute;
   top: 50%;
+  margin-left: 5px;
   width: auto;
   margin-top: -22px;
-  padding: 8px;
+  padding: 4px 10px;
   color: rgba(0, 0, 0, 1);
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(200, 200, 200, 0.5);
   font-weight: bold;
   font-size: 15px;
   transition: 0.2s ease;
-  border-radius: 0 3px 3px 0;
+  border-radius: 50%;
   user-select: none;
 }
 
 .carousel-next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
+  right: 5px;
+  border-radius: 50%;
 }
 
 .carousel-prev:hover,
 .carousel-next:hover {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(100, 100, 100, 0.5);
 }
 
 .carousel-content {
