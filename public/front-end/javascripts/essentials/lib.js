@@ -26,11 +26,11 @@ lib.message = (msg, cb) => {
 	msg_popup.append(lib.element.create("div", { class: "mobile-box b10" }));
 
 	const alert_icon = lib.element.create("div", { class: "mobile-box b4-5 center" });
-	alert_icon.append(lib.element.create("img", { src: "/images/icon/alert.png", class: "image-prop size-30 noselect" }));
+	alert_icon.append(lib.element.create("img", { src: "https://wt-images-cdn.sfo3.cdn.digitaloceanspaces.com/lib.images/alert.png", class: "image-prop size-30 noselect" }));
 	msg_popup.append(alert_icon);
 
 	const close_div = lib.element.create("div", { class: "mobile-box a10 center" });
-	const close_icon = lib.element.create("img", { src: "/images/icon/close.png", class: "image-prop size-20 noselect icon pointer" });
+	const close_icon = lib.element.create("img", { src: "https://wt-images-cdn.sfo3.cdn.digitaloceanspaces.com/lib.images/close.png", class: "image-prop size-20 noselect icon pointer" });
 	close_div.append(close_icon);
 	msg_popup.append(close_div);
 
@@ -66,11 +66,11 @@ lib.popup = (element, cb) => {
 	msg_popup.append(lib.element.create("div", { class: "mobile-box b10" }));
 
 	const alert_icon = lib.element.create("div", { class: "mobile-box b4-5 center" });
-	alert_icon.append(lib.element.create("img", { src: "/images/icon/alert.png", class: "image-prop size-30 noselect" }));
+	alert_icon.append(lib.element.create("img", { src: "https://wt-images-cdn.sfo3.cdn.digitaloceanspaces.com/lib.images/alert.png", class: "image-prop size-30 noselect" }));
 	msg_popup.append(alert_icon);
 
 	const close_div = lib.element.create("div", { class: "mobile-box a10 center" });
-	const close_icon = lib.element.create("img", { src: "/images/icon/close.png", class: "image-prop size-20 noselect icon pointer" });
+	const close_icon = lib.element.create("img", { src: "https://wt-images-cdn.sfo3.cdn.digitaloceanspaces.com/lib.images/close.png", class: "image-prop size-20 noselect icon pointer" });
 	close_div.append(close_icon);
 	msg_popup.append(close_div);
 
@@ -118,7 +118,7 @@ lib.auth = (cb) => {
 		let button;
 		if (buttonValue === "0") {
 			eraseButton = lib.element.create("div", { class: "mobile-box b3 container border-st margin-top-5 height-100" });
-			eraseButton.append(lib.element.create("img", { src: "/images/icon/close.png", class: "image-prop size-30 center noselect" }));
+			eraseButton.append(lib.element.create("img", { src: "https://wt-images-cdn.sfo3.cdn.digitaloceanspaces.com/lib.images/close.png", class: "image-prop size-30 center noselect" }));
 
 			eraseButton.addEventListener("click", e => {
 				e.preventDefault();
@@ -178,7 +178,7 @@ lib.pass = (cb) => {
 		let button;
 		if (buttonValue === "0") {
 			eraseButton = lib.element.create("div", { class: "mobile-box b3 container border-st margin-top-5 height-100" });
-			eraseButton.append(lib.element.create("img", { src: "/images/icon/close.png", class: "image-prop size-30 center noselect" }));
+			eraseButton.append(lib.element.create("img", { src: "https://wt-images-cdn.sfo3.cdn.digitaloceanspaces.com/lib.images/close.png", class: "image-prop size-30 center noselect" }));
 
 			eraseButton.addEventListener("click", e => {
 				e.preventDefault();
@@ -217,7 +217,7 @@ lib.confirm = (msg, cb) => {
 	const msg_div = lib.element.create("div", { class: "msg" });
 	const msg_popup = lib.element.create("div", { class: "msg-popup container mobile-box b3-4 container border-st radius-5 padding-10" });
 	const alert_icon = lib.element.create("div", { class: "mobile-box a1 center" });
-	alert_icon.append(lib.element.create("img", { src: "/images/icon/alert.png", class: "image-prop size-30 noselect" }))
+	alert_icon.append(lib.element.create("img", { src: "https://wt-images-cdn.sfo3.cdn.digitaloceanspaces.com/lib.images/alert.png", class: "image-prop size-30 noselect" }))
 	msg_popup.append(alert_icon);
 
 	msg_popup.append(lib.element.create("div", {
