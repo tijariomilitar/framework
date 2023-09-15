@@ -4,7 +4,6 @@ const sharp = require('./../middleware/sharp');
 const fs = require('fs');
 const stream = require('stream');
 
-
 router.get("/zoom", (req, res) => { res.render("documentation/image/custom-zoom/index"); });
 
 router.get("/convert", (req, res) => { res.render("documentation/image/convert"); });
