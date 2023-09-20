@@ -94,9 +94,9 @@ lib.popup = (element, cb) => {
 lib.auth = (cb) => {
 	let auth = "";
 
-	const auth_div = lib.element.create("div", { class: "auth-div" });
+	const auth_div = lib.element.create("div", { class: "auth-div" }, 'auth div');
 	const auth_content = lib.element.create("div", { class: "auth-content container box b3-4 container border-st radius-5 padding-10" });
-	auth_content.append(lib.element.create("div", { class: "mobile-box b10" }));
+	auth_div.append(auth_content);
 
 	auth_content.append(lib.element.create("div", { class: "box b1 em15 bold center padding-10" }, "Digite sua senha"));
 
@@ -113,16 +113,16 @@ lib.auth = (cb) => {
 	buttons.forEach(buttonValue => {
 		let button;
 		if (buttonValue === "0") {
-			eraseButton = lib.element.create("div", { class: "mobile-box b3 container border-st margin-top-5 height-100" });
+			let eraseButton = lib.element.create("div", { class: "mobile-box b3 container border-st margin-top-5 height-100" });
 			eraseButton.append(lib.element.create("img", { src: "https://wt-images-cdn.sfo3.cdn.digitaloceanspaces.com/lib.images/close.png", class: "image-prop size-30 center noselect" }));
+			auth_content.append(eraseButton);
 
 			eraseButton.addEventListener("click", e => {
 				e.preventDefault();
 
 				auth = auth.slice(0, -1);
-				document.getElementById("auth-value").value = auth;
+				document.getElementById("auth_value").value = auth;
 			});
-			auth_content.append(eraseButton);
 
 			button = lib.element.create("button", { class: "mobile-box b3 em15 bold border-st margin-top-5 height-100 center noselect" });
 		} else {
@@ -138,8 +138,7 @@ lib.auth = (cb) => {
 			document.getElementById("auth_value").value = auth;
 
 			if (auth.length === 4) {
-				auth_content.innerHTML = "";
-				lib.display("msg", "none");
+				auth_div.remove();
 
 				return cb(auth);
 			}
@@ -148,7 +147,27 @@ lib.auth = (cb) => {
 		auth_content.append(button);
 	});
 
+	let escButton = lib.element.create("div", { class: "mobile-box b3 container border-st margin-top-5 height-100" });
+	escButton.append(lib.element.create("div", { class: "box b1 lucida-grande bold center noselect" }, "Cancelar"));
+	auth_content.append(escButton);
+
+	escButton.addEventListener("click", esc);
+
 	document.body.append(auth_div);
+
+	function esc() {
+		auth_div.remove();
+		if (cb) { return false; }
+	};
+
+	function keydown(e) {
+		if (e.keyCode == 27) {
+			document.removeEventListener("keydown", keydown);
+			esc();
+		}
+	};
+
+	document.addEventListener("keydown", keydown);
 };
 
 lib.pass = (cb) => {
