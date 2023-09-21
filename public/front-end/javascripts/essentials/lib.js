@@ -114,7 +114,7 @@ lib.auth = (cb) => {
 		let button;
 		if (buttonValue === "0") {
 			let eraseButton = lib.element.create("div", { class: "mobile-box b3 container border-st margin-top-5 height-100" });
-			eraseButton.append(lib.element.create("img", { src: "https://wt-images-cdn.sfo3.cdn.digitaloceanspaces.com/lib.images/close.png", class: "image-prop size-30 center noselect" }));
+			eraseButton.append(lib.element.create("img", { src: "https://wt-images-cdn.sfo3.cdn.digitaloceanspaces.com/lib.images/erase.png", class: "image-prop size-30 center noselect" }));
 			auth_content.append(eraseButton);
 
 			eraseButton.addEventListener("click", e => {
