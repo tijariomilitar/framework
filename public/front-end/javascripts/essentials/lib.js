@@ -451,6 +451,11 @@ lib.timestampToDatetime = (timestamp) => {
 	return false;
 };
 
+lib.firstDayOfMonth = () => {
+	let date = lib.timestampToDate(lib.genTimestamp()).split("-");
+	return `01-${date[1]}-${date[2]}`;
+};
+
 lib.fillDateInput = (input) => {
 	return input.valueAsDate = new Date();
 };
