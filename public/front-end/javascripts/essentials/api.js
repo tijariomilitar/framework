@@ -12,11 +12,11 @@ const API = {
 
 		return false;
 	},
-	response: async (func, param) => {
-		if (document.getElementById('loader')) { document.getElementById('loader').style.visibility = 'visible'; }
-		let element = await func(param);
-		if (document.getElementById('loader')) { document.getElementById('loader').style.visibility = 'hidden'; }
-		if (!element) { return false; }
-		return element;
+	response: async (func, param, element) => {
+		lib.loader.init(element);
+		let response = await func(param);
+		lib.loader.stop(element);
+		if (!response) { return false; }
+		return response;
 	}
 };

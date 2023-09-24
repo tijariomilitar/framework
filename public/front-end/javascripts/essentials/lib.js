@@ -17,6 +17,31 @@ lib.msg = (msg) => {
 	}, msg));
 };
 
+lib.loader = {};
+
+lib.loader.init = (element) => {
+	let overlay = lib.element.create("div", {});
+	if (!element || element.tagName == "INPUT") {
+		lib.addCss(overlay, ["loader-body-overlay"]);
+		overlay.append(lib.element.create("div", { class: "loader" }));
+		document.body.append(overlay);
+	} else {
+		lib.addCss(element, ["loader-element-container"]);
+		lib.addCss(overlay, ["loader-element-overlay"]);
+		overlay.append(lib.element.create("div", { class: "loader" }));
+		element.append(overlay);
+	}
+};
+
+lib.loader.stop = (element) => {
+	if (element) {
+		Array.from(element.getElementsByClassName("loader-element-container")).forEach(el => lib.removeCss(el, ["loader-element-container"]));
+		Array.from(element.getElementsByClassName("loader-element-overlay")).forEach(el => el.remove());
+	} else {
+		Array.from(document.getElementsByClassName("loader-body-overlay")).forEach(el => el.remove());
+	}
+};
+
 lib.message = (msg, cb) => {
 	const focused_btn = document.querySelector(':focus');
 	focused_btn && focused_btn.blur();
