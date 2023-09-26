@@ -25,7 +25,11 @@ lib.loader.init = (element) => {
 		lib.addCss(overlay, ["loader-body-overlay"]);
 		overlay.append(lib.element.create("div", { class: "loader" }));
 		document.body.append(overlay);
+	} else if (element.tagName == "IMG") {
+		element.dataset.inital_src = `${element.dataset.src}`;
+		element.src = "https://i.gifer.com/ZKZg.gif";
 	} else {
+		console.log(element.tagName);
 		lib.addCss(element, ["loader-element-container"]);
 		lib.addCss(overlay, ["loader-element-overlay"]);
 		overlay.append(lib.element.create("div", { class: "loader" }));
@@ -34,11 +38,13 @@ lib.loader.init = (element) => {
 };
 
 lib.loader.stop = (element) => {
-	if (element) {
+	if (!element || element.tagName == "INPUT") {
+		Array.from(document.getElementsByClassName("loader-body-overlay")).forEach(el => el.remove());
+	} else if (element.tagName == "IMG") {
+		element.src = element.dataset.src;
+	} else {
 		Array.from(element.getElementsByClassName("loader-element-container")).forEach(el => lib.removeCss(el, ["loader-element-container"]));
 		Array.from(element.getElementsByClassName("loader-element-overlay")).forEach(el => el.remove());
-	} else {
-		Array.from(document.getElementsByClassName("loader-body-overlay")).forEach(el => el.remove());
 	}
 };
 
@@ -630,6 +636,32 @@ lib.focus = (input) => {
 	} else {
 		input.focus();
 	};
+};
+
+lib.mask = {};
+
+lib.mask.phone = (input) => {
+	let number = input.value.replace(/\D/g, '');
+
+	if (number.length == 0) {
+		input.value = '';
+	} else if (number.length > 0 && number.length <= 2) {
+		input.value = '(' + number;
+	} else if (number.length <= 7) {
+		input.value = '(' + number.substring(0, 2) + ') ' + number.substring(2);
+	} else {
+		input.value = '(' + number.substring(0, 2) + ') ' + number.substring(2, 7) + '-' + number.substring(7);
+	}
+};
+
+lib.verifyEmail = (input) => {
+	var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+	if (regex.test(input.value)) {
+		return true;
+	} else {
+		return false;
+	}
 };
 
 // -------------------
