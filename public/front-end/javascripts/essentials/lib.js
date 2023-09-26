@@ -654,10 +654,10 @@ lib.mask.phone = (input) => {
 	}
 };
 
-lib.verifyEmail = (input) => {
+lib.verifyEmail = (email) => {
 	var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-	if (regex.test(input.value)) {
+	if (regex.test(email)) {
 		return true;
 	} else {
 		return false;
