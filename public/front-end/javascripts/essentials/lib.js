@@ -657,6 +657,24 @@ lib.mask.phone = (input) => {
 	}
 };
 
+lib.mask.cnpj = (input) => {
+	let cnpj = input.value.replace(/\D/g, '');
+
+	if (cnpj.length == 0) {
+		input.value = '';
+	} else if (cnpj.length <= 2) {
+		input.value = cnpj;
+	} else if (cnpj.length <= 5) {
+		input.value = cnpj.substring(0, 2) + '.' + cnpj.substring(2);
+	} else if (cnpj.length <= 8) {
+		input.value = cnpj.substring(0, 2) + '.' + cnpj.substring(2, 5) + '.' + cnpj.substring(5);
+	} else if (cnpj.length <= 12) {
+		input.value = cnpj.substring(0, 2) + '.' + cnpj.substring(2, 5) + '.' + cnpj.substring(5, 8) + '/' + cnpj.substring(8);
+	} else {
+		input.value = cnpj.substring(0, 2) + '.' + cnpj.substring(2, 5) + '.' + cnpj.substring(5, 8) + '/' + cnpj.substring(8, 12) + '-' + cnpj.substring(12);
+	}
+};
+
 lib.verifyEmail = (email) => {
 	var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
