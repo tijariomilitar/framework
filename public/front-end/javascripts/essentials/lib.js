@@ -74,10 +74,11 @@ lib.message = (msg, cb) => {
 
 	function esc() {
 		msg_div.remove();
-		if (cb) { return cb(); }
+		if (typeof cb === 'function') { console.log('theres cb'); return cb(); }
 	};
 
 	function keydown(e) {
+		e.preventDefault();
 		if (e.keyCode == 27) {
 			document.removeEventListener("keydown", keydown);
 			esc();
@@ -108,10 +109,11 @@ lib.popup = (element, cb) => {
 
 	function esc() {
 		msg_div.remove();
-		if (cb) { return cb(); }
+		if (typeof cb === 'function') { console.log('theres cb'); return cb(); }
 	};
 
 	function keydown(e) {
+		e.preventDefault();
 		if (e.keyCode == 27) {
 			document.removeEventListener("keydown", keydown);
 			esc();
@@ -188,10 +190,11 @@ lib.auth = (cb) => {
 
 	function esc() {
 		auth_div.remove();
-		if (cb) { return false; }
+		if (typeof cb === 'function') { console.log('theres cb'); return cb(); }
 	};
 
 	function keydown(e) {
+		e.preventDefault();
 		if (e.keyCode == 27) {
 			document.removeEventListener("keydown", keydown);
 			esc();
