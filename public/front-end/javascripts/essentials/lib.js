@@ -1,5 +1,5 @@
 // Management of static files
-const lib_version = "1.0";
+const lib_version = "1.1";
 const lib_client_version = localStorage.getItem("bc-lib-v");
 
 if (lib_client_version != lib_version) {
