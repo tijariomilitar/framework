@@ -4,7 +4,7 @@ const api_client_version = localStorage.getItem("bc-api-v");
 
 if (api_client_version != api_version) {
 	localStorage.setItem("bc-api-v", api_version);
-	window.location.reload(true);
+	api_client_version && window.location.reload(true);
 }
 
 const API = {

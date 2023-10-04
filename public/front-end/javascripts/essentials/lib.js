@@ -4,7 +4,7 @@ const lib_client_version = localStorage.getItem("bc-lib-v");
 
 if (lib_client_version != lib_version) {
 	localStorage.setItem("bc-lib-v", lib_version);
-	window.location.reload(true);
+	lib_client_version && window.location.reload(true);
 }
 
 // -------------------
