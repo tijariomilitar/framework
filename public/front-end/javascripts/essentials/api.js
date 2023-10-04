@@ -1,3 +1,13 @@
+// Management of static files
+const version = "1.0";
+const client_version = localStorage.getItem("bc-lib-v");
+
+if (client_version != version) {
+	localStorage.setItem("bc-lib-v", version);
+	console.log(version);
+	window.location.reload(true);
+}
+
 const API = {
 	verifyResponse(res) {
 		if (res.unauthorized) {
