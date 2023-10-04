@@ -62,11 +62,19 @@ tr:hover {
 
 .scroll-x {
 	overflow-x: scroll;
-	white-space: nowrap;
 }
 
 .scroll-hide {
 	overflow-y: hidden;
+	overflow-x: hidden;
+}
+
+.scroll-y-hide {
+	overflow-y: hidden;
+}
+
+.scroll-x-hide {
+	overflow-x: hidden;
 }
 
 .pointer {
