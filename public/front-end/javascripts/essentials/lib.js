@@ -1,12 +1,3 @@
-// Management of static files
-const lib_version = "1.1";
-const lib_client_version = localStorage.getItem("bc-lib-v");
-
-if (lib_client_version != lib_version) {
-	localStorage.setItem("bc-lib-v", lib_version);
-	lib_client_version && window.location.reload(true);
-}
-
 // -------------------
 // javascript lib
 // -------------------
@@ -1524,4 +1515,62 @@ lib.element.infoInput = (box, param, paramValue, input_id) => {
 	divParent.appendChild(divParam);
 	divParent.appendChild(divValue);
 	return divParent;
+};
+
+// Drag and drop
+
+lib.drag = {};
+
+lib.drag.element = (element, data) => {
+	console.log('drag.element');
+	element.addEventListener('dragstart', (e) => {
+		console.log('drag.element');
+
+		const option = {
+			data: data,
+			serializedElement: JSON.stringify(element.outerHTML)
+		};
+
+		e.dataTransfer.setData('text/plain', JSON.stringify(option));
+
+		// Set a custom data attribute to mark the element for removal
+		element.dataset.toBeRemoved = 'true';
+
+		// Optionally, you can add a visual effect to indicate dragging (e.g., add a CSS class)
+		element.classList.add('being-dragged');
+	});
+};
+
+lib.drag.drop = (element, cb) => {
+	element.addEventListener('dragover', (e) => {
+		e.preventDefault();
+	});
+
+	element.addEventListener('drop', (e) => {
+		e.preventDefault();
+
+		const { serializedElement, data } = JSON.parse(e.dataTransfer.getData('text/plain'));
+
+		// Create a new element directly from the serialized HTML
+		const parser = new DOMParser();
+		const doc = parser.parseFromString(JSON.parse(serializedElement), 'text/html');
+		const draggedElement = doc.body.firstChild;
+
+		// Append the new element to the drop target
+		element.appendChild(draggedElement);
+
+		// Make the new element draggable
+		lib.drag.element(draggedElement, data);
+
+		// Remove the original element after dropping
+		const originalElementToBeRemoved = document.querySelector('[data-to-be-removed="true"]');
+		if (originalElementToBeRemoved) {
+			originalElementToBeRemoved.remove();
+
+			// Optionally, remove the visual effect indicating dragging
+			originalElementToBeRemoved.classList.remove('being-dragged');
+		}
+
+		cb(data);
+	});
 };
