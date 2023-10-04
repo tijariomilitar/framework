@@ -648,10 +648,12 @@ lib.mask.phone = (input) => {
 
 	if (number.length == 0) {
 		input.value = '';
-	} else if (number.length > 0 && number.length <= 2) {
+	} else if (number.length <= 2) {
 		input.value = '(' + number;
-	} else if (number.length <= 7) {
+	} else if (number.length <= 6) {
 		input.value = '(' + number.substring(0, 2) + ') ' + number.substring(2);
+	} else if (number.length <= 10) {
+		input.value = '(' + number.substring(0, 2) + ') ' + number.substring(2, 6) + '-' + number.substring(6);
 	} else {
 		input.value = '(' + number.substring(0, 2) + ') ' + number.substring(2, 7) + '-' + number.substring(7);
 	}
@@ -979,12 +981,22 @@ lib.index.last = (objects) => {
 	return objects.length - 1;
 };
 
+// lib.sort = (arr, key, order) => {
+// 	return arr = arr.sort((a, b) => {
+// 		if (order == "desc") {
+// 			return b[key] - a[key];
+// 		} else {
+// 			return a[key] - b[key];
+// 		}
+// 	});
+// };
+
 lib.sort = (arr, key, order) => {
-	return arr = arr.sort((a, b) => {
-		if (order == "desc") {
-			return b[key] - a[key];
+	return arr.sort((a, b) => {
+		if (order == "des") {
+			return b[key].localeCompare(a[key]);
 		} else {
-			return a[key] - b[key];
+			return a[key].localeCompare(b[key]);
 		}
 	});
 };
@@ -1181,6 +1193,45 @@ lib.address.fillForm = async (cep, form) => {
 	if (address.bairro) { document.getElementById(form).elements.namedItem("neighborhood").value = address.bairro; };
 	if (address.localidade) { document.getElementById(form).elements.namedItem("city").value = address.localidade; };
 	if (address.uf) { document.getElementById(form).elements.namedItem("state").value = address.uf; };
+};
+
+lib.listarEstados = () => {
+	return [
+		{ codigo_uf: 27, uf: 'AL', unidade_federativa: 'Alagoas' },
+		{ codigo_uf: 12, uf: 'AC', unidade_federativa: 'Acre' },
+		{ codigo_uf: 16, uf: 'AP', unidade_federativa: 'Amapá' },
+		{ codigo_uf: 13, uf: 'AM', unidade_federativa: 'Amazonas' },
+		{ codigo_uf: 29, uf: 'BA', unidade_federativa: 'Bahia' },
+		{ codigo_uf: 23, uf: 'CE', unidade_federativa: 'Ceará' },
+		{ codigo_uf: 53, uf: 'DF', unidade_federativa: 'Distrito Federal' },
+		{ codigo_uf: 32, uf: 'ES', unidade_federativa: 'Espírito Santo' },
+		{ codigo_uf: 52, uf: 'GO', unidade_federativa: 'Goías' },
+		{ codigo_uf: 21, uf: 'MA', unidade_federativa: 'Maranhão' },
+		{ codigo_uf: 51, uf: 'MT', unidade_federativa: 'Mato Grosso' },
+		{ codigo_uf: 50, uf: 'MS', unidade_federativa: 'Mato Grosso do Sul' },
+		{ codigo_uf: 31, uf: 'MG', unidade_federativa: 'Minas Gerais' },
+		{ codigo_uf: 15, uf: 'PA', unidade_federativa: 'Pará' },
+		{ codigo_uf: 25, uf: 'PB', unidade_federativa: 'Paraíba' },
+		{ codigo_uf: 41, uf: 'PR', unidade_federativa: 'Paraná' },
+		{ codigo_uf: 26, uf: 'PE', unidade_federativa: 'Pernambuco' },
+		{ codigo_uf: 22, uf: 'PI', unidade_federativa: 'Piauí' },
+		{ codigo_uf: 33, uf: 'RJ', unidade_federativa: 'Rio de Janeiro' },
+		{ codigo_uf: 24, uf: 'RN', unidade_federativa: 'Rio Grande do Norte' },
+		{ codigo_uf: 43, uf: 'RS', unidade_federativa: 'Rio Grande do Sul' },
+		{ codigo_uf: 11, uf: 'RO', unidade_federativa: 'Rondônia' },
+		{ codigo_uf: 14, uf: 'RR', unidade_federativa: 'Roraíma' },
+		{ codigo_uf: 42, uf: 'SC', unidade_federativa: 'Santa Catarina' },
+		{ codigo_uf: 35, uf: 'SP', unidade_federativa: 'São Paulo' },
+		{ codigo_uf: 28, uf: 'SE', unidade_federativa: 'Sergipe' },
+		{ codigo_uf: 17, uf: 'TO', unidade_federativa: 'Tocantins' },
+	];
+};
+
+lib.listarCidadesPorEstado = async (UF) => {
+	let cidades = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${UF}/distritos`);
+	cidades = await cidades.json();
+
+	return cidades;
 };
 
 lib.eventEmmiter = (element, event) => {
