@@ -981,25 +981,25 @@ lib.index.last = (objects) => {
 	return objects.length - 1;
 };
 
-// lib.sort = (arr, key, order) => {
-// 	return arr = arr.sort((a, b) => {
-// 		if (order == "desc") {
-// 			return b[key] - a[key];
-// 		} else {
-// 			return a[key] - b[key];
-// 		}
-// 	});
-// };
-
 lib.sort = (arr, key, order) => {
-	return arr.sort((a, b) => {
-		if (order == "des") {
-			return b[key].localeCompare(a[key]);
+	return arr = arr.sort((a, b) => {
+		if (order == "desc") {
+			return b[key] - a[key];
 		} else {
-			return a[key].localeCompare(b[key]);
+			return a[key] - b[key];
 		}
 	});
 };
+
+// lib.sort = (arr, key, order) => {
+// 	return arr.sort((a, b) => {
+// 		if (order == "des") {
+// 			return b[key].localeCompare(a[key]);
+// 		} else {
+// 			return a[key].localeCompare(b[key]);
+// 		}
+// 	});
+// };
 
 // -------------------
 // pre code format
