@@ -1,10 +1,9 @@
 // Management of static files
-const version = "1.0";
-const client_version = localStorage.getItem("bc-lib-v");
+const lib_version = "1.0";
+const lib_client_version = localStorage.getItem("bc-lib-v");
 
-if (client_version != version) {
-	localStorage.setItem("bc-lib-v", version);
-	console.log(version);
+if (lib_client_version != lib_version) {
+	localStorage.setItem("bc-lib-v", lib_version);
 	window.location.reload(true);
 }
 
