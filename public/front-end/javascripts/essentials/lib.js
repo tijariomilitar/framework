@@ -985,15 +985,15 @@ lib.sort = (arr, key, order) => {
 	});
 };
 
-// lib.sort = (arr, key, order) => {
-// 	return arr.sort((a, b) => {
-// 		if (order == "des") {
-// 			return b[key].localeCompare(a[key]);
-// 		} else {
-// 			return a[key].localeCompare(b[key]);
-// 		}
-// 	});
-// };
+lib.sort2 = (arr, key, order) => {
+	return arr.sort((a, b) => {
+		if (order == "des") {
+			return b[key].localeCompare(a[key]);
+		} else {
+			return a[key].localeCompare(b[key]);
+		}
+	});
+};
 
 // -------------------
 // pre code format
