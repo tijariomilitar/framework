@@ -26,10 +26,9 @@ lib.loader.init = (element) => {
 		overlay.append(lib.element.create("div", { class: "loader" }));
 		document.body.append(overlay);
 	} else if (element.tagName == "IMG") {
-		element.dataset.inital_src = `${element.dataset.src}`;
-		element.src = "https://i.gifer.com/ZKZg.gif";
+		element.dataset.src = `${element.src}`;
+		element.src = "https://wt-images-cdn.sfo3.cdn.digitaloceanspaces.com/lib.images/loader.gif";
 	} else {
-		console.log(element.tagName);
 		lib.addCss(element, ["loader-element-container"]);
 		lib.addCss(overlay, ["loader-element-overlay"]);
 		overlay.append(lib.element.create("div", { class: "loader" }));
@@ -41,7 +40,7 @@ lib.loader.stop = (element) => {
 	if (!element || element.tagName == "INPUT") {
 		Array.from(document.getElementsByClassName("loader-body-overlay")).forEach(el => el.remove());
 	} else if (element.tagName == "IMG") {
-		element.src = element.dataset.src;
+		element.src = `${element.dataset.src}`;
 	} else {
 		Array.from(element.getElementsByClassName("loader-element-container")).forEach(el => lib.removeCss(el, ["loader-element-container"]));
 		Array.from(element.getElementsByClassName("loader-element-overlay")).forEach(el => el.remove());
@@ -73,16 +72,14 @@ lib.message = (msg, cb) => {
 	document.body.append(msg_div);
 
 	function esc() {
+		document.removeEventListener("keydown", keydown);
 		msg_div.remove();
-		if (typeof cb === 'function') { console.log('theres cb'); return cb(); }
+		if (typeof cb === 'function') { return cb(); }
 	};
 
 	function keydown(e) {
 		e.preventDefault();
-		if (e.keyCode == 27) {
-			document.removeEventListener("keydown", keydown);
-			esc();
-		}
+		if (e.keyCode == 27) { esc(); }
 	};
 
 	close_icon.addEventListener("click", esc);
@@ -108,16 +105,14 @@ lib.popup = (element, cb) => {
 	document.body.append(msg_div);
 
 	function esc() {
+		document.removeEventListener("keydown", keydown);
 		msg_div.remove();
-		if (typeof cb === 'function') { console.log('theres cb'); return cb(); }
+		if (typeof cb === 'function') { return cb(); }
 	};
 
 	function keydown(e) {
 		e.preventDefault();
-		if (e.keyCode == 27) {
-			document.removeEventListener("keydown", keydown);
-			esc();
-		}
+		if (e.keyCode == 27) { esc(); }
 	};
 
 	close_icon.addEventListener("click", esc);
@@ -189,16 +184,14 @@ lib.auth = (cb) => {
 	document.body.append(auth_div);
 
 	function esc() {
-		auth_div.remove();
-		if (typeof cb === 'function') { console.log('theres cb'); return cb(); }
+		document.removeEventListener("keydown", keydown);
+		msg_div.remove();
+		if (typeof cb === 'function') { return cb(); }
 	};
 
 	function keydown(e) {
 		e.preventDefault();
-		if (e.keyCode == 27) {
-			document.removeEventListener("keydown", keydown);
-			esc();
-		}
+		if (e.keyCode == 27) { esc(); }
 	};
 
 	document.addEventListener("keydown", keydown);
@@ -284,6 +277,7 @@ lib.confirm = (msg, cb) => {
 	};
 
 	function keydown(e) {
+		e.preventDefault();
 		document.removeEventListener("keydown", keydown);
 		e.keyCode == 13 && confirm(e);
 		e.keyCode == 27 && cancel(e);
@@ -1517,60 +1511,26 @@ lib.element.infoInput = (box, param, paramValue, input_id) => {
 	return divParent;
 };
 
-// Drag and drop
-
+// drag and drop
 lib.drag = {};
 
-lib.drag.element = (element, data) => {
-	console.log('drag.element');
+lib.drag.element = (element) => {
 	element.addEventListener('dragstart', (e) => {
-		console.log('drag.element');
-
-		const option = {
-			data: data,
-			serializedElement: JSON.stringify(element.outerHTML)
-		};
-
-		e.dataTransfer.setData('text/plain', JSON.stringify(option));
-
-		// Set a custom data attribute to mark the element for removal
-		element.dataset.toBeRemoved = 'true';
-
-		// Optionally, you can add a visual effect to indicate dragging (e.g., add a CSS class)
-		element.classList.add('being-dragged');
+		e.dataTransfer.setData('text/plain', element.id);
 	});
 };
 
-lib.drag.drop = (element, cb) => {
-	element.addEventListener('dragover', (e) => {
+lib.drag.drop = (dropArea, cb) => {
+	dropArea.addEventListener('dragover', (e) => {
 		e.preventDefault();
 	});
 
-	element.addEventListener('drop', (e) => {
+	dropArea.addEventListener('drop', (e) => {
 		e.preventDefault();
+		const element_id = e.dataTransfer.getData('text/plain');
+		const draggedElement = document.getElementById(element_id);
+		dropArea.append(draggedElement);
 
-		const { serializedElement, data } = JSON.parse(e.dataTransfer.getData('text/plain'));
-
-		// Create a new element directly from the serialized HTML
-		const parser = new DOMParser();
-		const doc = parser.parseFromString(JSON.parse(serializedElement), 'text/html');
-		const draggedElement = doc.body.firstChild;
-
-		// Append the new element to the drop target
-		element.appendChild(draggedElement);
-
-		// Make the new element draggable
-		lib.drag.element(draggedElement, data);
-
-		// Remove the original element after dropping
-		const originalElementToBeRemoved = document.querySelector('[data-to-be-removed="true"]');
-		if (originalElementToBeRemoved) {
-			originalElementToBeRemoved.remove();
-
-			// Optionally, remove the visual effect indicating dragging
-			originalElementToBeRemoved.classList.remove('being-dragged');
-		}
-
-		cb(data);
+		cb(element_id);
 	});
 };
