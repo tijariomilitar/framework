@@ -25,23 +25,30 @@ lib.loader.init = (element) => {
 		lib.addCss(overlay, ["loader-body-overlay"]);
 		overlay.append(lib.element.create("div", { class: "loader" }));
 		document.body.append(overlay);
+		if (element) { element.disabled = true; }
 	} else if (element.tagName == "IMG") {
 		element.dataset.src = `${element.src}`;
 		element.src = "https://wt-images-cdn.sfo3.cdn.digitaloceanspaces.com/lib.images/loader.gif";
+		element.dataset.func = element.onclick;
+		element.onclick = "";
 	} else {
 		lib.addCss(element, ["loader-element-container"]);
 		lib.addCss(overlay, ["loader-element-overlay"]);
 		overlay.append(lib.element.create("div", { class: "loader" }));
 		element.append(overlay);
+		if (element) { element.disabled = true; }
 	}
 };
 
 lib.loader.stop = (element) => {
 	if (!element || element.tagName == "INPUT") {
 		Array.from(document.getElementsByClassName("loader-body-overlay")).forEach(el => el.remove());
+		if (element) { element.disabled = false; }
 	} else if (element.tagName == "IMG") {
 		element.src = `${element.dataset.src}`;
+		element.onclick = element.dataset.func;
 	} else {
+		if (element) { element.disabled = false; }
 		Array.from(element.getElementsByClassName("loader-element-container")).forEach(el => lib.removeCss(el, ["loader-element-container"]));
 		Array.from(element.getElementsByClassName("loader-element-overlay")).forEach(el => el.remove());
 	}
