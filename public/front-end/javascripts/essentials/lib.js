@@ -186,13 +186,11 @@ lib.auth = (cb) => {
 	escButton.append(lib.element.create("div", { class: "box b1 lucida-grande bold center noselect" }, "Cancelar"));
 	auth_content.append(escButton);
 
-	escButton.addEventListener("click", esc);
-
 	document.body.append(auth_div);
 
 	function esc() {
 		document.removeEventListener("keydown", keydown);
-		msg_div.remove();
+		auth_div.remove();
 		if (typeof cb === 'function') { return cb(); }
 	};
 
@@ -201,6 +199,7 @@ lib.auth = (cb) => {
 		if (e.keyCode == 27) { esc(); }
 	};
 
+	escButton.addEventListener("click", esc);
 	document.addEventListener("keydown", keydown);
 };
 
