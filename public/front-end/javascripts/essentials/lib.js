@@ -173,6 +173,7 @@ lib.auth = (cb) => {
 			document.getElementById("auth_value").value = auth;
 
 			if (auth.length === 4) {
+				document.removeEventListener("keydown", keydown);
 				auth_div.remove();
 
 				return cb(auth);
