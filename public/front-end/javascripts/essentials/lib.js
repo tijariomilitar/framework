@@ -126,14 +126,15 @@ lib.popup = (element, cb) => {
 	document.addEventListener("keydown", keydown);
 };
 
-lib.auth = (cb) => {
+lib.auth = (message, cb) => {
 	let auth = "";
 
 	const auth_div = lib.element.create("div", { class: "auth-div" }, 'auth div');
 	const auth_content = lib.element.create("div", { class: "auth-content container box b3-4 container border-st radius-5 padding-10" });
 	auth_div.append(auth_content);
 
-	auth_content.append(lib.element.create("div", { class: "box b1 em15 bold center padding-10" }, "Digite sua senha"));
+	message && auth_content.append(lib.element.create("div", { class: "box b1 lucida-grande bold border center padding-5" }, `${message}`));
+	auth_content.append(lib.element.create("div", { class: "box b1 lucida-grande em13 bold center padding-5 margin-top-5" }, "Digite sua senha"));
 
 	auth_content.append(lib.element.create("input", {
 		id: "auth_value",
