@@ -1528,7 +1528,7 @@ lib.drag.element = (element) => {
 	});
 };
 
-lib.drag.drop = (dropArea, cb) => {
+lib.drag.drop = (dropArea, cb, targetArea) => {
 	dropArea.addEventListener('dragover', (e) => {
 		e.preventDefault();
 	});
@@ -1537,7 +1537,8 @@ lib.drag.drop = (dropArea, cb) => {
 		e.preventDefault();
 		const element_id = e.dataTransfer.getData('text/plain');
 		const draggedElement = document.getElementById(element_id);
-		dropArea.append(draggedElement);
+		!targetArea && dropArea.append(draggedElement);
+		targetArea && targetArea.append(draggedElement);
 
 		cb(element_id);
 	});
