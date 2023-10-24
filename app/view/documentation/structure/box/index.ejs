@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include ('../../../partials/head') %>
+  <%- include ('../../../partials/header') %>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"
+    integrity="sha512-W7EehcwtSbRF63FIQlXEOOd5mnq0Et0V0nUOvwcUvjnCKgOLLYbqriQxEQSp63sfrkryxIg/A/O8v8O18QwQCQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>hljs.highlightAll();</script>
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/monokai-sublime.min.css"
+    integrity="sha512-ade8vHOXH67Cm9z/U2vBpckPD1Enhdxl3N05ChXyFx5xikfqggrK4RrEele+VWY/iaZyfk7Bhk6CyZvlh7+5JQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <%- include ('../../../partials/nav') %>
+
+  <div class="container">
+    <div id="a-box" class="box b2 container border padding-5"></div>
+    <div id="b-box" class="box b2 container border padding-5"></div>
+  </div>
+
+  <!-- <%- include ('./code') %> -->
+</body>
+<script src="/front-end/javascripts/essentials/lib.js"></script>
+<%- include ('./script') %>
+
+</html>
