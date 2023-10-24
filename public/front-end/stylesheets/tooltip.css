@@ -18,7 +18,7 @@
   opacity: 0;
   visibility: hidden;
   white-space: pre-wrap;
-  width: 200px;
+  /* width: 200px; */
   max-width: 200px;
   transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 1;
