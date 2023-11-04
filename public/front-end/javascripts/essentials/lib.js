@@ -1044,7 +1044,7 @@ lib.hasForbiddenChar = (url) => { // Adiciona um evento de input no input
 };
 
 lib.isValidNumber = (value) => {
-	if (value !== null && value != "" && !isNaN(value)) { return true; }
+	if (value !== null && value !== "" && !isNaN(value)) { return true; }
 	else { return false; }
 };
 
