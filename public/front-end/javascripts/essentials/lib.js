@@ -1413,6 +1413,18 @@ lib.image.zoom = (e) => {
 	}
 };
 
+lib.image.rotate = (image, deg, dir = 'right', transit = true) => {
+	let currentRotation = parseInt(image.dataset.rotation) || 0;
+
+	const lastDir = currentRotation % 360 === 0 ? 'right' : 'left';
+	const rotationValue = dir === lastDir ? deg : -deg;
+	currentRotation += rotationValue;
+
+	if (transit) { image.style.transition = 'transform 0.5s ease'; }
+	image.style.transform = `rotate(${currentRotation}deg)`;
+	image.dataset.rotation = currentRotation.toString();
+};
+
 lib.ruleOfThree = (index, target, sample) => {
 	if (!isNaN(index) && !isNaN(target) && !isNaN(sample)) {
 		return ((target * sample) / index);
