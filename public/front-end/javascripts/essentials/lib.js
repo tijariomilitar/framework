@@ -275,18 +275,19 @@ lib.confirm = (msg, cb) => {
 	}, msg));
 
 	function confirm() {
+		document.removeEventListener("keydown", keydown);
 		msg_div.remove();
 		return cb(true);
 	};
 
 	function cancel() {
+		document.removeEventListener("keydown", keydown);
 		msg_div.remove();
 		return cb(false);
 	};
 
 	function keydown(e) {
 		e.preventDefault();
-		document.removeEventListener("keydown", keydown);
 		e.keyCode == 13 && confirm(e);
 		e.keyCode == 27 && cancel(e);
 	};
