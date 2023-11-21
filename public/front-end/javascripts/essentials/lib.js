@@ -536,7 +536,12 @@ lib.roundValue = (value) => {
 // -------------------
 
 lib.displayDiv = (div, button, openEl, closeEl) => {
-	let selectedDiv = document.getElementById(div);
+	let selectedDiv = typeof div === 'string' ? document.getElementById(div) : div;
+
+	if (!selectedDiv) {
+		console.error('Elemento div não encontrado');
+		return;
+	}
 
 	if (button.nodeName == "IMG") {
 		if (selectedDiv.style.display == "none") {
