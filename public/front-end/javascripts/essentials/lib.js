@@ -1469,7 +1469,7 @@ lib.element.create = (elementName, attributes, value) => {
 
 	attributesAsArray.forEach(([key, value]) => element.setAttribute(key, value));
 
-	if (value) { element.innerHTML = value; }
+	if (value) { element.textContent = value; }
 
 	return element;
 };
@@ -1560,4 +1560,13 @@ lib.drag.drop = (dropArea, cb, targetArea) => {
 
 		cb(element_id);
 	});
+};
+
+// Sanitize using DOMPurify
+lib.sanitize = string => {
+	if (typeof DOMPurify == "function") {
+		return DOMPurify.sanitize(string);
+	} else {
+		return string;
+	}
 };
