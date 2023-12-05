@@ -1469,7 +1469,8 @@ lib.element.create = (elementName, attributes, value) => {
 
 	attributesAsArray.forEach(([key, value]) => element.setAttribute(key, value));
 
-	if (value) { element.textContent = value; }
+	// if (value) { element.textContent = value; }
+	if (value) { element.innerHTML = value; }
 
 	return element;
 };
