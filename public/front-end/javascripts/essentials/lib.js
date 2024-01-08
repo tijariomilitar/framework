@@ -126,6 +126,10 @@ lib.popup = (element, cb) => {
 	document.addEventListener("keydown", keydown);
 };
 
+lib.popout = element => {
+	element.parentNode.parentNode.remove();
+};
+
 lib.auth = (message, cb) => {
 	let auth = "";
 
