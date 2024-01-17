@@ -85,7 +85,6 @@ lib.message = (msg, cb) => {
 	};
 
 	function keydown(e) {
-		e.preventDefault();
 		if (e.keyCode == 27) { esc(); }
 	};
 
@@ -118,7 +117,6 @@ lib.popup = (element, cb) => {
 	};
 
 	function keydown(e) {
-		e.preventDefault();
 		if (e.keyCode == 27) { esc(); }
 	};
 
