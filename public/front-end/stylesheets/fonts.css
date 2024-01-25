@@ -1,42 +1,155 @@
-.paladino { font-family: Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif; }
-.georgia { font-family: Georgia,Times,Times New Roman,serif; }
-.century-gothic { font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; }
-.avant-garde { font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif; }
-.lucida-grande { font-family: Lucida Grande,Lucida Sans Unicode,Lucida Sans,Geneva,Verdana,sans-serif; }
-.impact { font-family: Impact,Haettenschweiler,Franklin Gothic Bold,Charcoal,Helvetica Inserat,Bitstream Vera Sans Bold,Arial Black,sans serif; }
-.rockwell { font-family: Rockwell Extra Bold,Rockwell Bold,monospace; }
-.times-new-roman { font-family: TimesNewRoman,Times New Roman,Times,Baskerville,Georgia,serif; }
-.lucida-sans { font-family: Lucida Sans Typewriter,Lucida Console,monaco,Bitstream Vera Sans Mono,monospace; }
-.great-vibes { font-family: "Great Vibes", cursive; }
-.consolas { font-family: Consolas, monospace; }
+.paladino {
+  font-family: Palatino, Palatino Linotype, Palatino LT STD, Book Antiqua, Georgia, serif;
+}
 
-.font-05 { font-size:0.5em; }
-.font-06 { font-size:0.6em; }
-.font-07 { font-size:0.7em; }
-.font-08 { font-size:0.8em; }
-.font-09 { font-size:0.9em; }
-.font-10 { font-size:1em; }
-.font-11 { font-size:1.1em; }
-.font-12 { font-size:1.2em; }
-.font-13 { font-size:1.3em; }
-.font-14 { font-size:1.4em; }
-.font-15 { font-size:1.5em; }
-.font-16 { font-size:1.6em; }
-.font-17 { font-size:1.7em; }
-.font-18 { font-size:1.8em; }
-.font-19 { font-size:1.9em; }
-.font-20 { font-size:2em; }
-.font-21 { font-size:2.1em; }
-.font-22 { font-size:2.2em; }
-.font-23 { font-size:2.3em; }
-.font-24 { font-size:2.4em; }
-.font-25 { font-size:2.5em; }
-.font-26 { font-size:2.6em; }
-.font-27 { font-size:2.7em; }
-.font-28 { font-size:2.8em; }
-.font-29 { font-size:2.9em; }
-.font-30 { font-size:3.0em; }
+.georgia {
+  font-family: Georgia, Times, Times New Roman, serif;
+}
 
-.bold { font-weight: bold; }
+.century-gothic {
+  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
 
-.italic { font-style: italic; }
+.avant-garde {
+  font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+.lucida-grande {
+  font-family: Lucida Grande, Lucida Sans Unicode, Lucida Sans, Geneva, Verdana, sans-serif;
+}
+
+.impact {
+  font-family: Impact, Haettenschweiler, Franklin Gothic Bold, Charcoal, Helvetica Inserat, Bitstream Vera Sans Bold, Arial Black, sans serif;
+}
+
+.rockwell {
+  font-family: Rockwell Extra Bold, Rockwell Bold, monospace;
+}
+
+.times-new-roman {
+  font-family: TimesNewRoman, Times New Roman, Times, Baskerville, Georgia, serif;
+}
+
+.lucida-sans {
+  font-family: Lucida Sans Typewriter, Lucida Console, monaco, Bitstream Vera Sans Mono, monospace;
+}
+
+.great-vibes {
+  font-family: "Great Vibes", cursive;
+}
+
+.consolas {
+  font-family: Consolas, monospace;
+}
+
+.font-05 {
+  font-size: 0.5em;
+}
+
+.font-06 {
+  font-size: 0.6em;
+}
+
+.font-07 {
+  font-size: 0.7em;
+}
+
+.font-08 {
+  font-size: 0.8em;
+}
+
+.font-09 {
+  font-size: 0.9em;
+}
+
+.font-10 {
+  font-size: 1em;
+}
+
+.font-11 {
+  font-size: 1.1em;
+}
+
+.font-12 {
+  font-size: 1.2em;
+}
+
+.font-13 {
+  font-size: 1.3em;
+}
+
+.font-14 {
+  font-size: 1.4em;
+}
+
+.font-15 {
+  font-size: 1.5em;
+}
+
+.font-16 {
+  font-size: 1.6em;
+}
+
+.font-17 {
+  font-size: 1.7em;
+}
+
+.font-18 {
+  font-size: 1.8em;
+}
+
+.font-19 {
+  font-size: 1.9em;
+}
+
+.font-20 {
+  font-size: 2em;
+}
+
+.font-21 {
+  font-size: 2.1em;
+}
+
+.font-22 {
+  font-size: 2.2em;
+}
+
+.font-23 {
+  font-size: 2.3em;
+}
+
+.font-24 {
+  font-size: 2.4em;
+}
+
+.font-25 {
+  font-size: 2.5em;
+}
+
+.font-26 {
+  font-size: 2.6em;
+}
+
+.font-27 {
+  font-size: 2.7em;
+}
+
+.font-28 {
+  font-size: 2.8em;
+}
+
+.font-29 {
+  font-size: 2.9em;
+}
+
+.font-30 {
+  font-size: 3.0em;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
