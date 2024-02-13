@@ -201,3 +201,11 @@
 .rgb999 { background-color: #999; }
 .rgbfff { background-color: #fff; }
 .rgbf0f0f0 { background-color: #f0f0f0; }
+
+.bg { background-color: var(--background); }
+.bg-ground { background-color: var(--ground); }
+.bg-light { background-color: var(--light); }
+.bg-solid { background-color: var(--solid); }
+.bg-disabled { background-color: var(--disabled); }
+.bg-strong { background-color: var(--strong); }
+.bg-color { background-color: var(--color); }

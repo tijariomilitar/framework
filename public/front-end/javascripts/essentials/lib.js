@@ -1549,17 +1549,34 @@ lib.drag.element = (element) => {
 	});
 };
 
-lib.drag.drop = (dropArea, cb, targetArea) => {
+// if dropArea (the area where the element) 
+// is diferent than where the element should be appended you can set the targetArea
+lib.drag.drop = (dropArea, cb, targetArea, css) => {
 	dropArea.addEventListener('dragover', (e) => {
+		if (!dropArea.classList.contains(css)) {
+			dropArea.classList.add(css);
+		}
+
 		e.preventDefault();
+	});
+
+	dropArea.addEventListener("dragleave", (e) => {
+		if (dropArea.classList.contains(css)) {
+			dropArea.classList.remove(css);
+		}
 	});
 
 	dropArea.addEventListener('drop', (e) => {
 		e.preventDefault();
 		const element_id = e.dataTransfer.getData('text/plain');
 		const draggedElement = document.getElementById(element_id);
+
 		!targetArea && dropArea.append(draggedElement);
 		targetArea && targetArea.append(draggedElement);
+
+		if (dropArea.classList.contains(css)) {
+			dropArea.classList.remove(css);
+		}
 
 		cb(element_id);
 	});
