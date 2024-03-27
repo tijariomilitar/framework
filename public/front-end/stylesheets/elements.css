@@ -93,6 +93,18 @@
 	transition: all 0.3s ease 0s;
 }
 
+.btn-solid {
+	background-color: var(--solid);
+	color: #fff;
+	cursor: not-allowed;
+}
+
+.btn-strong {
+	background-color: var(--strong);
+	color: #fff;
+	cursor: not-allowed;
+}
+
 .btn-act {
 	background-color: #356ae6;
 	color: #fff;

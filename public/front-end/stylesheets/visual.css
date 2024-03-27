@@ -85,7 +85,15 @@
   transform-origin: bottom left;
 }
 
+.radius-1 { border-radius: 1px; }
+.radius-2 { border-radius: 2px; }
+.radius-3 { border-radius: 3px; }
+.radius-4 { border-radius: 4px; }
 .radius-5 { border-radius: 5px; }
+.radius-6 { border-radius: 6px; }
+.radius-7 { border-radius: 7px; }
+.radius-8 { border-radius: 8px; }
+.radius-9 { border-radius: 9px; }
 .radius-10 { border-radius: 10px; }
 .radius-15 { border-radius: 15px; }
 .radius-20 { border-radius: 20px; }
@@ -209,3 +217,14 @@
 .bg-disabled { background-color: var(--disabled); }
 .bg-strong { background-color: var(--strong); }
 .bg-color { background-color: var(--color); }
+
+.color-bg { color: var(--background); }
+.color-ground { color: var(--ground); }
+.color-light { color: var(--light); }
+.color-solid { color: var(--solid); }
+.color-disabled { color: var(--disabled); }
+.color-strong { color: var(--strong); }
+.color-color { color: var(--color); }
+.color-blue { color: #245ae5 }
+.color-red { color: #ff0000 }
+.color-green { color: #10c73c }

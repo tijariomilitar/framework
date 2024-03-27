@@ -21,16 +21,21 @@ lib.loader = {};
 
 lib.loader.init = (element) => {
 	let overlay = lib.element.create("div", {});
-	if (!element || element.tagName == "INPUT") {
+	if (!element) {
 		lib.addCss(overlay, ["loader-body-overlay"]);
 		overlay.append(lib.element.create("div", { class: "loader" }));
 		document.body.append(overlay);
-		if (element) { element.disabled = true; }
 	} else if (element.tagName == "IMG") {
 		element.dataset.src = `${element.src}`;
 		element.src = "https://wt-images-cdn.sfo3.cdn.digitaloceanspaces.com/lib.images/loader.gif";
 		element.dataset.func = element.onclick;
 		element.onclick = "";
+	} else if (element.tagName == "INPUT") {
+		lib.addCss(element, ["loader-element-container"]);
+		lib.addCss(overlay, ["loader-element-overlay"]);
+		overlay.append(lib.element.create("div", { class: "loader" }));
+		element.append(overlay);
+		if (element) { element.disabled = true; }
 	} else {
 		lib.addCss(element, ["loader-element-container"]);
 		lib.addCss(overlay, ["loader-element-overlay"]);
@@ -1011,6 +1016,31 @@ lib.sort2 = (arr, key, order) => {
 	});
 };
 
+lib.sort3 = (arr, key, order) => {
+	return arr.sort((a, b) => {
+		let itemA = a[key];
+		let itemB = b[key];
+
+		// Verifica se os itens são números ou strings
+		const isNumberA = !isNaN(parseFloat(itemA)) && isFinite(itemA);
+		const isNumberB = !isNaN(parseFloat(itemB)) && isFinite(itemB);
+
+		if (order == "desc") {
+			if (isNumberA && isNumberB) {
+				return itemB - itemA; // Ordenação numérica decrescente
+			} else {
+				return itemB.toString().localeCompare(itemA.toString()); // Ordenação alfabética decrescente
+			}
+		} else {
+			if (isNumberA && isNumberB) {
+				return itemA - itemB; // Ordenação numérica crescente
+			} else {
+				return itemA.toString().localeCompare(itemB.toString()); // Ordenação alfabética crescente
+			}
+		}
+	});
+};
+
 // -------------------
 // pre code format
 // -------------------
@@ -1040,15 +1070,9 @@ lib.replaceChar = (string, regex, content) => {
 	return string;
 };
 
-lib.hasForbiddenChar = (url) => { // Adiciona um evento de input no input
-	const forbiddenChars = /[#%&{}\s\\<>*?/$!'":@+,`|[\]^~();¨´áéíóúâêîôûàèìòùäëïöü]/g;
-	const hasForbiddenChar = forbiddenChars.test(url); // Testa se há algum símbolo proibido no valor
-
-	if (hasForbiddenChar) {
-		return true;
-	} else {
-		return false;
-	}
+lib.hasForbiddenChar = (url) => {
+	const forbiddenChars = /[#%&{}\s\\<>*?/$!'":@+,`|[\]^~();¨´áãéíóõúâêîôûàèìòùäëïöüç~]/g;
+	return forbiddenChars.test(url);
 };
 
 lib.isValidNumber = (value) => {
@@ -1400,25 +1424,82 @@ lib.localStorage.remove = (item) => {
 
 lib.image = {};
 
-lib.image.zoom = (e) => {
-	if (e.type == 'touchstart' || e.type == 'touchmove' || e.type == 'touchend' || e.type == 'touchcancel') {
-		let touch = e.touches[0] || e.changedTouches[0];
-		let bcr = e.target.getBoundingClientRect();
-		let offsetX = touch.clientX - bcr.left;
-		let offsetY = touch.clientY - bcr.top;
+lib.image.zoom = (image) => {
+	let image_copy = image.cloneNode(true);
 
-		let zoomer = e.currentTarget;
-		x = offsetX / zoomer.offsetWidth * 100;
-		y = offsetY / zoomer.offsetHeight * 100;
-		zoomer.style.backgroundPosition = x + '% ' + y + '%';
-	} else if (e.type == 'mousedown' || e.type == 'mouseup' || e.type == 'mousemove' || e.type == 'mouseover' || e.type == 'mouseout' || e.type == 'mouseenter' || e.type == 'mouseleave') {
-		let zoomer = e.currentTarget;
-		e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX;
-		e.offsetY ? offsetY = e.offsetY : offsetY = e.touches[0].pageY;
-		x = offsetX / zoomer.offsetWidth * 100;
-		y = offsetY / zoomer.offsetHeight * 100;
-		zoomer.style.backgroundPosition = x + '% ' + y + '%';
-	}
+	lib.addCss(image_copy, ["image-prop", "max-height-500", "center"]);
+	lib.removeCss(image_copy, ["image-fit", "margin-right-2", "border", "radius-5"]);
+
+	image_copy.style = "";
+
+	lib.popup(image_copy);
+};
+
+lib.image.carousel = (images, parentElement, cb) => {
+	var isDown = false;
+	var isDragging = false;
+	var startX;
+	var scrollLeft;
+
+	images.forEach(function (image) {
+		let image_div = lib.element.create("img", {
+			src: image.url,
+			class: 'box image-prop image-fit noselect border radius-5 margin-right-2',
+			style: images.length > 1 ? 'display: inline-block;width:95%;' : 'display: inline-block;'
+		});
+
+		cb && image_div.addEventListener("click", async function (e) {
+			if (!isDragging) {
+				cb(image_div);
+			}
+		});
+
+		parentElement.append(image_div);
+	});
+
+	parentElement.addEventListener('mousedown', function (e) {
+		isDown = true;
+		startX = e.pageX - parentElement.offsetLeft;
+		scrollLeft = parentElement.scrollLeft;
+	});
+
+	parentElement.addEventListener('mouseleave', function () {
+		isDown = false;
+	});
+
+	parentElement.addEventListener('mouseup', function () {
+		setTimeout(function () { isDragging = false; }, 50);
+		isDown = false;
+	});
+
+	images.length > 1 && parentElement.addEventListener('mousemove', function (e) {
+		if (!isDown) return;
+		isDragging = true;
+		e.preventDefault();
+		var x = e.pageX - parentElement.offsetLeft;
+		var walk = (x - startX) * 2; // Ajuste a sensibilidade do scroll horizontal conforme necessário
+		parentElement.scrollLeft = scrollLeft - walk;
+	});
+
+	// Para detecção de toque em dispositivos móveis
+	parentElement.addEventListener('touchstart', function (e) {
+		isDown = true;
+		startX = e.touches[0].pageX - parentElement.offsetLeft;
+		scrollLeft = parentElement.scrollLeft;
+	});
+
+	parentElement.addEventListener('touchend', function () {
+		setTimeout(function () { isDragging = false; }, 50);
+		isDown = false;
+	});
+
+	images.length > 1 && parentElement.addEventListener('touchmove', function (e) {
+		if (!isDown) return;
+		// e.preventDefault();
+		var x = e.touches[0].pageX - parentElement.offsetLeft;
+		var walk = (x - startX) * 2; // Ajuste a sensibilidade do scroll horizontal conforme necessário
+		parentElement.scrollLeft = scrollLeft - walk;
+	});
 };
 
 lib.ruleOfThree = (index, target, sample) => {
@@ -1480,7 +1561,7 @@ lib.element.create = (elementName, attributes, value) => {
 lib.element.icon = (box, size, src, action) => {
 	let div = lib.element.create("div", { class: "mobile-box " + box + " center" });
 	let img = lib.element.create("img", {
-		class: "size-" + size + " icon noselect",
+		class: "size-" + size + " noselect",
 		src: src,
 		onclick: action
 	});
@@ -1549,9 +1630,7 @@ lib.drag.element = (element) => {
 	});
 };
 
-// if dropArea (the area where the element) 
-// is diferent than where the element should be appended you can set the targetArea
-lib.drag.drop = (dropArea, cb, targetArea, css) => {
+lib.drag.drop = (dropArea, cb, targetArea, css, dir) => {
 	dropArea.addEventListener('dragover', (e) => {
 		if (!dropArea.classList.contains(css)) {
 			dropArea.classList.add(css);
@@ -1568,11 +1647,32 @@ lib.drag.drop = (dropArea, cb, targetArea, css) => {
 
 	dropArea.addEventListener('drop', (e) => {
 		e.preventDefault();
+
 		const element_id = e.dataTransfer.getData('text/plain');
 		const draggedElement = document.getElementById(element_id);
 
-		!targetArea && dropArea.append(draggedElement);
-		targetArea && targetArea.append(draggedElement);
+		if (dropArea === draggedElement) { return false; }
+
+		if (dir === 'v') {
+			if (draggedElement.offsetLeft > dropArea.offsetLeft) {
+				!targetArea && dropArea.parentNode.insertBefore(draggedElement, dropArea);
+				targetArea && targetArea.insertBefore(draggedElement, dropArea);
+			} else {
+				!targetArea && dropArea.parentNode.insertBefore(draggedElement, dropArea.nextSibling);
+				targetArea && targetArea.insertBefore(draggedElement, dropArea.nextSibling);
+			}
+		} else if (dir === 'h') {
+			if (draggedElement.offsetTop > dropArea.offsetTop) {
+				!targetArea && dropArea.parentNode.insertBefore(draggedElement, dropArea);
+				targetArea && targetArea.insertBefore(draggedElement, dropArea);
+			} else {
+				!targetArea && dropArea.parentNode.insertBefore(draggedElement, dropArea.nextSibling);
+				targetArea && targetArea.insertBefore(draggedElement, dropArea.nextSibling);
+			}
+		} else {
+			!targetArea && dropArea.append(draggedElement);
+			targetArea && targetArea.append(draggedElement);
+		}
 
 		if (dropArea.classList.contains(css)) {
 			dropArea.classList.remove(css);

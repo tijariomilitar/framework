@@ -2,6 +2,9 @@ const API = {
 	verifyResponse(res) {
 		if (res.unauthorized) {
 			alert(res.unauthorized);
+			if (res.path) {
+				return window.location.href = res.path;
+			}
 			return window.location.href = '/login';
 		};
 

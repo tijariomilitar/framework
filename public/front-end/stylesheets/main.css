@@ -81,6 +81,16 @@ tr:hover {
 	cursor: pointer;
 }
 
+.grab {
+	cursor: -webkit-grab;
+	cursor: -moz-grab;
+}
+
+.grab:active {
+	cursor: -webkit-grabbing;
+	cursor: -moz-grabbing;
+}
+
 .zoom-in {
 	cursor: zoom-in;
 }
