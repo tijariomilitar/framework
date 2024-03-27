@@ -11,11 +11,19 @@
 <div class="box b1 container h-center">
   <div id="carousel-box" class="box b4 container border-st height-300"></div>
 </div>
+<div class="box b1 container h-center">
+  <div id="carousel-box2" class="box b4 container border-st height-300"></div>
+</div>
+<div class="box b1 container h-center">
+  <div id="carousel-box3" class="box b4 container border-st height-300"></div>
+</div>
 </body>
 
 <script src="/front-end/javascripts/essentials/lib.js"></script>
   <script>
   let carousel_box = document.getElementById("carousel-box");
+  let carousel_box2 = document.getElementById("carousel-box2");
+  let carousel_box3 = document.getElementById("carousel-box3");
 
   let image_box = lib.element.create("div", {
     class: "catalog-image b1 height-250 scroll-x grab",
@@ -23,12 +31,26 @@
   });
   carousel_box.append(image_box);
 
+  let image_box2 = lib.element.create("div", {
+    class: "catalog-image b1 height-250 scroll-x grab",
+    style: "white-space: nowrap;overflow-x: hidden;overflow-y: hidden;"
+  });
+  carousel_box2.append(image_box2);
+
+  let image_box3 = lib.element.create("div", {
+    class: "catalog-image b1 height-250 scroll-x grab",
+    style: "white-space: nowrap;overflow-x: hidden;overflow-y: hidden;"
+  });
+  carousel_box3.append(image_box3);
+
   let images = [
     {url: "https://wt-images-cdn.sfo3.digitaloceanspaces.com/development/1711410995374-banana_nanica.png"},
     {url: "https://wt-images-cdn.sfo3.digitaloceanspaces.com/development/1711411015994-laranja.png"},
   ];
 
   lib.image.carousel(images, image_box, lib.image.zoom);
+  lib.image.carousel(images, image_box2, lib.image.zoom);
+  lib.image.carousel(images, image_box3, lib.image.zoom);
 </script>
 
 </html>

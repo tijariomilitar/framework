@@ -1438,6 +1438,7 @@ lib.image.carousel = (images, parentElement, cb) => {
 	var isDown = false;
 	var isDragging = false;
 	var startX;
+	var startY;
 	var scrollLeft;
 
 	images.forEach(function (image) {
@@ -1484,7 +1485,9 @@ lib.image.carousel = (images, parentElement, cb) => {
 	parentElement.addEventListener('touchstart', function (e) {
 		isDown = true;
 		startX = e.touches[0].pageX - parentElement.offsetLeft;
-		scrollLeft = parentElement.scrollLeft;
+    startY = e.touches[0].pageY - parentElement.offsetTop;
+    scrollLeft = parentElement.scrollLeft;
+    scrollTop = parentElement.scrollTop;
 	});
 
 	parentElement.addEventListener('touchend', function () {
@@ -1494,10 +1497,19 @@ lib.image.carousel = (images, parentElement, cb) => {
 
 	images.length > 1 && parentElement.addEventListener('touchmove', function (e) {
 		if (!isDown) return;
-		// e.preventDefault();
 		var x = e.touches[0].pageX - parentElement.offsetLeft;
-		var walk = (x - startX) * 2; // Ajuste a sensibilidade do scroll horizontal conforme necessário
-		parentElement.scrollLeft = scrollLeft - walk;
+    var y = e.touches[0].pageY - parentElement.offsetTop;
+    var walkX = (x - startX) * 2; // Ajuste a sensibilidade do scroll horizontal conforme necessário
+    var walkY = (y - startY) * 2; // Ajuste a sensibilidade do scroll vertical conforme necessário
+
+    if (Math.abs(walkY) > Math.abs(walkX)) {
+        // Movimento vertical maior que o horizontal, permite a rolagem vertical
+        return;
+    }
+
+    e.preventDefault(); // Impede a rolagem da página
+
+    parentElement.scrollLeft = scrollLeft - walkX;
 	});
 };
 
