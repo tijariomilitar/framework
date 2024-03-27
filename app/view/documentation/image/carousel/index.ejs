@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include ('../../../partials/head') %>
+  <%- include ('../../../partials/header') %>
+</head>
+
+<body>
+  <%- include ('../../../partials/nav') %>
+<div class="box b1 container h-center">
+  <div id="carousel-box" class="box b4 container border-st height-300"></div>
+</div>
+</body>
+
+<script src="/front-end/javascripts/essentials/lib.js"></script>
+  <script>
+  let carousel_box = document.getElementById("carousel-box");
+
+  let image_box = lib.element.create("div", {
+    class: "catalog-image b1 height-250 scroll-x grab",
+    style: "white-space: nowrap;overflow-x: hidden;overflow-y: hidden;"
+  });
+  carousel_box.append(image_box);
+
+  let images = [
+    {url: "https://wt-images-cdn.sfo3.digitaloceanspaces.com/development/1711410995374-banana_nanica.png"},
+    {url: "https://wt-images-cdn.sfo3.digitaloceanspaces.com/development/1711411015994-laranja.png"},
+  ];
+
+  lib.image.carousel(images, image_box, lib.image.zoom);
+</script>
+
+</html>

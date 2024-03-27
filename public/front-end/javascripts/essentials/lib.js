@@ -1429,7 +1429,6 @@ lib.image.zoom = (image) => {
 
 	lib.addCss(image_copy, ["image-prop", "max-height-500", "center"]);
 	lib.removeCss(image_copy, ["image-fit", "margin-right-2", "border", "radius-5"]);
-
 	image_copy.style = "";
 
 	lib.popup(image_copy);

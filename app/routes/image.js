@@ -5,6 +5,9 @@ const fs = require('fs');
 const stream = require('stream');
 
 router.get("/zoom", (req, res) => { res.render("documentation/image/custom-zoom/index"); });
+router.get("/zoom/purejs", (req, res) => { res.render("documentation/image/custom-zoom/purejs"); });
+
+router.get("/carousel", (req, res) => { res.render("documentation/image/carousel/index"); });
 
 router.get("/convert", (req, res) => { res.render("documentation/image/convert"); });
 
