@@ -1,61 +1,36 @@
 .tooltip {
   position: relative;
   display: inline-block;
+  cursor: pointer;
 }
 
-.tooltip::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  bottom: calc(100% + 5px);
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 5px;
-  border-radius: 5px;
-  background-color: var(--strong);
-  color: #fff;
-  font-size: 12px;
-  font-weight: bold;
-  opacity: 0;
+.tooltip .tooltiptext {
   visibility: hidden;
-  white-space: pre-wrap;
-  /* width: 200px; */
-  max-width: 200px;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  z-index: 1;
-  pointer-events: none;
-  /* Impede que a tooltip bloqueie a interação com o elemento */
-}
-
-.tooltip:hover::after {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  /* Restaura a interação com o elemento quando a tooltip é exibida */
-}
-
-.tooltip:hover::after {
-  /* Nova adição para ajustar a posição da tooltip */
+  max-width: 300px;
+  /* Largura máxima */
+  background-color: #333;
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  padding: 7px;
+  position: absolute;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 1000;
+  bottom: 125%;
   left: 50%;
   transform: translateX(-50%);
-  right: auto;
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+  /* Evitar quebras de linha */
+  /* overflow: hidden; */
+  /* Para evitar que palavras longas estourem a tooltip */
+  /* text-overflow: ellipsis; */
+  /* Adicionar reticências caso o texto seja longo demais */
 }
 
-/* Nova adição para ajustar a posição da tooltip em relação à borda da tela */
-@media (max-width: 600px) {
-  .tooltip:hover::after {
-    /* Ajuste adicional para dispositivos móveis */
-    left: 5px;
-    transform: translateX(0);
-    right: auto;
-  }
-}
-
-/* Nova adição para evitar que a tooltip apareça fora da tela */
-@media (max-width: 400px) {
-  .tooltip:hover::after {
-    /* Ajuste adicional para dispositivos móveis com tela muito estreita */
-    left: 10px;
-    transform: translateX(0);
-    right: auto;
-  }
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }

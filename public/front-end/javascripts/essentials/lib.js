@@ -63,16 +63,22 @@ lib.message = (msg, cb) => {
 	const focused_btn = document.querySelector(':focus');
 	focused_btn && focused_btn.blur();
 
-	const msg_div = lib.element.create("div", { class: "msg" });
+	const msg_div = lib.element.create("div", { class: "msg", style: "z-index: 1000;" });
 	const msg_popup = lib.element.create("div", { class: "msg-popup container box b3-4 container border-st radius-5 padding-10" });
 	msg_popup.append(lib.element.create("div", { class: "mobile-box b10" }));
 
 	const alert_icon = lib.element.create("div", { class: "mobile-box b4-5 center" });
-	alert_icon.append(lib.element.create("img", { src: "https://wt-images-cdn.sfo3.cdn.digitaloceanspaces.com/lib.images/alert.png", class: "image-prop size-30 noselect" }));
+	alert_icon.append(lib.element.create("img", {
+		src: "https://wt-images-cdn.sfo3.cdn.digitaloceanspaces.com/lib.images/alert.png",
+		class: "image-prop size-25 noselect"
+	}));
 	msg_popup.append(alert_icon);
 
 	const close_div = lib.element.create("div", { class: "mobile-box a10 center" });
-	const close_icon = lib.element.create("img", { src: "https://wt-images-cdn.sfo3.cdn.digitaloceanspaces.com/lib.images/close.png", class: "image-prop size-20 noselect icon pointer" });
+	const close_icon = lib.element.create("img", {
+		src: "https://wt-images-cdn.sfo3.cdn.digitaloceanspaces.com/lib.images/close.png",
+		class: "image-prop size-15 noselect box-hover radius-50 padding-5 icon pointer"
+	});
 	close_div.append(close_icon);
 	msg_popup.append(close_div);
 
@@ -101,12 +107,15 @@ lib.popup = (element, cb) => {
 	const focused_btn = document.querySelector(':focus');
 	focused_btn && focused_btn.blur();
 
-	const msg_div = lib.element.create("div", { class: "msg" });
+	const msg_div = lib.element.create("div", { class: "msg", style: "z-index: 1000;" });
 	const msg_popup = lib.element.create("div", { class: "msg-popup container box b3-4 container border-st radius-5 padding-10" });
 	msg_popup.append(lib.element.create("div", { class: "mobile-box b9-10" }));
 
 	const close_div = lib.element.create("div", { class: "mobile-box a10 center" });
-	const close_icon = lib.element.create("img", { src: "https://wt-images-cdn.sfo3.cdn.digitaloceanspaces.com/lib.images/close.png", class: "image-prop size-20 noselect icon pointer" });
+	const close_icon = lib.element.create("img", {
+		src: "https://wt-images-cdn.sfo3.cdn.digitaloceanspaces.com/lib.images/close.png",
+		class: "image-prop size-15 noselect icon box-hover radius-50 padding-5 pointer"
+	});
 	close_div.append(close_icon);
 	msg_popup.append(close_div);
 
@@ -136,7 +145,7 @@ lib.popout = element => {
 lib.auth = (message, cb) => {
 	let auth = "";
 
-	const auth_div = lib.element.create("div", { class: "auth-div" });
+	const auth_div = lib.element.create("div", { class: "auth-div", style: "z-index: 1000;" });
 	const auth_content = lib.element.create("div", { class: "auth-content container box b3-4 container border-st radius-5 padding-10" });
 	auth_div.append(auth_content);
 
@@ -271,7 +280,7 @@ lib.pass = (cb) => {
 };
 
 lib.confirm = (msg, cb) => {
-	const msg_div = lib.element.create("div", { class: "msg" });
+	const msg_div = lib.element.create("div", { class: "msg", style: "z-index: 1000;" });
 	const msg_popup = lib.element.create("div", { class: "msg-popup container mobile-box b3-4 container border-st radius-5 padding-10" });
 	const alert_icon = lib.element.create("div", { class: "mobile-box a1 center" });
 	alert_icon.append(lib.element.create("img", { src: "https://wt-images-cdn.sfo3.cdn.digitaloceanspaces.com/lib.images/alert.png", class: "image-prop size-30 noselect" }))
@@ -308,6 +317,54 @@ lib.confirm = (msg, cb) => {
 	const cancel_btn = lib.element.create("div", {
 		class: "mobile-box b2 bold btn-cancel radius-5 padding-10 margin-top-10 center noselect pointer",
 	}, "cancelar");
+	cancel_btn.addEventListener("click", cancel);
+	msg_popup.append(cancel_btn);
+
+	msg_div.append(msg_popup);
+	document.body.append(msg_div);
+
+	document.addEventListener("keydown", keydown);
+};
+
+lib.cookieConfirm = (msg, cb) => {
+	const msg_div = lib.element.create("div", { class: "msg", style: "z-index: 1000;" });
+	const msg_popup = lib.element.create("div", { class: "msg-popup container mobile-box b3-4 container border-st radius-5 padding-10" });
+	const alert_icon = lib.element.create("div", { class: "mobile-box a1 center" });
+	alert_icon.append(lib.element.create("img", { src: "https://wt-images-cdn.sfo3.cdn.digitaloceanspaces.com/lib.images/alert.png", class: "image-prop size-30 noselect" }))
+	msg_popup.append(alert_icon);
+
+	msg_popup.append(lib.element.create("div", {
+		class: "box b1 center lucida-grande bold margin-top-10"
+	}, msg));
+
+	function confirm() {
+		document.removeEventListener("keydown", keydown);
+		msg_div.remove();
+		return cb(true);
+	};
+
+	function cancel() {
+		document.removeEventListener("keydown", keydown);
+		// msg_div.remove();
+		return cb(false);
+	};
+
+	function keydown(e) {
+		e.preventDefault();
+		e.keyCode == 13 && confirm(e);
+		e.keyCode == 27 && cancel(e);
+	};
+
+	const confirm_btn = lib.element.create("div", {
+		class: "mobile-box b2 bold btn-act radius-5 padding-10 margin-top-10 center noselect pointer",
+	}, "Entendi");
+	confirm_btn.addEventListener("click", confirm);
+	msg_popup.append(confirm_btn);
+
+	const cancel_btn = lib.element.create("div", {
+		class: "mobile-box b2 bold radius-5 padding-10 margin-top-10 center noselect pointer",
+		style: "background-color: #222; color: #fff"
+	}, "Entender melhor");
 	cancel_btn.addEventListener("click", cancel);
 	msg_popup.append(cancel_btn);
 
@@ -1428,7 +1485,7 @@ lib.image.zoom = (image) => {
 	let image_copy = image.cloneNode(true);
 
 	lib.addCss(image_copy, ["image-prop", "max-height-500", "center"]);
-	lib.removeCss(image_copy, ["image-fit", "margin-right-2", "border", "radius-5"]);
+	lib.removeCss(image_copy, ["box", "image-fit", "margin-right-2", "border"]);
 	image_copy.style = "";
 
 	lib.popup(image_copy);
@@ -1445,7 +1502,7 @@ lib.image.carousel = (images, parentElement, cb) => {
 		let image_div = lib.element.create("img", {
 			src: image.url,
 			class: 'box image-prop image-fit noselect border radius-5 margin-right-2',
-			style: images.length > 1 ? 'display: inline-block;width:95%;' : 'display: inline-block;'
+			style: images.length > 1 ? 'display: inline-block;width:90%;' : 'display: inline-block;'
 		});
 
 		cb && image_div.addEventListener("click", async function (e) {
@@ -1485,9 +1542,9 @@ lib.image.carousel = (images, parentElement, cb) => {
 	parentElement.addEventListener('touchstart', function (e) {
 		isDown = true;
 		startX = e.touches[0].pageX - parentElement.offsetLeft;
-    startY = e.touches[0].pageY - parentElement.offsetTop;
-    scrollLeft = parentElement.scrollLeft;
-    scrollTop = parentElement.scrollTop;
+		startY = e.touches[0].pageY - parentElement.offsetTop;
+		scrollLeft = parentElement.scrollLeft;
+		scrollTop = parentElement.scrollTop;
 	});
 
 	parentElement.addEventListener('touchend', function () {
@@ -1498,18 +1555,18 @@ lib.image.carousel = (images, parentElement, cb) => {
 	images.length > 1 && parentElement.addEventListener('touchmove', function (e) {
 		if (!isDown) return;
 		var x = e.touches[0].pageX - parentElement.offsetLeft;
-    var y = e.touches[0].pageY - parentElement.offsetTop;
-    var walkX = (x - startX) * 2; // Ajuste a sensibilidade do scroll horizontal conforme necessário
-    var walkY = (y - startY) * 2; // Ajuste a sensibilidade do scroll vertical conforme necessário
+		var y = e.touches[0].pageY - parentElement.offsetTop;
+		var walkX = (x - startX) * 2; // Ajuste a sensibilidade do scroll horizontal conforme necessário
+		var walkY = (y - startY) * 2; // Ajuste a sensibilidade do scroll vertical conforme necessário
 
-    if (Math.abs(walkY) > Math.abs(walkX)) {
-        // Movimento vertical maior que o horizontal, permite a rolagem vertical
-        return;
-    }
+		if (Math.abs(walkY) > Math.abs(walkX)) {
+			// Movimento vertical maior que o horizontal, permite a rolagem vertical
+			return;
+		}
 
-    e.preventDefault(); // Impede a rolagem da página
+		e.preventDefault(); // Impede a rolagem da página
 
-    parentElement.scrollLeft = scrollLeft - walkX;
+		parentElement.scrollLeft = scrollLeft - walkX;
 	});
 };
 
@@ -1570,9 +1627,9 @@ lib.element.create = (elementName, attributes, value) => {
 };
 
 lib.element.icon = (box, size, src, action) => {
-	let div = lib.element.create("div", { class: "mobile-box " + box + " center" });
+	let div = lib.element.create("div", { class: "mobile-box " + box + " container center" });
 	let img = lib.element.create("img", {
-		class: "size-" + size + " noselect",
+		class: "size-" + size + " noselect center",
 		src: src,
 		onclick: action
 	});
@@ -1701,3 +1758,60 @@ lib.sanitize = string => {
 		return string;
 	}
 };
+
+lib.dinamicInputNumber = (input) => {
+	// Remover caracteres não numéricos
+	input.value = input.value.replace(/[^0-9]/g, '');
+
+	// Obter o valor do input como uma string
+	var valorString = input.value;
+
+	let decimalPlaces = parseFloat(input.step).toString().split('.')[1];
+	if (!decimalPlaces) {
+		return;
+	} else {
+		decimalPlaces = decimalPlaces.length;
+	}
+
+	// Converter a string para um número dividido em parte inteira e parte decimal
+	var inteiro = parseInt(valorString.substring(0, valorString.length - decimalPlaces)) || 0;
+	var decimal = parseInt(valorString.substring(valorString.length - decimalPlaces)) || 0;
+
+	let decimal_max = "";
+	for (let i = 0; i < decimalPlaces; i++) { decimal_max += `9`; };
+
+	// Limitar a parte decimal a duas casas decimais
+	if (decimal > parseInt(decimal_max)) { decimal = parseInt(decimal_max); }
+
+	let decimal_min = "";
+	for (let i = 0; i < decimalPlaces; i++) {
+		if (i == 0) {
+			decimal_min += `1`;
+		} else {
+			decimal_min += `0`;
+		}
+	};
+
+	let decimal_string = decimal.toString();
+
+	let decimal_fill = "";
+	for (let i = 0; i < decimalPlaces - decimal_string.length; i++) {
+		decimal_fill += `0`;
+	};
+
+	// Atualizar o valor do input com a parte inteira e parte decimal separadas por um ponto
+	input.value = inteiro + '.' + (decimal < parseInt(decimal_min) ? decimal_fill : '') + decimal;
+};
+
+lib.tooltip = (element, texto) => {
+	// Adiciona a classe "tooltip" ao elemento
+	element.classList.add("tooltip");
+
+	// Cria um novo elemento para o tooltip
+	const tooltipText = document.createElement("span");
+	tooltipText.classList.add("tooltiptext");
+	tooltipText.textContent = texto;
+
+	// Adiciona o tooltip ao elemento
+	element.appendChild(tooltipText);
+}

@@ -20,7 +20,7 @@ html {
 }
 
 body {
-	background-color: var(--background);
+	background: var(--background);
 }
 
 a {
@@ -127,6 +127,16 @@ tr:hover {
 	/* Konqueror HTML */
 }
 
+.hide-number-arrows::-webkit-inner-spin-button,
+.hide-number-arrows::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.hide-number-arrows {
+	-moz-appearance: textfield;
+}
+
 .hide-in-web {
 	display: none;
 }
@@ -179,6 +189,7 @@ tr:hover {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	opacity: 1;
+	will-change: transform;
 }
 
 ::-webkit-scrollbar {
