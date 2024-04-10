@@ -17,12 +17,16 @@ html {
 	margin: 0;
 	padding: 0;
 	font-family: ARIAL;
-	will-change: transform;
 }
 
 body {
 	background: var(--background);
 }
+
+.will-transform {
+	will-change: transform;
+}
+
 
 a {
 	text-decoration: none;
@@ -181,6 +185,7 @@ tr:hover {
 	height: 100vh;
 	width: 100vw;
 	z-index: 999;
+	will-change: transform;
 }
 
 .msg-popup {

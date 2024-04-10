@@ -75,10 +75,7 @@ lib.message = (msg, cb) => {
 	msg_popup.append(alert_icon);
 
 	const close_div = lib.element.create("div", { class: "mobile-box a10 center" });
-	const close_icon = lib.element.create("img", {
-		src: "https://wt-images-cdn.sfo3.cdn.digitaloceanspaces.com/lib.images/close.png",
-		class: "image-prop size-15 noselect box-hover radius-50 padding-5 icon pointer"
-	});
+	const close_icon = lib.element.create("div", { class: "em20 icon pointer" }, "&times;");
 	close_div.append(close_icon);
 	msg_popup.append(close_div);
 
@@ -111,11 +108,8 @@ lib.popup = (element, cb) => {
 	const msg_popup = lib.element.create("div", { class: "msg-popup container box b3-4 container border-st radius-5 padding-10" });
 	msg_popup.append(lib.element.create("div", { class: "mobile-box b9-10" }));
 
-	const close_div = lib.element.create("div", { class: "mobile-box a10 center" });
-	const close_icon = lib.element.create("img", {
-		src: "https://wt-images-cdn.sfo3.cdn.digitaloceanspaces.com/lib.images/close.png",
-		class: "image-prop size-15 noselect icon box-hover radius-50 padding-5 pointer"
-	});
+	const close_div = lib.element.create("div", { class: "mobile-box center" });
+	const close_icon = lib.element.create("div", { class: "em20 icon pointer" }, "&times;");
 	close_div.append(close_icon);
 	msg_popup.append(close_div);
 
@@ -1639,7 +1633,7 @@ lib.element.icon = (box, size, src, action) => {
 
 lib.element.info = (box, param, paramValue) => {
 	let divParent = lib.element.create("div", { class: "mobile-box " + box + " container border padding-5" });
-	let divParam = lib.element.create("div", { class: "mobile-box b1 em06" }, param);
+	let divParam = lib.element.create("div", { class: "mobile-box b1 em07 bold" }, param);
 	let divValue = lib.element.create("div", { class: "mobile-box b1" }, paramValue);
 
 	divParent.appendChild(divParam);
@@ -1647,10 +1641,10 @@ lib.element.info = (box, param, paramValue) => {
 	return divParent;
 };
 
-lib.element.createInfo = (css, param, paramValue) => {
+lib.element.createInfo = (css, param, value, param_css, value_css) => {
 	let divParent = lib.element.create("div", { class: css });
-	let divParam = lib.element.create("div", { class: "mobile-box b1 em06" }, param);
-	let divValue = lib.element.create("div", { class: "mobile-box b1" }, paramValue);
+	let divParam = lib.element.create("div", { class: `mobile-box b1 em07 ${param_css}` }, param);
+	let divValue = lib.element.create("div", { class: `mobile-box b1 ${value_css}` }, value);
 
 	divParent.appendChild(divParam);
 	divParent.appendChild(divValue);
