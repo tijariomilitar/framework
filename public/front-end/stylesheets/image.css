@@ -3,21 +3,19 @@
 	width: 100%;
 }
 
-.image-box {
-	/* Full height */
+/* .image-box {
 	max-height: 100%;
 	max-height: 450px;
 
 	max-width: 100%;
 
-	/* Center and scale the image nicely */
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 
 	position: relative;
 	z-index: 5;
-}
+} */
 
 .image-fit {
 	width: 100%;

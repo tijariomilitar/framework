@@ -580,7 +580,6 @@ lib.colectByMonth = (month, dates) => {
 // -------------------
 // Math
 // -------------------
-
 lib.roundToInt = (num, places) => {
 	return (parseFloat(num).toFixed(places));
 };
@@ -592,7 +591,6 @@ lib.roundValue = (value) => {
 // -------------------
 // DOM manipulation
 // -------------------
-
 lib.displayDiv = (div, button, openEl, closeEl) => {
 	let selectedDiv = typeof div === 'string' ? document.getElementById(div) : div;
 
@@ -707,6 +705,8 @@ lib.focus = (input) => {
 	};
 };
 
+
+//Mask
 lib.mask = {};
 
 lib.mask.phone = (input) => {
@@ -723,6 +723,28 @@ lib.mask.phone = (input) => {
 	} else {
 		input.value = '(' + number.substring(0, 2) + ') ' + number.substring(2, 7) + '-' + number.substring(7);
 	}
+};
+
+lib.format = {};
+
+lib.format.phone = (value) => {
+	let phoneNumber = value.replace(/\D/g, '');
+
+	let phone;
+
+	if (phoneNumber.length == 0) {
+		phone = '';
+	} else if (phoneNumber.length <= 2) {
+		phone = '(' + phoneNumber;
+	} else if (phoneNumber.length <= 6) {
+		phone = '(' + phoneNumber.substring(0, 2) + ') ' + phoneNumber.substring(2);
+	} else if (phoneNumber.length <= 10) {
+		phone = '(' + phoneNumber.substring(0, 2) + ') ' + phoneNumber.substring(2, 6) + '-' + phoneNumber.substring(6);
+	} else {
+		phone = '(' + phoneNumber.substring(0, 2) + ') ' + phoneNumber.substring(2, 7) + '-' + phoneNumber.substring(7);
+	}
+
+	return phone;
 };
 
 lib.mask.cnpj = (input) => {
@@ -756,7 +778,6 @@ lib.verifyEmail = (email) => {
 // -------------------
 // Canvas
 // -------------------
-
 lib.rect = (ctx, c, x, y, w, h) => {
 	ctx.fillStyle = c;
 	ctx.beginPath();
@@ -1040,7 +1061,6 @@ lib.carousel.navigation = (box, response, pagination) => {
 // -------------------
 // Array
 // -------------------
-
 lib.index = {};
 
 lib.index.last = (objects) => {
@@ -1095,7 +1115,6 @@ lib.sort3 = (arr, key, order) => {
 // -------------------
 // pre code format
 // -------------------
-
 lib.formatHTML = (string) => {
 	string = string.replaceAll('<', '&lt;');
 	string = string.replaceAll('>', '&gt;');
@@ -1110,7 +1129,6 @@ lib.formatHTML = (string) => {
 // -------------------
 // String
 // -------------------
-
 lib.removeChar = (string, regex) => {
 	for (let i in regex) { string = string.replaceAll(regex[i], ""); };
 	return string;
@@ -1126,6 +1144,11 @@ lib.hasForbiddenChar = (url) => {
 	return forbiddenChars.test(url);
 };
 
+lib.clearString = (str) => {
+	const forbiddenChars = /[#%&{}\s\\<>*?/$!'":@+,`|[\]^~();¨´áãéíóõúâêîôûàèìòùäëïöüç~_-]/g;
+	return str.replace(forbiddenChars, '');
+};
+
 lib.isValidNumber = (value) => {
 	if (value !== null && value !== "" && !isNaN(value)) { return true; }
 	else { return false; }
@@ -1134,7 +1157,6 @@ lib.isValidNumber = (value) => {
 // -------------------
 // Dropdown
 // -------------------
-
 lib.dropdown = {};
 
 lib.dropdown.render = (objects, input_id, dropdown_id, target, key, props) => {
@@ -1259,7 +1281,6 @@ lib.Dropdown.fill = (dropdown_input, input_id, dropdown_id) => {
 };
 
 // Adress API
-
 lib.address = {};
 
 lib.address.get = async (CEP) => {
@@ -1493,19 +1514,24 @@ lib.image.carousel = (images, parentElement, cb) => {
 	var scrollLeft;
 
 	images.forEach(function (image) {
-		let image_div = lib.element.create("img", {
-			src: image.url,
-			class: 'box image-prop image-fit noselect border radius-5 margin-right-2',
+		let image_box = lib.element.create("div", {
+			class: "box container image-fit noselect radius-5 margin-right-2",
 			style: images.length > 1 ? 'display: inline-block;width:90%;' : 'display: inline-block;'
 		});
+		parentElement.append(image_box);
+
+		let image_div = lib.element.create("img", {
+			src: image.url,
+			class: 'image-prop noselect radius-5 center',
+			style: "margin: 0 auto;transform: translate(0, -50%);position: relative;top: 50%;"
+		});
+		image_box.append(image_div);
 
 		cb && image_div.addEventListener("click", async function (e) {
 			if (!isDragging) {
 				cb(image_div);
 			}
 		});
-
-		parentElement.append(image_div);
 	});
 
 	parentElement.addEventListener('mousedown', function (e) {
