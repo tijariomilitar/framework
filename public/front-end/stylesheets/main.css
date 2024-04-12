@@ -83,11 +83,11 @@ tr:hover {
 }
 
 .overflow-y-auto {
-	overflow-y: hidden;
+	overflow-y: auto;
 }
 
 .overflow-x-auto {
-	overflow-x: hidden;
+	overflow-x: auto;
 }
 
 .pointer {
