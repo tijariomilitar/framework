@@ -82,11 +82,11 @@ tr:hover {
 	overflow-x: hidden;
 }
 
-.overflow-y-auto {
+.scroll-y-auto {
 	overflow-y: auto;
 }
 
-.overflow-x-auto {
+.scroll-x-auto {
 	overflow-x: auto;
 }
 
