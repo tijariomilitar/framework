@@ -1515,15 +1515,17 @@ lib.image.carousel = (images, parentElement, cb) => {
 
 	images.forEach(function (image) {
 		let image_box = lib.element.create("div", {
-			class: "box container image-fit noselect radius-5 margin-right-2",
-			style: images.length > 1 ? 'display: inline-block;width:90%;' : 'display: inline-block;'
+			class: 'box border radius-5 margin-right-5',
+			style: images.length > 1 ?
+				'width: 90%;height: 100%;flex-grow: 1;flex-shrink: 0;flex-basis: auto;' :
+				'width: 100%;height: 100%;flex-grow: 1;flex-shrink: 0;flex-basis: auto;'
 		});
 		parentElement.append(image_box);
 
 		let image_div = lib.element.create("img", {
 			src: image.url,
-			class: 'image-prop noselect radius-5 center',
-			style: "margin: 0 auto;transform: translate(0, -50%);position: relative;top: 50%;"
+			class: '',
+			style: "width: 100%;height:100%;object-fit: contain;"
 		});
 		image_box.append(image_div);
 
@@ -1532,6 +1534,7 @@ lib.image.carousel = (images, parentElement, cb) => {
 				cb(image_div);
 			}
 		});
+
 	});
 
 	parentElement.addEventListener('mousedown', function (e) {
