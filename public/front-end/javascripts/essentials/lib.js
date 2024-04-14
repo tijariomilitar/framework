@@ -817,143 +817,83 @@ lib.collide = (r1, r2) => {
 // -------------------
 
 // Simple Image or Banner Carousel
-lib.Carousel = (id) => {
-	const carousel = document.querySelector(`#${id}`);
-	const slides = carousel.querySelectorAll('.carousel-slides img');
-	let slideIndex = 0;
+lib.Carousel = (box, render, items, pagination) => {
+	box.innerHTML = "";
 
-	slides.forEach((slide) => {
-		slide.style.display = "none";
-		slide.draggable = false;
-	});
+	let items_div = lib.element.create("div", { class: "box b1 container h-center" });
+	box.append(items_div);
 
-	const showSlides = (n) => {
-		slides.forEach((slide) => {
-			slide.style.display = "none";
-			slide.style.transform = "translateX(0)";
-		});
-		slides[n].style.display = "block";
+	let navigation_div = lib.element.create("div", { class: "box b1 container h-center padding-10" });
+	box.append(navigation_div);
+
+	let navigation_previous = lib.element.create("img", { src: "/images/icon/back-arrow-black.png", class: "mobile-box b12 size-30 icon noselect" });
+	navigation_div.append(navigation_previous);
+	let navigation_span = lib.element.create("span", { class: "mobile-box b2 lucida-grande bold nowrap center noselect" });
+	navigation_div.append(navigation_span);
+	let navigation_next = lib.element.create("img", { src: "/images/icon/next-arrow-black.png", class: "mobile-box b12 size-30 icon noselect" });
+	navigation_div.append(navigation_next);
+
+	const CarouselPaging = () => {
+		items_div.innerHTML = "";
+		render(items, pagination, items_div);
 	};
 
-	const plusSlides = (n) => {
-		slideIndex += n;
-		if (slideIndex >= slides.length) {
-			slideIndex = 0;
-		}
-		if (slideIndex < 0) {
-			slideIndex = slides.length - 1;
-		}
-		showSlides(slideIndex);
+	const CarouselNavigation = () => {
+		if (!items.length) {
+			navigation_previous.disabled = true;
+			navigation_span.innerHTML = " 0 ";
+			navigation_next.disabled = true;
+		};
+
+		if (items.length && items.length <= pagination.pageSize) {
+			navigation_previous.disabled = true;
+			navigation_span.innerHTML = "1 de 1";
+			navigation_next.disabled = true;
+		};
+
+		if (items.length > pagination.pageSize) {
+			if (pagination.page <= 0) {
+				pagination.page = 0;
+				navigation_previous.disabled = true;
+				navigation_span.innerHTML = "" + (pagination.page + 1) + " de " + Math.ceil(items.length / pagination.pageSize);
+				navigation_next.disabled = false;
+			};
+
+			if (pagination.page > 0 && pagination.page < (items.length / pagination.pageSize) - 1) {
+				navigation_previous.disabled = false;
+				navigation_span.innerHTML = "" + (pagination.page + 1) + " de " + Math.ceil(items.length / pagination.pageSize);
+				navigation_next.disabled = false;
+			};
+
+			if (pagination.page >= (items.length / pagination.pageSize) - 1) {
+				navigation_previous.disabled = false;
+				navigation_span.innerHTML = "" + (pagination.page + 1) + " de " + Math.ceil(items.length / pagination.pageSize);
+				navigation_next.disabled = true;
+			};
+		};
 	};
 
-	const prev = document.createElement('a');
-	prev.classList.add('carousel-prev');
-	prev.innerHTML = "&#10094;";
-	prev.addEventListener('click', () => {
-		plusSlides(-1);
-	});
-	carousel.appendChild(prev);
+	//events
+	navigation_previous.onclick = function () {
+		window.scrollTo(0, box.getBoundingClientRect().top - document.body.getBoundingClientRect().top);
+		if (pagination.page > 0) {
+			pagination.page--;
+			CarouselPaging();
+			CarouselNavigation();
+		};
+	};
 
-	const next = document.createElement('a');
-	next.classList.add('carousel-next');
-	next.innerHTML = "&#10095;";
-	next.addEventListener('click', () => {
-		plusSlides(1);
-	});
-	carousel.appendChild(next);
+	navigation_next.onclick = function () {
+		window.scrollTo(0, box.getBoundingClientRect().top - document.body.getBoundingClientRect().top);
+		if (pagination.page < items.length / pagination.pageSize - 1) {
+			pagination.page++;
+			CarouselPaging();
+			CarouselNavigation();
+		};
+	};
 
-	// mouse image changer
-	let mouseDownX;
-	let deltaX;
-
-	carousel.addEventListener('mousedown', (event) => {
-		mouseDownX = event.clientX;
-		isDragging = true;
-	});
-
-	carousel.addEventListener('mousemove', (event) => {
-		if (!isDragging) { return; }
-
-		const mouseMoveX = event.clientX;
-		deltaX = mouseMoveX - mouseDownX;
-		slides[slideIndex].style.transform = `translateX(${deltaX}px)`;
-	});
-
-	carousel.addEventListener('mouseleave', (event) => {
-		if (isDragging) {
-			const mouseMoveX = event.clientX;
-			const deltaX = mouseMoveX - mouseDownX;
-			if (Math.abs(deltaX) > 10) {
-				if (deltaX > 0) {
-					plusSlides(-1);
-				} else {
-					plusSlides(1);
-				}
-			}
-		}
-		isDragging = false;
-	});
-
-	carousel.addEventListener('mouseout', (event) => {
-		if (isDragging) {
-			const mouseMoveX = event.clientX;
-			const deltaX = mouseMoveX - mouseDownX;
-			if (Math.abs(deltaX) > 10) {
-				if (deltaX > 0) {
-					plusSlides(-1);
-				} else {
-					plusSlides(1);
-				}
-			}
-		}
-		isDragging = false;
-	});
-
-	carousel.addEventListener('mouseup', () => {
-		if (!isDragging) { return; }
-
-		isDragging = false;
-
-		if (Math.abs(deltaX) > 10) {
-			if (deltaX > 0) {
-				plusSlides(-1);
-			} else {
-				plusSlides(1);
-			}
-		}
-		slides[slideIndex].style.transform = "translateX(0)";
-	});
-
-	// finger touch mobile
-	let startX;
-	let isDragging = false;
-
-	carousel.addEventListener('touchstart', (event) => {
-		startX = event.touches[0].clientX;
-		isDragging = true;
-	});
-
-	carousel.addEventListener('touchmove', (event) => {
-		if (!isDragging) {
-			return;
-		}
-		const touchMoveX = event.touches[0].clientX;
-		const deltaX = touchMoveX - startX;
-		if (Math.abs(deltaX) > 10) {
-			isDragging = false;
-			if (deltaX > 0) {
-				plusSlides(-1);
-			} else {
-				plusSlides(1);
-			}
-		}
-	});
-
-	carousel.addEventListener('touchend', () => {
-		isDragging = false;
-	});
-
-	showSlides(0);
+	CarouselPaging();
+	CarouselNavigation();
 };
 
 lib.carousel = {};
