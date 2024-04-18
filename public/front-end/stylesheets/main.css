@@ -222,3 +222,33 @@ tr:hover {
 ::-webkit-scrollbar-thumb:hover {
 	background: #555;
 }
+
+.scroll-small {
+	overflow-y: auto;
+	/* Adiciona uma barra de rolagem vertical somente quando necessário */
+	/* Altura máxima da área com scroll */
+}
+
+/* Estilo da barra de rolagem */
+.scroll-small::-webkit-scrollbar {
+	width: 3px;
+	/* largura da barra de rolagem */
+}
+
+/* Estilo da trilha do scroll */
+.scroll-small::-webkit-scrollbar-track {
+	background: var(--ground);
+	/* cor de fundo */
+}
+
+/* Estilo do indicador de rolagem (thumb) */
+.scroll-small::-webkit-scrollbar-thumb {
+	background: var(--strong);
+	/* cor do indicador */
+}
+
+/* Estilo do canto entre a barra de rolagem e o indicador de rolagem */
+.scroll-small::-webkit-scrollbar-corner {
+	background: var(--ground);
+	/* cor do canto */
+}
