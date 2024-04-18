@@ -215,8 +215,9 @@
 .bg-light { background-color: var(--light); }
 .bg-solid { background-color: var(--solid); }
 .bg-disabled { background-color: var(--disabled); }
-.bg-strong { background-color: var(--strong); }
+.bg-strong { background-color: var(--strong); color: #fff; }
 .bg-color { background-color: var(--color); }
+.bg-red { background-color: #ff3232; color: #fff; }
 
 .color-bg { color: var(--background); }
 .color-ground { color: var(--ground); }
