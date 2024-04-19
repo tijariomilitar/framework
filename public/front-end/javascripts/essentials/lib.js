@@ -105,7 +105,7 @@ lib.popup = (element, cb) => {
 	focused_btn && focused_btn.blur();
 
 	const msg_div = lib.element.create("div", { class: "msg h-center", style: "z-index: 1000;" });
-	const msg_popup = lib.element.create("div", { class: "msg-popup box b3-4 container scroll-y-auto border-st radius-5 padding-10" });
+	const msg_popup = lib.element.create("div", { class: "msg-popup box b3-4 container scroll-y-auto scroll-small border-st radius-5 padding-10" });
 
 	const close_div = lib.element.create("div", { class: "mobile-box b1 container center" });
 	msg_popup.append(close_div);
@@ -136,6 +136,7 @@ lib.popup = (element, cb) => {
 
 lib.popout = element => {
 	element.parentNode.parentNode.remove();
+	document.body.style.overflow = "auto";
 };
 
 lib.auth = (message, cb) => {
