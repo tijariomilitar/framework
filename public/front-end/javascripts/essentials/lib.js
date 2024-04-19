@@ -104,22 +104,24 @@ lib.popup = (element, cb) => {
 	const focused_btn = document.querySelector(':focus');
 	focused_btn && focused_btn.blur();
 
-	const msg_div = lib.element.create("div", { class: "msg", style: "z-index: 1000;" });
+	const msg_div = lib.element.create("div", { class: "msg h-center", style: "z-index: 1000;" });
 	const msg_popup = lib.element.create("div", { class: "msg-popup box b3-4 container scroll-y-auto border-st radius-5 padding-10" });
 
 	const close_div = lib.element.create("div", { class: "mobile-box b1 container center" });
 	msg_popup.append(close_div);
 	close_div.append(lib.element.create("div", { class: "mobile-box b9-10" }));
-	const close_icon = lib.element.create("div", { class: "em20 icon pointer" }, "&times;");
+	const close_icon = lib.element.create("div", { class: "em20 icon pointer center" }, "&times;");
 	close_div.append(close_icon);
 
 	msg_popup.append(element);
 
 	msg_div.append(msg_popup);
 	document.body.append(msg_div);
+	document.body.style.overflow = "hidden";
 
 	function esc() {
 		document.removeEventListener("keydown", keydown);
+		document.body.style.overflow = "auto";
 		msg_div.remove();
 		if (typeof cb === 'function') { return cb(); }
 	};
