@@ -1797,7 +1797,7 @@ lib.rgbToHex = (rgb) => {
 	for (let i = 1; i <= 3; i++) {
 		let componente = parseInt(partes[i]).toString(16);
 		hex += (componente.length === 1) ? "0" + componente : componente;
-	}
+	};
 
 	return hex;
 };
