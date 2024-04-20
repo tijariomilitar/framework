@@ -1789,3 +1789,15 @@ lib.tooltip = (element, texto) => {
 	// Adiciona o tooltip ao elemento
 	element.appendChild(tooltipText);
 }
+
+lib.rgbToHex = (rgb) => {
+	let partes = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+
+	let hex = "#";
+	for (let i = 1; i <= 3; i++) {
+		let componente = parseInt(partes[i]).toString(16);
+		hex += (componente.length === 1) ? "0" + componente : componente;
+	}
+
+	return hex;
+};
