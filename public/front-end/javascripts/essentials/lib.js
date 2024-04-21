@@ -1498,6 +1498,8 @@ lib.image.carousel = (images, parentElement, cb) => {
 		});
 	});
 
+	lib.image.lazy();
+
 	parentElement.addEventListener('mousedown', function (e) {
 		isDown = true;
 		startX = e.pageX - parentElement.offsetLeft;
@@ -1555,8 +1557,10 @@ lib.image.carousel = (images, parentElement, cb) => {
 };
 
 lib.image.lazy = () => {
+	console.log('exect');
 	const lazyImages = document.querySelectorAll('.lazy-image');
 	let allLoaded = true;
+	console.log(lazyImages);
 
 	lazyImages.forEach(image => {
 		if (!image.dataset.loaded
@@ -1572,7 +1576,6 @@ lib.image.lazy = () => {
 
 	if (allLoaded) {
 		document.removeEventListener('scroll', lib.image.lazy);
-		window.removeEventListener('load', lib.image.lazy);
 	}
 };
 
