@@ -1473,19 +1473,28 @@ lib.image.carousel = (images, parentElement, cb) => {
 		});
 		parentElement.append(image_box);
 
+		let image_loader = lib.element.create("div", {
+			class: "ground",
+			style: "width: 100%;height:100%;object-fit: contain;"
+		});
+		lib.loader.init(image_loader);
+		image_box.append(image_loader);
+
 		let image_div = lib.element.create("img", {
 			src: image.url,
 			class: '',
 			style: "width: 100%;height:100%;object-fit: contain;"
 		});
-		image_box.append(image_div);
 
-		cb && image_div.addEventListener("click", async function (e) {
-			if (!isDragging) {
-				cb(image_div);
-			}
+		image_div.addEventListener("load", e => {
+			console.log('Carregada a image:', image_div);
+			image_loader.remove();
+			image_box.append(image_div);
 		});
 
+		cb && image_div.addEventListener("click", () => {
+			if (!isDragging) { cb(image_div); }
+		});
 	});
 
 	parentElement.addEventListener('mousedown', function (e) {
