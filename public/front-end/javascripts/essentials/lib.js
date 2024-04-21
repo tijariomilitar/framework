@@ -1487,7 +1487,6 @@ lib.image.carousel = (images, parentElement, cb) => {
 		});
 
 		image_div.addEventListener("load", e => {
-			console.log('Carregada a image:', image_div);
 			image_loader.remove();
 			image_box.append(image_div);
 		});
