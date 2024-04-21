@@ -1481,15 +1481,17 @@ lib.image.carousel = (images, parentElement, cb) => {
 		image_box.append(image_loader);
 
 		let image_div = lib.element.create("img", {
-			src: image.url,
-			class: '',
+			// src: image.url,
+			'data-src': image.url,
+			class: 'lazy-image',
 			style: "width: 100%;height:100%;object-fit: contain;"
 		});
 
 		image_div.addEventListener("load", e => {
 			image_loader.remove();
-			image_box.append(image_div);
 		});
+
+		image_box.append(image_div);
 
 		cb && image_div.addEventListener("click", () => {
 			if (!isDragging) { cb(image_div); }
@@ -1550,6 +1552,28 @@ lib.image.carousel = (images, parentElement, cb) => {
 
 		parentElement.scrollLeft = scrollLeft - walkX;
 	});
+};
+
+lib.image.lazy = () => {
+	const lazyImages = document.querySelectorAll('.lazy-image');
+	let allLoaded = true;
+
+	lazyImages.forEach(image => {
+		if (!image.dataset.loaded
+			&& image.getBoundingClientRect().top <= window.innerHeight
+			&& image.getBoundingClientRect().bottom >= 0
+			&& getComputedStyle(image).display !== 'none') {
+			image.src = image.dataset.src;
+			image.removeAttribute('data-src');
+			image.dataset.loaded = true;
+		}
+		if (!image.dataset.loaded) { allLoaded = false; }
+	});
+
+	if (allLoaded) {
+		document.removeEventListener('scroll', lib.image.lazy);
+		window.removeEventListener('load', lib.image.lazy);
+	}
 };
 
 lib.ruleOfThree = (index, target, sample) => {

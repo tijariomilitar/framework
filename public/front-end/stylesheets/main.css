@@ -27,6 +27,9 @@ body {
 	will-change: transform;
 }
 
+.lazy-image {
+	display: "";
+}
 
 a {
 	text-decoration: none;
