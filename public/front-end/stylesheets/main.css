@@ -234,6 +234,7 @@ tr:hover {
 /* Estilo da barra de rolagem */
 .scroll-small::-webkit-scrollbar {
 	width: 4px;
+	height: 5px;
 }
 
 /* Estilo da trilha do scroll */
