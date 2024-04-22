@@ -1557,10 +1557,7 @@ lib.image.carousel = (images, parentElement, cb) => {
 };
 
 lib.image.lazy = () => {
-	console.log('exect');
 	const lazyImages = document.querySelectorAll('.lazy-image');
-	let allLoaded = true;
-	console.log(lazyImages);
 
 	lazyImages.forEach(image => {
 		if (!image.dataset.loaded
@@ -1571,12 +1568,7 @@ lib.image.lazy = () => {
 			image.removeAttribute('data-src');
 			image.dataset.loaded = true;
 		}
-		if (!image.dataset.loaded) { allLoaded = false; }
 	});
-
-	if (allLoaded) {
-		document.removeEventListener('scroll', lib.image.lazy);
-	}
 };
 
 lib.ruleOfThree = (index, target, sample) => {
