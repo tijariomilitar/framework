@@ -1487,6 +1487,8 @@ lib.image.carousel = (images, parentElement, cb) => {
 			style: "width: 100%;height:100%;object-fit: contain;"
 		});
 
+		lib.image.lazy();
+
 		image_div.addEventListener("load", e => {
 			image_loader.remove();
 		});
@@ -1497,8 +1499,6 @@ lib.image.carousel = (images, parentElement, cb) => {
 			if (!isDragging) { cb(image_div); }
 		});
 	});
-
-	lib.image.lazy();
 
 	parentElement.addEventListener('mousedown', function (e) {
 		isDown = true;
