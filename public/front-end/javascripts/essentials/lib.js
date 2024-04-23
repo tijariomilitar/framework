@@ -498,6 +498,20 @@ lib.fulldateToTimestamp = (fulldate) => {
 	return false;
 };
 
+lib.efidateToTimestamp = (efidate) => {
+	if (efidate) {
+		let date = {};
+		date.day = efidate.split("T")[0].split("-")[2];
+		date.month = efidate.split("T")[0].split("-")[1];
+		date.year = efidate.split("T")[0].split("-")[0];
+		date.hour = efidate.split("T")[1].split(":")[0];
+		date.minute = efidate.split("T")[1].split(":")[1];
+		date = new Date(date.year, date.month - 1, date.day, date.hour, date.minute);
+		return date.getTime();
+	}
+	return false;
+};
+
 lib.datetimeToTimestamp = (datetime) => {
 	if (datetime) {
 		let date = datetime.split("T");
