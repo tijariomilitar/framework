@@ -63,7 +63,7 @@ lib.message = (msg, cb) => {
 	const focused_btn = document.querySelector(':focus');
 	focused_btn && focused_btn.blur();
 
-	const msg_div = lib.element.create("div", { class: "msg", style: "z-index: 9;" });
+	const msg_div = lib.element.create("div", { class: "msg", style: "z-index: 10;" });
 	const msg_popup = lib.element.create("div", { class: "msg-popup container box b3-4 container border-st radius-5 padding-10" });
 	msg_popup.append(lib.element.create("div", { class: "mobile-box b10" }));
 
@@ -106,7 +106,7 @@ lib.popup = (element, cb) => {
 
 	const msg_div = lib.element.create("div", {
 		class: "msg h-center",
-		style: "z-index: 9;"
+		style: "z-index: 10;"
 	});
 	const msg_popup = lib.element.create("div", {
 		class: "msg-popup box a3-4 container radius-5 scroll-y-auto scroll-small"
@@ -114,7 +114,7 @@ lib.popup = (element, cb) => {
 
 	const close_div = lib.element.create("div", {
 		class: "mobile-box a1 container ground center sticky",
-		style: "top: 0;z-index: 1001;"
+		style: "top: 0;z-index: 10;"
 	});
 	msg_popup.append(close_div);
 	close_div.append(lib.element.create("div", { class: "mobile-box b9-10" }));
@@ -285,7 +285,7 @@ lib.pass = (cb) => {
 };
 
 lib.confirm = (msg, cb) => {
-	const msg_div = lib.element.create("div", { class: "msg", style: "z-index: 9;" });
+	const msg_div = lib.element.create("div", { class: "msg", style: "z-index: 10;" });
 	const msg_popup = lib.element.create("div", { class: "msg-popup container mobile-box b3-4 container border-st radius-5 padding-10" });
 	const alert_icon = lib.element.create("div", { class: "mobile-box a1 center" });
 	alert_icon.append(lib.element.create("img", { src: "https://wt-images-cdn.sfo3.cdn.digitaloceanspaces.com/lib.images/alert.png", class: "image-prop size-30 noselect" }))
@@ -332,7 +332,7 @@ lib.confirm = (msg, cb) => {
 };
 
 lib.cookieConfirm = (msg, cb) => {
-	const msg_div = lib.element.create("div", { class: "msg", style: "z-index: 9;" });
+	const msg_div = lib.element.create("div", { class: "msg", style: "z-index: 10;" });
 	const msg_popup = lib.element.create("div", { class: "msg-popup container mobile-box b3-4 container border-st radius-5 padding-10" });
 	const alert_icon = lib.element.create("div", { class: "mobile-box a1 center" });
 	alert_icon.append(lib.element.create("img", { src: "https://wt-images-cdn.sfo3.cdn.digitaloceanspaces.com/lib.images/alert.png", class: "image-prop size-30 noselect" }))
@@ -1491,7 +1491,7 @@ lib.image.carousel = (images, parentElement, cb) => {
 			class: "ground",
 			style: "width: 100%;height:100%;object-fit: contain;"
 		});
-		lib.loader.init(image_loader);
+		lib.image.loader(image_loader);
 		image_box.append(image_loader);
 
 		let image_div = lib.element.create("img", {
@@ -1583,6 +1583,15 @@ lib.image.lazy = () => {
 			image.dataset.loaded = true;
 		}
 	});
+};
+
+lib.image.loader = (element) => {
+	let overlay = lib.element.create("div", {});
+	lib.addCss(element, ["lazy-loader-container"]);
+	lib.addCss(overlay, ["lazy-loader-overlay"]);
+	overlay.append(lib.element.create("div", { class: "lazy-loader" }));
+	element.append(overlay);
+	if (element) { element.disabled = true; }
 };
 
 lib.ruleOfThree = (index, target, sample) => {
