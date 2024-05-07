@@ -1851,3 +1851,30 @@ lib.rgbToHex = (rgb) => {
 
 	return hex;
 };
+
+lib.presentation = (target, text, width, direction, left, top, cb, params) => {
+	// let overlay_div = lib.element.create("div", { class: "presentation-overlay" });
+	// document.body.append(overlay_div);
+	// Overlay must be created outside, so it can be removed after used
+	lib.addCss(target, ["presentation-element"]);
+
+	let box_element = lib.element.create("div", {
+		class: `presentation-box container ground width-${width} speech-${direction} radius-5 padding-10`
+	});
+	box_element.append(lib.element.create("div", { class: "box b1 rem09" }, text));
+
+	let confirm_btn = lib.element.create("div", {
+		class: "mobile-box b1 lucida-grande rem09 border-lg-st shadow-st padding-5 margin-top-5 center pointer"
+	}, 'Confirmar');
+	box_element.append(confirm_btn);
+
+	box_element.style.left = (target.offsetLeft + left) + "px";
+	box_element.style.top = (target.offsetTop + top) + "px";
+	document.body.append(box_element);
+
+	confirm_btn.addEventListener("click", () => {
+		lib.removeCss(target, ["presentation-element"]);
+		if (cb) { cb(params); }
+		box_element.remove();
+	});
+};

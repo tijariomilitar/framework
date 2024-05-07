@@ -1,0 +1,219 @@
+/* Bottom */
+.speech-bottom {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.speech-bottom:before {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-style: solid;
+  border-width: 20px 10px 0;
+  border-color: #fff transparent;
+}
+
+.speech-bottom-left {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.speech-bottom-left:before {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 15%;
+  transform: translateX(-15%);
+  border-style: solid;
+  border-width: 20px 10px 0;
+  border-color: #fff transparent;
+}
+
+.speech-bottom-right {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.speech-bottom-right:before {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 85%;
+  transform: translateX(-85%);
+  border-style: solid;
+  border-width: 20px 10px 0;
+  border-color: #fff transparent;
+}
+
+/* TOP */
+.speech-top {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.speech-top:before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-style: solid;
+  border-width: 0 10px 20px;
+  border-color: transparent transparent #fff;
+}
+
+.speech-top-left {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.speech-top-left:before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 15%;
+  transform: translateX(-15%);
+  border-style: solid;
+  border-width: 0 10px 20px;
+  border-color: transparent transparent #fff;
+}
+
+.speech-top-right {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.speech-top-right:before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 85%;
+  transform: translateX(-85%);
+  border-style: solid;
+  border-width: 0 10px 20px;
+  border-color: transparent transparent #fff;
+}
+
+/* LEFT */
+.speech-left {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+.speech-left:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  transform: translateY(-50%);
+  border-style: solid;
+  border-width: 10px 20px 10px 0;
+  border-color: transparent #fff transparent transparent;
+}
+
+.speech-left-top {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+.speech-left-top:before {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: -20px;
+  transform: translateY(-15%);
+  border-style: solid;
+  border-width: 10px 20px 10px 0;
+  border-color: transparent #fff transparent transparent;
+}
+
+.speech-left-bottom {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+.speech-left-bottom:before {
+  content: '';
+  position: absolute;
+  top: 85%;
+  left: -20px;
+  transform: translateY(-85%);
+  border-style: solid;
+  border-width: 10px 20px 10px 0;
+  border-color: transparent #fff transparent transparent;
+}
+
+/* RIGHT */
+.speech-right {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  margin-left: 20px;
+}
+
+.speech-right:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  transform: translateY(-50%);
+  border-style: solid;
+  border-width: 10px 0 10px 20px;
+  border-color: transparent transparent transparent #fff;
+}
+
+.speech-right-top {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  margin-left: 20px;
+}
+
+.speech-right-top:before {
+  content: '';
+  position: absolute;
+  top: 15%;
+  right: -20px;
+  transform: translateY(-15%);
+  border-style: solid;
+  border-width: 10px 0 10px 20px;
+  border-color: transparent transparent transparent #fff;
+}
+
+.speech-right-bottom {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  margin-left: 20px;
+}
+
+.speech-right-bottom:before {
+  content: '';
+  position: absolute;
+  top: 85%;
+  right: -20px;
+  transform: translateY(-85%);
+  border-style: solid;
+  border-width: 10px 0 10px 20px;
+  border-color: transparent transparent transparent #fff;
+}
