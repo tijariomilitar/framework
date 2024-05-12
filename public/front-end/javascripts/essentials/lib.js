@@ -1109,6 +1109,11 @@ lib.hasForbiddenChar = (url) => {
 	return forbiddenChars.test(url);
 };
 
+lib.hasSpecialChar = (url) => {
+	const forbiddenChars = /[#%&{}\s\\<>*?/$!'":@+,`|[\]^~();¨´~]/g;
+	return forbiddenChars.test(url);
+};
+
 lib.clearString = (str) => {
 	const forbiddenChars = /[#%&{}\s\\<>*?/$!'":@+,`|[\]^~();¨´áãéíóõúâêîôûàèìòùäëïöüç~_-]/g;
 	return str.replace(forbiddenChars, '');
