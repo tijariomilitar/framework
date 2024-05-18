@@ -1032,13 +1032,29 @@ lib.index.last = (objects) => {
 	return objects.length - 1;
 };
 
-lib.sort = (arr, key, order) => {
-	return arr = arr.sort((a, b) => {
-		if (order == "desc") {
-			return b[key] - a[key];
+lib.sort = (arr, prop, ordem = 'asc') => {
+	return arr.sort((a, b) => {
+		// Extrai os números da propriedade de cada objeto
+		const matchA = a[prop].match(/\d+/);
+		const matchB = b[prop].match(/\d+/);
+
+		// Verifica se há números na string
+		const numA = matchA ? parseInt(matchA[0]) : Infinity;
+		const numB = matchB ? parseInt(matchB[0]) : Infinity;
+
+		// Compara os números
+		let comparacao;
+		if (numA !== numB) {
+			comparacao = numA - numB; // Ordena por números primeiro
 		} else {
-			return a[key] - b[key];
+			// Se os números forem iguais, ordena alfabeticamente
+			const strA = a[prop].replace(/\d+/, '');
+			const strB = b[prop].replace(/\d+/, '');
+			comparacao = strA.localeCompare(strB);
 		}
+
+		// Aplica a ordem
+		return ordem.toLowerCase() === 'desc' ? comparacao * -1 : comparacao;
 	});
 };
 
