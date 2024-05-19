@@ -1032,31 +1032,39 @@ lib.index.last = (objects) => {
 	return objects.length - 1;
 };
 
-lib.sort = (arr, prop, ordem = 'asc') => {
+lib.sort = (arr, prop, order = 'asc') => {
 	return arr.sort((a, b) => {
-		// Extrai os números da propriedade de cada objeto
-		const matchA = a[prop].match(/\d+/);
-		const matchB = b[prop].match(/\d+/);
+		const valueA = a[prop];
+		const valueB = b[prop];
 
-		// Verifica se há números na string
-		const numA = matchA ? parseInt(matchA[0]) : Infinity;
-		const numB = matchB ? parseInt(matchB[0]) : Infinity;
-
-		// Compara os números
-		let comparacao;
-		if (numA !== numB) {
-			comparacao = numA - numB; // Ordena por números primeiro
-		} else {
-			// Se os números forem iguais, ordena alfabeticamente
-			const strA = a[prop].replace(/\d+/, '');
-			const strB = b[prop].replace(/\d+/, '');
-			comparacao = strA.localeCompare(strB);
+		// Verifica se ambos são strings vazias
+		if (valueA === '' && valueB === '') {
+			return 0;
+		} else if (valueA === '') {
+			return -1;
+		} else if (valueB === '') {
+			return 1;
 		}
 
-		// Aplica a ordem
-		return ordem.toLowerCase() === 'desc' ? comparacao * -1 : comparacao;
+		// Verifica se são números
+		const isNumberA = !isNaN(valueA);
+		const isNumberB = !isNaN(valueB);
+
+		if (isNumberA && isNumberB) {
+			// Se ambos são números, compara numericamente
+			return Number(valueA) - Number(valueB);
+		} else if (isNumberA) {
+			// Se apenas o primeiro é número, coloca-o antes
+			return -1;
+		} else if (isNumberB) {
+			// Se apenas o segundo é número, coloca-o antes
+			return 1;
+		} else {
+			// Se nenhum é número, compara alfabeticamente
+			return valueA.localeCompare(valueB);
+		}
 	});
-};
+}
 
 lib.sort2 = (arr, key, order) => {
 	return arr.sort((a, b) => {
