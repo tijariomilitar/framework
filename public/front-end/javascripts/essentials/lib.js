@@ -1063,8 +1063,8 @@ lib.sort = (arr, prop, order = 'asc') => {
 			// Se nenhum é número, compara alfabeticamente
 			return valueA.localeCompare(valueB);
 		}
-	});
-}
+	}).sort((a, b) => (order.toLowerCase() === 'desc') ? -1 : 1);
+};
 
 lib.sort2 = (arr, key, order) => {
 	return arr.sort((a, b) => {
