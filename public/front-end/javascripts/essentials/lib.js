@@ -1538,7 +1538,7 @@ lib.image.carousel = (images, parentElement, cb) => {
 		image_box.append(image_div);
 
 		cb && image_div.addEventListener("click", () => {
-			if (!isDragging) { cb(image_div); }
+			if (!isDragging) { cb(image_div.src); }
 		});
 	});
 
