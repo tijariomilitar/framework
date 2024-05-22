@@ -1490,14 +1490,13 @@ lib.localStorage.remove = (item) => {
 
 lib.image = {};
 
-lib.image.zoom = (image) => {
-	let image_copy = image.cloneNode(true);
+lib.image.zoom = (image_src) => {
+	let image = lib.element.create("img", {
+		src: image_src,
+		class: "image-prop max-height-500 center"
+	});
 
-	lib.addCss(image_copy, ["image-prop", "max-height-500", "center"]);
-	lib.removeCss(image_copy, ["box", "image-fit", "margin-right-2", "border"]);
-	image_copy.style = "";
-
-	lib.popup(image_copy);
+	lib.popup(image);
 };
 
 lib.image.carousel = (images, parentElement, cb) => {
