@@ -1517,16 +1517,17 @@ lib.image.carousel = (images, parentElement, cb) => {
 
 		let image_loader = lib.element.create("div", {
 			class: "ground",
-			style: "width: 100%;height:100%;object-fit: contain;"
+			style: "width: 100%;height:100%;object-fit: contain;\
+			user-select: none;-moz-user-select: none;-webkit-user-drag: none;-webkit-user-select: none;-ms-user-select: none;"
 		});
 		lib.image.loader(image_loader);
 		image_box.append(image_loader);
 
 		let image_div = lib.element.create("img", {
-			// src: image.url,
 			'data-src': image.url,
 			class: 'lazy-image',
-			style: "width: 100%;height:100%;object-fit: contain;"
+			style: "width: 100%;height:100%;object-fit: contain;\
+				user-select: none;-moz-user-select: none;-webkit-user-drag: none;-webkit-user-select: none;-ms-user-select: none;"
 		});
 
 		lib.image.lazy();
