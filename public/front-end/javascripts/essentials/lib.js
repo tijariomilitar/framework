@@ -1023,6 +1023,77 @@ lib.carousel.navigation = (box, response, pagination) => {
 	};
 }
 
+lib.carousel.generic = (items, parentElement, cb) => {
+	var isDown = false;
+	var isDragging = false;
+	var startX;
+	var startY;
+	var scrollLeft;
+
+	items.forEach(item => {
+		parentElement.append(item);
+
+		cb && item.addEventListener("click", () => {
+			if (!isDragging) { cb(item); }
+		});
+	});
+
+	parentElement.addEventListener('mousedown', function (e) {
+		isDown = true;
+		startX = e.pageX - parentElement.offsetLeft;
+		scrollLeft = parentElement.scrollLeft;
+	});
+
+	parentElement.addEventListener('mouseleave', function () {
+		isDown = false;
+	});
+
+	parentElement.addEventListener('mouseup', function () {
+		setTimeout(function () { isDragging = false; }, 50);
+		isDown = false;
+	});
+
+	items.length > 1 && parentElement.addEventListener('mousemove', function (e) {
+		if (!isDown) return;
+		isDragging = true;
+		e.preventDefault();
+		var x = e.pageX - parentElement.offsetLeft;
+		var walk = (x - startX) * 2; // Ajuste a sensibilidade do scroll horizontal conforme necessário
+		parentElement.scrollLeft = scrollLeft - walk;
+	});
+
+	// Para detecção de toque em dispositivos móveis
+	parentElement.addEventListener('touchstart', function (e) {
+		isDown = true;
+		startX = e.touches[0].pageX - parentElement.offsetLeft;
+		startY = e.touches[0].pageY - parentElement.offsetTop;
+		scrollLeft = parentElement.scrollLeft;
+		scrollTop = parentElement.scrollTop;
+	});
+
+	parentElement.addEventListener('touchend', function () {
+		setTimeout(function () { isDragging = false; }, 50);
+		isDown = false;
+	});
+
+	items.length > 1 && parentElement.addEventListener('touchmove', function (e) {
+		if (!isDown) return;
+		var x = e.touches[0].pageX - parentElement.offsetLeft;
+		var y = e.touches[0].pageY - parentElement.offsetTop;
+		var walkX = (x - startX) * 2; // Ajuste a sensibilidade do scroll horizontal conforme necessário
+		var walkY = (y - startY) * 2; // Ajuste a sensibilidade do scroll vertical conforme necessário
+
+		if (Math.abs(walkY) > Math.abs(walkX)) {
+			// Movimento vertical maior que o horizontal, permite a rolagem vertical
+			return;
+		}
+
+		e.preventDefault(); // Impede a rolagem da página
+
+		parentElement.scrollLeft = scrollLeft - walkX;
+	});
+};
+
 // -------------------
 // Array
 // -------------------
