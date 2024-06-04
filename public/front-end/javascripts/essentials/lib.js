@@ -1581,8 +1581,10 @@ lib.image.carousel = (images, parentElement, cb) => {
 		let image_box = lib.element.create("div", {
 			class: 'box ground border radius-5 margin-right-5',
 			style: images.length > 1 ?
-				'width: 90%;height: 100%;flex-grow: 1;flex-shrink: 0;flex-basis: auto;' :
-				'width: 100%;height: 100%;flex-grow: 1;flex-shrink: 0;flex-basis: auto;'
+				'width: 90%;height: 100%;flex-grow: 1;flex-shrink: 0;flex-basis: auto;\
+				user-select: none;-moz-user-select: none;-webkit-user-drag: none;-webkit-user-select: none;-ms-user-select: none;' :
+				'width: 100%;height: 100%;flex-grow: 1;flex-shrink: 0;flex-basis: auto;\
+				user-select: none;-moz-user-select: none;-webkit-user-drag: none;-webkit-user-select: none;-ms-user-select: none;'
 		});
 		parentElement.append(image_box);
 
@@ -1621,6 +1623,7 @@ lib.image.carousel = (images, parentElement, cb) => {
 	});
 
 	parentElement.addEventListener('mouseleave', function () {
+		setTimeout(function () { isDragging = false; }, 50);
 		isDown = false;
 	});
 
