@@ -1606,7 +1606,7 @@ lib.image = {};
 lib.image.zoom = (image_src) => {
 	let image = lib.element.create("img", {
 		src: image_src,
-		class: "image-prop max-height-500 border center"
+		class: "image-prop max-height-500 center"
 	});
 
 	const focused_btn = document.querySelector(':focus');
@@ -1625,14 +1625,6 @@ lib.image.zoom = (image_src) => {
 		class: "close-container",
 		style: "position: absolute; top: 5px; right: 5px; z-index: 11;" // Estilos ajustados para a posição superior direita
 	});
-	// const close_icon = lib.element.create("div", {
-	// 	class: "rem20 icon pointer center",
-	// 	style: "color: #000;text-shadow:\
-	// 			-1px -1px 0.1px #fff,\
-	//       1px -1px 0.1px #fff,\
-	//       -1px  1px 0.1px #fff,\
-	// 			1px  1px 0.1px #fff;"
-	// }, "&times;");
 
 	let close_icon = lib.element.create("div", {
 		class: "ground border-st size-20 radius-50 padding-1 absolute pointer",
