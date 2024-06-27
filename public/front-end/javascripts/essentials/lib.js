@@ -74,9 +74,22 @@ lib.message = (msg, cb) => {
 	}));
 	msg_popup.append(alert_icon);
 
-	const close_div = lib.element.create("div", { class: "mobile-box a10 center" });
-	const close_icon = lib.element.create("div", { class: "em20 icon pointer" }, "&times;");
+	const close_div = lib.element.create("div", {
+		class: "close-container",
+		style: "position: absolute; top: 5px; right: 5px; z-index: 11;" // Estilos ajustados para a posição superior direita
+	});
+
+	let close_icon = lib.element.create("div", {
+		class: "ground border-st size-20 radius-50 padding-1 absolute pointer",
+		style: "top: 5px; right: 5px;"
+	});
 	close_div.append(close_icon);
+
+	close_icon.append(lib.element.create("img", {
+		class: "size-20 opacity-out-08",
+		src: "/images/icon/close-small.png"
+	}));
+
 	msg_popup.append(close_div);
 
 	msg_popup.append(lib.element.create("div", {
@@ -113,13 +126,22 @@ lib.popup = (element, cb) => {
 	});
 
 	const close_div = lib.element.create("div", {
-		class: "mobile-box a1 container ground center sticky",
-		style: "top: 0;z-index: 10;"
+		class: "close-container",
+		style: "position: absolute; top: 5px; right: 5px; z-index: 11;" // Estilos ajustados para a posição superior direita
 	});
-	msg_popup.append(close_div);
-	close_div.append(lib.element.create("div", { class: "mobile-box b9-10" }));
-	const close_icon = lib.element.create("div", { class: "em20 icon pointer center" }, "&times;");
+
+	let close_icon = lib.element.create("div", {
+		class: "ground border-st size-20 radius-50 padding-1 absolute pointer",
+		style: "top: 5px; right: 5px;"
+	});
 	close_div.append(close_icon);
+
+	close_icon.append(lib.element.create("img", {
+		class: "size-20 opacity-out-08",
+		src: "/images/icon/close-small.png"
+	}));
+
+	msg_popup.append(close_div);
 
 	msg_popup.append(element);
 
@@ -1560,48 +1582,6 @@ lib.localStorage.remove = (item) => {
 };
 
 lib.image = {};
-
-// lib.popup = (element, cb) => {
-// 	const focused_btn = document.querySelector(':focus');
-// 	focused_btn && focused_btn.blur();
-
-// 	const msg_div = lib.element.create("div", {
-// 		class: "msg h-center",
-// 		style: "z-index: 10;"
-// 	});
-// 	const msg_popup = lib.element.create("div", {
-// 		class: "msg-popup box a3-4 container radius-5 scroll-y-auto scroll-small"
-// 	});
-
-// 	const close_div = lib.element.create("div", {
-// 		class: "mobile-box a1 container ground center sticky",
-// 		style: "top: 0;z-index: 10;"
-// 	});
-// 	msg_popup.append(close_div);
-// 	close_div.append(lib.element.create("div", { class: "mobile-box b9-10" }));
-// 	const close_icon = lib.element.create("div", { class: "em20 icon pointer center" }, "&times;");
-// 	close_div.append(close_icon);
-
-// 	msg_popup.append(element);
-
-// 	msg_div.append(msg_popup);
-// 	document.body.append(msg_div);
-// 	document.body.style.overflow = "hidden";
-
-// 	function esc() {
-// 		document.removeEventListener("keydown", keydown);
-// 		document.body.style.overflow = "auto";
-// 		msg_div.remove();
-// 		if (typeof cb === 'function') { return cb(); }
-// 	};
-
-// 	function keydown(e) {
-// 		if (e.keyCode == 27) { esc(); }
-// 	};
-
-// 	close_icon.addEventListener("click", esc);
-// 	document.addEventListener("keydown", keydown);
-// };
 
 lib.image.zoom = (image_src) => {
 	let image = lib.element.create("img", {
