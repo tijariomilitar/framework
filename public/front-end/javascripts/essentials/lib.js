@@ -1640,7 +1640,7 @@ lib.image.zoom = (image_src) => {
 	document.addEventListener("keydown", keydown);
 };
 
-lib.image.carousel = (images, parentElement, cb) => {
+lib.image.drag = (images, parentElement, cb) => {
 	var isDown = false;
 	var isDragging = false;
 	var startX;
@@ -1740,6 +1740,129 @@ lib.image.carousel = (images, parentElement, cb) => {
 		e.preventDefault(); // Impede a rolagem da página
 
 		parentElement.scrollLeft = scrollLeft - walkX;
+	});
+};
+
+lib.image.carousel = (images, parentElement, cb) => {
+	if (images.length > 1) {
+		const leftButton = lib.element.create("div", {
+			class: "close-container opacity-08",
+			style: "display: none;position: absolute; top: 45%; left: 33px; transform: translate(0, 0%); z-index: 1;" // Estilos ajustados para a posição superior direita
+		});
+		parentElement.append(leftButton);
+
+		let leftIcon = lib.element.create("div", {
+			class: "ground border size-20 radius-50 padding-1 absolute pointer",
+			style: "top: 5px; right: 5px;"
+		});
+		leftButton.append(leftIcon);
+
+		leftIcon.append(lib.element.create("img", {
+			class: "size-20 opacity-06",
+			src: "/images/icon/left-arrow.png"
+		}));
+
+		const rightButton = lib.element.create("div", {
+			class: "close-container opacity-08",
+			style: "position: absolute; top: 45%; right: -1px; transform: translate(0, 0%); z-index: 1;" // Estilos ajustados para a posição superior direita
+		});
+		parentElement.append(rightButton);
+
+		let rightIcon = lib.element.create("div", {
+			class: "ground border size-20 radius-50 padding-1 absolute pointer",
+			style: "top: 5px; right: 5px;"
+		});
+		rightButton.append(rightIcon);
+
+		rightIcon.append(lib.element.create("img", {
+			class: "size-20 opacity-06",
+			src: "/images/icon/right-arrow.png"
+		}));
+
+		let image_index = 1;
+
+		function updateArrowPosition(index) {
+			if (index == 1) {
+				lib.display(leftButton, "none");
+			} else {
+				lib.display(leftButton, "");
+			}
+
+			if (index == images.length) {
+				lib.display(rightButton, "none");
+			} else {
+				lib.display(rightButton, "");
+			}
+		};
+
+		leftButton.addEventListener("click", e => {
+			e.stopPropagation();
+
+			let scrollAmount = parentElement.clientWidth;
+			parentElement.scrollLeft += -scrollAmount;
+
+			image_index--;
+			updateArrowPosition(image_index);
+
+			rightButton.style.transform = `translate(${(scrollAmount * (image_index - 1))}px, 0%)`;
+			if (image_index > 1) {
+				leftButton.style.transform = `translate(${(scrollAmount * (image_index - 1))}px, 0%)`;
+			}
+		});
+
+		rightButton.addEventListener("click", e => {
+			e.stopPropagation();
+
+			let scrollAmount = parentElement.clientWidth;
+			parentElement.scrollLeft += scrollAmount;
+
+			image_index++;
+			updateArrowPosition(image_index);
+
+			leftButton.style.transform = `translate(${scrollAmount * (image_index - 1)}px, 0%)`;
+			if (image_index < images.length) {
+				rightButton.style.transform = `translate(${scrollAmount * (image_index - 1)}px, 0%)`;
+			}
+		});
+	}
+
+	images.forEach(function (image) {
+		let image_box = lib.element.create("div", {
+			class: 'box ground',
+			style: images.length > 1 ?
+				'width: 100%;height: 100%;flex-grow: 1;flex-shrink: 0;flex-basis: auto;\
+				user-select: none;-moz-user-select: none;-webkit-user-drag: none;-webkit-user-select: none;-ms-user-select: none;' :
+				'width: 100%;height: 100%;flex-grow: 1;flex-shrink: 0;flex-basis: auto;\
+				user-select: none;-moz-user-select: none;-webkit-user-drag: none;-webkit-user-select: none;-ms-user-select: none;'
+		});
+		parentElement.append(image_box);
+
+		let image_loader = lib.element.create("div", {
+			class: "ground",
+			style: "width: 100%;height:100%;object-fit: contain;\
+			user-select: none;-moz-user-select: none;-webkit-user-drag: none;-webkit-user-select: none;-ms-user-select: none;"
+		});
+		lib.image.loader(image_loader);
+		image_box.append(image_loader);
+
+		let image_div = lib.element.create("img", {
+			'data-src': image.url,
+			class: 'lazy-image',
+			style: "width: 100%;height:100%;object-fit: contain;\
+				user-select: none;-moz-user-select: none;-webkit-user-drag: none;-webkit-user-select: none;-ms-user-select: none;"
+		});
+
+		lib.image.lazy();
+
+		image_div.addEventListener("load", e => {
+			image_loader.remove();
+		});
+
+		image_box.append(image_div);
+
+		cb && image_div.addEventListener("click", () => {
+			cb(image_div.src);
+		});
 	});
 };
 
