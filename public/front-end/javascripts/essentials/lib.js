@@ -1746,37 +1746,39 @@ lib.image.drag = (images, parentElement, cb) => {
 lib.image.carousel = (images, parentElement, cb) => {
 	if (images.length > 1) {
 		const leftButton = lib.element.create("div", {
-			class: "close-container opacity-08",
-			style: "display: none;position: absolute; top: 45%; left: 33px; transform: translate(0, 0%); z-index: 1;" // Estilos ajustados para a posição superior direita
+			class: "close-container opacity-08 noselect",
+			style: "display: none;position: absolute; top: 45%; left: 33px; transform: translate(0, 0%); z-index: 1;-webkit-tap-highlight-color: transparent;outline: none;" // Estilos ajustados para a posição superior direita
 		});
 		parentElement.append(leftButton);
 
 		let leftIcon = lib.element.create("div", {
-			class: "ground border size-20 radius-50 padding-1 absolute pointer",
-			style: "top: 5px; right: 5px;"
+			class: "ground border size-20 radius-50 padding-1 absolute pointer noselect",
+			style: "top: 5px; right: 5px;-webkit-tap-highlight-color: transparent;"
 		});
 		leftButton.append(leftIcon);
 
 		leftIcon.append(lib.element.create("img", {
 			class: "size-20 opacity-06",
-			src: "/images/icon/left-arrow.png"
+			src: "/images/icon/left-arrow.png",
+			style: "-webkit-tap-highlight-color: transparent;"
 		}));
 
 		const rightButton = lib.element.create("div", {
-			class: "close-container opacity-08",
-			style: "position: absolute; top: 45%; right: -1px; transform: translate(0, 0%); z-index: 1;" // Estilos ajustados para a posição superior direita
+			class: "close-container opacity-08 noselect",
+			style: "position: absolute; top: 45%; right: -1px; transform: translate(0, 0%); z-index: 1;-webkit-tap-highlight-color: transparent;outline: none;" // Estilos ajustados para a posição superior direita
 		});
 		parentElement.append(rightButton);
 
 		let rightIcon = lib.element.create("div", {
-			class: "ground border size-20 radius-50 padding-1 absolute pointer",
-			style: "top: 5px; right: 5px;"
+			class: "ground border size-20 radius-50 padding-1 absolute pointer noselect",
+			style: "top: 5px; right: 5px;-webkit-tap-highlight-color: transparent;"
 		});
 		rightButton.append(rightIcon);
 
 		rightIcon.append(lib.element.create("img", {
 			class: "size-20 opacity-06",
-			src: "/images/icon/right-arrow.png"
+			src: "/images/icon/right-arrow.png",
+			style: "-webkit-tap-highlight-color: transparent;"
 		}));
 
 		let image_index = 1;
