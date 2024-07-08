@@ -97,6 +97,10 @@ tr:hover {
 	cursor: pointer;
 }
 
+.zoom-in {
+	cursor: zoom-in;
+}
+
 .grab {
 	cursor: -webkit-grab;
 	cursor: -moz-grab;
@@ -118,10 +122,6 @@ tr:hover {
 	bottom: -45px;
 	cursor: pointer;
 	background-color: transparent;
-}
-
-.zoom-in {
-	cursor: zoom-in;
 }
 
 .wrap {
