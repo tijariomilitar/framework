@@ -1746,7 +1746,7 @@ lib.image.drag = (images, parentElement, cb) => {
 lib.image.carousel = (images, parentElement, cb) => {
 	if (images.length > 1) {
 		const leftButton = lib.element.create("div", {
-			class: "close-container opacity-08 noselect",
+			class: "opacity-08 noselect carousel-btn",
 			style: "display: none;position: absolute; top: 45%; left: 33px; transform: translate(0, 0%); z-index: 1;-webkit-tap-highlight-color: transparent;outline: none;" // Estilos ajustados para a posição superior direita
 		});
 		parentElement.append(leftButton);
@@ -1764,7 +1764,7 @@ lib.image.carousel = (images, parentElement, cb) => {
 		}));
 
 		const rightButton = lib.element.create("div", {
-			class: "close-container opacity-08 noselect",
+			class: "opacity-08 noselect carousel-btn",
 			style: "position: absolute; top: 45%; right: -1px; transform: translate(0, 0%); z-index: 1;-webkit-tap-highlight-color: transparent;outline: none;" // Estilos ajustados para a posição superior direita
 		});
 		parentElement.append(rightButton);

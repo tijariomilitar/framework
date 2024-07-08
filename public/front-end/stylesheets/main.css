@@ -107,6 +107,19 @@ tr:hover {
 	cursor: -moz-grabbing;
 }
 
+.carousel-btn {}
+
+.carousel-btn::before {
+	content: "";
+	position: absolute;
+	top: -10px;
+	left: -40px;
+	right: -5px;
+	bottom: -45px;
+	cursor: pointer;
+	background-color: transparent;
+}
+
 .zoom-in {
 	cursor: zoom-in;
 }
