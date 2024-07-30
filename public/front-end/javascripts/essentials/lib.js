@@ -922,7 +922,7 @@ lib.Carousel = (box, render, items, pagination) => {
 
 	//events
 	navigation_previous.onclick = function () {
-		window.scrollTo(0, box.getBoundingClientRect().top - document.body.getBoundingClientRect().top);
+		box.scrollIntoView({ behavior: 'smooth' });
 		if (pagination.page > 0) {
 			pagination.page--;
 			CarouselPaging();
@@ -931,7 +931,7 @@ lib.Carousel = (box, render, items, pagination) => {
 	};
 
 	navigation_next.onclick = function () {
-		window.scrollTo(0, box.getBoundingClientRect().top - document.body.getBoundingClientRect().top);
+		box.scrollIntoView({ behavior: 'smooth' });
 		if (pagination.page < items.length / pagination.pageSize - 1) {
 			pagination.page++;
 			CarouselPaging();
