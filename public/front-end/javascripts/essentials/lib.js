@@ -2197,6 +2197,8 @@ lib.presentation = (target, text, width, direction, left, top, cb, params) => {
 	});
 };
 
+lib.string = {};
+
 lib.string.gen = (size) => {
 	const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
