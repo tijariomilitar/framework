@@ -873,11 +873,13 @@ lib.Carousel = (box, render, items, pagination) => {
 	let navigation_div = lib.element.create("div", { class: "box b1 container h-center padding-10" });
 	box.append(navigation_div);
 
-	let navigation_previous = lib.element.create("img", { src: "/images/icon/back-arrow-black.png", class: "mobile-box b12 size-30 icon noselect" });
+	let navigation_previous = lib.element.create("button", { class: "mobile-box b12 container noborder noselect center" });
+	navigation_previous.append(lib.element.create("img", { src: "/images/icon/back-arrow-black.png", class: "size-30 center" }));
 	navigation_div.append(navigation_previous);
 	let navigation_span = lib.element.create("span", { class: "mobile-box b2 lucida-grande bold nowrap center noselect" });
 	navigation_div.append(navigation_span);
-	let navigation_next = lib.element.create("img", { src: "/images/icon/next-arrow-black.png", class: "mobile-box b12 size-30 icon noselect" });
+	let navigation_next = lib.element.create("button", { class: "mobile-box b12 container noborder noselect center" });
+	navigation_next.append(lib.element.create("img", { src: "/images/icon/next-arrow-black.png", class: "size-30 center" }));
 	navigation_div.append(navigation_next);
 
 	const CarouselPaging = () => {
@@ -917,26 +919,44 @@ lib.Carousel = (box, render, items, pagination) => {
 				navigation_span.innerHTML = "" + (pagination.page + 1) + " de " + Math.ceil(items.length / pagination.pageSize);
 				navigation_next.disabled = true;
 			};
+
+			if (navigation_previous.disabled == true) {
+				lib.removeCss(navigation_previous, ["icon"]);
+				lib.addCss(navigation_previous, ["opacity-03"]);
+			} else {
+				lib.addCss(navigation_previous, ["icon"]);
+				lib.removeCss(navigation_previous, ["opacity-03"]);
+			}
+
+			if (navigation_next.disabled == true) {
+				lib.removeCss(navigation_next, ["icon"]);
+				lib.addCss(navigation_next, ["opacity-03"]);
+			} else {
+				lib.addCss(navigation_next, ["icon"]);
+				lib.removeCss(navigation_next, ["opacity-03"]);
+			}
 		};
 	};
 
 	//events
 	navigation_previous.onclick = function () {
-		box.scrollIntoView({ behavior: 'smooth' });
 		if (pagination.page > 0) {
 			pagination.page--;
 			CarouselPaging();
 			CarouselNavigation();
 		};
+
+		box.scrollIntoView({ behavior: 'smooth' });
 	};
 
 	navigation_next.onclick = function () {
-		box.scrollIntoView({ behavior: 'smooth' });
 		if (pagination.page < items.length / pagination.pageSize - 1) {
 			pagination.page++;
 			CarouselPaging();
 			CarouselNavigation();
 		};
+
+		box.scrollIntoView({ behavior: 'smooth' });
 	};
 
 	CarouselPaging();
