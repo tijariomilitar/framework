@@ -2196,3 +2196,16 @@ lib.presentation = (target, text, width, direction, left, top, cb, params) => {
 		box_element.remove();
 	});
 };
+
+lib.string.gen = (size) => {
+	const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+	let result = '';
+
+	for (let i = 0; i < size; i++) {
+		const randomIndex = Math.floor(Math.random() * chars.length);
+		result += chars[randomIndex];
+	};
+
+	return result;
+};
