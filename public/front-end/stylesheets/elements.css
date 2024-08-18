@@ -134,3 +134,13 @@
 	background-color: #ff0000;
 	color: #fff;
 }
+
+.btn-alert {
+	background-color: #ff9012;
+	color: #fff;
+}
+
+.btn-alert:hover {
+	background-color: #f38a12;
+	color: #fff;
+}

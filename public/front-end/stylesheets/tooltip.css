@@ -23,11 +23,6 @@
   opacity: 0;
   transition: opacity 0.3s;
   white-space: nowrap;
-  /* Evitar quebras de linha */
-  /* overflow: hidden; */
-  /* Para evitar que palavras longas estourem a tooltip */
-  /* text-overflow: ellipsis; */
-  /* Adicionar reticências caso o texto seja longo demais */
 }
 
 .tooltip:hover .tooltiptext {

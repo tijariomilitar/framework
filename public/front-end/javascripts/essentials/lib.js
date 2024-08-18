@@ -306,7 +306,7 @@ lib.pass = (cb) => {
 	});
 };
 
-lib.confirm = (msg, cb) => {
+lib.confirm = (msg, cb, confirm_message, cancel_message) => {
 	const msg_div = lib.element.create("div", { class: "msg", style: "z-index: 10;" });
 	const msg_popup = lib.element.create("div", { class: "msg-popup container mobile-box b3-4 container border-st radius-5 padding-10" });
 	const alert_icon = lib.element.create("div", { class: "mobile-box a1 center" });
@@ -337,13 +337,13 @@ lib.confirm = (msg, cb) => {
 
 	const confirm_btn = lib.element.create("div", {
 		class: "mobile-box b2 bold btn-act radius-5 padding-10 margin-top-10 center noselect pointer",
-	}, "Confirmar");
+	}, confirm_message || "Confirmar");
 	confirm_btn.addEventListener("click", confirm);
 	msg_popup.append(confirm_btn);
 
 	const cancel_btn = lib.element.create("div", {
 		class: "mobile-box b2 bold btn-cancel radius-5 padding-10 margin-top-10 center noselect pointer",
-	}, "cancelar");
+	}, cancel_message || "cancelar");
 	cancel_btn.addEventListener("click", cancel);
 	msg_popup.append(cancel_btn);
 
