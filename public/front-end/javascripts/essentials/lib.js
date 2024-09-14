@@ -1991,8 +1991,8 @@ lib.element.info = (box, param, paramValue) => {
 
 lib.element.createInfo = (css, param, value, param_css, value_css) => {
 	let divParent = lib.element.create("div", { class: css });
-	let divParam = lib.element.create("div", { class: `mobile-box b1 em07 ${param_css}` }, param);
-	let divValue = lib.element.create("div", { class: `mobile-box b1 ${value_css}` }, value);
+	let divParam = lib.element.create("div", { class: param_css ? param_css : `mobile-box b1 em07` }, param);
+	let divValue = lib.element.create("div", { class: value_css ? value_css : `mobile-box b1 ${value_css}` }, value);
 
 	divParent.appendChild(divParam);
 	divParent.appendChild(divValue);
