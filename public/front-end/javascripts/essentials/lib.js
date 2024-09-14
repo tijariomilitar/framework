@@ -2031,6 +2031,70 @@ lib.element.rotate = (el, deg, dir = 'right', transit = true) => {
 	el.dataset.rotation = currentRotation.toString();
 };
 
+lib.element.move = (follower, target, speed, cb, followerToAbsolute, sticky) => {
+	follower.dataset.position = follower.dataset.position == undefined ? follower.style.position : follower.dataset.position;
+	follower.style.position = "absolute";
+
+	// Pega as posições atuais dos elementos
+	const targetRect = target.getBoundingClientRect();
+	const followerRect = follower.getBoundingClientRect();
+
+	// Calcula as distâncias entre o seguidor e o alvo
+	let dy;
+	let dx;
+	dy = targetRect.top - followerRect.top
+	dx = targetRect.left - followerRect.left;
+	const distance = Math.sqrt(dx * dx + dy * dy);
+
+	if (distance > speed) {
+		follower.style.left = (followerRect.left) + (dx * (speed / 100)) + 'px';
+
+		if (sticky) {
+			follower.style.top = parseInt(follower.style.top) + (dy * (speed / 100)) + 'px';
+		} else {
+			follower.style.top = followerRect.top + (dy * (speed / 100)) + 'px';
+		}
+
+		requestAnimationFrame(() => lib.element.move(follower, target, speed, cb, followerToAbsolute, sticky));
+	} else {
+		if (!followerToAbsolute) { follower.style.position = follower.dataset.position; }
+		if (cb) { cb() }
+	}
+}
+
+lib.element.scaleUp = (target, { maxWidth, maxHeight, speed }, cb) => {
+	target.style.width = (parseInt(target.style.width) + (speed || 4)) + 'px';
+	target.style.height = (parseInt(target.style.height) + (speed || 4)) + 'px';
+
+	target.style.left = (parseInt(target.style.left) - ((speed || 4) / 2)) + 'px';
+	target.style.top = (parseInt(target.style.top) - ((speed || 4) / 2)) + 'px';
+
+	if (parseInt(target.style.width) >= maxWidth && parseInt(target.style.height) >= maxHeight) {
+		console.log('scaleUp cb');
+		cb();
+	} else {
+		requestAnimationFrame(() => { lib.element.scaleUp(target, { maxWidth, maxHeight }, cb) });
+	}
+};
+
+lib.element.scaleDown = (target, { minWidth, minHeight, speed }, cb) => {
+	if (parseInt(target.style.width) > minWidth) {
+		target.style.width = (parseInt(target.style.width) - (speed || 4)) + 'px';
+		target.style.left = (parseInt(target.style.left) + (speed || 4) / 2) + 'px';
+	}
+
+	if (parseInt(target.style.height) > minHeight) {
+		target.style.height = (parseInt(target.style.height) - (speed || 4)) + 'px';
+		target.style.top = (parseInt(target.style.top) + ((speed || 4) / 2)) + 'px';
+	}
+
+	if (parseInt(target.style.width) <= minWidth && parseInt(target.style.height) <= minHeight) {
+		cb();
+	} else {
+		requestAnimationFrame(() => { lib.element.scaleDown(target, { minWidth, minHeight }, cb) });
+	}
+};
+
 // drag and drop
 lib.drag = {};
 
@@ -2210,4 +2274,30 @@ lib.string.gen = (size) => {
 	};
 
 	return result;
+};
+
+lib.string.cut = (str, index) => {
+	if (str.length > index) {
+		return str.substring(0, index);
+	}
+	return str;
+}
+
+lib.base64 = {}
+
+lib.base64.toBlob = (base64, contentType = 'image/png') => {
+	const byteCharacters = atob(base64.split(',')[1]);
+	const byteArrays = [];
+
+	for (let offset = 0; offset < byteCharacters.length; offset += 512) {
+		const slice = byteCharacters.slice(offset, offset + 512);
+		const byteNumbers = new Array(slice.length);
+		for (let i = 0; i < slice.length; i++) {
+			byteNumbers[i] = slice.charCodeAt(i);
+		}
+		const byteArray = new Uint8Array(byteNumbers);
+		byteArrays.push(byteArray);
+	}
+
+	return new Blob(byteArrays, { type: contentType });
 };
