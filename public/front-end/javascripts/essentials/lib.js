@@ -812,6 +812,22 @@ lib.mask.cnpj = (input) => {
 	}
 };
 
+lib.mask.cpf = (input) => {
+	let cpf = input.value.replace(/\D/g, '');
+
+	if (cpf.length == 0) {
+		input.value = '';
+	} else if (cpf.length <= 3) {
+		input.value = cpf;
+	} else if (cpf.length <= 6) {
+		input.value = cpf.substring(0, 3) + '.' + cpf.substring(3);
+	} else if (cpf.length <= 9) {
+		input.value = cpf.substring(0, 3) + '.' + cpf.substring(3, 6) + '.' + cpf.substring(6);
+	} else {
+		input.value = cpf.substring(0, 3) + '.' + cpf.substring(3, 6) + '.' + cpf.substring(6, 9) + '-' + cpf.substring(9);
+	}
+};
+
 lib.verifyEmail = (email) => {
 	var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
