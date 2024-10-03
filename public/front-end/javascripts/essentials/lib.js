@@ -172,7 +172,7 @@ lib.popout = element => {
 lib.auth = (message, cb) => {
 	let auth = "";
 
-	const auth_div = lib.element.create("div", { class: "auth-div", style: "z-index: 9;" });
+	const auth_div = lib.element.create("div", { class: "auth-div", style: "z-index: 10;" });
 	const auth_content = lib.element.create("div", { class: "auth-content container box b3-4 container border-st radius-5 padding-10" });
 	auth_div.append(auth_content);
 
