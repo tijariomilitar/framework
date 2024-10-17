@@ -1653,14 +1653,14 @@ lib.image.zoom = (image_src) => {
 	}));
 
 	let image_box = lib.element.create("div", {
-		class: "ground center radius-2 max-height-500 scroll-hide scroll-line",
+		class: "center radius-2 max-height-500 scroll-hide scroll-line",
 		style: "user-select: none;-moz-user-select: none;-webkit-user-drag: none;-webkit-user-select: none;-ms-user-select: none;"
 	});
 	msg_popup.append(image_box);
 
 	let image = lib.element.create("img", {
 		src: image_src,
-		class: "image-prop max-height-500 center",
+		class: "ground image-prop max-height-500 radius-2 center",
 		style: "user-select: none;-moz-user-select: none;-webkit-user-drag: none;-webkit-user-select: none;-ms-user-select: none;"
 	});
 	image_box.append(image);
