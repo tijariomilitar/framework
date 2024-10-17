@@ -1704,15 +1704,18 @@ lib.image.zoom = (image_src) => {
 			if (zoom_status == "on") {
 				image.height = initial_height;
 				image.width = initial_width;
-				lib.removeCss(image, ["scroll-y", "scroll-x"]);
-				lib.addCss(image, ["image-prop", "max-height-500", "scroll-hide"]);
+				lib.removeCss(image_box, ["scroll-y", "scroll-x"]);
+				lib.addCss(image_box, ["scroll-hide"]);
+				lib.addCss(image, ["image-prop", "max-height-500"]);
+				// scroll-y scroll-x
 			}
 
 			if (zoom_status == "off") {
 				image.height = parseInt(image.height) * 2;
 				image.width = parseInt(image.width) * 2;
-				lib.removeCss(image, ["image-prop", "max-height-500", "scroll-hide"]);
-				lib.addCss(image, ["scroll-y", "scroll-x"]);
+				lib.removeCss(image_box, ["scroll-hide"]);
+				lib.addCss(image_box, ["scroll-y", "scroll-x"]);
+				lib.removeCss(image, ["image-prop", "max-height-500"]);
 			}
 
 			// Ajusta o scroll para centralizar no ponto clicado
