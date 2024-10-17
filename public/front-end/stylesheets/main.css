@@ -285,8 +285,6 @@ tr:hover {
 	background: var(--ground);
 }
 
-//
-
 .scroll-line {
 	overflow-y: auto;
 }

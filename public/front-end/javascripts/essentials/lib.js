@@ -1653,7 +1653,7 @@ lib.image.zoom = (image_src) => {
 	}));
 
 	let image_box = lib.element.create("div", {
-		class: "center max-height-500 scroll-y scroll-x scroll-line",
+		class: "center max-height-500 scroll-hide scroll-line",
 		style: "user-select: none;-moz-user-select: none;-webkit-user-drag: none;-webkit-user-select: none;-ms-user-select: none;"
 	});
 	msg_popup.append(image_box);
@@ -1704,13 +1704,15 @@ lib.image.zoom = (image_src) => {
 			if (zoom_status == "on") {
 				image.height = initial_height;
 				image.width = initial_width;
-				lib.addCss(image, ["image-prop", "max-height-500"]);
+				lib.removeCss(image, ["scroll-y", "scroll-x"]);
+				lib.addCss(image, ["image-prop", "max-height-500", "scroll-hide"]);
 			}
 
 			if (zoom_status == "off") {
 				image.height = parseInt(image.height) * 2;
 				image.width = parseInt(image.width) * 2;
-				lib.removeCss(image, ["image-prop", "max-height-500"]);
+				lib.removeCss(image, ["image-prop", "max-height-500", "scroll-hide"]);
+				lib.addCss(image, ["scroll-y", "scroll-x"]);
 			}
 
 			// Ajusta o scroll para centralizar no ponto clicado
