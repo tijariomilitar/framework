@@ -284,3 +284,30 @@ tr:hover {
 .scroll-small::-webkit-scrollbar-corner {
 	background: var(--ground);
 }
+
+//
+
+.scroll-line {
+	overflow-y: auto;
+}
+
+/* Estilo da barra de rolagem */
+.scroll-line::-webkit-scrollbar {
+	width: 1px;
+	height: 1px;
+}
+
+/* Estilo da trilha do scroll */
+.scroll-line::-webkit-scrollbar-track {
+	background: var(--solid);
+}
+
+/* Estilo do indicador de rolagem (thumb) */
+.scroll-line::-webkit-scrollbar-thumb {
+	background: var(--strong);
+}
+
+/* Estilo do canto entre a barra de rolagem e o indicador de rolagem */
+.scroll-line::-webkit-scrollbar-corner {
+	background: var(--ground);
+}

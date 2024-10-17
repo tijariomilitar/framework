@@ -1620,11 +1620,6 @@ lib.localStorage.remove = (item) => {
 lib.image = {};
 
 lib.image.zoom = (image_src) => {
-	let image = lib.element.create("img", {
-		src: image_src,
-		class: "image-prop max-height-500 center"
-	});
-
 	const focused_btn = document.querySelector(':focus');
 	focused_btn && focused_btn.blur();
 
@@ -1632,18 +1627,22 @@ lib.image.zoom = (image_src) => {
 		class: "msg h-center",
 		style: "z-index: 10;"
 	});
+	document.body.append(msg_div);
+
 	const msg_popup = lib.element.create("div", {
-		class: "msg-popup box a3-4 container radius-5 scroll-y-auto scroll-x-hide scroll-small",
-		style: "position: relative;" // Adicionei position: relative para o msg_popup
+		class: "msg-popup box a3-4 radius-5",
+		style: "position: relative;"
 	});
+	msg_div.append(msg_popup);
 
 	const close_div = lib.element.create("div", {
 		class: "close-container",
 		style: "position: absolute; top: 5px; right: 5px; z-index: 11;" // Estilos ajustados para a posição superior direita
 	});
+	msg_popup.append(close_div);
 
 	let close_icon = lib.element.create("div", {
-		class: "ground border-st size-20 radius-50 padding-1 absolute pointer",
+		class: "ground border-st size-20 radius-50 padding-1 absolute pointer noselect",
 		style: "top: 5px; right: 5px;"
 	});
 	close_div.append(close_icon);
@@ -1653,12 +1652,19 @@ lib.image.zoom = (image_src) => {
 		src: "/images/icon/close-small.png"
 	}));
 
-	msg_popup.append(close_div);
+	let image_box = lib.element.create("div", {
+		class: "center max-height-500 scroll-y scroll-x scroll-line",
+		style: "user-select: none;-moz-user-select: none;-webkit-user-drag: none;-webkit-user-select: none;-ms-user-select: none;"
+	});
+	msg_popup.append(image_box);
 
-	msg_popup.append(image);
+	let image = lib.element.create("img", {
+		src: image_src,
+		class: "image-prop max-height-500 center",
+		style: "user-select: none;-moz-user-select: none;-webkit-user-drag: none;-webkit-user-select: none;-ms-user-select: none;"
+	});
+	image_box.append(image);
 
-	msg_div.append(msg_popup);
-	document.body.append(msg_div);
 	document.body.style.overflow = "hidden";
 
 	function esc() {
@@ -1674,14 +1680,89 @@ lib.image.zoom = (image_src) => {
 
 	close_icon.addEventListener("click", esc);
 	document.addEventListener("keydown", keydown);
+
+	let isDown = false;
+	let isDragging = false;
+	let startX;
+	let startY;
+	let scrollLeft;
+	let scrollTop;
+
+	let zoom_status = "off";
+	let initial_height;
+	let initial_width;
+
+	image.addEventListener("click", async (e) => {
+		initial_height = initial_height || image.height;
+		initial_width = initial_width || image.width;
+
+		if (!isDragging) {
+			let rect = image.getBoundingClientRect();
+			let clickX = e.pageX - rect.left;
+			let clickY = e.pageY - rect.top;
+
+			if (zoom_status == "on") {
+				image.height = initial_height;
+				image.width = initial_width;
+				lib.addCss(image, ["image-prop", "max-height-500"]);
+			}
+
+			if (zoom_status == "off") {
+				image.height = parseInt(image.height) * 2;
+				image.width = parseInt(image.width) * 2;
+				lib.removeCss(image, ["image-prop", "max-height-500"]);
+			}
+
+			// Ajusta o scroll para centralizar no ponto clicado
+			let imageBoxWidth = image_box.clientWidth;
+			let imageBoxHeight = image_box.clientHeight;
+			let newScrollLeft = (clickX * 2) - imageBoxWidth / 2;
+			let newScrollTop = (clickY * 2) - imageBoxHeight / 2;
+
+			image_box.scrollLeft = newScrollLeft;
+			image_box.scrollTop = newScrollTop;
+
+			zoom_status = zoom_status == "on" ? "off" : "on";
+		}
+	});
+
+	image_box.addEventListener('mousedown', function (e) {
+		isDown = true;
+		startX = e.pageX - image_box.offsetLeft;
+		startY = e.pageY - image_box.offsetTop;
+		scrollLeft = image_box.scrollLeft;
+		scrollTop = image_box.scrollTop;
+	});
+
+	image_box.addEventListener('mouseleave', function () {
+		setTimeout(function () { isDragging = false; }, 50);
+		isDown = false;
+	});
+
+	image_box.addEventListener('mouseup', function () {
+		setTimeout(function () { isDragging = false; }, 50);
+		isDown = false;
+	});
+
+	image_box.addEventListener('mousemove', function (e) {
+		if (!isDown) return;
+		isDragging = true;
+		e.preventDefault();
+		let x = e.pageX - image_box.offsetLeft;
+		let y = e.pageY - image_box.offsetTop;
+		let walkX = (x - startX) * 2; // Ajuste a sensibilidade do scroll horizontal conforme necessário
+		let walkY = (y - startY) * 2; // Ajuste a sensibilidade do scroll horizontal conforme necessário
+		image_box.scrollLeft = scrollLeft - walkX;
+		image_box.scrollTop = scrollTop - walkY;
+	});
 };
 
 lib.image.drag = (images, parentElement, cb) => {
-	var isDown = false;
-	var isDragging = false;
-	var startX;
-	var startY;
-	var scrollLeft;
+	let isDown = false;
+	let isDragging = false;
+	let startX;
+	let startY;
+	let scrollLeft;
 
 	images.forEach(function (image) {
 		let image_box = lib.element.create("div", {
@@ -1722,6 +1803,7 @@ lib.image.drag = (images, parentElement, cb) => {
 		});
 	});
 
+	// Para detecção de mouse
 	parentElement.addEventListener('mousedown', function (e) {
 		isDown = true;
 		startX = e.pageX - parentElement.offsetLeft;
