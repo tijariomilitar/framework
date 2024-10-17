@@ -64,7 +64,7 @@ lib.message = (msg, cb) => {
 	focused_btn && focused_btn.blur();
 
 	const msg_div = lib.element.create("div", { class: "msg", style: "z-index: 10;" });
-	const msg_popup = lib.element.create("div", { class: "msg-popup container box b3-4 container border-st radius-5 padding-10" });
+	const msg_popup = lib.element.create("div", { class: "msg-popup container ground box b3-4 container border-st radius-5 padding-10" });
 	msg_popup.append(lib.element.create("div", { class: "mobile-box b10" }));
 
 	const alert_icon = lib.element.create("div", { class: "mobile-box b4-5 center" });
@@ -122,7 +122,7 @@ lib.popup = (element, cb) => {
 		style: "z-index: 10;"
 	});
 	const msg_popup = lib.element.create("div", {
-		class: "msg-popup box a3-4 container radius-5 scroll-y-auto scroll-small"
+		class: "msg-popup box a3-4 container ground radius-5 scroll-y-auto scroll-small"
 	});
 
 	const close_div = lib.element.create("div", {
@@ -308,7 +308,7 @@ lib.pass = (cb) => {
 
 lib.confirm = (msg, cb, confirm_message, cancel_message) => {
 	const msg_div = lib.element.create("div", { class: "msg", style: "z-index: 10;" });
-	const msg_popup = lib.element.create("div", { class: "msg-popup container mobile-box b3-4 container border-st radius-5 padding-10" });
+	const msg_popup = lib.element.create("div", { class: "msg-popup container ground mobile-box b3-4 container border-st radius-5 padding-10" });
 	const alert_icon = lib.element.create("div", { class: "mobile-box a1 center" });
 	alert_icon.append(lib.element.create("img", { src: "https://wt-images-cdn.sfo3.cdn.digitaloceanspaces.com/lib.images/alert.png", class: "image-prop size-30 noselect" }))
 	msg_popup.append(alert_icon);
@@ -355,7 +355,7 @@ lib.confirm = (msg, cb, confirm_message, cancel_message) => {
 
 lib.cookieConfirm = (msg, cb) => {
 	const msg_div = lib.element.create("div", { class: "msg", style: "z-index: 10;" });
-	const msg_popup = lib.element.create("div", { class: "msg-popup container mobile-box b3-4 container border-st radius-5 padding-10" });
+	const msg_popup = lib.element.create("div", { class: "msg-popup container ground mobile-box b3-4 container border-st radius-5 padding-10" });
 	const alert_icon = lib.element.create("div", { class: "mobile-box a1 center" });
 	alert_icon.append(lib.element.create("img", { src: "https://wt-images-cdn.sfo3.cdn.digitaloceanspaces.com/lib.images/alert.png", class: "image-prop size-30 noselect" }))
 	msg_popup.append(alert_icon);
@@ -1653,7 +1653,7 @@ lib.image.zoom = (image_src) => {
 	}));
 
 	let image_box = lib.element.create("div", {
-		class: "center max-height-500 scroll-hide scroll-line",
+		class: "ground center radius-2 max-height-500 scroll-hide scroll-line",
 		style: "user-select: none;-moz-user-select: none;-webkit-user-drag: none;-webkit-user-select: none;-ms-user-select: none;"
 	});
 	msg_popup.append(image_box);
@@ -1707,7 +1707,6 @@ lib.image.zoom = (image_src) => {
 				lib.removeCss(image_box, ["scroll-y", "scroll-x"]);
 				lib.addCss(image_box, ["scroll-hide"]);
 				lib.addCss(image, ["image-prop", "max-height-500"]);
-				// scroll-y scroll-x
 			}
 
 			if (zoom_status == "off") {
