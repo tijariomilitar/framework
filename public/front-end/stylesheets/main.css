@@ -101,6 +101,10 @@ tr:hover {
 	cursor: zoom-in;
 }
 
+.zoom-out {
+	cursor: zoom-out;
+}
+
 .grab {
 	cursor: -webkit-grab;
 	cursor: -moz-grab;

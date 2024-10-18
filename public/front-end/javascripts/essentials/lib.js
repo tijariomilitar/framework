@@ -1653,7 +1653,7 @@ lib.image.zoom = (image_src) => {
 	}));
 
 	let image_box = lib.element.create("div", {
-		class: "center radius-2 max-height-500 scroll-hide scroll-line",
+		class: "ground center radius-2 max-height-500 scroll-hide scroll-line",
 		style: "user-select: none;-moz-user-select: none;-webkit-user-drag: none;-webkit-user-select: none;-ms-user-select: none;"
 	});
 	msg_popup.append(image_box);
@@ -1706,15 +1706,17 @@ lib.image.zoom = (image_src) => {
 				image.width = initial_width;
 				lib.removeCss(image_box, ["scroll-y", "scroll-x"]);
 				lib.addCss(image_box, ["scroll-hide"]);
-				lib.addCss(image, ["image-prop", "max-height-500"]);
+				lib.addCss(image, ["image-prop", "max-height-500", "zoom-in"]);
+				lib.removeCss(image, ["grab"]);
 			}
 
 			if (zoom_status == "off") {
-				image.height = parseInt(image.height) * 2;
-				image.width = parseInt(image.width) * 2;
+				image.height = parseInt(initial_height) * 2;
+				image.width = parseInt(initial_width) * 2;
 				lib.removeCss(image_box, ["scroll-hide"]);
 				lib.addCss(image_box, ["scroll-y", "scroll-x"]);
-				lib.removeCss(image, ["image-prop", "max-height-500"]);
+				lib.removeCss(image, ["image-prop", "max-height-500", "zoom-in"]);
+				lib.addCss(image, ["grab"]);
 			}
 
 			// Ajusta o scroll para centralizar no ponto clicado
