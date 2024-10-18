@@ -1660,7 +1660,7 @@ lib.image.zoom = (image_src) => {
 
 	let image = lib.element.create("img", {
 		src: image_src,
-		class: "ground image-prop max-height-500 radius-2 center",
+		class: "ground image-prop max-height-500 radius-2 center zoom-in",
 		style: "user-select: none;-moz-user-select: none;-webkit-user-drag: none;-webkit-user-select: none;-ms-user-select: none;"
 	});
 	image_box.append(image);
