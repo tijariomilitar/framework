@@ -1701,11 +1701,6 @@ lib.image.zoom = (image_src) => {
 			let clickX = e.pageX - rect.left + window.scrollX;
 			let clickY = e.pageY - rect.top - window.scrollY;
 
-			console.log('e.pageY', e.pageY);
-			console.log('clickX', clickX);
-			console.log('clickY', clickY);
-			console.log('window.scrollY', window.scrollY);
-
 			if (zoom_status == "on") {
 				image.height = initial_height;
 				image.width = initial_width;
