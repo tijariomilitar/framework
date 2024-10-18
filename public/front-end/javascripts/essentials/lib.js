@@ -1653,7 +1653,7 @@ lib.image.zoom = (image_src) => {
 	}));
 
 	let image_box = lib.element.create("div", {
-		class: "ground center radius-2 max-height-500 scroll-hide scroll-line",
+		class: "ground radius-2 max-height-500 scroll-hide scroll-line center",
 		style: "user-select: none;-moz-user-select: none;-webkit-user-drag: none;-webkit-user-select: none;-ms-user-select: none;"
 	});
 	msg_popup.append(image_box);
@@ -1661,7 +1661,7 @@ lib.image.zoom = (image_src) => {
 	let image = lib.element.create("img", {
 		src: image_src,
 		class: "ground image-prop max-height-500 radius-2 center zoom-in",
-		style: "user-select: none;-moz-user-select: none;-webkit-user-drag: none;-webkit-user-select: none;-ms-user-select: none;"
+		style: "display:block;user-select: none;-moz-user-select: none;-webkit-user-drag: none;-webkit-user-select: none;-ms-user-select: none;"
 	});
 	image_box.append(image);
 
@@ -1698,8 +1698,13 @@ lib.image.zoom = (image_src) => {
 
 		if (!isDragging) {
 			let rect = image.getBoundingClientRect();
-			let clickX = e.pageX - rect.left;
-			let clickY = e.pageY - rect.top;
+			let clickX = e.pageX - rect.left + window.scrollX;
+			let clickY = e.pageY - rect.top - window.scrollY;
+
+			console.log('e.pageY', e.pageY);
+			console.log('clickX', clickX);
+			console.log('clickY', clickY);
+			console.log('window.scrollY', window.scrollY);
 
 			if (zoom_status == "on") {
 				image.height = initial_height;
