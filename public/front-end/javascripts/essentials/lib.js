@@ -985,11 +985,11 @@ lib.Carousel = (box, render, items, pagination) => {
 	let items_div = lib.element.create("div", { class: "box b1 container h-center" });
 	box.append(items_div);
 
-	let navigation_div = lib.element.create("div", { class: "box b1 container h-center padding-10 margin-top-10" });
+	let navigation_div = lib.element.create("div", { class: "box b1 container h-center margin-top-10 margin-bottom-10" });
 	box.append(navigation_div);
 
 	let navigation_previous = lib.element.create("button", {
-		class: "mobile-box b6 avante-garde rem15 bold box-hover noborder shadow-lg-st radius-3 padding-2 center pointer"
+		class: "mobile-box b6 rem09 impact bold box-hover noborder shadow-lg-st radius-3 padding-2 center pointer"
 	}, "<");
 	navigation_div.append(navigation_previous);
 
@@ -997,7 +997,7 @@ lib.Carousel = (box, render, items, pagination) => {
 	navigation_div.append(navigation_page_container);
 
 	let navigation_next = lib.element.create("button", {
-		class: "mobile-box b6 avante-garde rem15 bold box-hover noborder shadow-lg-st radius-3 padding-2 center pointer"
+		class: "mobile-box b6 rem09 impact bold box-hover noborder shadow-lg-st radius-3 padding-2 center pointer"
 	}, ">");
 	navigation_div.append(navigation_next);
 
@@ -1024,7 +1024,7 @@ lib.Carousel = (box, render, items, pagination) => {
 		// Cria botões para as páginas visíveis
 		for (let i = startPage; i < endPage; i++) {
 			let pageButton = lib.element.create("div", {
-				class: "mobile-box b5 rem09 box-hover shadow-lg-st radius-3 padding-2 center pointer"
+				class: "mobile-box b5 impact rem09 bold box-hover shadow-lg-st radius-3 padding-2 center pointer"
 			}, (i + 1));
 
 			if (i === pagination.page) {
