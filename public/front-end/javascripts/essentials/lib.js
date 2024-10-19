@@ -989,16 +989,16 @@ lib.Carousel = (box, render, items, pagination) => {
 	box.append(navigation_div);
 
 	let navigation_previous = lib.element.create("button", {
-		class: "mobile-box b6 rem15 box-hover noborder shadow-lg-st radius-3 padding-2 center pointer"
-	}, "&#9664;");
+		class: "mobile-box b6 avante-garde rem15 bold box-hover noborder shadow-lg-st radius-3 padding-2 center pointer"
+	}, "<");
 	navigation_div.append(navigation_previous);
 
 	let navigation_page_container = lib.element.create("div", { class: "mobile-box b2 container h-center v-center" });
 	navigation_div.append(navigation_page_container);
 
 	let navigation_next = lib.element.create("button", {
-		class: "mobile-box b6 rem15 box-hover noborder shadow-lg-st radius-3 padding-2 center pointer"
-	}, "&#9654;");
+		class: "mobile-box b6 avante-garde rem15 bold box-hover noborder shadow-lg-st radius-3 padding-2 center pointer"
+	}, ">");
 	navigation_div.append(navigation_next);
 
 	const CarouselPaging = () => {
