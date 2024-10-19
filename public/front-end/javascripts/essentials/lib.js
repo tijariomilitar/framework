@@ -880,22 +880,125 @@ lib.collide = (r1, r2) => {
 // -------------------
 
 // Simple Image or Banner Carousel
+// lib.Carousel = (box, render, items, pagination) => {
+// 	box.innerHTML = "";
+
+// 	let items_div = lib.element.create("div", { class: "box b1 container h-center" });
+// 	box.append(items_div);
+
+// 	let navigation_div = lib.element.create("div", { class: "box b1 container h-center padding-10" });
+// 	box.append(navigation_div);
+
+// 	let navigation_previous = lib.element.create("button", { class: "mobile-box b12 container noborder noselect center" });
+// 	navigation_previous.append(lib.element.create("img", { src: "/images/icon/back-arrow-black.png", class: "size-30 center" }));
+// 	navigation_div.append(navigation_previous);
+// 	let navigation_span = lib.element.create("span", { class: "mobile-box b2 lucida-grande bold nowrap center noselect" });
+// 	navigation_div.append(navigation_span);
+// 	let navigation_next = lib.element.create("button", { class: "mobile-box b12 container noborder noselect center" });
+// 	navigation_next.append(lib.element.create("img", { src: "/images/icon/next-arrow-black.png", class: "size-30 center" }));
+// 	navigation_div.append(navigation_next);
+
+// 	const CarouselPaging = () => {
+// 		items_div.innerHTML = "";
+// 		render(items, pagination, items_div);
+// 	};
+
+// 	const CarouselNavigation = () => {
+// 		if (!items.length) {
+// 			navigation_previous.disabled = true;
+// 			navigation_span.innerHTML = " 0 ";
+// 			navigation_next.disabled = true;
+// 		};
+
+// 		if (items.length && items.length <= pagination.pageSize) {
+// 			navigation_previous.disabled = true;
+// 			navigation_span.innerHTML = "1 de 1";
+// 			navigation_next.disabled = true;
+// 		};
+
+// 		if (items.length > pagination.pageSize) {
+// 			if (pagination.page <= 0) {
+// 				pagination.page = 0;
+// 				navigation_previous.disabled = true;
+// 				navigation_span.innerHTML = "" + (pagination.page + 1) + " de " + Math.ceil(items.length / pagination.pageSize);
+// 				navigation_next.disabled = false;
+// 			};
+
+// 			if (pagination.page > 0 && pagination.page < (items.length / pagination.pageSize) - 1) {
+// 				navigation_previous.disabled = false;
+// 				navigation_span.innerHTML = "" + (pagination.page + 1) + " de " + Math.ceil(items.length / pagination.pageSize);
+// 				navigation_next.disabled = false;
+// 			};
+
+// 			if (pagination.page >= (items.length / pagination.pageSize) - 1) {
+// 				navigation_previous.disabled = false;
+// 				navigation_span.innerHTML = "" + (pagination.page + 1) + " de " + Math.ceil(items.length / pagination.pageSize);
+// 				navigation_next.disabled = true;
+// 			};
+
+// 			if (navigation_previous.disabled == true) {
+// 				lib.removeCss(navigation_previous, ["icon"]);
+// 				lib.addCss(navigation_previous, ["opacity-03"]);
+// 			} else {
+// 				lib.addCss(navigation_previous, ["icon"]);
+// 				lib.removeCss(navigation_previous, ["opacity-03"]);
+// 			}
+
+// 			if (navigation_next.disabled == true) {
+// 				lib.removeCss(navigation_next, ["icon"]);
+// 				lib.addCss(navigation_next, ["opacity-03"]);
+// 			} else {
+// 				lib.addCss(navigation_next, ["icon"]);
+// 				lib.removeCss(navigation_next, ["opacity-03"]);
+// 			}
+// 		};
+// 	};
+
+// 	//events
+// 	navigation_previous.onclick = function () {
+// 		if (pagination.page > 0) {
+// 			pagination.page--;
+// 			CarouselPaging();
+// 			CarouselNavigation();
+// 		};
+
+// 		box.scrollIntoView({ behavior: 'smooth' });
+// 	};
+
+// 	navigation_next.onclick = function () {
+// 		if (pagination.page < items.length / pagination.pageSize - 1) {
+// 			pagination.page++;
+// 			CarouselPaging();
+// 			CarouselNavigation();
+// 		};
+
+// 		box.scrollIntoView({ behavior: 'smooth' });
+// 	};
+
+// 	CarouselPaging();
+// 	CarouselNavigation();
+// };
+
 lib.Carousel = (box, render, items, pagination) => {
 	box.innerHTML = "";
 
 	let items_div = lib.element.create("div", { class: "box b1 container h-center" });
 	box.append(items_div);
 
-	let navigation_div = lib.element.create("div", { class: "box b1 container h-center padding-10" });
+	let navigation_div = lib.element.create("div", { class: "box b1 container h-center padding-10 margin-top-10" });
 	box.append(navigation_div);
 
-	let navigation_previous = lib.element.create("button", { class: "mobile-box b12 container noborder noselect center" });
-	navigation_previous.append(lib.element.create("img", { src: "/images/icon/back-arrow-black.png", class: "size-30 center" }));
+	let navigation_previous = lib.element.create("button", {
+		class: "mobile-box b6 rem15 box-hover noborder shadow-lg-st radius-3 padding-2 center pointer"
+	}, "&#9664;");
 	navigation_div.append(navigation_previous);
-	let navigation_span = lib.element.create("span", { class: "mobile-box b2 lucida-grande bold nowrap center noselect" });
-	navigation_div.append(navigation_span);
-	let navigation_next = lib.element.create("button", { class: "mobile-box b12 container noborder noselect center" });
-	navigation_next.append(lib.element.create("img", { src: "/images/icon/next-arrow-black.png", class: "size-30 center" }));
+
+	let navigation_page_container = lib.element.create("div", { class: "mobile-box b2 container h-center v-center" });
+	navigation_div.append(navigation_page_container);
+
+	let navigation_next = lib.element.create("button", {
+		class: "mobile-box b6 rem15 box-hover noborder shadow-lg-st radius-3 padding-2 center pointer"
+	}, "&#9654;");
 	navigation_div.append(navigation_next);
 
 	const CarouselPaging = () => {
@@ -903,55 +1006,64 @@ lib.Carousel = (box, render, items, pagination) => {
 		render(items, pagination, items_div);
 	};
 
+	const createPageButtons = () => {
+		navigation_page_container.innerHTML = "";
+
+		const totalPages = Math.ceil(items.length / pagination.pageSize);
+		const maxVisibleButtons = 5; // Número de botões visíveis ao mesmo tempo
+
+		// Calcula o intervalo de botões visíveis
+		let startPage = Math.max(0, pagination.page - Math.floor(maxVisibleButtons / 2));
+		let endPage = Math.min(totalPages, startPage + maxVisibleButtons);
+
+		// Se o número de páginas visíveis for menor que o máximo, ajusta o início
+		if (endPage - startPage < maxVisibleButtons) {
+			startPage = Math.max(0, endPage - maxVisibleButtons);
+		}
+
+		// Cria botões para as páginas visíveis
+		for (let i = startPage; i < endPage; i++) {
+			let pageButton = lib.element.create("div", {
+				class: "mobile-box b5 rem09 box-hover shadow-lg-st radius-3 padding-2 center pointer"
+			}, (i + 1));
+
+			if (i === pagination.page) {
+				console.log(i);
+				lib.addCss(pageButton, ["disabled", "bg-disabled"]);
+			}
+
+			pageButton.onclick = () => {
+				pagination.page = i;
+				CarouselPaging();
+				CarouselNavigation();
+				box.scrollIntoView({ behavior: 'smooth' });
+			};
+
+			navigation_page_container.append(pageButton);
+		}
+	};
+
 	const CarouselNavigation = () => {
 		if (!items.length) {
 			navigation_previous.disabled = true;
-			navigation_span.innerHTML = " 0 ";
 			navigation_next.disabled = true;
-		};
+			return;
+		}
 
-		if (items.length && items.length <= pagination.pageSize) {
+		if (pagination.page <= 0) {
 			navigation_previous.disabled = true;
-			navigation_span.innerHTML = "1 de 1";
+		} else {
+			navigation_previous.disabled = false;
+		}
+
+		if (pagination.page >= Math.ceil(items.length / pagination.pageSize) - 1) {
 			navigation_next.disabled = true;
-		};
+		} else {
+			navigation_next.disabled = false;
+		}
 
-		if (items.length > pagination.pageSize) {
-			if (pagination.page <= 0) {
-				pagination.page = 0;
-				navigation_previous.disabled = true;
-				navigation_span.innerHTML = "" + (pagination.page + 1) + " de " + Math.ceil(items.length / pagination.pageSize);
-				navigation_next.disabled = false;
-			};
-
-			if (pagination.page > 0 && pagination.page < (items.length / pagination.pageSize) - 1) {
-				navigation_previous.disabled = false;
-				navigation_span.innerHTML = "" + (pagination.page + 1) + " de " + Math.ceil(items.length / pagination.pageSize);
-				navigation_next.disabled = false;
-			};
-
-			if (pagination.page >= (items.length / pagination.pageSize) - 1) {
-				navigation_previous.disabled = false;
-				navigation_span.innerHTML = "" + (pagination.page + 1) + " de " + Math.ceil(items.length / pagination.pageSize);
-				navigation_next.disabled = true;
-			};
-
-			if (navigation_previous.disabled == true) {
-				lib.removeCss(navigation_previous, ["icon"]);
-				lib.addCss(navigation_previous, ["opacity-03"]);
-			} else {
-				lib.addCss(navigation_previous, ["icon"]);
-				lib.removeCss(navigation_previous, ["opacity-03"]);
-			}
-
-			if (navigation_next.disabled == true) {
-				lib.removeCss(navigation_next, ["icon"]);
-				lib.addCss(navigation_next, ["opacity-03"]);
-			} else {
-				lib.addCss(navigation_next, ["icon"]);
-				lib.removeCss(navigation_next, ["opacity-03"]);
-			}
-		};
+		// Atualiza os botões de navegação das páginas
+		createPageButtons();
 	};
 
 	//events

@@ -40,6 +40,11 @@ select:required:invalid {
 	color: var(--disabled);
 }
 
+.disabled {
+	pointer-events: none;
+	opacity: 0.5;
+}
+
 .hide-disabled [value=""][disabled] {
 	display: none;
 }

@@ -1,158 +1,188 @@
 <!DOCTYPE html>
 <html>
-	<head>
-        <%- include ('partials/head') %>
-        <%- include ('partials/header') %>
-	</head>
-	<body>
-        <%- include ('partials/nav') %>
-		<div class="container">
-			<div class="box b1 em20 italic avant-garde padding-10 center">BoxChain framework</div>
 
-			<div class="box b1 container ground padding-10 margin-top-10">
-				<div class="box b3 avant-garde padding-10">
-					BoxChain is a framework designed to create html/css/js interfaces keeping things responsive, native and simple.
-					<br><br>
-					Even having some stylesheets the main focus is not to make beautiful websites but to build the structure of systems solving positioning elements on screen problems and to provide tools to handle these informations while keep it simple, light, and easy to read and to maintenance. (Fully open source, colaborations are welcome).
-					<div class="box b1 border padding-10 margin-top-5">
-						<div class="box b1 bold underline center avant-garde">Is it better than Bootstrap and others front-end frameworks?</div>
-						<div class="box b1 margin-top-5 padding-5 avant-garde">
-							In general the aswer is not. Common frameworks gives you all the tools you need to create easily beautiful websites, if you need something really well styled and polished fast, go for it.
-						</div>
-					</div>
-					<div class="box b1 border padding-10 margin-top-5">
-						<div class="box b1 bold underline center avant-garde">So, why should I use it?</div>
-						<div class="box b1 margin-top-5 padding-5 avant-garde">
-							The first and more important thing is that it keep your project light and fully native, this way is easy to keep evolving your sistem as JS and CSS evolves itself.
-						</div>
-						<div class="box b1 margin-top-5 padding-5 avant-garde">
-							If you are a begginer or need to create a MVP of something it will be the best option as it is easy to understand how things works on the background, because the architecture is based on "box positioning" and not "grid" like most frameworks.
-						</div>
-					</div>
-					<div class="box b1 container padding-10 margin-top-10">
-						<div class="mobile-box b5"><img class='opacity-hover-08 pointer size-45' onclick="openNav()" src="/images/favicon/doc-icon.png"></div>
-						<div class="mobile-box b4-5 avant-garde">Read the documentation to understand better how it all work.</div>
+<head>
+	<%- include ('partials/head') %>
+	<%- include ('partials/header') %>
+</head>
+
+<body>
+	<%- include ('partials/nav') %>
+	<div class="container">
+		<div class="box b1 em20 italic avant-garde padding-10 center">BoxChain framework</div>
+
+		<div class="box b1 container ground padding-10 margin-top-10">
+			<div class="box b3 avant-garde padding-10">
+				BoxChain is a framework designed to create html/css/js interfaces keeping things responsive, native and simple.
+				<br><br>
+				Even having some stylesheets the main focus is not to make beautiful websites but to build the structure of
+				systems solving positioning elements on screen problems and to provide tools to handle these informations while
+				keep it simple, light, and easy to read and to maintenance. (Fully open source, colaborations are welcome).
+				<div class="box b1 border padding-10 margin-top-5">
+					<div class="box b1 bold underline center avant-garde">Is it better than Bootstrap and others front-end
+						frameworks?</div>
+					<div class="box b1 margin-top-5 padding-5 avant-garde">
+						In general the aswer is not. Common frameworks gives you all the tools you need to create easily beautiful
+						websites, if you need something really well styled and polished fast, go for it.
 					</div>
 				</div>
-				<div class="box b2-3 container border avant-garde padding-10 margin-top-10 scroll-y height-800">
-					<div class="box b1 avant-garde em15 underline center">Interface Tolls</div>
-					<div class="box b2 avant-garde padding-10">
-						<div class="box b1 avant-garde underline center bold">Containers</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Class that allows boxes positioning (required as parent when creating box chaining);</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● It can also make awesome split interfaces sections;</div>
+				<div class="box b1 border padding-10 margin-top-5">
+					<div class="box b1 bold underline center avant-garde">So, why should I use it?</div>
+					<div class="box b1 margin-top-5 padding-5 avant-garde">
+						The first and more important thing is that it keep your project light and fully native, this way is easy to
+						keep evolving your sistem as JS and CSS evolves itself.
 					</div>
-					<div class="box b2 avant-garde padding-10">
-						<div class="box b1 avant-garde underline center bold">Boxes</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">
-							● It supports boxes inside boxes if the parent box is a container.
-								<br>
-							● Responsible mobile-box to positioning on mobile
-						</div>
+					<div class="box b1 margin-top-5 padding-5 avant-garde">
+						If you are a begginer or need to create a MVP of something it will be the best option as it is easy to
+						understand how things works on the background, because the architecture is based on "box positioning" and
+						not "grid" like most frameworks.
 					</div>
-					<div class="box b2 avant-garde padding-10">
-						<div class="box b1 avant-garde underline center bold">Responsivity</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Fully responsive to any screen, destop or mobile.</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Responsive sizes to texts.</div>
+				</div>
+				<div class="box b1 container padding-10 margin-top-10">
+					<div class="mobile-box b5"><img class='opacity-hover-08 pointer size-45' onclick="openNav()"
+							src="/images/favicon/doc-icon.png"></div>
+					<div class="mobile-box b4-5 avant-garde">Read the documentation to understand better how it all work.</div>
+				</div>
+			</div>
+			<div class="box b2-3 container border avant-garde padding-10 margin-top-10 scroll-y height-800">
+				<div class="box b1 avant-garde em15 underline center">Interface Tolls</div>
+				<div class="box b2 avant-garde padding-10">
+					<div class="box b1 avant-garde underline center bold">Containers</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Class that allows boxes positioning (required as
+						parent when creating box chaining);</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● It can also make awesome split interfaces sections;
 					</div>
-					<div class="box b2 avant-garde padding-10">
-						<div class="box b1 avant-garde underline center bold">Fonts</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● All native fonts included as css classes (need only to reference as it's names)</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Manually set Font sizes as 'em' classes. (default em10, keep responsive) </div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● General options as bold, italic and more...</div>
+				</div>
+				<div class="box b2 avant-garde padding-10">
+					<div class="box b1 avant-garde underline center bold">Boxes</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">
+						● It supports boxes inside boxes if the parent box is a container.
+						<br>
+						● Responsible mobile-box to positioning on mobile
 					</div>
-					<div class="box b2 avant-garde padding-10">
-						<div class="box b1 avant-garde underline center bold">Position</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Margin classes up to 15px</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Padding classes up to 15px</div>
+				</div>
+				<div class="box b2 avant-garde padding-10">
+					<div class="box b1 avant-garde underline center bold">Responsivity</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Fully responsive to any screen, destop or mobile.
 					</div>
-					<div class="box b2 avant-garde padding-10">
-						<div class="box b1 avant-garde underline center bold">Size</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Height classes up to 1000px</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Width classes up to 1000px</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Size classes up to 1000px</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Responsive sizes to texts.</div>
+				</div>
+				<div class="box b2 avant-garde padding-10">
+					<div class="box b1 avant-garde underline center bold">Fonts</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● All native fonts included as css classes (need only
+						to reference as it's names)</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Manually set Font sizes as 'em' classes. (default
+						em10, keep responsive) </div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● General options as bold, italic and more...</div>
+				</div>
+				<div class="box b2 avant-garde padding-10">
+					<div class="box b1 avant-garde underline center bold">Position</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Margin classes up to 15px</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Padding classes up to 15px</div>
+				</div>
+				<div class="box b2 avant-garde padding-10">
+					<div class="box b1 avant-garde underline center bold">Size</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Height classes up to 1000px</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Width classes up to 1000px</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Size classes up to 1000px</div>
+				</div>
+				<div class="box b2 avant-garde padding-10">
+					<div class="box b1 avant-garde underline center bold">Image</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Image size, display and opacity handlers</div>
+				</div>
+				<div class="box b2 avant-garde padding-10">
+					<div class="box b1 avant-garde underline center bold">Dropdown</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Easy native css chaining dropdown (Powerfull tool to
+						access database information dinamically)</div>
+				</div>
+				<div class="box b2 avant-garde padding-10">
+					<div class="box b1 avant-garde underline center bold">Carousel</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● There's two diferent types of carousel</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● 1 - Static Carousel, proper to show images or
+						information</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● 2 - Dinamic Carousel, proper to show database (JS
+						library)</div>
+				</div>
+				<div class="box b2 container avant-garde padding-10">
+					<div class="box b1 avant-garde underline center bold">General Elements</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Lot of tools to use in specific situations, like
+						header, nav, shadow, underline, borders, hide, fades and much more.</div>
+				</div>
+				<br><br>
+				<div class="box b1 avant-garde em15 underline center">Javascript Library</div>
+				<div class="box b2 avant-garde padding-10">
+					<div class="box b1 avant-garde underline center bold">Date</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Generate Date, Full date, pattern date(USA) and
+						timestamp;</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Convert Date, Full date and pattern date(USA) to
+						timestamp;</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Convert timestamp to Date, Full date and pattern
+						date(USA);</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Fill Date and datetime input;</div>
+				</div>
+				<div class="box b2 avant-garde padding-10">
+					<div class="box b1 avant-garde underline center bold">Math</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Round to integer (3 numbers calculation);</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Round to decimal (custom);</div>
+				</div>
+				<div class="box b2 avant-garde padding-10">
+					<div class="box b1 avant-garde underline center bold">Text</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Split text by reference;</div>
+				</div>
+				<div class="box b2 avant-garde padding-10">
+					<div class="box b1 avant-garde underline center bold">DOM Elements</div>
+					<div class="box b1 padding-5 margin-top-5">● Display/hide element;</div>
+					<div class="box b1 padding-5 margin-top-5">● Clear element;</div>
+				</div>
+				<div class="box b2 avant-garde padding-10">
+					<div class="box b1 avant-garde underline center bold">Dinamic Carousel</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● A carousel made using closure;</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Useful to show database information protecting data
+						from being modified;</div>
+				</div>
+				<div class="box b2 avant-garde padding-10">
+					<div class="box b1 avant-garde underline center bold">Kart</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● A simple powerful kart in one line;</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Allows include one kart inside another (needed to
+						custom some functions based on your demand);</div>
+				</div>
+				<div class="box b2 container avant-garde padding-10">
+					<div class="box b1 avant-garde underline center bold">Adress</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Request data and fill address form;</div>
+				</div>
+				<div class="box b2 container avant-garde padding-10">
+					<div class="box b1 avant-garde underline center bold">LocalStorage</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Handlers to save, edit and remove localStorage data;
 					</div>
-					<div class="box b2 avant-garde padding-10">
-						<div class="box b1 avant-garde underline center bold">Image</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Image size, display and opacity handlers</div>
+				</div>
+				<div class="box b2 container avant-garde padding-10">
+					<div class="box b1 avant-garde underline center bold">Arrays</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Sort elements by property;</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Get last index;</div>
+				</div>
+				<div class="box b2 container avant-garde padding-10">
+					<div class="box b1 avant-garde underline center bold">Links</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Handler to open a new tab instead redirecting the
+						page;</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Handler to http/https if the address is not complete;
 					</div>
-					<div class="box b2 avant-garde padding-10">
-						<div class="box b1 avant-garde underline center bold">Dropdown</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Easy native css chaining dropdown (Powerfull tool to access database information dinamically)</div>
-					</div>
-					<div class="box b2 avant-garde padding-10">
-						<div class="box b1 avant-garde underline center bold">Carousel</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● There's two diferent types of carousel</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● 1 - Static Carousel, proper to show images or information</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● 2 - Dinamic Carousel, proper to show database (JS library)</div>
-					</div>
-					<div class="box b2 container avant-garde padding-10">
-						<div class="box b1 avant-garde underline center bold">General Elements</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Lot of tools to use in specific situations, like header, nav, shadow, underline, borders, hide, fades and much more.</div>
-					</div>
-					<br><br>
-					<div class="box b1 avant-garde em15 underline center">Javascript Library</div>
-					<div class="box b2 avant-garde padding-10">
-						<div class="box b1 avant-garde underline center bold">Date</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Generate Date, Full date, pattern date(USA) and timestamp;</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Convert Date, Full date and pattern date(USA) to timestamp;</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Convert timestamp to Date, Full date and pattern date(USA);</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Fill Date and datetime input;</div>
-					</div>
-					<div class="box b2 avant-garde padding-10">
-						<div class="box b1 avant-garde underline center bold">Math</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Round to integer (3 numbers calculation);</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Round to decimal (custom);</div>
-					</div>
-					<div class="box b2 avant-garde padding-10">
-						<div class="box b1 avant-garde underline center bold">Text</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Split text by reference;</div>
-					</div>
-					<div class="box b2 avant-garde padding-10">
-						<div class="box b1 avant-garde underline center bold">DOM Elements</div>
-						<div class="box b1 padding-5 margin-top-5">● Display/hide element;</div>
-						<div class="box b1 padding-5 margin-top-5">● Clear element;</div>
-					</div>
-					<div class="box b2 avant-garde padding-10">
-						<div class="box b1 avant-garde underline center bold">Dinamic Carousel</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● A carousel made using closure;</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Useful to show database information protecting data from being modified;</div>
-					</div>
-					<div class="box b2 avant-garde padding-10">
-						<div class="box b1 avant-garde underline center bold">Kart</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● A simple powerful kart in one line;</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Allows include one kart inside another (needed to custom some functions based on your demand);</div>
-					</div>
-					<div class="box b2 container avant-garde padding-10">
-						<div class="box b1 avant-garde underline center bold">Adress</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Request data and fill address form;</div>
-					</div>
-					<div class="box b2 container avant-garde padding-10">
-						<div class="box b1 avant-garde underline center bold">LocalStorage</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Handlers to save, edit and remove localStorage data;</div>
-					</div>
-					<div class="box b2 container avant-garde padding-10">
-						<div class="box b1 avant-garde underline center bold">Arrays</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Sort elements by property;</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Get last index;</div>
-					</div>
-					<div class="box b2 container avant-garde padding-10">
-						<div class="box b1 avant-garde underline center bold">Links</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Handler to open a new tab instead redirecting the page;</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Handler to http/https if the address is not complete;</div>
-					</div>
-					<div class="box b1 avant-garde em15 underline center">API Handler</div>
-					<div class="box b2 container avant-garde padding-10">
-						<div class="box b1 avant-garde underline center bold">Front-end API Handler</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Automatize API response;</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● Verify if there's a message, an error or a successful response;</div>
-					</div>
-					<div class="box b2 container avant-garde padding-10">
-						<div class="box b1 avant-garde underline center bold">Back-end API Pattern</div>
-						<div class="box b1 avant-garde padding-5 margin-top-5">● To use Front-end Handler is stricted to follow the same back-end pattern to avoid unexpected errors;</div>
-					</div>
+				</div>
+				<div class="box b1 avant-garde em15 underline center">API Handler</div>
+				<div class="box b2 container avant-garde padding-10">
+					<div class="box b1 avant-garde underline center bold">Front-end API Handler</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Automatize API response;</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● Verify if there's a message, an error or a successful
+						response;</div>
+				</div>
+				<div class="box b2 container avant-garde padding-10">
+					<div class="box b1 avant-garde underline center bold">Back-end API Pattern</div>
+					<div class="box b1 avant-garde padding-5 margin-top-5">● To use Front-end Handler is stricted to follow the
+						same back-end pattern to avoid unexpected errors;</div>
 				</div>
 			</div>
 		</div>
-	</body>
-    <%- include ('partials/footer') %>
+	</div>
+</body>
+<%- include ('partials/footer') %>
+
 </html>
