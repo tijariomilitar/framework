@@ -1028,7 +1028,6 @@ lib.Carousel = (box, render, items, pagination) => {
 			}, (i + 1));
 
 			if (i === pagination.page) {
-				console.log(i);
 				lib.addCss(pageButton, ["disabled", "bg-disabled"]);
 			}
 

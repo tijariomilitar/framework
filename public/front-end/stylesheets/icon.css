@@ -1,0 +1,138 @@
+/* cart-icon */
+.icon-cart {
+  width: 35px;
+  height: 35px;
+  position: relative;
+}
+
+.cart-basket {
+  width: 20px;
+  height: 0px;
+  position: absolute;
+  top: 8.5px;
+  left: 5.5px;
+  border-top: 10px solid var(--cart-color);
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-radius: 2px;
+}
+
+.cart-basket::before {
+  content: "";
+  width: 3px;
+  height: 0px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-top: 2px solid var(--cart-color);
+  border-left: 2px solid transparent;
+  border-right: 15px solid transparent;
+  border-radius: 5px solid;
+}
+
+.cart-basket::after {
+  content: "";
+  width: 18px;
+  height: 2.5px;
+  position: absolute;
+  top: 4px;
+  left: 1.5px;
+  background-color: var(--cart-color);
+  border-radius: 2px;
+}
+
+.cart-line {
+  width: 2px;
+  height: 20px;
+  background-color: var(--cart-color);
+  position: absolute;
+  top: 5px;
+  left: 7px;
+  transform: translateX(-50%);
+  border-radius: 5px;
+  transform: rotate(-15deg);
+}
+
+.cart-strap {
+  width: 5px;
+  height: 2px;
+  background-color: var(--cart-color);
+  position: absolute;
+  top: 5px;
+  left: 1.5px;
+  border-radius: 5px;
+}
+
+.cart-wheel-left {
+  width: 5px;
+  height: 5px;
+  background-color: var(--cart-color);
+  position: absolute;
+  top: 26.5px;
+  left: 11px;
+  border-radius: 50%;
+}
+
+.cart-wheel-right {
+  width: 5px;
+  height: 5px;
+  background-color: var(--cart-color);
+  position: absolute;
+  top: 26.5px;
+  left: 21px;
+  border-radius: 50%;
+}
+
+/* search-icon */
+.search-icon {
+  width: 35px;
+  height: 35px;
+  position: relative;
+}
+
+.search-circle {
+  width: 17px;
+  height: 17px;
+  position: absolute;
+  top: 4px;
+  left: 3px;
+  border-radius: 50%;
+  border: 2px solid var(--search-color);
+}
+
+.search-detail {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  border-radius: 50%;
+  top: 6.5px;
+  left: 6.5px;
+  border: 1.5px solid var(--search-color);
+  border-right: none;
+  border-bottom: none;
+  border-left: none;
+  transform: rotate(-45deg);
+}
+
+.search-line {
+  width: 2px;
+  height: 10px;
+  background-color: var(--search-color);
+  position: absolute;
+  top: 20px;
+  left: 23px;
+  transform: translateX(-50%);
+  border-radius: 5px;
+  transform: rotate(-45deg);
+}
+
+.search-line::before {
+  content: "";
+  width: 4px;
+  height: 10px;
+  background-color: var(--search-color);
+  position: absolute;
+  top: 4px;
+  left: -1px;
+  border-radius: 5px;
+}
