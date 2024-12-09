@@ -7,7 +7,11 @@
     }, num);
 
     number.addEventListener("click", e => {
-      lib.message(`Número ${num} excluído!`, () => {
+      let message = lib.element.create("div", {
+        class: "mobile-box b3 lucida-grande bold border-lg-st radius-10 padding-30 center pointer"
+      }, `Número ${num} excluído!`);
+
+      lib.popup(message, () => {
         number.remove();
       });
     });

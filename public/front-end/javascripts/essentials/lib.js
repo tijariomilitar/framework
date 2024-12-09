@@ -3,6 +3,24 @@
 // -------------------
 const lib = {};
 
+lib.historyStack = [];
+
+lib.pushStateToStack = (stateObject, esc) => {
+	lib.historyStack.push({ stateObject, esc });
+	history.pushState(stateObject, '');
+}
+
+lib.popStateFromStack = () => {
+	lib.historyStack.pop();
+};
+
+window.addEventListener('popstate', () => {
+	console.log(lib.historyStack.length);
+	if (lib.historyStack.length > 0) {
+		lib.historyStack[lib.historyStack.length - 1].esc('popstate');
+	}
+});
+
 // Essa função será desativada, utilizar lib.message
 lib.msg = (msg) => {
 	if (!document.getElementById("msg")) {
@@ -99,16 +117,27 @@ lib.message = (msg, cb) => {
 	msg_div.append(msg_popup);
 	document.body.append(msg_div);
 
-	function esc() {
+	function esc(from) {
+		if (from != "popstate") {
+			return history.back();
+		}
+
+		lib.popStateFromStack();
 		document.removeEventListener("keydown", keydown);
 		msg_div.remove();
 		if (typeof cb === 'function') { return cb(); }
-	};
+	}
 
 	function keydown(e) {
 		if (e.keyCode == 27) { esc(); }
 	};
 
+	// Exemplo de uso:
+	let popupId = lib.string.gen(5);
+	lib.pushStateToStack({ popupId: popupId }, esc);
+
+	msg_div.addEventListener("click", esc);
+	msg_popup.addEventListener("click", e => e.stopPropagation());
 	close_icon.addEventListener("click", esc);
 	document.addEventListener("keydown", keydown);
 };
@@ -149,17 +178,27 @@ lib.popup = (element, cb) => {
 	document.body.append(msg_div);
 	document.body.style.overflow = "hidden";
 
-	function esc() {
+	function esc(from) {
+		if (from != "popstate") {
+			return history.back();
+		}
+
+		lib.popStateFromStack();
 		document.removeEventListener("keydown", keydown);
-		document.body.style.overflow = "auto";
 		msg_div.remove();
 		if (typeof cb === 'function') { return cb(); }
-	};
+	}
 
 	function keydown(e) {
 		if (e.keyCode == 27) { esc(); }
 	};
 
+	// Exemplo de uso:
+	let popupId = lib.string.gen(5);
+	lib.pushStateToStack({ popupId: popupId }, esc);
+
+	msg_div.addEventListener("click", esc);
+	msg_popup.addEventListener("click", e => e.stopPropagation());
 	close_icon.addEventListener("click", esc);
 	document.addEventListener("keydown", keydown);
 };
@@ -1778,17 +1817,28 @@ lib.image.zoom = (image_src) => {
 
 	document.body.style.overflow = "hidden";
 
-	function esc() {
+	function esc(from) {
+		if (from != "popstate") {
+			return history.back();
+		}
+
+		lib.popStateFromStack();
 		document.removeEventListener("keydown", keydown);
 		document.body.style.overflow = "auto";
 		msg_div.remove();
 		if (typeof cb === 'function') { return cb(); }
-	};
+	}
 
 	function keydown(e) {
 		if (e.keyCode == 27) { esc(); }
 	};
 
+	// Exemplo de uso:
+	let popupId = lib.string.gen(5);
+	lib.pushStateToStack({ popupId: popupId }, esc);
+
+	msg_div.addEventListener("click", esc);
+	msg_popup.addEventListener("click", e => e.stopPropagation());
 	close_icon.addEventListener("click", esc);
 	document.addEventListener("keydown", keydown);
 
