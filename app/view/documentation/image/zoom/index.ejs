@@ -7,16 +7,34 @@
 
 <body>
   <%- include ('./../../../partials/nav') %>
-</body>
 
-<script>
-  document.addEventListener("DOMContentLoaded", async () => {
-    lib.image.zoom('https://cotalogo.sfo3.digitaloceanspaces.com/production/1720016620866-IMG_20240619_WA0024.webp');
-  });
-</script>
+  <div id="image-box" class="box b1 container"></div>
+</body>
 
 <footer>
   <%- include ('./../../../partials/footer') %>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const image_box = document.getElementById("image-box");
+
+      ["https://cotalogo.sfo3.digitaloceanspaces.com/production/1728859997991-IMG_20240817_WA0012.webp",
+        "https://cotalogo.sfo3.digitaloceanspaces.com/production/1729012235212-IMG_20240529_145108_136.webp",
+        "https://cotalogo.sfo3.digitaloceanspaces.com/production/1729023143907-IMG_20230805_161543_068_095622.webp"
+      ].forEach(image_url => {
+        let image_div = lib.element.create("img", {
+          src: image_url,
+          class: "mobile-box b3 image-prop radius-5 max-height-300"
+        });
+
+        image_div.addEventListener("click", () => {
+          lib.image.zoom(image_url);
+        });
+
+        image_box.append(image_div);
+      });
+    });
+  </script>
 </footer>
 
 </html>
