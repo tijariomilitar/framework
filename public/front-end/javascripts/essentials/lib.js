@@ -185,6 +185,7 @@ lib.popup = (element, cb) => {
 
 		lib.popStateFromStack();
 		document.removeEventListener("keydown", keydown);
+		document.body.style.overflow = "auto";
 		msg_div.remove();
 		if (typeof cb === 'function') { return cb(); }
 	}
