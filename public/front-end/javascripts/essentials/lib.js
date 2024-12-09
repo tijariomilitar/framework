@@ -15,7 +15,6 @@ lib.popStateFromStack = () => {
 };
 
 window.addEventListener('popstate', () => {
-	console.log(lib.historyStack.length);
 	if (lib.historyStack.length > 0) {
 		lib.historyStack[lib.historyStack.length - 1].esc('popstate');
 	}
@@ -205,6 +204,7 @@ lib.popup = (element, cb) => {
 };
 
 lib.popout = element => {
+	history.back();
 	element.parentNode.parentNode.remove();
 	document.body.style.overflow = "auto";
 };
