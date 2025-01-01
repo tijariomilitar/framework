@@ -106,12 +106,12 @@
 }
 
 .btn-act {
-	background-color: #245ae5;
+	background-color: #356ae6;
 	color: #fff;
 }
 
 .btn-act:hover {
-	background-color: #356ae6;
+	background-color: #245ae5;
 	color: #fff;
 }
 
