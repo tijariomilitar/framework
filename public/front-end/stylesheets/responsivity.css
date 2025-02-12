@@ -24,37 +24,16 @@
 }
 
 @media print {
-	section {
-		margin: 0px;
-		padding: 0px;
-		width: 100%;
-	}
-	section .container {
-		display: block;
-		width: 100%;
-		text-align: center;
-	}
-	.box, .mobile-box {
-		display: inline-block;
-		page-break-inside:avoid;
-	}
-	.three, .four, .five {
-		width: 31.8%;
-	}
-
 	.noprint,
 	.noprint * {
 		display: none !important;
 	}
-
 	.pagebreak {
 		page-break-before: auto;
 	}
-
 	.container {
 		page-break-inside: avoid;
 	}
-
 	.p-box {
 		box-sizing: border-box;
 		align-self: flex-start;

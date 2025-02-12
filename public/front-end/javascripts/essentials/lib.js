@@ -2666,32 +2666,6 @@ lib.print = (print_element) => {
     type: "text/css"
   }));
 
-  let printStyles = `
-	  @media print {
-		.noprint,
-		.noprint * {
-		  display: none !important;
-		}
-		.pagebreak {
-		  page-break-before: auto;
-		}
-		.container {
-		  page-break-inside: avoid;
-		}
-		.p-box {
-		  box-sizing: border-box;
-		  align-self: flex-start;
-		}
-	  }
-	`;
-
-  let styleElement = lib.element.create("style", {
-    type: "text/css"
-  });
-
-  styleElement.appendChild(document.createTextNode(printStyles));
-  printWindow.document.head.append(styleElement);
-
   let container = lib.element.create("div", {
     class: "p-box a1 container"
   });
