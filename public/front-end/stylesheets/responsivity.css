@@ -41,6 +41,24 @@
 	.three, .four, .five {
 		width: 31.8%;
 	}
+
+	.noprint,
+	.noprint * {
+		display: none !important;
+	}
+
+	.pagebreak {
+		page-break-before: auto;
+	}
+
+	.container {
+		page-break-inside: avoid;
+	}
+
+	.p-box {
+		box-sizing: border-box;
+		align-self: flex-start;
+	}
 }
 
 .em01 { font-size: 0.1em; }
