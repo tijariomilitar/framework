@@ -2501,9 +2501,6 @@ lib.rgbToHex = (rgb) => {
 };
 
 lib.presentation = (target, text, width, direction, left, top, cb, params) => {
-  // let overlay_div = lib.element.create("div", { class: "presentation-overlay" });
-  // document.body.append(overlay_div);
-  // Overlay must be created outside, so it can be removed after used
   lib.addCss(target, ["presentation-element"]);
 
   let box_element = lib.element.create("div", {
@@ -2672,10 +2669,22 @@ lib.print = (print_element) => {
 
   printWindow.document.body.append(container);
 
+  // Btn to action
+  let print_btn = lib.element.create("div", {
+    class: "box b1 container icon noprint padding-10 pointer"
+  });
+  container.append(print_btn);
+
+  print_btn.append(lib.element.create("div", {
+    class: "mobile-box b2 right v-center"
+  }, "Imprimir conteúdo"));
+
+  print_btn.append(lib.element.icon("b10", "25", "/images/icon/print.png"));
+
   // Use the element
   container.append(print_element);
 
-  printWindow.addEventListener("DOMContentLoaded", () => {
-    window.print();
+  print_btn.addEventListener("click", () => {
+    printWindow.print();
   });
 };
