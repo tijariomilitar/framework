@@ -2275,13 +2275,23 @@ lib.element.param = (box, param, element, option) => {
   return divParent;
 };
 
-lib.element.infoInput = (box, param, paramValue, input_id) => {
-  let divParent = lib.element.create("div", { class: "mobile-box " + box + " container border padding-5 margin-top-5" });
-  let divParam = lib.element.create("div", { class: "mobile-box b1 em06" }, param);
-  let divValue = lib.element.create("input", { id: input_id, class: "mobile-box b1" }, paramValue);
+lib.element.infoInput = (css, param, paramValue, input_id, param_css, value_css, attributes = {}) => {
+  let divParent = lib.element.create("div", { class: css });
+  let divParam = lib.element.create("div", { class: param_css ? param_css : `mobile-box b1 em07` }, param);
+
+  let inputAttributes = {
+    id: input_id,
+    class: value_css ? value_css : `mobile-box b1 ${value_css}`,
+    value: paramValue,
+    type: attributes.type || "text", // Define 'type' como 'text' se não for fornecido
+    ...attributes // Adiciona os demais atributos
+  };
+
+  let divValue = lib.element.create("input", inputAttributes);
 
   divParent.appendChild(divParam);
   divParent.appendChild(divValue);
+
   return divParent;
 };
 
