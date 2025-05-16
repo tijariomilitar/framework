@@ -223,6 +223,9 @@
 .bg-strong { background-color: var(--strong); color: #fff; }
 .bg-color { background-color: var(--color); }
 .bg-red { background-color: #ff3232; color: #fff; }
+.bg-purple { background-color: #643296; color: #fff; }
+.bg-blue { background-color: #3232ff; color: #fff; }
+.bg-orange { background-color: #ff9632; color: #fff; }
 
 .color-bg { color: var(--background); }
 .color-ground { color: var(--ground); }
