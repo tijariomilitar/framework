@@ -226,6 +226,7 @@
 .bg-purple { background-color: #643296; color: #fff; }
 .bg-blue { background-color: #3232ff; color: #fff; }
 .bg-orange { background-color: #ff9632; color: #fff; }
+.bg-green { background-color: #10913c; color: #fff; }
 
 .color-bg { color: var(--background); }
 .color-ground { color: var(--ground); }
@@ -236,4 +237,4 @@
 .color-color { color: var(--color); }
 .color-blue { color: #245ae5 }
 .color-red { color: #ff0000 }
-.color-green { color: #10c73c }
+.color-green { color: #10913c }
