@@ -16,6 +16,9 @@
 .shadow-st-hover {}
 .shadow-st-hover:hover { box-shadow:2px 2px 4px var(--strong); }
 
+.text-shadow-nn-lg { transition: text-shadow 0.3s ease; }
+.text-shadow-nn-lg:hover { text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4); }
+
 /* Borders */
 .noborder { border: none; outline:none; }
 
