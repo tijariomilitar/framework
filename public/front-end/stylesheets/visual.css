@@ -19,6 +19,8 @@
 .text-shadow-nn-lg { transition: text-shadow 0.3s ease; }
 .text-shadow-nn-lg:hover { text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4); }
 
+.text-shadow {text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);}
+
 /* Borders */
 .noborder { border: none; outline:none; }
 
@@ -51,6 +53,8 @@
 .border-bottom-lg-st { border-top: none; border-left: none; border-right: none; border-bottom: 1px solid var(--light); outline:none; }
 .border-bottom-lg-st:hover { border-top: none; border-left: none; border-right: none; border-bottom: 1px solid var(--strong); outline:none; }
 .border-bottom-lg-st:focus { border-top: none; border-left: none; border-right: none; border-bottom: 1px solid var(--strong); outline:none; }
+
+.border-red { border: 1px "#ff3232" solid; }
 
 .nofocus {} .nofocus:focus { outline: none; }
 
@@ -239,5 +243,5 @@
 .color-strong { color: var(--strong); }
 .color-color { color: var(--color); }
 .color-blue { color: #245ae5 }
-.color-red { color: #ff0000 }
+.color-red { color: #ff3232 }
 .color-green { color: #10913c }
