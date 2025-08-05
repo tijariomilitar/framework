@@ -1,3 +1,39 @@
+.speech-triangle-left {
+  position: relative;
+  background-color: var(--ground);
+  border-radius: 0px 5px 5px 5px;
+}
+
+.speech-triangle-left::after {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: -10px;
+  transform: translateY(-0%);
+  border-style: solid;
+  border-width: 0px 10px 10px 0;
+  border-color: transparent #fff transparent transparent;
+}
+
+.speech-triangle-right {
+  position: relative;
+  background-color: var(--ground);
+  border-radius: 5px 0px 5px 5px;
+  /* espaço para o triângulo */
+}
+
+.speech-triangle-right::after {
+  content: '';
+  position: absolute;
+  top: 0px;
+  right: -10px;
+  /* fora do elemento pela direita */
+  transform: translateY(-0%);
+  border-style: solid;
+  border-width: 0 0 10px 10px;
+  border-color: transparent transparent transparent #fff;
+}
+
 /* Bottom */
 .speech-bottom {
   background-color: #fff;

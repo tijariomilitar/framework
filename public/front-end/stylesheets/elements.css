@@ -10,7 +10,7 @@
 .box-hover {}
 
 .box-hover:hover {
-	background-color: var(--light);
+	background-color: var(--background);
 }
 
 /*INPUTS*/
