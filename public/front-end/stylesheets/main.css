@@ -183,6 +183,13 @@ tr:hover {
 	display: initial;
 }
 
+.badge {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .msg-window {
 	z-index: 9999;
 	position: absolute;
