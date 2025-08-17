@@ -1793,7 +1793,7 @@ lib.image.zoom = (image_src) => {
   msg_popup.append(close_div);
 
   let close_icon = lib.element.create("div", {
-    class: "ground border-st size-20 radius-50 padding-1 absolute pointer noselect",
+    class: "ground size-20 radius-50 padding-1 absolute pointer noselect",
     style: "top: 5px; right: 5px;"
   });
   close_div.append(close_icon);

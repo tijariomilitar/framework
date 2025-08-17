@@ -16,9 +16,18 @@ const API = {
 		return false;
 	},
 	response: async (func, param, element) => {
-		lib.loader.init(element);
-		let response = await func(param);
-		lib.loader.stop(element);
+		let response = null;
+
+		if (element == "none") {
+			response = await func(param);
+		}
+
+		else {
+			lib.loader.init(element);
+			response = await func(param);
+			lib.loader.stop(element);
+		}
+
 		if (!response) { return false; }
 		return response;
 	}
