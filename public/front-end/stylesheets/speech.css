@@ -1,6 +1,5 @@
 .speech-triangle-left {
   position: relative;
-  background-color: var(--ground);
   border-radius: 0px 5px 5px 5px;
 }
 
@@ -17,7 +16,6 @@
 
 .speech-triangle-right {
   position: relative;
-  background-color: var(--ground);
   border-radius: 5px 0px 5px 5px;
   /* espaço para o triângulo */
 }
