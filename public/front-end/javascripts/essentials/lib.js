@@ -142,6 +142,7 @@ lib.message = (msg, cb) => {
 };
 
 lib.popup = (element, cb) => {
+  console.log('element');
   const focused_btn = document.querySelector(':focus');
   focused_btn && focused_btn.blur();
 
@@ -159,7 +160,7 @@ lib.popup = (element, cb) => {
   });
 
   let close_icon = lib.element.create("div", {
-    class: "ground border-st size-20 radius-50 padding-1 absolute pointer",
+    class: "ground size-20 radius-50 padding-1 absolute pointer",
     style: "top: 5px; right: 5px;"
   });
   close_div.append(close_icon);
