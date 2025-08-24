@@ -142,7 +142,6 @@ lib.message = (msg, cb) => {
 };
 
 lib.popup = (element, cb) => {
-  console.log('element');
   const focused_btn = document.querySelector(':focus');
   focused_btn && focused_btn.blur();
 
