@@ -141,7 +141,7 @@ lib.message = (msg, cb) => {
   document.addEventListener("keydown", keydown);
 };
 
-lib.popup = (element, cb) => {
+lib.popup = (element, cb, fullscreen = false, ground = true) => {
   const focused_btn = document.querySelector(':focus');
   focused_btn && focused_btn.blur();
 
@@ -150,7 +150,7 @@ lib.popup = (element, cb) => {
     style: "z-index: 10;"
   });
   const msg_popup = lib.element.create("div", {
-    class: "msg-popup box a3-4 container ground radius-5 scroll-y-auto scroll-small"
+    class: `msg-popup ${fullscreen ? 'fullscreen' : ''} box a3-4 container ${ground ? 'ground' : 'bg'} radius-5 scroll-y-auto scroll-small`
   });
 
   const close_div = lib.element.create("div", {
