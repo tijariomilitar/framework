@@ -2558,7 +2558,12 @@ lib.string.cut = (str, index) => {
 
 lib.base64 = {}
 
-lib.base64.toBlob = (base64, contentType = 'image/png') => {
+lib.base64.toBlob = (base64, contentType) => {
+  if (!contentType) {
+    const match = base64.match(/^data:(.*?);/);
+    contentType = match ? match[1] : 'application/octet-stream';
+  }
+
   const byteCharacters = atob(base64.split(',')[1]);
   const byteArrays = [];
 
@@ -2568,8 +2573,7 @@ lib.base64.toBlob = (base64, contentType = 'image/png') => {
     for (let i = 0; i < slice.length; i++) {
       byteNumbers[i] = slice.charCodeAt(i);
     }
-    const byteArray = new Uint8Array(byteNumbers);
-    byteArrays.push(byteArray);
+    byteArrays.push(new Uint8Array(byteNumbers));
   }
 
   return new Blob(byteArrays, { type: contentType });
