@@ -150,7 +150,8 @@ lib.popup = (element, cb, fullscreen = false, ground = true) => {
     style: "z-index: 10;"
   });
   const msg_popup = lib.element.create("div", {
-    class: `msg-popup ${fullscreen ? 'fullscreen' : ''} box a3-4 container ${ground ? 'ground' : 'bg'} radius-5 scroll-y-auto scroll-small`
+    class: `msg-popup ${fullscreen ? 'fullscreen' : ''} box a3-4 container ${ground ? 'ground' : 'bg'} radius-5`,
+    style: "display: flex;flex-direction: column;overflow: hidden;"
   });
 
   const close_div = lib.element.create("div", {
@@ -171,7 +172,17 @@ lib.popup = (element, cb, fullscreen = false, ground = true) => {
 
   msg_popup.append(close_div);
 
-  msg_popup.append(element);
+  const content_wrapper = lib.element.create("div", {
+    class: "scroll-y-auto scroll-small",
+    style: `
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+  `
+  });
+  msg_popup.append(content_wrapper);
+
+  content_wrapper.append(element);
 
   msg_div.append(msg_popup);
   document.body.append(msg_div);
