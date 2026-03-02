@@ -2245,6 +2245,32 @@ lib.element.icon = (box, size, src, action) => {
   return div;
 };
 
+lib.element.svg = (box, size, svgString, action) => {
+  let div = lib.element.create("div", {
+    class: "mobile-box " + box + " container center"
+  });
+
+  // cria container temporário
+  let temp = document.createElement("div");
+  temp.innerHTML = svgString.trim();
+
+  // pega o svg colado
+  let svg = temp.querySelector("svg");
+
+  // aplica seu padrão visual
+  svg.setAttribute("width", size);
+  svg.setAttribute("height", size);
+  svg.style.cursor = "pointer";
+
+  if (action) {
+    svg.onclick = action;
+  }
+
+  div.appendChild(svg);
+
+  return div;
+};
+
 lib.element.info = (box, param, paramValue) => {
   let divParent = lib.element.create("div", { class: "mobile-box " + box + " container border padding-5" });
   let divParam = lib.element.create("div", { class: "mobile-box b1 em07 bold" }, param);
